@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import SiteHeader from "@/components/layout/site-header/site-header";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import FooterAuth from "./footer-auth";
 
 export const metadata: Metadata = {

@@ -1,11 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "motion/react";
-import { Inquiry } from "@/entities/Inquiry";
+import type React from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Loader2 } from "lucide-react";
+
+type Inquiry = {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+};
 
 const containerVariants = {
   hidden: {},
@@ -42,7 +49,9 @@ export default function ContactPage() {
     }
     setIsLoading(true);
     try {
-      await Inquiry.create(formData);
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("📧 Inquiry submitted:", formData);
       setSubmitted(true);
     } catch (error) {
       console.error("Failed to submit inquiry:", error);

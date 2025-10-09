@@ -1,12 +1,11 @@
 "use client";
+import { ArrowRight, Menu, Plus } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowRight, Plus } from "lucide-react";
 import DesktopPillNav from "@/components/layout/site-header/desktop-pill-nav";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
-import { navigationItems } from "@/lib/utils";
 
 export default function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

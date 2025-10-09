@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Loader2, LogIn, User } from "lucide-react";
 import { motion } from "motion/react";
-import {
-  mockLogin,
-  getAllMockUsers,
-  type MockUser,
-} from "@/lib/mock-data/users";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import type React from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,8 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Loader2, LogIn, User } from "lucide-react";
-import Link from "next/link";
+import { getAllMockUsers, mockLogin } from "@/lib/mock-data/users";
 
 export default function LoginPage() {
   const router = useRouter();

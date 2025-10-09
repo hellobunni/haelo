@@ -1,21 +1,19 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import { format } from "date-fns";
-
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { InvoiceHeader } from "@/components/invoices/invoice-header";
+import { InvoiceLineItemsTable } from "@/components/invoices/invoice-line-items-tables";
+import { InvoicePDFActions } from "@/components/invoices/invoice-pdf-actions";
+import { InvoiceStatusBadge } from "@/components/invoices/invoice-status-badge";
+import { InvoiceTotals } from "@/components/invoices/invoice-totals";
+import { PayNowButton } from "@/components/invoices/pay-now-button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-
 import { getInvoiceById, getLineItemsByInvoiceId } from "@/lib/invoices";
-import { InvoiceHeader } from "@/components/invoices/invoice-header";
-import { InvoiceStatusBadge } from "@/components/invoices/invoice-status-badge";
-import { InvoiceLineItemsTable } from "@/components/invoices/invoice-line-items-tables";
-import { InvoiceTotals } from "@/components/invoices/invoice-totals";
-import { PayNowButton } from "@/components/invoices/pay-now-button";
-import { InvoicePDFActions } from "@/components/invoices/invoice-pdf-actions";
 
 type Props = { params: { id: string } };
 

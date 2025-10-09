@@ -1,25 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import type { ProjectRecord } from "@/lib/mock-data/projects-documents";
 
 interface EditProjectDialogProps {
   isOpen: boolean;
   onClose: () => void;
   project: (ProjectRecord & { clientName: string; pdfUrl?: string }) | null;
-  onSave: (updatedProject: any) => void;
+  onSave: (
+    updatedProject: ProjectRecord & { clientName: string; pdfUrl?: string },
+  ) => void;
 }
 
 export default function EditProjectDialog({
@@ -114,7 +116,10 @@ export default function EditProjectDialog({
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                   onClick={() =>
-                    setFormData({ ...formData, status: status as any })
+                    setFormData({
+                      ...formData,
+                      status: status as ProjectRecord["status"],
+                    })
                   }
                 >
                   {status}
@@ -134,7 +139,7 @@ export default function EditProjectDialog({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  progress: parseInt(e.target.value) || 0,
+                  progress: parseInt(e.target.value, 10) || 0,
                 })
               }
             />

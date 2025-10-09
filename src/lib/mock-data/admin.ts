@@ -1,11 +1,11 @@
-import { MOCK_USERS, type MockUser } from "./users";
 import { getAllInvoicesByEmail, type InvoiceRecord } from "../invoices";
 import {
-  getProjectsByEmail,
-  getDocumentsByEmail,
-  type ProjectRecord,
   type DocumentRecord,
+  getDocumentsByEmail,
+  getProjectsByEmail,
+  type ProjectRecord,
 } from "./projects-documents";
+import { MOCK_USERS, type MockUser } from "./users";
 
 export interface ClientWithData extends MockUser {
   invoiceCount: number;

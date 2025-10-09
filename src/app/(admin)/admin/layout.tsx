@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { getCurrentMockUser } from "@/lib/mock-data/users";
-import { Loader2 } from "lucide-react";
 
 export default function AdminLayout({
   children,

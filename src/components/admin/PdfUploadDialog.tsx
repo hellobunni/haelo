@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import { FileText, Upload } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Upload, FileText } from "lucide-react";
 
 interface PdfUploadDialogProps {
   isOpen: boolean;
@@ -32,7 +33,7 @@ export default function PdfUploadDialog({
   const [dragActive, setDragActive] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files?.[0]) {
       const file = e.target.files[0];
       if (file.type === "application/pdf") {
         setSelectedFile(file);
@@ -60,7 +61,7 @@ export default function PdfUploadDialog({
     e.stopPropagation();
     setDragActive(false);
 
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+    if (e.dataTransfer.files?.[0]) {
       const file = e.dataTransfer.files[0];
       if (file.type === "application/pdf") {
         setSelectedFile(file);
@@ -77,8 +78,9 @@ export default function PdfUploadDialog({
       onUpload(selectedFile, pdfUrl);
       handleClose();
     } else if (pdfUrl) {
-      // If only URL is provided (no file selected), still submit
-      onUpload(null as any, pdfUrl);
+      // If only URL is provided (no file selected), create a dummy File object
+      const dummyFile = new File([], "dummy.pdf", { type: "application/pdf" });
+      onUpload(dummyFile, pdfUrl);
       handleClose();
     }
   };

@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import type { InvoiceRecord } from "@/lib/invoices";
 
@@ -18,7 +18,9 @@ interface EditInvoiceDialogProps {
   isOpen: boolean;
   onClose: () => void;
   invoice: (InvoiceRecord & { clientName: string; pdfUrl?: string }) | null;
-  onSave: (updatedInvoice: any) => void;
+  onSave: (
+    updatedInvoice: InvoiceRecord & { clientName: string; pdfUrl?: string },
+  ) => void;
 }
 
 export default function EditInvoiceDialog({
@@ -133,7 +135,10 @@ export default function EditInvoiceDialog({
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                   onClick={() =>
-                    setFormData({ ...formData, status: status as any })
+                    setFormData({
+                      ...formData,
+                      status: status as InvoiceRecord["status"],
+                    })
                   }
                 >
                   {status}

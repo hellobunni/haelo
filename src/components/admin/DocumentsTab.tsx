@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { getAllDocuments } from "@/lib/mock-data/admin";
-import type { DocumentRecord } from "@/lib/mock-data/projects-documents";
+import { format } from "date-fns";
+import { Edit, Eye, File, Loader2, Upload } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -12,13 +14,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Loader2, File, Eye, Edit, Upload } from "lucide-react";
-import { format } from "date-fns";
-import PdfViewer from "./PdfViewer";
-import PdfUploadDialog from "./PdfUploadDialog";
+import { getAllDocuments } from "@/lib/mock-data/admin";
+import type { DocumentRecord } from "@/lib/mock-data/projects-documents";
 import EditDocumentDialog from "./EditDocumentDialog";
+import PdfUploadDialog from "./PdfUploadDialog";
+import PdfViewer from "./PdfViewer";
 
 export default function DocumentsTab() {
   const [documents, setDocuments] = useState<
@@ -89,7 +89,7 @@ export default function DocumentsTab() {
     setEditDialogOpen(true);
   };
 
-  const handlePdfUpload = (file: File, url: string) => {
+  const handlePdfUpload = (_file: File, url: string) => {
     if (selectedDocument) {
       const updatedDocuments = documents.map((doc) =>
         doc.id === selectedDocument.id ? { ...doc, fileUrl: url } : doc,

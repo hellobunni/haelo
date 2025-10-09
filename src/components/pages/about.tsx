@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const containerVariants = {

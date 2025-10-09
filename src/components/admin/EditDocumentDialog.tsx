@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import type { DocumentRecord } from "@/lib/mock-data/projects-documents";
 
@@ -18,7 +18,7 @@ interface EditDocumentDialogProps {
   isOpen: boolean;
   onClose: () => void;
   document: (DocumentRecord & { clientName: string }) | null;
-  onSave: (updatedDocument: any) => void;
+  onSave: (updatedDocument: DocumentRecord & { clientName: string }) => void;
 }
 
 export default function EditDocumentDialog({
@@ -144,7 +144,10 @@ export default function EditDocumentDialog({
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                   onClick={() =>
-                    setFormData({ ...formData, status: status as any })
+                    setFormData({
+                      ...formData,
+                      status: status as DocumentRecord["status"],
+                    })
                   }
                 >
                   {status}

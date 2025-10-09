@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { getAllInvoices } from "@/lib/mock-data/admin";
-import type { InvoiceRecord } from "@/lib/invoices";
+import { format } from "date-fns";
+import { Edit, Eye, FileText, Loader2, Upload } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -12,13 +14,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Loader2, FileText, Eye, Edit, Upload } from "lucide-react";
-import { format } from "date-fns";
-import PdfViewer from "./PdfViewer";
-import PdfUploadDialog from "./PdfUploadDialog";
+import type { InvoiceRecord } from "@/lib/invoices";
+import { getAllInvoices } from "@/lib/mock-data/admin";
 import EditInvoiceDialog from "./EditInvoiceDialog";
+import PdfUploadDialog from "./PdfUploadDialog";
+import PdfViewer from "./PdfViewer";
 
 export default function InvoicesTab() {
   const [invoices, setInvoices] = useState<
@@ -99,7 +99,7 @@ export default function InvoicesTab() {
     setEditDialogOpen(true);
   };
 
-  const handlePdfUpload = (file: File, url: string) => {
+  const handlePdfUpload = (_file: File, url: string) => {
     if (selectedInvoice) {
       // Update the invoice with the new PDF URL
       const updatedInvoices = invoices.map((inv) =>

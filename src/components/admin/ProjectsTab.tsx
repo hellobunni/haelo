@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { format } from "date-fns";
+import { Edit, Eye, FileText, Loader2, Rocket, Upload } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { getAllProjects } from "@/lib/mock-data/admin";
 import type { ProjectRecord } from "@/lib/mock-data/projects-documents";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
-import { Loader2, Rocket, Eye, Edit, Upload, FileText } from "lucide-react";
-import { format } from "date-fns";
-import PdfViewer from "./PdfViewer";
-import PdfUploadDialog from "./PdfUploadDialog";
 import EditProjectDialog from "./EditProjectDialog";
+import PdfUploadDialog from "./PdfUploadDialog";
+import PdfViewer from "./PdfViewer";
 
 export default function ProjectsTab() {
   const [projects, setProjects] = useState<
@@ -91,7 +91,7 @@ export default function ProjectsTab() {
     setEditDialogOpen(true);
   };
 
-  const handlePdfUpload = (file: File, url: string) => {
+  const handlePdfUpload = (_file: File, url: string) => {
     if (selectedProject) {
       const updatedProjects = projects.map((proj) =>
         proj.id === selectedProject.id ? { ...proj, pdfUrl: url } : proj,

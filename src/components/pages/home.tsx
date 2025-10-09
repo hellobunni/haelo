@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const containerVariants = {
   hidden: {},
@@ -16,7 +15,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", damping: 15, stiffness: 100 },
+    transition: { type: "spring" as const, damping: 15, stiffness: 100 },
   },
 };
 

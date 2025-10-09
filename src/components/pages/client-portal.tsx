@@ -1,26 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { format } from "date-fns";
+import { Download, Eye, File, FileText, Loader2, Rocket } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { format } from "date-fns";
-import { getAllInvoicesByEmail } from "@/lib/invoices";
-import {
-  getProjectsByEmail,
-  getDocumentsByEmail,
-  updateDocumentStatus,
-  type ProjectRecord,
-  type DocumentRecord,
-} from "@/lib/mock-data/projects-documents";
-import {
-  getCurrentMockUser,
-  mockLogout,
-  type MockUser,
-} from "@/lib/mock-data/users";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
   Table,
@@ -30,7 +18,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Eye, FileText, Loader2, Download, Rocket, File } from "lucide-react";
+import { getAllInvoicesByEmail } from "@/lib/invoices";
+import {
+  type DocumentRecord,
+  getDocumentsByEmail,
+  getProjectsByEmail,
+  type ProjectRecord,
+  updateDocumentStatus,
+} from "@/lib/mock-data/projects-documents";
+import {
+  getCurrentMockUser,
+  type MockUser,
+  mockLogout,
+} from "@/lib/mock-data/users";
 
 interface PortalInvoice {
   id: string;

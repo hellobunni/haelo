@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
-import { getCurrentMockUser, type MockUser } from "@/lib/mock-data/users";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Loader2 } from "lucide-react";
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import ClientsTab from "@/components/admin/ClientsTab";
-import ProjectsTab from "@/components/admin/ProjectsTab";
-import InvoicesTab from "@/components/admin/InvoicesTab";
 import DocumentsTab from "@/components/admin/DocumentsTab";
+import InvoicesTab from "@/components/admin/InvoicesTab";
+import ProjectsTab from "@/components/admin/ProjectsTab";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getCurrentMockUser, type MockUser } from "@/lib/mock-data/users";
 
 export default function AdminDashboard() {
   const [user, setUser] = useState<MockUser | null>(null);

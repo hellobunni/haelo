@@ -1,7 +1,3 @@
-// lib/invoices.ts - Mock data for UI purposes
-import { Invoice } from "@/entities/Invoice";
-import { InvoiceLineItem } from "@/entities/InvoiceLineItem";
-
 export type InvoiceRecord = {
   id: string;
   invoiceNumber: string;

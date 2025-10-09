@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  getAllClientsWithData,
-  type ClientWithData,
-} from "@/lib/mock-data/admin";
+import { format } from "date-fns";
+import { Loader2, Users } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -14,9 +13,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Loader2, Users } from "lucide-react";
-import { format } from "date-fns";
+import {
+  type ClientWithData,
+  getAllClientsWithData,
+} from "@/lib/mock-data/admin";
 
 export default function ClientsTab() {
   const [clients, setClients] = useState<ClientWithData[]>([]);
