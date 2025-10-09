@@ -30,14 +30,16 @@ export default function AdminDashboard() {
   }
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 py-16"
     >
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-        <p className="text-gray-500 mt-2">Manage clients, projects, invoices, and documents</p>
+        <p className="text-gray-500 mt-2">
+          Manage clients, projects, invoices, and documents
+        </p>
       </div>
 
       <Tabs defaultValue="clients" className="w-full">

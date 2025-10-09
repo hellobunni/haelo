@@ -18,7 +18,7 @@ export function PayNowButton({ invoiceId }: { invoiceId: string }) {
     try {
       // Mock payment processing
       const result = await payInvoice(invoiceId);
-      
+
       if (result) {
         console.log(`✅ Payment processed successfully!`);
         // Refresh the page to show updated status

@@ -16,10 +16,22 @@ const itemVariants = {
 };
 
 const approachSteps = [
-  { title: "Discovery & Strategy", desc: "We start by understanding your brand, goals, and audience." },
-  { title: "Concept & Design", desc: "Crafting visual concepts and user-centric designs." },
-  { title: "Execution & Development", desc: "Bringing designs to life with clean, efficient code." },
-  { title: "Iteration & Refinement", desc: "Testing and refining to ensure a perfect final product." },
+  {
+    title: "Discovery & Strategy",
+    desc: "We start by understanding your brand, goals, and audience.",
+  },
+  {
+    title: "Concept & Design",
+    desc: "Crafting visual concepts and user-centric designs.",
+  },
+  {
+    title: "Execution & Development",
+    desc: "Bringing designs to life with clean, efficient code.",
+  },
+  {
+    title: "Iteration & Refinement",
+    desc: "Testing and refining to ensure a perfect final product.",
+  },
 ];
 
 const services = [
@@ -73,16 +85,23 @@ export default function ServicesPage() {
       variants={containerVariants}
       className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 py-16"
     >
-      <motion.section variants={itemVariants} className="py-24 max-w-7xl mx-auto">
-        <h1 className="section-heading mb-6">Crafting Brands with <br /> Design that Speaks</h1>
+      <motion.section
+        variants={itemVariants}
+        className="py-24 max-w-7xl mx-auto"
+      >
+        <h1 className="section-heading mb-6">
+          Crafting Brands with <br /> Design that Speaks
+        </h1>
         <div className="grid md:grid-cols-2 gap-8 text-gray-600 mt-12">
           <p className="max-w-md">
-            Good design is about more than aesthetics - it's about creating a connection. I build brands and digital
-            experiences that are authentic and impactful.
+            Good design is about more than aesthetics - it's about creating a
+            connection. I build brands and digital experiences that are
+            authentic and impactful.
           </p>
           <p className="max-w-md">
-            From initial concept to final execution, my process is collaborative, transparent, and focused on delivering
-            results that matter for your business.
+            From initial concept to final execution, my process is
+            collaborative, transparent, and focused on delivering results that
+            matter for your business.
           </p>
         </div>
       </motion.section>
@@ -94,7 +113,10 @@ export default function ServicesPage() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants} className="sub-heading sticky top-32">
+        <motion.h2
+          variants={itemVariants}
+          className="sub-heading sticky top-32"
+        >
           My
           <br />
           Approach
@@ -127,7 +149,10 @@ export default function ServicesPage() {
                 <p>{service.desc2}</p>
               </div>
             </motion.div>
-            <motion.div variants={itemVariants} className="overflow-hidden rounded-2xl aspect-square bg-gray-100 relative">
+            <motion.div
+              variants={itemVariants}
+              className="overflow-hidden rounded-2xl aspect-square bg-gray-100 relative"
+            >
               <Image
                 src={service.imageUrl}
                 alt={service.title}
@@ -149,7 +174,8 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-8 text-center">
           <h2 className="sub-heading mb-4">See the Work in Action</h2>
           <p className="text-gray-400 mb-8">
-            Check out our recent projects to see how we've helped brands like yours succeed.
+            Check out our recent projects to see how we've helped brands like
+            yours succeed.
           </p>
           <Link href="/work">
             <Button className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full hover:bg-gray-200">

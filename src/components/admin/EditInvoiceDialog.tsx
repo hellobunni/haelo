@@ -113,7 +113,10 @@ export default function EditInvoiceDialog({
               step="0.01"
               value={formData.totalAmount}
               onChange={(e) =>
-                setFormData({ ...formData, totalAmount: parseFloat(e.target.value) })
+                setFormData({
+                  ...formData,
+                  totalAmount: parseFloat(e.target.value),
+                })
               }
             />
           </div>
@@ -129,7 +132,9 @@ export default function EditInvoiceDialog({
                       ? "bg-periwinkle text-white"
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                  onClick={() => setFormData({ ...formData, status: status as any })}
+                  onClick={() =>
+                    setFormData({ ...formData, status: status as any })
+                  }
                 >
                   {status}
                 </Badge>
@@ -161,4 +166,3 @@ export default function EditInvoiceDialog({
     </Dialog>
   );
 }
-

@@ -4,7 +4,14 @@ import React, { useState, useEffect } from "react";
 import { getAllInvoices } from "@/lib/mock-data/admin";
 import type { InvoiceRecord } from "@/lib/invoices";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Loader2, FileText, Eye, Edit, Upload } from "lucide-react";
@@ -14,20 +21,30 @@ import PdfUploadDialog from "./PdfUploadDialog";
 import EditInvoiceDialog from "./EditInvoiceDialog";
 
 export default function InvoicesTab() {
-  const [invoices, setInvoices] = useState<(InvoiceRecord & { clientName: string; pdfUrl?: string })[]>([]);
+  const [invoices, setInvoices] = useState<
+    (InvoiceRecord & { clientName: string; pdfUrl?: string })[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [pdfViewerOpen, setPdfViewerOpen] = useState(false);
-  const [selectedInvoicePdf, setSelectedInvoicePdf] = useState<{ url: string; title: string } | null>(null);
+  const [selectedInvoicePdf, setSelectedInvoicePdf] = useState<{
+    url: string;
+    title: string;
+  } | null>(null);
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [selectedInvoice, setSelectedInvoice] = useState<(InvoiceRecord & { clientName: string; pdfUrl?: string }) | null>(null);
+  const [selectedInvoice, setSelectedInvoice] = useState<
+    (InvoiceRecord & { clientName: string; pdfUrl?: string }) | null
+  >(null);
 
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
         const data = await getAllInvoices();
         // Sort by issue date descending
-        data.sort((a, b) => new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime());
+        data.sort(
+          (a, b) =>
+            new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime(),
+        );
         setInvoices(data);
       } catch (error) {
         console.error("Error fetching invoices:", error);
@@ -35,7 +52,7 @@ export default function InvoicesTab() {
         setLoading(false);
       }
     };
-    
+
     fetchInvoices();
   }, []);
 
@@ -54,7 +71,9 @@ export default function InvoicesTab() {
     }
   };
 
-  const handleViewPdf = (invoice: InvoiceRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleViewPdf = (
+    invoice: InvoiceRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     if (invoice.pdfUrl) {
       setSelectedInvoicePdf({
         url: invoice.pdfUrl,
@@ -66,12 +85,16 @@ export default function InvoicesTab() {
     }
   };
 
-  const handleUploadPdf = (invoice: InvoiceRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleUploadPdf = (
+    invoice: InvoiceRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     setSelectedInvoice(invoice);
     setUploadDialogOpen(true);
   };
 
-  const handleEdit = (invoice: InvoiceRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleEdit = (
+    invoice: InvoiceRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     setSelectedInvoice(invoice);
     setEditDialogOpen(true);
   };
@@ -80,16 +103,21 @@ export default function InvoicesTab() {
     if (selectedInvoice) {
       // Update the invoice with the new PDF URL
       const updatedInvoices = invoices.map((inv) =>
-        inv.id === selectedInvoice.id ? { ...inv, pdfUrl: url } : inv
+        inv.id === selectedInvoice.id ? { ...inv, pdfUrl: url } : inv,
       );
       setInvoices(updatedInvoices);
-      console.log(`📄 PDF uploaded for invoice ${selectedInvoice.invoiceNumber}:`, url);
+      console.log(
+        `📄 PDF uploaded for invoice ${selectedInvoice.invoiceNumber}:`,
+        url,
+      );
     }
   };
 
-  const handleSaveInvoice = (updatedInvoice: InvoiceRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleSaveInvoice = (
+    updatedInvoice: InvoiceRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     const updatedInvoices = invoices.map((inv) =>
-      inv.id === updatedInvoice.id ? updatedInvoice : inv
+      inv.id === updatedInvoice.id ? updatedInvoice : inv,
     );
     setInvoices(updatedInvoices);
     console.log(`✅ Invoice ${updatedInvoice.invoiceNumber} updated`);
@@ -104,11 +132,11 @@ export default function InvoicesTab() {
   }
 
   const totalRevenue = invoices
-    .filter(inv => inv.status === "Paid")
+    .filter((inv) => inv.status === "Paid")
     .reduce((sum, inv) => sum + inv.totalAmount, 0);
 
   const pendingRevenue = invoices
-    .filter(inv => inv.status === "Sent" || inv.status === "Overdue")
+    .filter((inv) => inv.status === "Sent" || inv.status === "Overdue")
     .reduce((sum, inv) => sum + inv.totalAmount, 0);
 
   return (
@@ -119,7 +147,13 @@ export default function InvoicesTab() {
             <FileText className="h-5 w-5" />
             All Invoices ({invoices.length})
           </CardTitle>
-          <Button onClick={() => { setSelectedInvoice(null); setUploadDialogOpen(true); }} size="sm">
+          <Button
+            onClick={() => {
+              setSelectedInvoice(null);
+              setUploadDialogOpen(true);
+            }}
+            size="sm"
+          >
             <Upload className="h-4 w-4 mr-2" />
             New Invoice
           </Button>
@@ -128,13 +162,21 @@ export default function InvoicesTab() {
           <div>
             <span className="text-gray-500">Total Revenue:</span>
             <span className="ml-2 font-bold text-green-600">
-              ${totalRevenue.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              $
+              {totalRevenue.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
             </span>
           </div>
           <div>
             <span className="text-gray-500">Pending:</span>
             <span className="ml-2 font-bold text-blue-600">
-              ${pendingRevenue.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              $
+              {pendingRevenue.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
             </span>
           </div>
         </div>
@@ -157,15 +199,23 @@ export default function InvoicesTab() {
             <TableBody>
               {invoices.map((invoice) => (
                 <TableRow key={invoice.id}>
-                  <TableCell className="font-medium">{invoice.invoiceNumber}</TableCell>
+                  <TableCell className="font-medium">
+                    {invoice.invoiceNumber}
+                  </TableCell>
                   <TableCell>{invoice.clientName}</TableCell>
-                  <TableCell>{format(new Date(invoice.issueDate), "MMM d, yyyy")}</TableCell>
-                  <TableCell>{format(new Date(invoice.dueDate), "MMM d, yyyy")}</TableCell>
+                  <TableCell>
+                    {format(new Date(invoice.issueDate), "MMM d, yyyy")}
+                  </TableCell>
+                  <TableCell>
+                    {format(new Date(invoice.dueDate), "MMM d, yyyy")}
+                  </TableCell>
                   <TableCell className="text-right font-medium">
                     ${invoice.totalAmount.toFixed(2)}
                   </TableCell>
                   <TableCell className="text-center">
-                    <Badge className={getStatusClass(invoice.status)}>{invoice.status}</Badge>
+                    <Badge className={getStatusClass(invoice.status)}>
+                      {invoice.status}
+                    </Badge>
                   </TableCell>
                   <TableCell className="text-center">
                     {invoice.pdfUrl ? (
@@ -174,7 +224,9 @@ export default function InvoicesTab() {
                         Available
                       </Badge>
                     ) : (
-                      <Badge className="bg-gray-500/20 text-gray-600">No PDF</Badge>
+                      <Badge className="bg-gray-500/20 text-gray-600">
+                        No PDF
+                      </Badge>
                     )}
                   </TableCell>
                   <TableCell className="text-right">
@@ -214,7 +266,9 @@ export default function InvoicesTab() {
         ) : (
           <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
             <FileText className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No invoices found</h3>
+            <h3 className="mt-2 text-sm font-medium text-gray-900">
+              No invoices found
+            </h3>
           </div>
         )}
       </CardContent>
@@ -240,7 +294,11 @@ export default function InvoicesTab() {
           setSelectedInvoice(null);
         }}
         onUpload={handlePdfUpload}
-        title={selectedInvoice ? `Upload PDF for Invoice ${selectedInvoice.invoiceNumber}` : "Upload New Invoice"}
+        title={
+          selectedInvoice
+            ? `Upload PDF for Invoice ${selectedInvoice.invoiceNumber}`
+            : "Upload New Invoice"
+        }
         existingUrl={selectedInvoice?.pdfUrl}
       />
 

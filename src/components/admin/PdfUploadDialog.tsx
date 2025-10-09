@@ -96,7 +96,7 @@ export default function PdfUploadDialog({
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
-        
+
         <div className="space-y-4">
           {/* File Upload Area */}
           <div
@@ -161,10 +161,7 @@ export default function PdfUploadDialog({
           <Button variant="outline" onClick={handleClose}>
             Cancel
           </Button>
-          <Button
-            onClick={handleSubmit}
-            disabled={!selectedFile && !pdfUrl}
-          >
+          <Button onClick={handleSubmit} disabled={!selectedFile && !pdfUrl}>
             Upload
           </Button>
         </DialogFooter>
@@ -172,4 +169,3 @@ export default function PdfUploadDialog({
     </Dialog>
   );
 }
-

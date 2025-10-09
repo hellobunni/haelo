@@ -18,20 +18,31 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link href="/" className="text-xl font-bold" onClick={onClose}>
           Matte Digital
         </Link>
-        <button onClick={onClose} className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full" aria-label="Close menu">
+        <button
+          onClick={onClose}
+          className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full"
+          aria-label="Close menu"
+        >
           <X className="h-5 w-5" />
         </button>
       </div>
       <div className="p-4 mt-8">
         {navigationItems.map((item) => (
-          <Link key={item.name} href={item.url} onClick={onClose} className="block text-5xl font-bold py-3">
+          <Link
+            key={item.name}
+            href={item.url}
+            onClick={onClose}
+            className="block text-5xl font-bold py-3"
+          >
             {item.name}
           </Link>
         ))}
       </div>
       <div className="absolute bottom-8 left-4 right-4">
         <Link href="/contact" onClick={onClose}>
-          <Button className="w-full bg-periwinkle text-white font-bold text-lg h-16 rounded-2xl">Let's Talk</Button>
+          <Button className="w-full bg-periwinkle text-white font-bold text-lg h-16 rounded-2xl">
+            Let's Talk
+          </Button>
         </Link>
       </div>
     </motion.div>

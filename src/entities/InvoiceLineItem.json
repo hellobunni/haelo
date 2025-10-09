@@ -1,27 +1,23 @@
 {
-    "name": "InvoiceLineItem",
-    "type": "object",
-    "properties": {
-      "invoiceId": {
-        "type": "string",
-        "description": "The ID of the invoice this line item belongs to"
-      },
-      "description": {
-        "type": "string",
-        "description": "Description of the service or product"
-      },
-      "quantity": {
-        "type": "integer",
-        "default": 1
-      },
-      "unitPrice": {
-        "type": "number",
-        "description": "Price per unit"
-      }
+  "name": "InvoiceLineItem",
+  "type": "object",
+  "properties": {
+    "invoiceId": {
+      "type": "string",
+      "description": "The ID of the invoice this line item belongs to"
     },
-    "required": [
-      "invoiceId",
-      "description",
-      "unitPrice"
-    ]
-  }
+    "description": {
+      "type": "string",
+      "description": "Description of the service or product"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1
+    },
+    "unitPrice": {
+      "type": "number",
+      "description": "Price per unit"
+    }
+  },
+  "required": ["invoiceId", "description", "unitPrice"]
+}

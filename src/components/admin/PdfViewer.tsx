@@ -17,7 +17,12 @@ interface PdfViewerProps {
   title: string;
 }
 
-export default function PdfViewer({ isOpen, onClose, pdfUrl, title }: PdfViewerProps) {
+export default function PdfViewer({
+  isOpen,
+  onClose,
+  pdfUrl,
+  title,
+}: PdfViewerProps) {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = pdfUrl;
@@ -68,4 +73,3 @@ export default function PdfViewer({ isOpen, onClose, pdfUrl, title }: PdfViewerP
     </Dialog>
   );
 }
-

@@ -1,14 +1,21 @@
-
-
-
 "use client";
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { mockLogin, getAllMockUsers, type MockUser } from "@/lib/mock-data/users";
+import {
+  mockLogin,
+  getAllMockUsers,
+  type MockUser,
+} from "@/lib/mock-data/users";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Loader2, LogIn, User } from "lucide-react";
 import Link from "next/link";
@@ -25,13 +32,13 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     setIsLoading(true);
-  
+
     try {
       const user = await mockLogin(email);
-  
+
       if (user) {
         console.log("✅ Login successful, redirecting...");
-        
+
         // Role-based redirect
         if (user.role === "admin") {
           router.push("/admin");
@@ -48,18 +55,18 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-  
+
   const handleDemoLogin = async (demoEmail: string) => {
     setEmail(demoEmail);
     setError("");
     setIsLoading(true);
-  
+
     try {
       const user = await mockLogin(demoEmail);
-  
+
       if (user) {
         console.log("✅ Demo login successful, redirecting...");
-        
+
         // Role-based redirect
         if (user.role === "admin") {
           router.push("/admin");
@@ -99,7 +106,10 @@ export default function LoginPage() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email Address
                 </label>
                 <Input
@@ -145,9 +155,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-gray-300" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">
-                    Demo Mode
-                  </span>
+                  <span className="px-2 bg-white text-gray-500">Demo Mode</span>
                 </div>
               </div>
 
@@ -177,8 +185,12 @@ export default function LoginPage() {
                       >
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="font-medium text-sm">{user.full_name}</p>
-                            <p className="text-xs text-gray-500">{user.email}</p>
+                            <p className="font-medium text-sm">
+                              {user.full_name}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {user.email}
+                            </p>
                           </div>
                           <LogIn className="h-4 w-4 text-gray-400" />
                         </div>
@@ -190,8 +202,8 @@ export default function LoginPage() {
 
               <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
                 <p className="text-xs text-blue-800">
-                  💡 <strong>Demo Mode:</strong> This is a mock authentication system for UI testing. 
-                  No real authentication is happening.
+                  💡 <strong>Demo Mode:</strong> This is a mock authentication
+                  system for UI testing. No real authentication is happening.
                 </p>
               </div>
             </div>
@@ -199,7 +211,10 @@ export default function LoginPage() {
         </Card>
 
         <div className="text-center mt-6">
-          <Link href="/" className="text-sm text-gray-600 hover:text-periwinkle">
+          <Link
+            href="/"
+            className="text-sm text-gray-600 hover:text-periwinkle"
+          >
             &larr; Back to Home
           </Link>
         </div>

@@ -14,13 +14,20 @@ import PdfUploadDialog from "./PdfUploadDialog";
 import EditProjectDialog from "./EditProjectDialog";
 
 export default function ProjectsTab() {
-  const [projects, setProjects] = useState<(ProjectRecord & { clientName: string; pdfUrl?: string })[]>([]);
+  const [projects, setProjects] = useState<
+    (ProjectRecord & { clientName: string; pdfUrl?: string })[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [pdfViewerOpen, setPdfViewerOpen] = useState(false);
-  const [selectedProjectPdf, setSelectedProjectPdf] = useState<{ url: string; title: string } | null>(null);
+  const [selectedProjectPdf, setSelectedProjectPdf] = useState<{
+    url: string;
+    title: string;
+  } | null>(null);
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<(ProjectRecord & { clientName: string; pdfUrl?: string }) | null>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (ProjectRecord & { clientName: string; pdfUrl?: string }) | null
+  >(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -33,7 +40,7 @@ export default function ProjectsTab() {
         setLoading(false);
       }
     };
-    
+
     fetchProjects();
   }, []);
 
@@ -56,7 +63,9 @@ export default function ProjectsTab() {
     }
   };
 
-  const handleViewPdf = (project: ProjectRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleViewPdf = (
+    project: ProjectRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     if (project.pdfUrl) {
       setSelectedProjectPdf({
         url: project.pdfUrl,
@@ -68,12 +77,16 @@ export default function ProjectsTab() {
     }
   };
 
-  const handleUploadPdf = (project: ProjectRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleUploadPdf = (
+    project: ProjectRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     setSelectedProject(project);
     setUploadDialogOpen(true);
   };
 
-  const handleEdit = (project: ProjectRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleEdit = (
+    project: ProjectRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     setSelectedProject(project);
     setEditDialogOpen(true);
   };
@@ -81,16 +94,21 @@ export default function ProjectsTab() {
   const handlePdfUpload = (file: File, url: string) => {
     if (selectedProject) {
       const updatedProjects = projects.map((proj) =>
-        proj.id === selectedProject.id ? { ...proj, pdfUrl: url } : proj
+        proj.id === selectedProject.id ? { ...proj, pdfUrl: url } : proj,
       );
       setProjects(updatedProjects);
-      console.log(`📄 PDF uploaded for project ${selectedProject.projectName}:`, url);
+      console.log(
+        `📄 PDF uploaded for project ${selectedProject.projectName}:`,
+        url,
+      );
     }
   };
 
-  const handleSaveProject = (updatedProject: ProjectRecord & { clientName: string; pdfUrl?: string }) => {
+  const handleSaveProject = (
+    updatedProject: ProjectRecord & { clientName: string; pdfUrl?: string },
+  ) => {
     const updatedProjects = projects.map((proj) =>
-      proj.id === updatedProject.id ? updatedProject : proj
+      proj.id === updatedProject.id ? updatedProject : proj,
     );
     setProjects(updatedProjects);
     console.log(`✅ Project ${updatedProject.projectName} updated`);
@@ -112,7 +130,13 @@ export default function ProjectsTab() {
             <Rocket className="h-5 w-5" />
             All Projects ({projects.length})
           </CardTitle>
-          <Button onClick={() => { setSelectedProject(null); setUploadDialogOpen(true); }} size="sm">
+          <Button
+            onClick={() => {
+              setSelectedProject(null);
+              setUploadDialogOpen(true);
+            }}
+            size="sm"
+          >
             <Upload className="h-4 w-4 mr-2" />
             New Project
           </Button>
@@ -122,11 +146,16 @@ export default function ProjectsTab() {
         {projects.length > 0 ? (
           <div className="space-y-4">
             {projects.map((project) => (
-              <div key={project.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div
+                key={project.id}
+                className="border rounded-lg p-6 hover:shadow-md transition-shadow"
+              >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-1">
-                      <h3 className="text-lg font-bold">{project.projectName}</h3>
+                      <h3 className="text-lg font-bold">
+                        {project.projectName}
+                      </h3>
                       {project.pdfUrl && (
                         <Badge className="bg-green-500/20 text-green-600 ml-2">
                           <FileText className="h-3 w-3 mr-1" />
@@ -134,8 +163,12 @@ export default function ProjectsTab() {
                         </Badge>
                       )}
                     </div>
-                    <p className="text-gray-600 text-sm mb-2">{project.description}</p>
-                    <p className="text-sm text-gray-500">Client: {project.clientName}</p>
+                    <p className="text-gray-600 text-sm mb-2">
+                      {project.description}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      Client: {project.clientName}
+                    </p>
                   </div>
                   <div className="flex flex-col items-end gap-2">
                     <Badge className={getProjectStatusColor(project.status)}>
@@ -143,7 +176,7 @@ export default function ProjectsTab() {
                     </Badge>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2 mb-4">
                   <div className="flex justify-between text-sm text-gray-600">
                     <span>Progress</span>
@@ -156,12 +189,19 @@ export default function ProjectsTab() {
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="text-gray-500">Started:</span>
-                      <p className="font-medium">{format(new Date(project.startDate), "MMM d, yyyy")}</p>
+                      <p className="font-medium">
+                        {format(new Date(project.startDate), "MMM d, yyyy")}
+                      </p>
                     </div>
                     {project.estimatedCompletion && (
                       <div>
                         <span className="text-gray-500">Est. Completion:</span>
-                        <p className="font-medium">{format(new Date(project.estimatedCompletion), "MMM d, yyyy")}</p>
+                        <p className="font-medium">
+                          {format(
+                            new Date(project.estimatedCompletion),
+                            "MMM d, yyyy",
+                          )}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -200,7 +240,9 @@ export default function ProjectsTab() {
         ) : (
           <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
             <Rocket className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No projects found</h3>
+            <h3 className="mt-2 text-sm font-medium text-gray-900">
+              No projects found
+            </h3>
           </div>
         )}
       </CardContent>
@@ -226,7 +268,11 @@ export default function ProjectsTab() {
           setSelectedProject(null);
         }}
         onUpload={handlePdfUpload}
-        title={selectedProject ? `Upload PDF for ${selectedProject.projectName}` : "Upload New Project"}
+        title={
+          selectedProject
+            ? `Upload PDF for ${selectedProject.projectName}`
+            : "Upload New Project"
+        }
         existingUrl={selectedProject?.pdfUrl}
       />
 

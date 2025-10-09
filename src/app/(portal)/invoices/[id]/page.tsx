@@ -2,7 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 import { getInvoiceById, getLineItemsByInvoiceId } from "@/lib/invoices";
 import { InvoiceHeader } from "@/components/invoices/invoice-header";
@@ -24,9 +29,9 @@ export default async function InvoicePage({ params }: Props) {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* PDF buttons - only show if PDF exists */}
       {invoice.pdfUrl && (
-        <InvoicePDFActions 
-          pdfUrl={invoice.pdfUrl} 
-          invoiceNumber={invoice.invoiceNumber} 
+        <InvoicePDFActions
+          pdfUrl={invoice.pdfUrl}
+          invoiceNumber={invoice.invoiceNumber}
         />
       )}
 
@@ -44,11 +49,15 @@ export default async function InvoicePage({ params }: Props) {
         <CardContent className="p-6">
           <div className="grid grid-cols-2 gap-4 mb-8 text-sm">
             <div>
-              <h3 className="font-semibold text-gray-500 uppercase tracking-wider">Billed To</h3>
+              <h3 className="font-semibold text-gray-500 uppercase tracking-wider">
+                Billed To
+              </h3>
               <p>{invoice.clientEmail}</p>
             </div>
             <div className="text-right">
-              <h3 className="font-semibold text-gray-500 uppercase tracking-wider">From</h3>
+              <h3 className="font-semibold text-gray-500 uppercase tracking-wider">
+                From
+              </h3>
               <p>Matte Digital</p>
               <p>hello@mattedigital.com</p>
             </div>
@@ -64,19 +73,26 @@ export default async function InvoicePage({ params }: Props) {
         <CardFooter className="bg-gray-50 p-6 rounded-b-lg flex justify-between items-center">
           <div>
             <p className="font-semibold">Due Date</p>
-            <p className="text-gray-600">{format(new Date(invoice.dueDate), "MMMM d, yyyy")}</p>
+            <p className="text-gray-600">
+              {format(new Date(invoice.dueDate), "MMMM d, yyyy")}
+            </p>
           </div>
 
           {invoice.status !== "Paid" ? (
             <PayNowButton invoiceId={invoice.id} />
           ) : (
-            <div className="text-green-600 font-bold text-lg">Paid in Full ✅</div>
+            <div className="text-green-600 font-bold text-lg">
+              Paid in Full ✅
+            </div>
           )}
         </CardFooter>
       </Card>
 
       <div className="text-center mt-8">
-        <Link href="/client-portal" className="text-sm text-periwinkle hover:underline">
+        <Link
+          href="/client-portal"
+          className="text-sm text-periwinkle hover:underline"
+        >
           &larr; Back to Portal
         </Link>
       </div>

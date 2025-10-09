@@ -62,7 +62,14 @@ export default function EditProjectDialog({
     onClose();
   };
 
-  const statuses = ["Discovery", "Design", "Development", "Testing", "Launch", "Completed"];
+  const statuses = [
+    "Discovery",
+    "Design",
+    "Development",
+    "Testing",
+    "Launch",
+    "Completed",
+  ];
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -106,7 +113,9 @@ export default function EditProjectDialog({
                       ? "bg-periwinkle text-white"
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                  onClick={() => setFormData({ ...formData, status: status as any })}
+                  onClick={() =>
+                    setFormData({ ...formData, status: status as any })
+                  }
                 >
                   {status}
                 </Badge>
@@ -123,7 +132,10 @@ export default function EditProjectDialog({
               max="100"
               value={formData.progress}
               onChange={(e) =>
-                setFormData({ ...formData, progress: parseInt(e.target.value) || 0 })
+                setFormData({
+                  ...formData,
+                  progress: parseInt(e.target.value) || 0,
+                })
               }
             />
           </div>
@@ -147,7 +159,10 @@ export default function EditProjectDialog({
                 type="date"
                 value={formData.estimatedCompletion}
                 onChange={(e) =>
-                  setFormData({ ...formData, estimatedCompletion: e.target.value })
+                  setFormData({
+                    ...formData,
+                    estimatedCompletion: e.target.value,
+                  })
                 }
               />
             </div>
@@ -177,4 +192,3 @@ export default function EditProjectDialog({
     </Dialog>
   );
 }
-

@@ -14,7 +14,7 @@ export default function AdminLayout({
 
   useEffect(() => {
     const currentUser = getCurrentMockUser();
-    
+
     if (!currentUser) {
       router.push("/login");
       return;

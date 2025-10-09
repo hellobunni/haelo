@@ -58,7 +58,14 @@ export default function EditDocumentDialog({
   };
 
   const statuses = ["Pending", "Viewed", "Signed"];
-  const documentTypes = ["Proposal", "Contract", "Brief", "Report", "Deliverable", "Document"];
+  const documentTypes = [
+    "Proposal",
+    "Contract",
+    "Brief",
+    "Report",
+    "Deliverable",
+    "Document",
+  ];
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -90,7 +97,9 @@ export default function EditDocumentDialog({
                       ? "bg-periwinkle text-white"
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                  onClick={() => setFormData({ ...formData, documentType: type })}
+                  onClick={() =>
+                    setFormData({ ...formData, documentType: type })
+                  }
                 >
                   {type}
                 </Badge>
@@ -134,7 +143,9 @@ export default function EditDocumentDialog({
                       ? "bg-periwinkle text-white"
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
-                  onClick={() => setFormData({ ...formData, status: status as any })}
+                  onClick={() =>
+                    setFormData({ ...formData, status: status as any })
+                  }
                 >
                   {status}
                 </Badge>
@@ -153,4 +164,3 @@ export default function EditDocumentDialog({
     </Dialog>
   );
 }
-

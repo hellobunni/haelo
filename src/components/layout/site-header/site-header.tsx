@@ -24,7 +24,10 @@ export default function SiteHeader() {
           {/* Left Button */}
           <div className="hidden md:block">
             <Link href="/contact" className="group">
-              <Button variant="outline" className="rounded-full border-[var(--border)] bg-white/50 backdrop-blur-md">
+              <Button
+                variant="outline"
+                className="rounded-full border-[var(--border)] bg-white/50 backdrop-blur-md"
+              >
                 <ArrowRight className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-rotate-45" />
                 Let's Talk
               </Button>
@@ -33,7 +36,10 @@ export default function SiteHeader() {
 
           {/* Centered Logo */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <Link href="/" className="text-2xl font-bold text-[var(--foreground)]">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-[var(--foreground)]"
+            >
               Matte Digital
             </Link>
           </div>

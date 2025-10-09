@@ -20,9 +20,5 @@
       "description": "The content of the inquiry message"
     }
   },
-  "required": [
-    "name",
-    "email",
-    "message"
-  ]
+  "required": ["name", "email", "message"]
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";  
+import "@/styles/globals.css";
 import SiteHeader from "@/components/layout/site-header/site-header";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   description: "Creative Digital Studio",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-white text-[#1d1d1f] font-sans antialiased">
@@ -20,12 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Page content (route transitions handled in app/template.tsx) */}
         <main className="pt-24">{children}</main>
         <footer className="bg-white mt-20 py-8">
-  <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex flex-wrap justify-between items-center gap-4">
-    <p>© Matte Digital {new Date().getFullYear()}</p>
-    <FooterAuth />
-    <p>Creative Digital Studio</p>
-  </div>
-</footer>
+          <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex flex-wrap justify-between items-center gap-4">
+            <p>© Matte Digital {new Date().getFullYear()}</p>
+            <FooterAuth />
+            <p>Creative Digital Studio</p>
+          </div>
+        </footer>
       </body>
     </html>
   );

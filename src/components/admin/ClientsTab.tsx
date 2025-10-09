@@ -1,9 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { getAllClientsWithData, type ClientWithData } from "@/lib/mock-data/admin";
+import {
+  getAllClientsWithData,
+  type ClientWithData,
+} from "@/lib/mock-data/admin";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Users } from "lucide-react";
 import { format } from "date-fns";
@@ -23,7 +33,7 @@ export default function ClientsTab() {
         setLoading(false);
       }
     };
-    
+
     fetchClients();
   }, []);
 
@@ -60,7 +70,9 @@ export default function ClientsTab() {
             <TableBody>
               {clients.map((client) => (
                 <TableRow key={client.id}>
-                  <TableCell className="font-medium">{client.full_name}</TableCell>
+                  <TableCell className="font-medium">
+                    {client.full_name}
+                  </TableCell>
                   <TableCell>{client.email}</TableCell>
                   <TableCell className="text-center">
                     <Badge variant="outline">{client.projectCount}</Badge>
@@ -72,7 +84,11 @@ export default function ClientsTab() {
                     <Badge variant="outline">{client.documentCount}</Badge>
                   </TableCell>
                   <TableCell className="text-right font-medium">
-                    ${client.totalSpent.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    $
+                    {client.totalSpent.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
                   </TableCell>
                   <TableCell className="text-sm text-gray-500">
                     {format(new Date(client.created_date), "MMM d, yyyy")}
@@ -84,7 +100,9 @@ export default function ClientsTab() {
         ) : (
           <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
             <Users className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No clients found</h3>
+            <h3 className="mt-2 text-sm font-medium text-gray-900">
+              No clients found
+            </h3>
           </div>
         )}
       </CardContent>

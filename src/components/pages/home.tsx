@@ -13,28 +13,78 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", damping: 15, stiffness: 100 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 15, stiffness: 100 },
+  },
 };
 
 const services = [
   { n: "01", title: "Web Design", desc: "User-centric and beautiful designs." },
-  { n: "02", title: "Development", desc: "Pixel-perfect and scalable solutions." },
-  { n: "03", title: "UI/UX", desc: "Intuitive interfaces and seamless user experiences." },
-  { n: "04", title: "Consulting", desc: "Strategic guidance to elevate your digital presence." },
+  {
+    n: "02",
+    title: "Development",
+    desc: "Pixel-perfect and scalable solutions.",
+  },
+  {
+    n: "03",
+    title: "UI/UX",
+    desc: "Intuitive interfaces and seamless user experiences.",
+  },
+  {
+    n: "04",
+    title: "Consulting",
+    desc: "Strategic guidance to elevate your digital presence.",
+  },
 ];
 
 const projects = [
-  { title: "QuantumLeap", category: "Web Development", imageUrl: "https://images.unsplash.com/photo-1559028006-44a0a9949354?q=80&w=2940&auto=format&fit=crop" },
-  { title: "AetherBranding", category: "Branding", imageUrl: "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2787&auto=format&fit=crop" },
-  { title: "NovaUI", category: "Web Design", imageUrl: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=2787&auto=format&fit=crop" },
-  { title: "ZenithOS", category: "Development", imageUrl: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=2940&auto=format&fit=crop" },
+  {
+    title: "QuantumLeap",
+    category: "Web Development",
+    imageUrl:
+      "https://images.unsplash.com/photo-1559028006-44a0a9949354?q=80&w=2940&auto=format&fit=crop",
+  },
+  {
+    title: "AetherBranding",
+    category: "Branding",
+    imageUrl:
+      "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2787&auto=format&fit=crop",
+  },
+  {
+    title: "NovaUI",
+    category: "Web Design",
+    imageUrl:
+      "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=2787&auto=format&fit=crop",
+  },
+  {
+    title: "ZenithOS",
+    category: "Development",
+    imageUrl:
+      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=2940&auto=format&fit=crop",
+  },
 ];
 
-const clients = ["Nike", "Google", "Meta", "Amazon", "Shopify", "Framer", "Webflow", "Notion"];
+const clients = [
+  "Nike",
+  "Google",
+  "Meta",
+  "Amazon",
+  "Shopify",
+  "Framer",
+  "Webflow",
+  "Notion",
+];
 
 export default function HomePage() {
   return (
-    <motion.div initial="hidden" animate="visible" variants={containerVariants} className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12"
+    >
       {/* Hero */}
       <section className="py-24 md:py-32">
         <motion.h1 variants={itemVariants} className="section-heading">
@@ -54,7 +104,8 @@ export default function HomePage() {
           Stand Out, Not Blend In
         </motion.h2>
         <motion.p variants={itemVariants} className="text-lg text-gray-600">
-          I run a digital creative studio that partners with brands and individuals to create exceptional digital experiences.
+          I run a digital creative studio that partners with brands and
+          individuals to create exceptional digital experiences.
         </motion.p>
       </motion.section>
 
@@ -67,8 +118,15 @@ export default function HomePage() {
         variants={containerVariants}
       >
         {services.map((service, index) => (
-          <motion.div key={index} variants={itemVariants} className="group py-8 border-b border-[var(--border)]">
-            <Link href="/services" className="flex justify-between items-center">
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="group py-8 border-b border-[var(--border)]"
+          >
+            <Link
+              href="/services"
+              className="flex justify-between items-center"
+            >
               <div className="flex items-center gap-4 md:gap-8">
                 <span className="text-sm text-gray-500">{service.n}</span>
                 <h3 className="list-item-heading">{service.title}</h3>
@@ -96,7 +154,11 @@ export default function HomePage() {
             <motion.div key={index} variants={itemVariants}>
               <Link href="/work" className="group block">
                 <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 relative h-96">
-                  <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200, damping: 20 }} className="h-full w-full">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    className="h-full w-full"
+                  >
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
@@ -145,11 +207,16 @@ export default function HomePage() {
         variants={containerVariants}
       >
         <motion.p variants={itemVariants} className="text-lg text-center mb-8">
-          Working with clients who share my passion for quality is what drives me.
+          Working with clients who share my passion for quality is what drives
+          me.
         </motion.p>
         <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center">
           {clients.map((client) => (
-            <motion.div key={client} variants={itemVariants} className="text-center text-xl font-bold text-gray-400 grayscale hover:grayscale-0 transition-all">
+            <motion.div
+              key={client}
+              variants={itemVariants}
+              className="text-center text-xl font-bold text-gray-400 grayscale hover:grayscale-0 transition-all"
+            >
               {client}
             </motion.div>
           ))}
@@ -164,7 +231,9 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.5 }}
       >
         <h2 className="sub-heading mb-4">Let's Create Something That Lasts</h2>
-        <p className="mb-8 max-w-xl mx-auto">Get in touch with us today to discuss your project.</p>
+        <p className="mb-8 max-w-xl mx-auto">
+          Get in touch with us today to discuss your project.
+        </p>
         <Link href="/contact">
           <Button className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full hover:bg-gray-200">
             Start a project

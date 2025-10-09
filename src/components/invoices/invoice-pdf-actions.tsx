@@ -8,7 +8,10 @@ interface InvoicePDFActionsProps {
   invoiceNumber: string;
 }
 
-export function InvoicePDFActions({ pdfUrl, invoiceNumber }: InvoicePDFActionsProps) {
+export function InvoicePDFActions({
+  pdfUrl,
+  invoiceNumber,
+}: InvoicePDFActionsProps) {
   const handleView = () => {
     console.log(`👁️ [Mock] Viewing PDF for ${invoiceNumber}`);
     window.open(pdfUrl, "_blank", "noopener,noreferrer");

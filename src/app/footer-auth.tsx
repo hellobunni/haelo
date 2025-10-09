@@ -11,7 +11,7 @@ export default function FooterAuth() {
   useEffect(() => {
     // Set mounted to true after component mounts (client-side only)
     setMounted(true);
-    
+
     // Check if user is logged in
     const currentUser = getCurrentMockUser();
     setUser(currentUser);

@@ -6,11 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function InvoiceStatusBadge({ status }: { status: string }) {
   const variant = getStatusVariant(status);
-  return (
-    <Badge className={cn("text-lg px-4 py-1", variant)}>
-      {status}
-    </Badge>
-  );
+  return <Badge className={cn("text-lg px-4 py-1", variant)}>{status}</Badge>;
 }
 
 function getStatusVariant(status: string) {

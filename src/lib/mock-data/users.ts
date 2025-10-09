@@ -18,7 +18,7 @@ export const MOCK_USERS: MockUser[] = [
     created_by: "admin",
     full_name: "Sarah Johnson",
     email: "sarah@example.com",
-    role: "client"
+    role: "client",
   },
   {
     id: "user_002",
@@ -27,7 +27,7 @@ export const MOCK_USERS: MockUser[] = [
     created_by: "admin",
     full_name: "Michael Chen",
     email: "michael@techstartup.com",
-    role: "client"
+    role: "client",
   },
   {
     id: "user_003",
@@ -36,7 +36,7 @@ export const MOCK_USERS: MockUser[] = [
     created_by: "admin",
     full_name: "Emily Rodriguez",
     email: "emily@designco.com",
-    role: "client"
+    role: "client",
   },
   {
     id: "user_004",
@@ -45,16 +45,17 @@ export const MOCK_USERS: MockUser[] = [
     created_by: "admin",
     full_name: "David Kim",
     email: "david@smallbiz.com",
-    role: "client"
-  },  {
+    role: "client",
+  },
+  {
     id: "user_005",
     created_date: "2025-04-05T14:00:00Z",
     updated_date: "2025-10-08T10:15:00Z",
     created_by: "admin",
     full_name: "Lynae Thomas",
     email: "lynae@mattedigital.com",
-    role: "admin"
-  }
+    role: "admin",
+  },
 ];
 
 /**
@@ -69,14 +70,14 @@ function isBrowser(): boolean {
  */
 export function getMockUserByEmail(email: string): MockUser | null {
   console.log(`🔍 [Mock] Looking up user by email: ${email}`);
-  const user = MOCK_USERS.find(u => u.email === email);
-  
+  const user = MOCK_USERS.find((u) => u.email === email);
+
   if (user) {
     console.log(`✅ [Mock] User found:`, user);
   } else {
     console.log(`❌ [Mock] No user found with email: ${email}`);
   }
-  
+
   return user || null;
 }
 
@@ -85,14 +86,14 @@ export function getMockUserByEmail(email: string): MockUser | null {
  */
 export function getMockUserById(id: string): MockUser | null {
   console.log(`🔍 [Mock] Looking up user by ID: ${id}`);
-  const user = MOCK_USERS.find(u => u.id === id);
-  
+  const user = MOCK_USERS.find((u) => u.id === id);
+
   if (user) {
     console.log(`✅ [Mock] User found:`, user);
   } else {
     console.log(`❌ [Mock] No user found with ID: ${id}`);
   }
-  
+
   return user || null;
 }
 
@@ -114,12 +115,12 @@ export async function mockLogin(email: string): Promise<MockUser | null> {
   }
 
   console.log(`🔐 [Mock] Attempting login for: ${email}`);
-  
+
   // Simulate network delay
-  await new Promise(r => setTimeout(r, 800));
-  
+  await new Promise((r) => setTimeout(r, 800));
+
   const user = getMockUserByEmail(email);
-  
+
   if (user) {
     console.log(`✅ [Mock] Login successful for ${user.full_name}`);
     // Store in localStorage
@@ -128,7 +129,7 @@ export async function mockLogin(email: string): Promise<MockUser | null> {
   } else {
     console.log(`❌ [Mock] Login failed - user not found`);
   }
-  
+
   return user;
 }
 
@@ -152,24 +153,26 @@ export function mockLogout(): void {
  */
 export function getCurrentMockUser(): MockUser | null {
   if (!isBrowser()) {
-    console.log(`❌ [Mock] Not in browser environment, cannot access localStorage`);
+    console.log(
+      `❌ [Mock] Not in browser environment, cannot access localStorage`,
+    );
     return null;
   }
 
   const isLoggedIn = localStorage.getItem("mock_logged_in") === "true";
-  
+
   if (!isLoggedIn) {
     console.log(`❌ [Mock] No user currently logged in`);
     return null;
   }
-  
+
   const userJson = localStorage.getItem("mock_current_user");
-  
+
   if (!userJson) {
     console.log(`❌ [Mock] User logged in but no user data found`);
     return null;
   }
-  
+
   try {
     const user = JSON.parse(userJson) as MockUser;
     console.log(`✅ [Mock] Current user:`, user);

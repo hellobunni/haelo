@@ -6,13 +6,30 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { format } from "date-fns";
 import { getAllInvoicesByEmail } from "@/lib/invoices";
-import { getProjectsByEmail, getDocumentsByEmail, updateDocumentStatus, type ProjectRecord, type DocumentRecord } from "@/lib/mock-data/projects-documents";
-import { getCurrentMockUser, mockLogout, type MockUser } from "@/lib/mock-data/users";
+import {
+  getProjectsByEmail,
+  getDocumentsByEmail,
+  updateDocumentStatus,
+  type ProjectRecord,
+  type DocumentRecord,
+} from "@/lib/mock-data/projects-documents";
+import {
+  getCurrentMockUser,
+  mockLogout,
+  type MockUser,
+} from "@/lib/mock-data/users";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Eye, FileText, Loader2, Download, Rocket, File } from "lucide-react";
 
 interface PortalInvoice {
@@ -37,25 +54,27 @@ export default function ClientPortalPage() {
     const checkUserAndFetchData = async () => {
       try {
         console.log("🔐 [Mock] Checking user authentication...");
-        
+
         const currentUser = getCurrentMockUser();
-        
+
         if (!currentUser) {
-          console.log("❌ [Mock] User not authenticated, redirecting to login...");
+          console.log(
+            "❌ [Mock] User not authenticated, redirecting to login...",
+          );
           router.push("/login");
           return;
         }
 
         console.log("✅ [Mock] User authenticated:", currentUser);
         setUser(currentUser);
-        
+
         // Fetch all data in parallel
         const [userInvoices, userProjects, userDocuments] = await Promise.all([
           getAllInvoicesByEmail(currentUser.email),
           getProjectsByEmail(currentUser.email),
-          getDocumentsByEmail(currentUser.email)
+          getDocumentsByEmail(currentUser.email),
         ]);
-        
+
         setInvoices(userInvoices);
         setProjects(userProjects);
         setDocuments(userDocuments);
@@ -66,7 +85,7 @@ export default function ClientPortalPage() {
         setLoading(false);
       }
     };
-    
+
     void checkUserAndFetchData();
   }, [router]);
 
@@ -126,7 +145,7 @@ export default function ClientPortalPage() {
 
   const handleDocumentView = async (doc: DocumentRecord) => {
     window.open(doc.fileUrl, "_blank");
-    
+
     // Update status if it was pending
     if (doc.status === "Pending" && user) {
       await updateDocumentStatus(doc.id, "Viewed");
@@ -149,9 +168,9 @@ export default function ClientPortalPage() {
   }
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
     >
       <div className="flex justify-between items-center mb-8">
@@ -177,17 +196,24 @@ export default function ClientPortalPage() {
           {projects.length > 0 ? (
             <div className="space-y-6">
               {projects.map((project) => (
-                <div key={project.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+                <div
+                  key={project.id}
+                  className="border rounded-lg p-6 hover:shadow-md transition-shadow"
+                >
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl font-bold mb-1">{project.projectName}</h3>
-                      <p className="text-gray-600 text-sm">{project.description}</p>
+                      <h3 className="text-xl font-bold mb-1">
+                        {project.projectName}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {project.description}
+                      </p>
                     </div>
                     <Badge className={getProjectStatusColor(project.status)}>
                       {project.status}
                     </Badge>
                   </div>
-                  
+
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm text-gray-600">
                       <span>Progress</span>
@@ -199,12 +225,19 @@ export default function ClientPortalPage() {
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="text-gray-500">Started:</span>
-                      <p className="font-medium">{format(new Date(project.startDate), "MMM d, yyyy")}</p>
+                      <p className="font-medium">
+                        {format(new Date(project.startDate), "MMM d, yyyy")}
+                      </p>
                     </div>
                     {project.estimatedCompletion && (
                       <div>
                         <span className="text-gray-500">Est. Completion:</span>
-                        <p className="font-medium">{format(new Date(project.estimatedCompletion), "MMM d, yyyy")}</p>
+                        <p className="font-medium">
+                          {format(
+                            new Date(project.estimatedCompletion),
+                            "MMM d, yyyy",
+                          )}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -214,8 +247,12 @@ export default function ClientPortalPage() {
           ) : (
             <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
               <Rocket className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-sm font-medium text-gray-900">No projects yet</h3>
-              <p className="mt-1 text-sm text-gray-500">Your projects will appear here once they're created.</p>
+              <h3 className="mt-2 text-sm font-medium text-gray-900">
+                No projects yet
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Your projects will appear here once they're created.
+              </p>
             </div>
           )}
         </CardContent>
@@ -244,11 +281,17 @@ export default function ClientPortalPage() {
               <TableBody>
                 {documents.map((doc) => (
                   <TableRow key={doc.id}>
-                    <TableCell className="font-medium">{doc.documentName}</TableCell>
+                    <TableCell className="font-medium">
+                      {doc.documentName}
+                    </TableCell>
                     <TableCell>{doc.documentType}</TableCell>
-                    <TableCell>{format(new Date(doc.uploadDate), "MMM d, yyyy")}</TableCell>
+                    <TableCell>
+                      {format(new Date(doc.uploadDate), "MMM d, yyyy")}
+                    </TableCell>
                     <TableCell className="text-center">
-                      <Badge className={getDocumentStatusColor(doc.status)}>{doc.status}</Badge>
+                      <Badge className={getDocumentStatusColor(doc.status)}>
+                        {doc.status}
+                      </Badge>
                     </TableCell>
                     <TableCell className="text-right">
                       <Button
@@ -268,8 +311,12 @@ export default function ClientPortalPage() {
           ) : (
             <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-lg">
               <File className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-sm font-medium text-gray-900">No documents yet</h3>
-              <p className="mt-1 text-sm text-gray-500">Your documents will appear here once they're uploaded.</p>
+              <h3 className="mt-2 text-sm font-medium text-gray-900">
+                No documents yet
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Your documents will appear here once they're uploaded.
+              </p>
             </div>
           )}
         </CardContent>
@@ -300,7 +347,9 @@ export default function ClientPortalPage() {
                 <tbody>
                   {invoices.map((invoice) => (
                     <tr key={invoice.id} className="border-b hover:bg-gray-50">
-                      <td className="py-3 px-4 font-medium">{invoice.invoiceNumber}</td>
+                      <td className="py-3 px-4 font-medium">
+                        {invoice.invoiceNumber}
+                      </td>
                       <td className="py-3 px-4">
                         {format(new Date(invoice.issueDate), "MMM d, yyyy")}
                       </td>
@@ -318,9 +367,9 @@ export default function ClientPortalPage() {
                       <td className="text-right py-3 px-4">
                         <div className="flex items-center justify-end gap-1">
                           <Link href={`/invoices/${invoice.id}`}>
-                            <Button 
-                              variant="ghost" 
-                              size="icon" 
+                            <Button
+                              variant="ghost"
+                              size="icon"
                               aria-label={`View invoice ${invoice.invoiceNumber}`}
                               title="View Invoice"
                             >
@@ -332,10 +381,14 @@ export default function ClientPortalPage() {
                               href={invoice.pdfUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              onClick={() => console.log(`📄 [Mock] Opening PDF for ${invoice.invoiceNumber}`)}
+                              onClick={() =>
+                                console.log(
+                                  `📄 [Mock] Opening PDF for ${invoice.invoiceNumber}`,
+                                )
+                              }
                             >
-                              <Button 
-                                variant="ghost" 
+                              <Button
+                                variant="ghost"
                                 size="icon"
                                 aria-label={`Download PDF for ${invoice.invoiceNumber}`}
                                 title="Download PDF"
