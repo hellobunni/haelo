@@ -1,0 +1,47 @@
+{
+    "name": "Invoice",
+    "type": "object",
+    "properties": {
+      "invoiceNumber": {
+        "type": "string",
+        "description": "The unique number for the invoice"
+      },
+      "clientEmail": {
+        "type": "string",
+        "format": "email",
+        "description": "The email of the client this invoice belongs to"
+      },
+      "issueDate": {
+        "type": "string",
+        "format": "date",
+        "description": "The date the invoice was issued"
+      },
+      "dueDate": {
+        "type": "string",
+        "format": "date",
+        "description": "The date the invoice is due"
+      },
+      "totalAmount": {
+        "type": "number",
+        "description": "The total amount of the invoice"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "Draft",
+          "Sent",
+          "Paid",
+          "Overdue"
+        ],
+        "default": "Sent",
+        "description": "The current status of the invoice"
+      }
+    },
+    "required": [
+      "invoiceNumber",
+      "clientEmail",
+      "issueDate",
+      "dueDate",
+      "totalAmount"
+    ]
+  }

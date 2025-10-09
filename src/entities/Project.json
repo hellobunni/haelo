@@ -1,0 +1,40 @@
+{
+    "name": "Project",
+    "type": "object",
+    "properties": {
+      "projectName": {
+        "type": "string",
+        "description": "The name of the project"
+      },
+      "description": {
+        "type": "string",
+        "description": "Project description"
+      },
+      "clientEmail": {
+        "type": "string",
+        "format": "email",
+        "description": "The email of the client this project belongs to"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["Discovery", "Design", "Development", "Testing", "Launch", "Completed"],
+        "default": "Discovery",
+        "description": "Current project status"
+      },
+      "progress": {
+        "type": "number",
+        "description": "Project completion percentage (0-100)"
+      },
+      "startDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Project start date"
+      },
+      "estimatedCompletion": {
+        "type": "string",
+        "format": "date",
+        "description": "Estimated completion date"
+      }
+    },
+    "required": ["projectName", "clientEmail", "status", "progress", "startDate"]
+  }

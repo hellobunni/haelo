@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";  
 import SiteHeader from "@/components/layout/site-header/site-header";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import FooterAuth from "./footer-auth";
 
 export const metadata: Metadata = {
   title: "Matte Digital",
@@ -17,11 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Page content (route transitions handled in app/template.tsx) */}
         <main className="pt-24">{children}</main>
         <footer className="bg-white mt-20 py-8">
-          <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex justify-between items-center">
-            <p>© Matte Digital {new Date().getFullYear()}</p>
-            <p>Creative Digital Studio</p>
-          </div>
-        </footer>
+  <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex flex-wrap justify-between items-center gap-4">
+    <p>© Matte Digital {new Date().getFullYear()}</p>
+    <FooterAuth />
+    <p>Creative Digital Studio</p>
+  </div>
+</footer>
       </body>
     </html>
   );
