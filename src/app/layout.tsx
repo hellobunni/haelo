@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import SiteHeader from "@/components/layout/site-header/site-header";
-import FooterAuth from "./footer-auth";
+import FooterAuth from "../footer-auth";
 
 export const metadata: Metadata = {
   title: "Matte Digital",
