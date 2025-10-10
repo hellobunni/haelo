@@ -1,4 +1,4 @@
-import LoginPage from "@/components/pages/login";
+import LoginForm from "@/features/auth/components/LoginForm";
 
 export const metadata = {
   title: "Client Login | Matte Digital",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <LoginPage />;
+  return <LoginForm />;
 }

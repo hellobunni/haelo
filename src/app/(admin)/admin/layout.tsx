@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { getCurrentMockUser } from "@/lib/mock-data/users";
+import { getCurrentMockUser } from "@/lib/api/mock/users";
 
 export default function AdminLayout({
   children,

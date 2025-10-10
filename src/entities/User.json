@@ -1,9 +1,0 @@
-{
-  "id": "string",
-  "created_date": "datetime",
-  "updated_date": "datetime",
-  "created_by": "string",
-  "full_name": "string",
-  "email": "string",
-  "role": "string"
-}

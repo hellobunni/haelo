@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { payInvoice } from "@/lib/invoices";
+import { payInvoice } from "../api";
 
 export function PayNowButton({ invoiceId }: { invoiceId: string }) {
   const [pending, setPending] = useState(false);

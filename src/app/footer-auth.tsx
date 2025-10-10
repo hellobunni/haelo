@@ -1,10 +1,14 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getCurrentMockUser, type MockUser } from "@/lib/mock-data/users";
+import { getCurrentMockUser, mockLogout } from "@/lib/api/mock/users";
+import type { MockUser } from "@/types";
 
 export default function FooterAuth() {
+  const router = useRouter();
   const [user, setUser] = useState<MockUser | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -16,6 +20,12 @@ export default function FooterAuth() {
     const currentUser = getCurrentMockUser();
     setUser(currentUser);
   }, []);
+
+  const handleLogout = () => {
+    mockLogout();
+    setUser(null);
+    router.push("/");
+  };
 
   // Don't render anything until mounted (prevents hydration mismatch)
   if (!mounted) {
@@ -33,10 +43,21 @@ export default function FooterAuth() {
   }
 
   return (
-    <Link href="/client-portal">
-      <Button variant="ghost" className="rounded-full text-sm">
-        Client Portal ({user.full_name})
+    <div className="flex items-center gap-2">
+      <Link href="/client-portal">
+        <Button variant="ghost" className="rounded-full text-sm">
+          Client Portal ({user.full_name})
+        </Button>
+      </Link>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={handleLogout}
+        className="rounded-full text-sm"
+        title="Logout"
+      >
+        <LogOut className="h-4 w-4" />
       </Button>
-    </Link>
+    </div>
   );
 }
