@@ -1,15 +1,13 @@
-
-
-import AdminDashboardContent from '@/features/admin/components/AdminCashboardContent'
-import { getCurrentUser } from '@/lib/supabase/auth-helpers'
-import React from 'react'
+import React from "react";
+import AdminDashboardContent from "@/features/admin/components/AdminCashboardContent";
+import { getCurrentUser } from "@/lib/supabase/auth-helpers";
 
 const AdminDashboard = async () => {
-  const currentUser = await getCurrentUser()
+  const currentUser = await getCurrentUser();
 
-  console.log(currentUser)
-  
-  return <AdminDashboardContent />
-}
+  console.log(currentUser);
 
-export default AdminDashboard
+  return <AdminDashboardContent />;
+};
+
+export default AdminDashboard;

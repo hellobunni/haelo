@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import type { Document, DocumentType, DocumentStatus } from "@/types";
+import type { Document, DocumentStatus, DocumentType } from "@/types";
 
 interface EditDocumentDialogProps {
   isOpen: boolean;
@@ -104,7 +104,10 @@ export default function EditDocumentDialog({
                       : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                   }`}
                   onClick={() =>
-                    setFormData({ ...formData, documentType: type as DocumentType })
+                    setFormData({
+                      ...formData,
+                      documentType: type as DocumentType,
+                    })
                   }
                 >
                   {type}

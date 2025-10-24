@@ -28,9 +28,7 @@ export default function SiteHeader() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-sm"
-          : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">

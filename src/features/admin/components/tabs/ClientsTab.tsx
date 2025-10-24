@@ -17,9 +17,9 @@ import type { ClientWithData } from "@/features/admin/api";
 
 // NEW: We'll fetch via a client-accessible API route
 async function fetchClientsData(): Promise<ClientWithData[]> {
-  const response = await fetch('/api/admin/clients');
+  const response = await fetch("/api/admin/clients");
   if (!response.ok) {
-    throw new Error('Failed to fetch clients');
+    throw new Error("Failed to fetch clients");
   }
   return response.json();
 }
@@ -36,7 +36,9 @@ export default function ClientsTab() {
         setClients(data);
       } catch (error) {
         console.error("Error fetching clients:", error);
-        setError(error instanceof Error ? error.message : 'Failed to fetch clients');
+        setError(
+          error instanceof Error ? error.message : "Failed to fetch clients",
+        );
       } finally {
         setLoading(false);
       }

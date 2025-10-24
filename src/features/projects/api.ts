@@ -69,11 +69,9 @@ const MOCK_PROJECTS: Project[] = [
 export async function getProjectsByEmail(email: string): Promise<Project[]> {
   console.log(`🚀 [Mock] Fetching projects for email: ${email}`);
   await new Promise((r) => setTimeout(r, 400));
-  
+
   const projects = MOCK_PROJECTS.filter((proj) => proj.clientEmail === email);
   console.log(`✅ [Mock] Found ${projects.length} project(s) for ${email}`);
-  
+
   return projects;
 }
-
-

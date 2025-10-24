@@ -1,4 +1,4 @@
-import type { User, MockUser } from "@/types";
+import type { MockUser, User } from "@/types";
 
 export const MOCK_USERS: MockUser[] = [
   {
@@ -72,32 +72,32 @@ export async function authenticateUser(
 ): Promise<User | null> {
   console.log(`🔐 [Mock] Authenticating user: ${email}`);
   await new Promise((r) => setTimeout(r, 500));
-  
+
   const user = MOCK_USERS.find(
     (u) => u.email === email && u.password === password,
   );
-  
+
   if (user) {
     console.log(`✅ [Mock] Authentication successful for: ${email}`);
     return user;
   }
-  
+
   console.log(`❌ [Mock] Authentication failed for: ${email}`);
   return null;
 }
 
 export function getCurrentMockUser(): MockUser | null {
   if (typeof window === "undefined") return null;
-  
+
   const storedEmail = localStorage.getItem("currentUserEmail");
   if (!storedEmail) return null;
-  
+
   return MOCK_USERS.find((u) => u.email === storedEmail) || null;
 }
 
 export function setCurrentMockUser(email: string | null): void {
   if (typeof window === "undefined") return;
-  
+
   if (email) {
     localStorage.setItem("currentUserEmail", email);
     console.log(`✅ [Mock] Current user set to: ${email}`);
@@ -115,15 +115,15 @@ export function getAllMockUsers(): MockUser[] {
 export async function mockLogin(email: string): Promise<MockUser | null> {
   console.log(`🔐 [Mock] Login attempt for: ${email}`);
   await new Promise((r) => setTimeout(r, 500));
-  
+
   const user = MOCK_USERS.find((u) => u.email === email);
-  
+
   if (user) {
     setCurrentMockUser(email);
     console.log(`✅ [Mock] Login successful for: ${email}`);
     return user;
   }
-  
+
   console.log(`❌ [Mock] Login failed - user not found: ${email}`);
   return null;
 }
@@ -132,4 +132,3 @@ export function mockLogout(): void {
   setCurrentMockUser(null);
   console.log("🚪 [Mock] User logged out");
 }
-

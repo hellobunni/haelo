@@ -1,19 +1,22 @@
 import { format } from "date-fns";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { InvoiceHeader } from "@/features/invoices/components/InvoiceHeader";
-import { InvoiceLineItemsTable } from "@/features/invoices/components/InvoiceLineItemsTables";
-import { InvoicePDFActions } from "@/features/invoices/components/InvoicePDFActions";
-import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatusBadge";
-import { InvoiceTotals } from "@/features/invoices/components/InvoiceTotals";
-import { PayNowButton } from "@/features/invoices/components/PayNowButton";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { getInvoiceById, getLineItemsByInvoiceId } from "@/features/invoices/api";
+import {
+  getInvoiceById,
+  getLineItemsByInvoiceId,
+} from "@/features/invoices/api";
+import { InvoiceHeader } from "@/features/invoices/components/InvoiceHeader";
+import { InvoiceLineItemsTable } from "@/features/invoices/components/InvoiceLineItemsTables";
+import { InvoicePDFActions } from "@/features/invoices/components/InvoicePDFActions";
+import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatusBadge";
+import { InvoiceTotals } from "@/features/invoices/components/InvoiceTotals";
+import { PayNowButton } from "@/features/invoices/components/PayNowButton";
 
 type Props = { params: { id: string } };
 

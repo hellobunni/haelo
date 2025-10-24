@@ -18,13 +18,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getAllInvoicesByEmail } from "@/features/invoices/api";
-import { getDocumentsByEmail, updateDocumentStatus } from "@/features/documents/api";
-import { getProjectsByEmail } from "@/features/projects/api";
-import type { Document, Project, User } from "@/types";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
+import {
+  getDocumentsByEmail,
+  updateDocumentStatus,
+} from "@/features/documents/api";
+import { getAllInvoicesByEmail } from "@/features/invoices/api";
+import { getProjectsByEmail } from "@/features/projects/api";
 import { createClient } from "@/lib/supabase/client";
 import { getCurrentUserClient } from "@/lib/supabase/client-helpers";
+import type { Document, Project, User } from "@/types";
 
 interface PortalInvoice {
   id: string;
@@ -49,25 +52,25 @@ export default function ClientPortalPage() {
     const checkUserAndFetchData = async () => {
       try {
         console.log("🔐 Checking user authentication...");
-        
+
         const currentUser = await getCurrentUserClient();
-  
+
         if (!currentUser) {
           console.log("❌ User not authenticated, redirecting to login...");
           router.push("/login");
           return;
         }
-  
+
         console.log("✅ User authenticated:", currentUser);
         setUser(currentUser);
-  
+
         // Fetch all data in parallel
         const [userInvoices, userProjects, userDocuments] = await Promise.all([
           getAllInvoicesByEmail(currentUser.email),
           getProjectsByEmail(currentUser.email),
           getDocumentsByEmail(currentUser.email),
         ]);
-  
+
         setInvoices(userInvoices);
         setProjects(userProjects);
         setDocuments(userDocuments);
@@ -78,7 +81,7 @@ export default function ClientPortalPage() {
         setLoading(false);
       }
     };
-  
+
     void checkUserAndFetchData();
   }, [router]);
 

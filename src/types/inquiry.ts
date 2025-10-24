@@ -4,5 +4,3 @@ export interface Inquiry {
   phone?: string;
   message: string;
 }
-
-

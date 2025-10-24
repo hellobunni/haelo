@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { getAllProjects } from "@/features/admin/api";
+import type { Document, Invoice, Project } from "@/types";
 import EditProjectDialog from "../dialogs/EditProjectDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
 import PdfViewer from "../dialogs/PdfViewer";
-import type { Invoice, Document, Project } from "@/types";
 
 export default function ProjectsTab() {
   const [projects, setProjects] = useState<

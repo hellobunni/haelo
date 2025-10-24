@@ -24,5 +24,3 @@ export interface InvoiceLineItem {
 export interface InvoiceWithClient extends Invoice {
   clientName: string;
 }
-
-

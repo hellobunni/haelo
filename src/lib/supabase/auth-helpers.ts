@@ -1,35 +1,37 @@
-import { createClient } from '@/lib/supabase/server'
-import type { User } from '@/types'
+import { createClient } from "@/lib/supabase/server";
+import type { User } from "@/types";
 
 /**
  * Get the currently logged in user with profile data
  * Returns null if not authenticated
  */
 export async function getCurrentUser(): Promise<User | null> {
-  const supabase = await createClient()
-  
-  const { data: { user: authUser } } = await supabase.auth.getUser()
-  
-  if (!authUser) return null
+  const supabase = await createClient();
+
+  const {
+    data: { user: authUser },
+  } = await supabase.auth.getUser();
+
+  if (!authUser) return null;
 
   const { data: profile } = await supabase
-    .from('users')
-    .select('*')
-    .eq('id', authUser.id)
-    .single()
+    .from("users")
+    .select("*")
+    .eq("id", authUser.id)
+    .single();
 
-  if (!profile) return null
+  if (!profile) return null;
 
   return {
     id: profile.id,
     email: profile.email,
-    password: '', // Never expose password
+    password: "", // Never expose password
     full_name: profile.full_name,
     role: profile.role,
     company: profile.company,
     phone: profile.phone,
     createdAt: profile.created_at,
-  }
+  };
 }
 
 /**
@@ -37,13 +39,13 @@ export async function getCurrentUser(): Promise<User | null> {
  * Use in Server Components/Actions that need auth
  */
 export async function requireAuth() {
-  const user = await getCurrentUser()
-  
+  const user = await getCurrentUser();
+
   if (!user) {
-    throw new Error('Unauthorized')
+    throw new Error("Unauthorized");
   }
-  
-  return user
+
+  return user;
 }
 
 /**
@@ -51,19 +53,19 @@ export async function requireAuth() {
  * Use in Server Components/Actions that need admin access
  */
 export async function requireAdmin() {
-  const user = await requireAuth()
-  
-  if (user.role !== 'admin') {
-    throw new Error('Forbidden: Admin access required')
+  const user = await requireAuth();
+
+  if (user.role !== "admin") {
+    throw new Error("Forbidden: Admin access required");
   }
-  
-  return user
+
+  return user;
 }
 
 /**
  * Sign out the current user
  */
 export async function signOut() {
-  const supabase = await createClient()
-  await supabase.auth.signOut()
+  const supabase = await createClient();
+  await supabase.auth.signOut();
 }

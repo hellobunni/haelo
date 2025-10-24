@@ -22,5 +22,3 @@ export interface Project {
 export interface ProjectWithClient extends Project {
   clientName: string;
 }
-
-

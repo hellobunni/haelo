@@ -7,7 +7,12 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "lint:fix": "biome check --write",
+    "format": "biome format --write",
+    "format:check": "biome format",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck",
+    "fix": "pnpm lint:fix && pnpm format"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

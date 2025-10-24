@@ -136,15 +136,15 @@ const MOCK_LINE_ITEMS: InvoiceLineItem[] = [
 export async function getInvoiceById(id: string): Promise<Invoice | null> {
   console.log(`📄 [Mock] Fetching invoice with ID: ${id}`);
   await new Promise((r) => setTimeout(r, 300));
-  
+
   const invoice = MOCK_INVOICES.find((inv) => inv.id === id);
-  
+
   if (invoice) {
     console.log(`✅ [Mock] Invoice found:`, invoice);
   } else {
     console.log(`❌ [Mock] Invoice not found for ID: ${id}`);
   }
-  
+
   return invoice || null;
 }
 
@@ -153,39 +153,39 @@ export async function getLineItemsByInvoiceId(
 ): Promise<InvoiceLineItem[]> {
   console.log(`📋 [Mock] Fetching line items for invoice: ${invoiceId}`);
   await new Promise((r) => setTimeout(r, 300));
-  
+
   const items = MOCK_LINE_ITEMS.filter((item) => item.invoiceId === invoiceId);
-  console.log(`✅ [Mock] Found ${items.length} line item(s) for invoice ${invoiceId}`);
-  
+  console.log(
+    `✅ [Mock] Found ${items.length} line item(s) for invoice ${invoiceId}`,
+  );
+
   return items;
 }
 
-export async function getAllInvoicesByEmail(
-  email: string,
-): Promise<Invoice[]> {
+export async function getAllInvoicesByEmail(email: string): Promise<Invoice[]> {
   console.log(`📬 [Mock] Fetching all invoices for email: ${email}`);
   await new Promise((r) => setTimeout(r, 400));
-  
+
   const invoices = MOCK_INVOICES.filter((inv) => inv.clientEmail === email);
   console.log(`✅ [Mock] Found ${invoices.length} invoice(s) for ${email}`);
-  
+
   return invoices;
 }
 
 export async function payInvoice(id: string): Promise<Invoice | null> {
   console.log(`💳 [Mock] Processing payment for invoice: ${id}`);
   await new Promise((r) => setTimeout(r, 1500));
-  
+
   const invoice = MOCK_INVOICES.find((inv) => inv.id === id);
-  
+
   if (invoice) {
     invoice.status = "Paid";
-    console.log(`✅ [Mock] Payment successful! Invoice ${id} is now marked as Paid`);
+    console.log(
+      `✅ [Mock] Payment successful! Invoice ${id} is now marked as Paid`,
+    );
     return invoice;
   } else {
     console.log(`❌ [Mock] Payment failed - Invoice ${id} not found`);
     return null;
   }
 }
-
-

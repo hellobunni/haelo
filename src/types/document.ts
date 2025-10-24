@@ -22,5 +22,3 @@ export interface Document {
 export interface DocumentWithClient extends Document {
   clientName: string;
 }
-
-

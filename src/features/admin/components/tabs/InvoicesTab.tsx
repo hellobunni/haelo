@@ -14,8 +14,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { InvoiceWithClient } from "@/types";
 import { getAllInvoices } from "@/features/admin/api";
+import type { InvoiceWithClient } from "@/types";
 import EditInvoiceDialog from "../dialogs/EditInvoiceDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
 import PdfViewer from "../dialogs/PdfViewer";
@@ -30,7 +30,8 @@ export default function InvoicesTab() {
   } | null>(null);
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [selectedInvoice, setSelectedInvoice] = useState<InvoiceWithClient | null>(null);
+  const [selectedInvoice, setSelectedInvoice] =
+    useState<InvoiceWithClient | null>(null);
 
   useEffect(() => {
     const fetchInvoices = async () => {

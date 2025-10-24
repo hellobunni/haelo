@@ -1,5 +1,5 @@
-import { createClient as createServerClient } from '@/lib/supabase/server'
-import type { User } from '@/types'
+import { createClient as createServerClient } from "@/lib/supabase/server";
+import type { User } from "@/types";
 
 export interface ClientWithData extends User {
   invoiceCount: number;
@@ -12,17 +12,19 @@ export interface ClientWithData extends User {
  * Fetch all clients with their aggregated data from Supabase
  * Only admins should call this function
  */
-export async function getAllClientsWithDataFromSupabase(): Promise<ClientWithData[]> {
+export async function getAllClientsWithDataFromSupabase(): Promise<
+  ClientWithData[]
+> {
   console.log("👥 [Supabase] Fetching all clients with their data...");
-  
+
   const supabase = await createServerClient();
-  
+
   // Fetch all users with role 'client'
   const { data: clients, error: clientsError } = await supabase
-    .from('users')
-    .select('*')
-    .eq('role', 'client')
-    .order('created_at', { ascending: false });
+    .from("users")
+    .select("*")
+    .eq("role", "client")
+    .order("created_at", { ascending: false });
 
   if (clientsError) {
     console.error("❌ [Supabase] Error fetching clients:", clientsError);
@@ -39,42 +41,52 @@ export async function getAllClientsWithDataFromSupabase(): Promise<ClientWithDat
     clients.map(async (client) => {
       // Count projects by client_id
       const { count: projectCount, error: projectError } = await supabase
-        .from('projects')
-        .select('*', { count: 'exact', head: true })
-        .eq('client_id', client.id);
+        .from("projects")
+        .select("*", { count: "exact", head: true })
+        .eq("client_id", client.id);
 
       // Count invoices and calculate total spent by client_id
       const { data: invoices, error: invoiceError } = await supabase
-        .from('invoices')
-        .select('total_amount, status')
-        .eq('client_id', client.id);
+        .from("invoices")
+        .select("total_amount, status")
+        .eq("client_id", client.id);
 
       // Count documents by client_id
       const { count: documentCount, error: documentError } = await supabase
-        .from('documents')
-        .select('*', { count: 'exact', head: true })
-        .eq('client_id', client.id);
+        .from("documents")
+        .select("*", { count: "exact", head: true })
+        .eq("client_id", client.id);
 
       if (projectError) {
-        console.error(`⚠️  [Supabase] Error fetching projects for ${client.email}:`, projectError);
+        console.error(
+          `⚠️  [Supabase] Error fetching projects for ${client.email}:`,
+          projectError,
+        );
       }
       if (invoiceError) {
-        console.error(`⚠️  [Supabase] Error fetching invoices for ${client.email}:`, invoiceError);
+        console.error(
+          `⚠️  [Supabase] Error fetching invoices for ${client.email}:`,
+          invoiceError,
+        );
       }
       if (documentError) {
-        console.error(`⚠️  [Supabase] Error fetching documents for ${client.email}:`, documentError);
+        console.error(
+          `⚠️  [Supabase] Error fetching documents for ${client.email}:`,
+          documentError,
+        );
       }
 
-      const totalSpent = invoices
-        ?.filter((inv) => inv.status === 'Paid')
-        .reduce((sum, inv) => sum + Number(inv.total_amount), 0) || 0;
+      const totalSpent =
+        invoices
+          ?.filter((inv) => inv.status === "Paid")
+          .reduce((sum, inv) => sum + Number(inv.total_amount), 0) || 0;
 
       return {
         id: client.id,
         email: client.email,
-        password: '', // Never expose
+        password: "", // Never expose
         full_name: client.full_name,
-        role: client.role as 'admin' | 'client',
+        role: client.role as "admin" | "client",
         company: client.company,
         phone: client.phone,
         stripe_customer_id: client.stripe_customer_id,
@@ -85,7 +97,7 @@ export async function getAllClientsWithDataFromSupabase(): Promise<ClientWithDat
         documentCount: documentCount || 0,
         totalSpent,
       };
-    })
+    }),
   );
 
   console.log(`✅ [Supabase] Found ${clientsWithData.length} clients`);

@@ -31,10 +31,11 @@ export default function LoginForm() {
     setIsLoading(true);
 
     try {
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const { data, error: signInError } =
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
       if (signInError) {
         setError(signInError.message);
@@ -44,9 +45,9 @@ export default function LoginForm() {
       if (data.user) {
         // Get user role
         const { data: profile, error: profileError } = await supabase
-          .from('users')
-          .select('role')
-          .eq('id', data.user.id)
+          .from("users")
+          .select("role")
+          .eq("id", data.user.id)
           .single();
 
         if (profileError) {
@@ -56,7 +57,8 @@ export default function LoginForm() {
 
         // Role-based redirect - use window.location for hard redirect
         // This ensures cookies are properly synced and no race conditions
-        const redirectPath = profile?.role === "admin" ? "/admin" : "/client-portal";
+        const redirectPath =
+          profile?.role === "admin" ? "/admin" : "/client-portal";
         window.location.href = redirectPath;
       }
     } catch (err) {
