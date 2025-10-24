@@ -1,29 +1,18 @@
-"use client";
+import { redirect } from "next/navigation";
+import { requireAdmin } from "@/lib/supabase/auth-helpers";
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { getCurrentMockUser } from "@/lib/api/mock/users";
-
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const currentUser = getCurrentMockUser();
-
-    if (!currentUser) {
-      router.push("/login");
-      return;
-    }
-
-    if (currentUser.role !== "admin") {
-      router.push("/");
-      return;
-    }
-  }, [router]);
+  try {
+    // This will throw if user is not authenticated or not an admin
+    await requireAdmin();
+  } catch (error) {
+    // Redirect to login if not authorized
+    redirect("/login");
+  }
 
   return <>{children}</>;
 }

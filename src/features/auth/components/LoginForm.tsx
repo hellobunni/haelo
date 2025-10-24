@@ -1,6 +1,6 @@
 "use client";
 
-import { Loader2, LogIn, User } from "lucide-react";
+import { Loader2, LogIn } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,16 +15,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { getAllMockUsers, mockLogin } from "@/lib/api/mock/users";
-import type { MockUser } from "@/types";
+import { createClient } from "@/lib/supabase/client";
 
-export default function LoginPage() {
+export default function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showDemoUsers, setShowDemoUsers] = useState(false);
-  const demoUsers = getAllMockUsers();
+  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,51 +31,37 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const user = await mockLogin(email);
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-      if (user) {
-        console.log("✅ Login successful, redirecting...");
+      if (signInError) {
+        setError(signInError.message);
+        return;
+      }
 
-        // Role-based redirect
-        if (user.role === "admin") {
-          router.push("/admin");
-        } else {
-          router.push("/client-portal");
+      if (data.user) {
+        // Get user role
+        const { data: profile, error: profileError } = await supabase
+          .from('users')
+          .select('role')
+          .eq('id', data.user.id)
+          .single();
+
+        if (profileError) {
+          setError(`Error fetching profile: ${profileError.message}`);
+          return;
         }
-      } else {
-        setError("No account found with that email address.");
+
+        // Role-based redirect - use window.location for hard redirect
+        // This ensures cookies are properly synced and no race conditions
+        const redirectPath = profile?.role === "admin" ? "/admin" : "/client-portal";
+        window.location.href = redirectPath;
       }
     } catch (err) {
       console.error("Login error:", err);
       setError("An error occurred during login. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleDemoLogin = async (demoEmail: string) => {
-    setEmail(demoEmail);
-    setError("");
-    setIsLoading(true);
-
-    try {
-      const user = await mockLogin(demoEmail);
-
-      if (user) {
-        console.log("✅ Demo login successful, redirecting...");
-
-        // Role-based redirect
-        if (user.role === "admin") {
-          router.push("/admin");
-        } else {
-          router.push("/client-portal");
-        }
-      } else {
-        setError("Demo login failed.");
-      }
-    } catch (err) {
-      console.error("Demo login error:", err);
-      setError("An error occurred during demo login.");
     } finally {
       setIsLoading(false);
     }
@@ -98,7 +83,7 @@ export default function LoginPage() {
           <CardHeader>
             <CardTitle>Welcome Back</CardTitle>
             <CardDescription>
-              Enter your email address to access your account
+              Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -116,6 +101,25 @@ export default function LoginPage() {
                   placeholder="client@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isLoading}
+                  className="w-full"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Password
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   disabled={isLoading}
                   className="w-full"
@@ -146,65 +150,6 @@ export default function LoginPage() {
                 )}
               </Button>
             </form>
-
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Demo Mode</span>
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setShowDemoUsers(!showDemoUsers)}
-                  className="w-full"
-                >
-                  <User className="mr-2 h-4 w-4" />
-                  {showDemoUsers ? "Hide" : "Show"} Demo Accounts
-                </Button>
-
-                {showDemoUsers && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    className="mt-3 space-y-2"
-                  >
-                    {demoUsers.map((user: MockUser) => (
-                      <button
-                        key={user.id}
-                        onClick={() => handleDemoLogin(user.email)}
-                        disabled={isLoading}
-                        className="w-full text-left p-3 border border-gray-200 rounded-md hover:bg-gray-50 hover:border-periwinkle transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="font-medium text-sm">
-                              {user.full_name}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              {user.email}
-                            </p>
-                          </div>
-                          <LogIn className="h-4 w-4 text-gray-400" />
-                        </div>
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </div>
-
-              <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
-                <p className="text-xs text-blue-800">
-                  💡 <strong>Demo Mode:</strong> This is a mock authentication
-                  system for UI testing. No real authentication is happening.
-                </p>
-              </div>
-            </div>
           </CardContent>
         </Card>
 

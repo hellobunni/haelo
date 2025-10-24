@@ -2,7 +2,7 @@
 import { ArrowRight, Menu, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DesktopPillNav from "@/components/layout/site-header/desktop-pill-nav";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,28 @@ import { Button } from "@/components/ui/button";
 export default function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavPillOpen, setIsNavPillOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50); // Change background after 50px scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 w-full z-50 bg-transparent"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-lg shadow-sm"
+          : "bg-transparent"
+      }`}
     >
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="relative flex justify-between items-center h-24">

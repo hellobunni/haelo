@@ -1,63 +1,39 @@
-"use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { LogOut } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { getCurrentMockUser, mockLogout } from "@/lib/api/mock/users";
-import type { MockUser } from "@/types";
+import { Button } from '@/components/ui/button'
+import { LogoutButton } from '@/features/auth/components/LogoutButton'
+import { getCurrentUser } from '@/lib/supabase/auth-helpers'
+import Link from 'next/link'
+import React from 'react'
 
-export default function FooterAuth() {
-  const router = useRouter();
-  const [user, setUser] = useState<MockUser | null>(null);
-  const [mounted, setMounted] = useState(false);
+const FooterAuth = async () => {
+  const currentUser = await getCurrentUser()
 
-  useEffect(() => {
-    // Set mounted to true after component mounts (client-side only)
-    setMounted(true);
+  // For debugging: log in this component
+  console.log("FooterAuth - User status:", currentUser ? `Logged in as ${currentUser.email}` : "Not logged in")
 
-    // Check if user is logged in
-    const currentUser = getCurrentMockUser();
-    setUser(currentUser);
-  }, []);
-
-  const handleLogout = () => {
-    mockLogout();
-    setUser(null);
-    router.push("/");
-  };
-
-  // Don't render anything until mounted (prevents hydration mismatch)
-  if (!mounted) {
-    return null;
-  }
-
-  if (!user) {
+  if (!currentUser) {
+    // Show login link when not authenticated
     return (
-      <Link href="/login">
-        <Button variant="ghost" className="rounded-full text-sm">
-          Client Login
-        </Button>
-      </Link>
-    );
+      <div className="flex items-center gap-2">
+        <Link href="/login">
+          <Button variant="ghost" className="rounded-full text-sm">
+            Login
+          </Button>
+        </Link>
+      </div>
+    )
   }
 
+  // Show user-specific navigation when authenticated
   return (
     <div className="flex items-center gap-2">
-      <Link href="/client-portal">
+      <Link href={currentUser.role === 'admin' ? '/admin' : '/client-portal'}>
         <Button variant="ghost" className="rounded-full text-sm">
-          Client Portal ({user.full_name})
+          {currentUser.role === 'admin' ? 'Admin Dashboard' : 'Client Portal'} ({currentUser.full_name})
         </Button>
-      </Link>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={handleLogout}
-        className="rounded-full text-sm"
-        title="Logout"
-      >
-        <LogOut className="h-4 w-4" />
-      </Button>
+      </Link>   
+      <LogoutButton />
     </div>
-  );
+  )
 }
+
+export default FooterAuth

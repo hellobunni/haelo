@@ -13,20 +13,30 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ClientWithData, getAllClientsWithData } from "@/features/admin/api";
+import type { ClientWithData } from "@/features/admin/api";
 
+// NEW: We'll fetch via a client-accessible API route
+async function fetchClientsData(): Promise<ClientWithData[]> {
+  const response = await fetch('/api/admin/clients');
+  if (!response.ok) {
+    throw new Error('Failed to fetch clients');
+  }
+  return response.json();
+}
 
 export default function ClientsTab() {
   const [clients, setClients] = useState<ClientWithData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const data = await getAllClientsWithData();
+        const data = await fetchClientsData();
         setClients(data);
       } catch (error) {
         console.error("Error fetching clients:", error);
+        setError(error instanceof Error ? error.message : 'Failed to fetch clients');
       } finally {
         setLoading(false);
       }
@@ -40,6 +50,19 @@ export default function ClientsTab() {
       <div className="flex justify-center items-center py-16">
         <Loader2 className="h-8 w-8 animate-spin text-periwinkle" />
       </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <CardContent className="py-16">
+          <div className="text-center text-red-600">
+            <p className="font-medium">Error loading clients</p>
+            <p className="text-sm mt-2">{error}</p>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 

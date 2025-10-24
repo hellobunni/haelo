@@ -4,14 +4,20 @@ import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getProjectsByEmail } from "@/features/projects/api";
 import { getDocumentsByEmail } from "@/features/documents/api";
 
-export interface ClientWithData extends User {
-  invoiceCount: number;
-  projectCount: number;
-  documentCount: number;
-  totalSpent: number;
-}
+// NEW: Import Supabase function
+import { getAllClientsWithDataFromSupabase, type ClientWithData } from "./supabase-api";
+
+export type { ClientWithData } from "./supabase-api";
+
+// Toggle between mock and real data
+const USE_SUPABASE = true; // Set to true to use Supabase, false to use mock data
 
 export async function getAllClientsWithData(): Promise<ClientWithData[]> {
+  if (USE_SUPABASE) {
+    return getAllClientsWithDataFromSupabase();
+  }
+  
+  // Mock data fallback (existing code)
   console.log("👥 [Mock Admin] Fetching all clients with their data...");
   await new Promise((r) => setTimeout(r, 500));
   
@@ -43,6 +49,7 @@ export async function getAllClientsWithData(): Promise<ClientWithData[]> {
   return clientsWithData;
 }
 
+// Keep your existing getAllProjects, getAllDocuments, getAllInvoices functions...
 export async function getAllProjects(): Promise<ProjectWithClient[]> {
   console.log("🚀 [Mock Admin] Fetching all projects...");
   await new Promise((r) => setTimeout(r, 400));
@@ -108,5 +115,3 @@ export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
   console.log(`✅ [Mock Admin] Found ${allInvoices.length} invoices`);
   return allInvoices;
 }
-
-

@@ -21,8 +21,10 @@ import {
 import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getDocumentsByEmail, updateDocumentStatus } from "@/features/documents/api";
 import { getProjectsByEmail } from "@/features/projects/api";
-import { getCurrentMockUser, mockLogout } from "@/lib/api/mock/users";
-import type { Document, Project, MockUser } from "@/types";
+import type { Document, Project, User } from "@/types";
+import { LogoutButton } from "@/features/auth/components/LogoutButton";
+import { createClient } from "@/lib/supabase/client";
+import { getCurrentUserClient } from "@/lib/supabase/client-helpers";
 
 interface PortalInvoice {
   id: string;
@@ -36,59 +38,49 @@ interface PortalInvoice {
 
 export default function ClientPortalPage() {
   const router = useRouter();
-  const [user, setUser] = useState<MockUser | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [invoices, setInvoices] = useState<PortalInvoice[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [documents, setDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
   useEffect(() => {
     const checkUserAndFetchData = async () => {
       try {
-        console.log("🔐 [Mock] Checking user authentication...");
-
-        const currentUser = getCurrentMockUser();
-
+        console.log("🔐 Checking user authentication...");
+        
+        const currentUser = await getCurrentUserClient();
+  
         if (!currentUser) {
-          console.log(
-            "❌ [Mock] User not authenticated, redirecting to login...",
-          );
+          console.log("❌ User not authenticated, redirecting to login...");
           router.push("/login");
           return;
         }
-
-        console.log("✅ [Mock] User authenticated:", currentUser);
+  
+        console.log("✅ User authenticated:", currentUser);
         setUser(currentUser);
-
+  
         // Fetch all data in parallel
         const [userInvoices, userProjects, userDocuments] = await Promise.all([
           getAllInvoicesByEmail(currentUser.email),
           getProjectsByEmail(currentUser.email),
           getDocumentsByEmail(currentUser.email),
         ]);
-
+  
         setInvoices(userInvoices);
         setProjects(userProjects);
         setDocuments(userDocuments);
       } catch (error) {
-        console.error("❌ [Mock] Error loading portal:", error);
+        console.error("❌ Error loading portal:", error);
         router.push("/login");
       } finally {
         setLoading(false);
       }
     };
-
+  
     void checkUserAndFetchData();
   }, [router]);
-
-  const handleLogout = () => {
-    mockLogout();
-    setUser(null);
-    setInvoices([]);
-    setProjects([]);
-    setDocuments([]);
-    router.push("/login");
-  };
 
   const getStatusClass = (status: string) => {
     switch (status) {
@@ -171,9 +163,7 @@ export default function ClientPortalPage() {
           <p className="text-gray-500">Welcome back, {user.full_name}.</p>
           <p className="text-sm text-gray-400">{user.email}</p>
         </div>
-        <Button variant="outline" onClick={handleLogout}>
-          Logout
-        </Button>
+        <LogoutButton />
       </div>
 
       {/* Projects Section */}
