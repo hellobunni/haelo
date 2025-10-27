@@ -1,4 +1,4 @@
-import type { Invoice, InvoiceLineItem, InvoiceWithClient } from "@/types";
+import type { Invoice, InvoiceLineItem } from "@/types";
 
 // Mock invoice data
 const MOCK_INVOICES: Invoice[] = [

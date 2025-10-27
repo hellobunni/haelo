@@ -7,8 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { getAllProjects } from "@/features/admin/api";
-import type { Document, Invoice, Project } from "@/types";
+import type { Project } from "@/types";
 import EditProjectDialog from "../dialogs/EditProjectDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
 import PdfViewer from "../dialogs/PdfViewer";
@@ -32,7 +31,11 @@ export default function ProjectsTab() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const data = await getAllProjects();
+        const response = await fetch("/api/admin/projects");
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json();
         setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -40,7 +43,7 @@ export default function ProjectsTab() {
         setLoading(false);
       }
     };
-
+  
     fetchProjects();
   }, []);
 

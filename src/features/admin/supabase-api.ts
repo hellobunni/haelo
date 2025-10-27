@@ -103,3 +103,67 @@ export async function getAllClientsWithDataFromSupabase(): Promise<
   console.log(`✅ [Supabase] Found ${clientsWithData.length} clients`);
   return clientsWithData;
 }
+
+
+/**
+ * Fetch all projects with client information from Supabase
+ * Only admins should call this function
+ */
+export async function getAllProjectsFromSupabase() {
+  console.log("🚀 [Supabase] Fetching all projects with client data...");
+
+  const supabase = await createServerClient();
+
+  // Fetch all projects with their associated client information
+  const { data: projects, error } = await supabase
+    .from("projects")
+    .select(`
+      id,
+      project_name,
+      description,
+      status,
+      progress,
+      start_date,
+      estimated_completion,
+      pdf_url,
+      created_at,
+      updated_at,
+      client_id,
+      users:client_id (
+        id,
+        full_name,
+        email,
+        company
+      )
+    `)
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("❌ [Supabase] Error fetching projects:", error);
+    throw new Error(`Failed to fetch projects: ${error.message}`);
+  }
+
+  if (!projects || projects.length === 0) {
+    console.log("✅ [Supabase] No projects found");
+    return [];
+  }
+
+  // Transform the data to match the expected format
+  const formattedProjects = projects.map((project) => ({
+    id: project.id,
+    projectName: project.project_name,
+    description: project.description || "",
+    clientId: project.client_id,
+    clientName: project.users?.full_name || "Unknown Client",
+    status: project.status,
+    progress: project.progress,
+    startDate: project.start_date,
+    estimatedCompletion: project.estimated_completion,
+    pdfUrl: project.pdf_url,
+    createdAt: project.created_at,
+    updatedAt: project.updated_at,
+  }));
+
+  console.log(`✅ [Supabase] Found ${formattedProjects.length} projects`);
+  return formattedProjects;
+}

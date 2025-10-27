@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
 import { getCurrentUser } from "@/lib/supabase/auth-helpers";

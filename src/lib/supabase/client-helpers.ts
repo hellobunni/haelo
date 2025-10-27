@@ -72,7 +72,7 @@ export async function getCurrentUserClient(): Promise<User | null> {
           authUser = session.user;
           console.log("Got user from session fallback");
         }
-      } catch (sessionTimeoutError) {
+      } catch (_sessionTimeoutError) {
         console.error("Both getUser() and getSession() timed out");
         return null;
       }

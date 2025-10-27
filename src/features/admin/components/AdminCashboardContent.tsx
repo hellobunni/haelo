@@ -2,12 +2,10 @@
 
 import { Plus } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ClientsTab from "@/features/admin/components/tabs/ClientsTab";
-import DocumentsTab from "@/features/admin/components/tabs/DocumentsTab";
-import InvoicesTab from "@/features/admin/components/tabs/InvoicesTab";
 import ProjectsTab from "@/features/admin/components/tabs/ProjectsTab";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
 import AddClientDialog from "./dialogs/AddClientDialog";
@@ -79,14 +77,11 @@ export default function AdminDashboardContent() {
           <ClientsTab key={refreshKey} />
         </TabsContent>
 
-        {/* <TabsContent value="clients">
-          <ClientsTab />
-        </TabsContent>
-
         <TabsContent value="projects">
           <ProjectsTab />
         </TabsContent>
 
+        {/* TODO: Add these tabs back later
         <TabsContent value="invoices">
           <InvoicesTab />
         </TabsContent>

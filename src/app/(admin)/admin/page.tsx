@@ -1,4 +1,3 @@
-import React from "react";
 import AdminDashboardContent from "@/features/admin/components/AdminCashboardContent";
 import { getCurrentUser } from "@/lib/supabase/auth-helpers";
 

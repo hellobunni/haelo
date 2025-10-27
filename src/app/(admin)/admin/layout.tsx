@@ -9,7 +9,7 @@ export default async function AdminLayout({
   try {
     // This will throw if user is not authenticated or not an admin
     await requireAdmin();
-  } catch (error) {
+  } catch (_error) {
     // Redirect to login if not authorized
     redirect("/login");
   }

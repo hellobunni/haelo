@@ -6,7 +6,6 @@ import type {
   DocumentWithClient,
   InvoiceWithClient,
   ProjectWithClient,
-  User,
 } from "@/types";
 
 // NEW: Import Supabase function
@@ -59,6 +58,12 @@ export async function getAllClientsWithData(): Promise<ClientWithData[]> {
 
 // Keep your existing getAllProjects, getAllDocuments, getAllInvoices functions...
 export async function getAllProjects(): Promise<ProjectWithClient[]> {
+  if (USE_SUPABASE) {
+    const { getAllProjectsFromSupabase } = await import("./supabase-api");
+    return getAllProjectsFromSupabase();
+  }
+
+  // Mock data fallback
   console.log("🚀 [Mock Admin] Fetching all projects...");
   await new Promise((r) => setTimeout(r, 400));
 

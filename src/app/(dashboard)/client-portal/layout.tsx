@@ -9,7 +9,7 @@ export default async function DashboardLayout({
   try {
     // Ensure user is authenticated (any role)
     await requireAuth();
-  } catch (error) {
+  } catch (_error) {
     redirect("/login");
   }
 

@@ -46,7 +46,7 @@ export default function ClientPortalPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [documents, setDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(true);
-  const supabase = createClient();
+  const _supabase = createClient();
 
   useEffect(() => {
     const checkUserAndFetchData = async () => {

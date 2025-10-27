@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginForm() {
-  const router = useRouter();
+  const _router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
