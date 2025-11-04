@@ -1,6 +1,7 @@
 import { getDocumentsByEmail } from "@/features/documents/api";
 import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getProjectsByEmail } from "@/features/projects/api";
+import type { Document, Invoice, Project } from "@/types";
 import { MOCK_USERS } from "@/lib/api/mock/users";
 import type {
   DocumentWithClient,
@@ -8,6 +9,12 @@ import type {
   ProjectWithClient,
 } from "@/types";
 
+export interface ClientDetailData {
+  client: ClientWithData;
+  projects: Project[];
+  invoices: Invoice[];
+  documents: Document[];
+}
 // NEW: Import Supabase function
 import {
   type ClientWithData,
@@ -127,4 +134,48 @@ export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
 
   console.log(`✅ [Mock Admin] Found ${allInvoices.length} invoices`);
   return allInvoices;
+}
+
+export async function getClientDetailById(
+  clientId: string
+): Promise<ClientDetailData | null> {
+  if (USE_SUPABASE) {
+    const { getClientDetailByIdFromSupabase } = await import("./supabase-api");
+    return getClientDetailByIdFromSupabase(clientId);
+  }
+
+  // Mock data fallback
+  console.log(`👤 [Mock Admin] Fetching client details for ID: ${clientId}`);
+  await new Promise((r) => setTimeout(r, 500));
+
+  const client = MOCK_USERS.find(
+    (user) => user.id === clientId && user.role === "client"
+  );
+
+  if (!client) {
+    return null;
+  }
+
+  const [invoices, projects, documents] = await Promise.all([
+    getAllInvoicesByEmail(client.email),
+    getProjectsByEmail(client.email),
+    getDocumentsByEmail(client.email),
+  ]);
+
+  const totalSpent = invoices
+    .filter((inv) => inv.status === "Paid")
+    .reduce((sum, inv) => sum + inv.totalAmount, 0);
+
+  return {
+    client: {
+      ...client,
+      invoiceCount: invoices.length,
+      projectCount: projects.length,
+      documentCount: documents.length,
+      totalSpent,
+    },
+    projects,
+    invoices,
+    documents,
+  };
 }

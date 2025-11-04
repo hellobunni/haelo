@@ -42,7 +42,7 @@ const services = [
     desc2:
       "From wireframes to final polish, our designs are built to convert and impress, ensuring your digital storefront is flawless.",
     imageUrl:
-      "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2787&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1472",
   },
   {
     n: "02",

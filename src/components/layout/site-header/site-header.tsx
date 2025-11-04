@@ -38,7 +38,7 @@ export default function SiteHeader() {
             <Link href="/contact" className="group">
               <Button
                 variant="outline"
-                className="rounded-full border-[var(--border)] bg-white/50 backdrop-blur-md"
+                className="rounded-full border-[var(--border)] bg-white/50 backdrop-blur-md cursor-pointer hover:bg-periwinkle transition-all duration-300"
               >
                 <ArrowRight className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-rotate-45" />
                 Let's Talk
@@ -71,7 +71,7 @@ export default function SiteHeader() {
                     exit={{ scale: 0, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     onClick={() => setIsNavPillOpen(true)}
-                    className="p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md"
+                    className="p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md cursor-pointer"
                     aria-label="Open navigation"
                   >
                     <Plus className="h-5 w-5" />

@@ -19,14 +19,14 @@ export default function DesktopPillNav({ onClose }: { onClose: () => void }) {
           <Link
             key={item.name}
             href={item.url}
-            className="text-white text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap"
+            className="text-white text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap cursor-pointer"
           >
             {item.name}
           </Link>
         ))}
         <button
           onClick={onClose}
-          className="p-2 bg-black/10 rounded-full"
+          className="p-2 bg-black/10 rounded-full cursor-pointer"
           aria-label="Close navigation"
         >
           <X className="h-5 w-5 text-white" />

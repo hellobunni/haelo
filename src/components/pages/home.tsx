@@ -40,40 +40,38 @@ const services = [
 
 const projects = [
   {
-    title: "QuantumLeap",
-    category: "Web Development",
+    title: "Fanatics",
+    category: "Design System / Front-End Development",
     imageUrl:
-      "https://images.unsplash.com/photo-1559028006-44a0a9949354?q=80&w=2940&auto=format&fit=crop",
+      "https://techcrunch.com/wp-content/uploads/2022/04/Fanatics-Image--e1649282414802.jpg?q=80&w=2940&auto=format&fit=crop", // clean dev setup / team collab feel
   },
   {
-    title: "AetherBranding",
-    category: "Branding",
+    title: "The Red Tent",
+    category: "E-Commerce Design",
     imageUrl:
-      "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?q=80&w=2787&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1607082349566-187342175e2f?q=80&w=2787&auto=format&fit=crop", // feminine wellness vibe, soft tones
   },
   {
-    title: "NovaUI",
-    category: "Web Design",
+    title: "Qualigence",
+    category: "Corporate Web Redesign",
     imageUrl:
-      "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=2787&auto=format&fit=crop",
+      "https://cdn.prod.website-files.com/6726611a981a6c6f0061fe1f/672be253d00c610deaaeeac5_OpenGraph.png?q=80&w=2787&auto=format&fit=crop", // professional workspace aesthetic
   },
   {
-    title: "ZenithOS",
-    category: "Development",
+    title: "StockX",
+    category: "UI / Dashboard Engineering",
     imageUrl:
-      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=2940&auto=format&fit=crop",
+      "https://images-wp.stockx.com/news/wp-content/uploads/2021/04/Blog-social-v1.jpg?q=80&w=2940&auto=format&fit=crop", // moody tech / sneaker-data feel
   },
 ];
 
 const clients = [
-  "Nike",
-  "Google",
-  "Meta",
-  "Amazon",
-  "Shopify",
-  "Framer",
-  "Webflow",
-  "Notion",
+  "StockX",
+  "Fanatics",
+  "Rocket Mortgage",
+  "Benzinga",
+  "Qualigence",
+  "Detroit Flower Co",
 ];
 
 export default function HomePage() {
@@ -85,9 +83,12 @@ export default function HomePage() {
       className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12"
     >
       {/* Hero */}
-      <section className="py-24 md:py-32">
-        <motion.h1 variants={itemVariants} className="section-heading">
+      <section className="py-24 md:py-32 px-12 shadow-xl rounded-2xl">
+        <motion.h1 variants={itemVariants} className="layered-heading">
           Elevate Beyond <br /> the Ordinary.
+          <span aria-hidden="true">
+            Elevate Beyond <br /> the Ordinary.
+          </span>
         </motion.h1>
       </section>
 
@@ -126,12 +127,14 @@ export default function HomePage() {
               href="/services"
               className="flex justify-between items-center"
             >
-              <div className="flex items-center gap-4 md:gap-8">
+              <div className="flex items-center gap-4 md:gap-8 w-2/3">
                 <span className="text-sm text-gray-500">{service.n}</span>
                 <h3 className="list-item-heading">{service.title}</h3>
               </div>
-              <p className="hidden md:block text-gray-600">{service.desc}</p>
-              <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex items-center gap-4">
+              <p className="text-gray-600">{service.desc}</p>
+                <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </Link>
           </motion.div>
         ))}
@@ -199,17 +202,17 @@ export default function HomePage() {
 
       {/* Clients */}
       <motion.section
-        className="py-24"
+        className="py-24 mx-auto w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        <motion.p variants={itemVariants} className="text-lg text-center mb-8">
+        <motion.p variants={itemVariants} className="text-lg text-center mb-12">
           Working with clients who share my passion for quality is what drives
           me.
         </motion.p>
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center">
+        <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center mx-auto w-full">
           {clients.map((client) => (
             <motion.div
               key={client}

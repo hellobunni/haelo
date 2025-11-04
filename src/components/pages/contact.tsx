@@ -84,7 +84,7 @@ export default function ContactPage() {
       variants={containerVariants}
       className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 py-16"
     >
-      <div className="grid md:grid-cols-3 gap-16 items-start pt-16">
+      <div className="grid md:grid-cols-3 gap-16 items-start pt-16 ">
         <motion.h1
           variants={itemVariants}
           className="layered-heading md:col-span-2"
@@ -107,7 +107,7 @@ export default function ContactPage() {
       <motion.form
         variants={itemVariants}
         onSubmit={handleSubmit}
-        className="mt-16 grid md:grid-cols-3 gap-8"
+        className="mt-29 grid md:grid-cols-3 gap-8"
       >
         <div className="space-y-4">
           <Input
@@ -115,7 +115,7 @@ export default function ContactPage() {
             placeholder="NAME"
             value={formData.name}
             onChange={handleChange}
-            className="bg-gray-100 border-none h-14 px-4"
+            className="bg-gray-100 h-14 px-4"
             required
           />
           <Input
@@ -124,7 +124,7 @@ export default function ContactPage() {
             placeholder="EMAIL ADDRESS"
             value={formData.email}
             onChange={handleChange}
-            className="bg-gray-100 border-none h-14 px-4"
+            className="bg-gray-100 h-14 px-4"
             required
           />
           <Input
@@ -132,7 +132,7 @@ export default function ContactPage() {
             placeholder="PHONE NUMBER"
             value={formData.phone}
             onChange={handleChange}
-            className="bg-gray-100 border-none h-14 px-4"
+            className="bg-gray-100 h-14 px-4"
           />
         </div>
         <div className="md:col-span-2 flex flex-col">
