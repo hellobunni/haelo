@@ -1,8 +1,7 @@
-import { notFound } from "next/navigation";
 import { format } from "date-fns";
-import Link from "next/link";
 import { ArrowLeft, Mail } from "lucide-react";
-import { getClientDetailById } from "@/features/admin/api";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -14,13 +13,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getClientDetailById } from "@/features/admin/api";
 import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatusBadge";
 
 interface ClientDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function ClientDetailPage({ params }: ClientDetailPageProps) {
+export default async function ClientDetailPage({
+  params,
+}: ClientDetailPageProps) {
   const { id } = await params;
   const clientData = await getClientDetailById(id);
 
@@ -60,7 +62,8 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
             <div className="text-right">
               <p className="text-sm text-gray-600 mb-1">Total Outstanding</p>
               <p className="text-3xl font-bold text-red-600">
-                ${totalOutstanding.toLocaleString("en-US", {
+                $
+                {totalOutstanding.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}
@@ -91,9 +94,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
                         {project.description}
                       </p>
                     </div>
-                    <Badge
-                      className={getProjectStatusColor(project.status)}
-                    >
+                    <Badge className={getProjectStatusColor(project.status)}>
                       {project.status}
                     </Badge>
                   </div>
@@ -101,7 +102,9 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
                   <div className="mb-3">
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-sm text-gray-600">Progress</span>
-                      <span className="text-sm font-medium">{project.progress}%</span>
+                      <span className="text-sm font-medium">
+                        {project.progress}%
+                      </span>
                     </div>
                     <Progress value={project.progress} className="h-2" />
                   </div>
@@ -119,7 +122,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
                         <span className="font-medium">
                           {format(
                             new Date(project.estimatedCompletion),
-                            "MMM d, yyyy"
+                            "MMM d, yyyy",
                           )}
                         </span>
                       </div>
@@ -172,7 +175,8 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
                         {format(new Date(invoice.dueDate), "MMM d, yyyy")}
                       </TableCell>
                       <TableCell className="text-right font-medium">
-                        ${invoice.totalAmount.toLocaleString("en-US", {
+                        $
+                        {invoice.totalAmount.toLocaleString("en-US", {
                           minimumFractionDigits: 2,
                           maximumFractionDigits: 2,
                         })}

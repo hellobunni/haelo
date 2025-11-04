@@ -25,6 +25,7 @@ export default function DesktopPillNav({ onClose }: { onClose: () => void }) {
           </Link>
         ))}
         <button
+          type="button"
           onClick={onClose}
           className="p-2 bg-black/10 rounded-full cursor-pointer"
           aria-label="Close navigation"

@@ -7,13 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-type Inquiry = {
-  name: string;
-  email: string;
-  phone?: string;
-  message: string;
-};
-
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },

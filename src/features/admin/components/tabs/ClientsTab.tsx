@@ -1,9 +1,8 @@
 "use client";
 
-import { format } from "date-fns";
 import { Loader2, Users } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -13,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useRouter } from "next/navigation";
 import type { ClientWithData } from "@/features/admin/api";
 
 // NEW: We'll fetch via a client-accessible API route
@@ -95,7 +93,7 @@ export default function ClientsTab() {
             </TableHeader>
             <TableBody>
               {clients.map((client) => (
-                <TableRow 
+                <TableRow
                   key={client.id}
                   className="cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => router.push(`/admin/clients/${client.id}`)}

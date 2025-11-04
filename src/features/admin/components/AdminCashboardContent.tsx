@@ -8,13 +8,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ClientsTab from "@/features/admin/components/tabs/ClientsTab";
 import ProjectsTab from "@/features/admin/components/tabs/ProjectsTab";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
+import type { User } from "@/types";
 import AddClientDialog from "./dialogs/AddClientDialog";
 
 export default function AdminDashboardContent() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const handleAddClient = async (newClient: any) => {
+  const handleAddClient = async (
+    newClient: Omit<User, "id" | "password" | "createdAt" | "updatedAt">,
+  ) => {
     console.log("Adding client:", newClient);
 
     try {

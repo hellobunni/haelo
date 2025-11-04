@@ -1,11 +1,13 @@
 import { getDocumentsByEmail } from "@/features/documents/api";
 import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getProjectsByEmail } from "@/features/projects/api";
-import type { Document, Invoice, Project } from "@/types";
 import { MOCK_USERS } from "@/lib/api/mock/users";
 import type {
+  Document,
   DocumentWithClient,
+  Invoice,
   InvoiceWithClient,
+  Project,
   ProjectWithClient,
 } from "@/types";
 
@@ -15,6 +17,7 @@ export interface ClientDetailData {
   invoices: Invoice[];
   documents: Document[];
 }
+
 // NEW: Import Supabase function
 import {
   type ClientWithData,
@@ -137,7 +140,7 @@ export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
 }
 
 export async function getClientDetailById(
-  clientId: string
+  clientId: string,
 ): Promise<ClientDetailData | null> {
   if (USE_SUPABASE) {
     const { getClientDetailByIdFromSupabase } = await import("./supabase-api");
@@ -149,7 +152,7 @@ export async function getClientDetailById(
   await new Promise((r) => setTimeout(r, 500));
 
   const client = MOCK_USERS.find(
-    (user) => user.id === clientId && user.role === "client"
+    (user) => user.id === clientId && user.role === "client",
   );
 
   if (!client) {

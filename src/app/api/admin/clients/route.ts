@@ -73,16 +73,22 @@ export async function POST(request: Request) {
 
     // Create the auth user using Supabase Auth Admin API
     // Note: This requires SUPABASE_SERVICE_ROLE_KEY environment variable
-    const supabaseAdmin = createSupabaseClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false,
-        },
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !serviceRoleKey) {
+      return NextResponse.json(
+        { error: "Missing required environment variables" },
+        { status: 500 },
+      );
+    }
+
+    const supabaseAdmin = createSupabaseClient(supabaseUrl, serviceRoleKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
       },
-    );
+    });
 
     const { data: authUser, error: authError } =
       await supabaseAdmin.auth.admin.createUser({

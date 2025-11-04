@@ -1,6 +1,5 @@
 import { createClient as createServerClient } from "@/lib/supabase/server";
-import type { User } from "@/types";
-import type { Document, Invoice, Project } from "@/types";
+import type { Document, Invoice, Project, User } from "@/types";
 
 export interface ClientDetailData {
   client: ClientWithData;
@@ -112,7 +111,6 @@ export async function getAllClientsWithDataFromSupabase(): Promise<
   return clientsWithData;
 }
 
-
 /**
  * Fetch all projects with client information from Supabase
  * Only admins should call this function
@@ -157,28 +155,33 @@ export async function getAllProjectsFromSupabase() {
   }
 
   // Transform the data to match the expected format
-  const formattedProjects = projects.map((project) => ({
-    id: project.id,
-    projectName: project.project_name,
-    description: project.description || "",
-    clientId: project.client_id,
-    clientEmail: project.users?.email || "",  // ✅ ADD THIS LINE
-    clientName: project.users?.full_name || "Unknown Client",
-    status: project.status,
-    progress: project.progress,
-    startDate: project.start_date,
-    estimatedCompletion: project.estimated_completion,
-    pdfUrl: project.pdf_url,
-    createdAt: project.created_at,
-    updatedAt: project.updated_at,
-  }));
+  const formattedProjects = projects.map((project) => {
+    const user = Array.isArray(project.users)
+      ? project.users[0]
+      : project.users;
+    return {
+      id: project.id,
+      projectName: project.project_name,
+      description: project.description || "",
+      clientId: project.client_id,
+      clientEmail: user?.email || "",
+      clientName: user?.full_name || "Unknown Client",
+      status: project.status,
+      progress: project.progress,
+      startDate: project.start_date,
+      estimatedCompletion: project.estimated_completion,
+      pdfUrl: project.pdf_url,
+      createdAt: project.created_at,
+      updatedAt: project.updated_at,
+    };
+  });
 
   console.log(`✅ [Supabase] Found ${formattedProjects.length} projects`);
   return formattedProjects;
 }
 
 export async function getClientDetailByIdFromSupabase(
-  clientId: string
+  clientId: string,
 ): Promise<ClientDetailData | null> {
   console.log(`👤 [Supabase] Fetching client details for ID: ${clientId}`);
 
@@ -220,7 +223,8 @@ export async function getClientDetailByIdFromSupabase(
 
   if (projectsError) console.error("⚠️ Error fetching projects:", projectsError);
   if (invoicesError) console.error("⚠️ Error fetching invoices:", invoicesError);
-  if (documentsError) console.error("⚠️ Error fetching documents:", documentsError);
+  if (documentsError)
+    console.error("⚠️ Error fetching documents:", documentsError);
 
   // Transform projects
   const projects: Project[] = (projectsData || []).map((p) => ({
@@ -248,16 +252,16 @@ export async function getClientDetailByIdFromSupabase(
   }));
 
   // Transform documents
-// Transform documents - update to match actual schema
-const documents: Document[] = (documentsData || []).map((doc) => ({
-  id: doc.id,
-  documentName: doc.title, // ✅ Changed from doc.document_name to doc.title
-  documentType: doc.document_type,
-  clientEmail: client.email,
-  uploadDate: doc.upload_date,
-  fileUrl: doc.file_url,
-  status: doc.status,
-}));
+  // Transform documents - update to match actual schema
+  const documents: Document[] = (documentsData || []).map((doc) => ({
+    id: doc.id,
+    documentName: doc.title, // ✅ Changed from doc.document_name to doc.title
+    documentType: doc.document_type,
+    clientEmail: client.email,
+    uploadDate: doc.upload_date,
+    fileUrl: doc.file_url,
+    status: doc.status,
+  }));
 
   const totalSpent = invoices
     .filter((inv) => inv.status === "Paid")

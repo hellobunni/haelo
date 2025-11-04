@@ -43,7 +43,7 @@ export default function ProjectsTab() {
         setLoading(false);
       }
     };
-  
+
     fetchProjects();
   }, []);
 

@@ -83,6 +83,7 @@ export default function SiteHeader() {
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
+                type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
                 className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md"
                 aria-label="Open menu"

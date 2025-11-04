@@ -19,6 +19,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
           Matte Digital
         </Link>
         <button
+          type="button"
           onClick={onClose}
           className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full"
           aria-label="Close menu"

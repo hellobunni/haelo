@@ -117,9 +117,9 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.1 }}
         variants={containerVariants}
       >
-        {services.map((service, index) => (
+        {services.map((service) => (
           <motion.div
-            key={index}
+            key={service.n}
             variants={itemVariants}
             className="group py-8 border-b border-[var(--border)]"
           >
@@ -132,7 +132,7 @@ export default function HomePage() {
                 <h3 className="list-item-heading">{service.title}</h3>
               </div>
               <div className="flex items-center gap-4">
-              <p className="text-gray-600">{service.desc}</p>
+                <p className="text-gray-600">{service.desc}</p>
                 <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </Link>
@@ -152,8 +152,8 @@ export default function HomePage() {
           Selected Works
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
-          {projects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
+          {projects.map((project) => (
+            <motion.div key={project.title} variants={itemVariants}>
               <Link href="/work" className="group block">
                 <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 relative h-96">
                   <motion.div

@@ -101,7 +101,8 @@ export default function PdfUploadDialog({
 
         <div className="space-y-4">
           {/* File Upload Area */}
-          <div
+          <section
+            aria-label="File upload drop zone"
             className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
               dragActive
                 ? "border-periwinkle bg-periwinkle/5"
@@ -134,7 +135,7 @@ export default function PdfUploadDialog({
                 <span>{selectedFile.name}</span>
               </div>
             )}
-          </div>
+          </section>
 
           {/* Or Divider */}
           <div className="relative">
