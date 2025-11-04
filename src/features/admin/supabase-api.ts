@@ -162,6 +162,7 @@ export async function getAllProjectsFromSupabase() {
     projectName: project.project_name,
     description: project.description || "",
     clientId: project.client_id,
+    clientEmail: project.users?.email || "",  // ✅ ADD THIS LINE
     clientName: project.users?.full_name || "Unknown Client",
     status: project.status,
     progress: project.progress,
