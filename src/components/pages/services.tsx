@@ -16,61 +16,61 @@ const itemVariants = {
 
 const approachSteps = [
   {
-    title: "Discovery & Strategy",
-    desc: "We start by understanding your brand, goals, and audience.",
+    title: "Discovery",
+    desc: "We dive deep into your brand, goals, and user needs.",
   },
   {
-    title: "Concept & Design",
-    desc: "Crafting visual concepts and user-centric designs.",
+    title: "Design",
+    desc: "Concept, iterate, refine until it aligns with your vision.",
   },
   {
-    title: "Execution & Development",
-    desc: "Bringing designs to life with clean, efficient code.",
+    title: "Build",
+    desc: "Code with craftsmanship, test with precision, launch with confidence.",
   },
   {
-    title: "Iteration & Refinement",
-    desc: "Testing and refining to ensure a perfect final product.",
+    title: "Optimize",
+    desc: "Post-launch monitoring, tweaking, and scaling for growth.",
   },
 ];
 
 const services = [
   {
     n: "01",
-    title: "Web Design",
+    title: "Web & Interface Design",
     desc1:
-      "A great website is more than just aesthetics. We focus on creating a high-performance, user-centric experience that drives results.",
+      "Intuitive, elegant UI that feels luxe and functions flawlessly.",
     desc2:
-      "From wireframes to final polish, our designs are built to convert and impress, ensuring your digital storefront is flawless.",
+      "We create interfaces that don't just look beautiful—they guide users seamlessly through their journey, converting visits into meaningful actions.",
     imageUrl:
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1472",
   },
   {
     n: "02",
-    title: "Development",
+    title: "Engineering & Development",
     desc1:
-      "We write robust, modern code and build scalable websites. Our team stays on the cutting-edge of technology to deliver top performance.",
+      "Built with Next.js, TypeScript & Tailwind for scalable, performance-driven builds.",
     desc2:
-      "We focus on security, speed, and creating a seamless digital experience that works perfectly on all devices.",
+      "We write clean, maintainable code that powers fast, reliable digital experiences across all devices and platforms.",
     imageUrl:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2940&auto=format&fit=crop",
   },
   {
     n: "03",
-    title: "UI/UX",
+    title: "UX Strategy & Research",
     desc1:
-      "Intuitive design is invisible. We craft seamless user interfaces and experiences that guide, engage, and delight your audience.",
+      "User journeys informed by data, crafted for conversion and delight.",
     desc2:
-      "Our process involves deep research, user-testing, and iterative design to create products people love to use.",
+      "We dig deep into user behavior and needs to create experiences that feel natural, reduce friction, and drive measurable results.",
     imageUrl:
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2940&auto=format&fit=crop",
   },
   {
     n: "04",
-    title: "Consulting",
+    title: "Digital Consulting",
     desc1:
-      "Leverage our expertise to make better digital decisions. We provide strategic guidance for your projects, ensuring they align with your business goals.",
+      "Custom roadmaps, process optimisation & tech strategy for growing brands.",
     desc2:
-      "From tech stack choices to market positioning, we partner with you to create a roadmap for long-term success.",
+      "From choosing the right tech stack to defining your digital strategy, we provide expert guidance that aligns with your business goals and sets you up for sustainable growth.",
     imageUrl:
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2940&auto=format&fit=crop",
   },
@@ -89,18 +89,14 @@ export default function ServicesPage() {
         className="py-24 max-w-7xl mx-auto"
       >
         <h1 className="section-heading mb-6">
-          Crafting Brands with <br /> Design that Speaks
+          What We Offer
         </h1>
         <div className="grid md:grid-cols-2 gap-8 text-gray-600 mt-12">
-          <p className="max-w-md">
-            Good design is about more than aesthetics - it's about creating a
-            connection. I build brands and digital experiences that are
-            authentic and impactful.
+          <p className="max-w-md text-lg">
+            Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.
           </p>
-          <p className="max-w-md">
-            From initial concept to final execution, my process is
-            collaborative, transparent, and focused on delivering results that
-            matter for your business.
+          <p className="max-w-md text-lg">
+            From strategy to launch, we deliver elegant solutions that combine refined design with powerful engineering.
           </p>
         </div>
       </motion.section>
@@ -116,9 +112,9 @@ export default function ServicesPage() {
           variants={itemVariants}
           className="sub-heading sticky top-32"
         >
-          My
+          Our
           <br />
-          Approach
+          Process
         </motion.h2>
         <div className="md:col-span-2 grid grid-cols-2 gap-x-8 gap-y-12">
           {approachSteps.map((step) => (
@@ -165,20 +161,19 @@ export default function ServicesPage() {
       </motion.section>
 
       <motion.section
-        className="my-16 py-16 bg-[#111] text-white rounded-2xl"
+        className="my-16 py-24 bg-periwinkle text-white rounded-2xl"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
       >
         <div className="max-w-7xl mx-auto px-8 text-center">
-          <h2 className="sub-heading mb-4">See the Work in Action</h2>
-          <p className="text-gray-400 mb-8">
-            Check out our recent projects to see how we've helped brands like
-            yours succeed.
+          <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+          <p className="mb-8 text-lg">
+            We're now onboarding select clients for Q1.
           </p>
-          <Link href="/work">
+          <Link href="/contact">
             <Button className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full hover:bg-gray-200">
-              View Our Work
+              Start your project →
             </Button>
           </Link>
         </div>

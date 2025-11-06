@@ -23,12 +23,24 @@ export function createClient() {
   console.log("✅ Supabase client created successfully");
 
   return createBrowserClient(supabaseUrl, supabaseAnonKey, {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true,
-      storage: typeof window !== "undefined" ? window.localStorage : undefined,
-      storageKey: "sb-auth-token",
+    cookies: {
+      getAll() {
+        return document.cookie.split(';').map(cookie => {
+          const [name, value] = cookie.trim().split('=');
+          return { name, value };
+        });
+      },
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          let cookie = `${name}=${value}`;
+          if (options?.maxAge) cookie += `; max-age=${options.maxAge}`;
+          if (options?.path) cookie += `; path=${options.path}`;
+          if (options?.domain) cookie += `; domain=${options.domain}`;
+          if (options?.sameSite) cookie += `; samesite=${options.sameSite}`;
+          if (options?.secure) cookie += '; secure';
+          document.cookie = cookie;
+        });
+      },
     },
   });
 }

@@ -52,7 +52,7 @@ export default function SiteHeader() {
               href="/"
               className="text-2xl font-bold text-[var(--foreground)]"
             >
-              Matte Digital
+              Haelo Studio
             </Link>
           </div>
 

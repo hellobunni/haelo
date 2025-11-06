@@ -9,6 +9,10 @@ export interface Invoice {
   totalAmount: number;
   status: InvoiceStatus;
   pdfUrl?: string;
+  stripeInvoiceId?: string;
+  stripeHostedUrl?: string;
+  stripePaymentIntentId?: string;
+  currency?: string;
 }
 
 export interface InvoiceLineItem {

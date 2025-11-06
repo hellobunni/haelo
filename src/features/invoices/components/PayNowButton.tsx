@@ -1,53 +1,145 @@
-// components/invoices/pay-now-button.tsx
-"use client";
+'use client';
 
-import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { payInvoice } from "../api";
+import { useState } from 'react';
+import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { getStripe } from '@/lib/stripe/client';
+import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
 
-export function PayNowButton({ invoiceId }: { invoiceId: string }) {
-  const [pending, setPending] = useState(false);
-  const router = useRouter();
+function CheckoutForm({ invoiceId, onSuccess }: { invoiceId: string; onSuccess?: () => void }) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handlePayment = async () => {
-    console.log(`🔘 Pay Now button clicked for invoice: ${invoiceId}`);
-    setPending(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-    try {
-      // Mock payment processing
-      const result = await payInvoice(invoiceId);
+    if (!stripe || !elements) return;
 
-      if (result) {
-        console.log(`✅ Payment processed successfully!`);
-        // Refresh the page to show updated status
-        router.refresh();
-      } else {
-        console.error(`❌ Payment failed for invoice: ${invoiceId}`);
-      }
-    } catch (error) {
-      console.error(`❌ Payment error:`, error);
-    } finally {
-      setPending(false);
+    setIsProcessing(true);
+    setErrorMessage(null);
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: `${window.location.origin}/invoices/${invoiceId}/success`,
+      },
+    });
+
+    if (error) {
+      setErrorMessage(error.message || 'Payment failed');
+      setIsProcessing(false);
+    } else {
+      onSuccess?.();
     }
   };
 
   return (
-    <Button
-      onClick={handlePayment}
-      disabled={pending}
-      size="lg"
-      className="bg-periwinkle hover:bg-periwinkle/90 text-white font-bold text-lg px-8 py-6 rounded-full"
-    >
-      {pending ? (
-        <>
-          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-          Processing...
-        </>
-      ) : (
-        "Pay Now"
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <PaymentElement />
+      {errorMessage && (
+        <div className="text-red-600 text-sm">{errorMessage}</div>
       )}
-    </Button>
+      <Button type="submit" disabled={!stripe || isProcessing} className="w-full">
+        {isProcessing ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Processing...
+          </>
+        ) : (
+          'Pay Now'
+        )}
+      </Button>
+    </form>
+  );
+}
+
+export function PayNowButton({ 
+  invoiceId, 
+  amount,
+  currency = 'USD' 
+}: { 
+  invoiceId: string; 
+  amount: number;
+  currency?: string;
+}) {
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handlePayClick = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`/api/invoices/${invoiceId}/payment-intent`, {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to initialize payment');
+      }
+
+      // If Stripe hosted invoice URL is available, redirect to it
+      if (data.useStripeHosted && data.hostedInvoiceUrl) {
+        window.location.href = data.hostedInvoiceUrl;
+        return;
+      }
+
+      // Otherwise use custom checkout
+      setClientSecret(data.clientSecret);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to initialize payment');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (error) {
+    return (
+      <div className="space-y-2">
+        <div className="text-red-600 text-sm">{error}</div>
+        <Button onClick={handlePayClick} disabled={loading}>
+          Try Again
+        </Button>
+      </div>
+    );
+  }
+
+  if (!clientSecret) {
+    return (
+      <Button 
+        onClick={handlePayClick} 
+        disabled={loading}
+        size="lg"
+        className="w-full"
+      >
+        {loading ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Loading...
+          </>
+        ) : (
+          `Pay ${currency} ${amount.toFixed(2)}`
+        )}
+      </Button>
+    );
+  }
+
+  return (
+    <Elements 
+      stripe={getStripe()} 
+      options={{ 
+        clientSecret,
+        appearance: {
+          theme: 'stripe',
+        },
+      }}
+    >
+      <CheckoutForm invoiceId={invoiceId} />
+    </Elements>
   );
 }

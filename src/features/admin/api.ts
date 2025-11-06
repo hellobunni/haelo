@@ -2,6 +2,8 @@ import { getDocumentsByEmail } from "@/features/documents/api";
 import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getProjectsByEmail } from "@/features/projects/api";
 import { MOCK_USERS } from "@/lib/api/mock/users";
+import { createClient } from '@/lib/supabase/client';
+
 import type {
   Document,
   DocumentWithClient,
@@ -118,25 +120,39 @@ export async function getAllDocuments(): Promise<DocumentWithClient[]> {
 }
 
 export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
-  console.log("💰 [Mock Admin] Fetching all invoices...");
-  await new Promise((r) => setTimeout(r, 400));
+  const supabase = createClient();
+  
+  const { data, error } = await supabase
+    .from('invoices')
+    .select(`
+      *,
+      users!client_id (
+        id,
+        email,
+        full_name
+      )
+    `)
+    .order('issue_date', { ascending: false });
 
-  const allInvoices: InvoiceWithClient[] = [];
-
-  for (const user of MOCK_USERS) {
-    if (user.role === "client") {
-      const invoices = await getAllInvoicesByEmail(user.email);
-      invoices.forEach((invoice) => {
-        allInvoices.push({
-          ...invoice,
-          clientName: user.full_name,
-        });
-      });
-    }
+  if (error) {
+    console.error('Error fetching invoices:', error);
+    throw error;
   }
 
-  console.log(`✅ [Mock Admin] Found ${allInvoices.length} invoices`);
-  return allInvoices;
+  // Transform to match your InvoiceWithClient type
+  return (data || []).map((inv) => ({
+    id: inv.id,
+    invoiceNumber: inv.invoice_number,
+    clientEmail: inv.client_email || inv.users.email,
+    clientName: inv.client_name || inv.users.full_name,
+    issueDate: inv.issue_date,
+    dueDate: inv.due_date,
+    totalAmount: Number(inv.total_amount),
+    status: inv.status as any,
+    pdfUrl: inv.pdf_url,
+    stripeInvoiceId: inv.stripe_invoice_id,
+    stripeHostedUrl: inv.stripe_hosted_url,
+  }));
 }
 
 export async function getClientDetailById(

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/table";
 import { getClientDetailById } from "@/features/admin/api";
 import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatusBadge";
+import { AddInvoiceButton } from "./AddInvoiceButton";
 
 interface ClientDetailPageProps {
   params: Promise<{ id: string }>;
@@ -47,6 +48,7 @@ export default async function ClientDetailPage({
         <ArrowLeft className="h-4 w-4" />
         Back to Dashboard
       </Link>
+      
 
       {/* Client Header */}
       <Card className="mb-8">
@@ -143,7 +145,12 @@ export default async function ClientDetailPage({
 
       {/* Invoices Section */}
       <section className="mb-8">
+        <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold mb-4">Invoices</h2>
+
+          {/* Add Invoice Button */}
+          <AddInvoiceButton />
+          </div>
         <Card>
           <CardContent className="pt-6">
             {invoices.length > 0 ? (

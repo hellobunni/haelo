@@ -27,23 +27,17 @@ export default function AboutPage() {
         className="max-w-5xl mx-auto text-left my-16"
       >
         <h1 className="section-heading mb-12">
-          The Mind Behind
-          <br />
-          the Magic.
+          About Haelo Studio
         </h1>
-        <div className="grid md:grid-cols-3 gap-8 text-gray-500 text-sm">
+        <div className="grid md:grid-cols-1 gap-8 text-gray-700 text-lg leading-relaxed">
           <p>
-            As a solo digital creator, I combine the roles of designer,
-            developer, and strategist to offer a uniquely integrated and
-            personal service.
+            Haelo Studio is led by full-stack engineer and designer Bryanna "Bree" Lynae. With a passion for UI/UX, high-performance builds, and aesthetic excellence, our studio is built for brands that value both form and function.
           </p>
           <p>
-            My focus is on partnering directly with clients to build beautiful,
-            functional, and impactful digital experiences from the ground up.
+            Whether you're scaling up or starting new, we bring bespoke solutions, high-touch service, and a refined finish.
           </p>
-          <p>
-            This lean approach ensures clear communication, deep collaboration,
-            and a final product that truly reflects your vision.
+          <p className="text-xl font-semibold text-periwinkle">
+            Let's build your next chapter together.
           </p>
         </div>
       </motion.div>
@@ -56,25 +50,23 @@ export default function AboutPage() {
         variants={containerVariants}
       >
         <motion.h2 variants={itemVariants} className="text-2xl font-bold mb-8">
-          Who I Am
+          Our Philosophy
         </motion.h2>
         <motion.p
           variants={itemVariants}
           className="text-3xl md:text-5xl font-semibold leading-tight"
         >
-          Matte Digital is a creative studio built on the belief that great
-          design isn't just decoration—
+          At Haelo Studio, we believe in
           <span className="bg-periwinkle/30 px-2 rounded-md">
-            it's the foundation of impactful brands.
+            more than pretty visuals
           </span>{" "}
-          I obsess over every detail, challenge the ordinary, and
+          — we build digital presence with intention. Our clients trust us because we deliver
           <span className="bg-periwinkle/30 px-2 rounded-md">
-            create work that leaves a mark.
+            clarity in design, precision in code,
           </span>{" "}
-          I take pride in working with startups, established brands, and
-          innovators who understand
+          and dedication in execution.
           <span className="bg-periwinkle/30 px-2 rounded-md">
-            the power of good design.
+            Boutique-studio vibe, agency-grade results.
           </span>
         </motion.p>
       </motion.div>
@@ -101,10 +93,13 @@ export default function AboutPage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="sub-heading mb-4">Let's Create Something That Lasts</h2>
+        <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+        <p className="mb-8 max-w-xl mx-auto text-lg">
+          We're now onboarding select clients for Q1.
+        </p>
         <Link href="/contact">
           <Button className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full hover:bg-gray-200 mt-4">
-            Start a project
+            Start your project →
           </Button>
         </Link>
       </motion.section>

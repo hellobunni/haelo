@@ -18,10 +18,11 @@ import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatus
 import { InvoiceTotals } from "@/features/invoices/components/InvoiceTotals";
 import { PayNowButton } from "@/features/invoices/components/PayNowButton";
 
-type Props = { params: { id: string } };
+type Props = { params: Promise<{ id: string }> };
 
 export default async function InvoicePage({ params }: Props) {
-  const invoice = await getInvoiceById(params.id);
+  const { id } = await params;
+  const invoice = await getInvoiceById(id);
   if (!invoice) return notFound();
 
   const lineItems = await getLineItemsByInvoiceId(invoice.id);
@@ -80,7 +81,24 @@ export default async function InvoicePage({ params }: Props) {
           </div>
 
           {invoice.status !== "Paid" ? (
-            <PayNowButton invoiceId={invoice.id} />
+            <div className="flex flex-col gap-2 items-end">
+              <PayNowButton 
+                invoiceId={invoice.id} 
+                amount={invoice.totalAmount}
+                currency="USD"
+              />
+              {/* @ts-ignore - stripeHostedUrl exists in extended type */}
+              {invoice.stripeHostedUrl && (
+                <a
+                  href={invoice.stripeHostedUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-purple-600 hover:underline flex items-center gap-1"
+                >
+                  <span>⚡</span> Pay via Stripe
+                </a>
+              )}
+            </div>
           ) : (
             <div className="text-green-600 font-bold text-lg">
               Paid in Full ✅

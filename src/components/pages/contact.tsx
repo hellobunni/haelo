@@ -63,7 +63,7 @@ export default function ContactPage() {
         >
           <h1 className="sub-heading mb-4">Thank You!</h1>
           <p className="text-lg text-gray-600">
-            Your message has been sent successfully. I'll get back to you soon.
+            Your message has been sent successfully. We'll get back to you within 24 hours.
           </p>
         </motion.div>
       </div>
@@ -82,18 +82,17 @@ export default function ContactPage() {
           variants={itemVariants}
           className="layered-heading md:col-span-2"
         >
-          Great Work Starts
+          Let's Build
           <br />
-          with a Hello
+          Together
           <span aria-hidden="true">
-            Great Work Starts
+            Let's Build
             <br />
-            with a Hello
+            Together
           </span>
         </motion.h1>
-        <motion.p variants={itemVariants} className="text-gray-600 pt-4">
-          Great design starts with a conversation. Whether you have a project in
-          mind or just want to connect, I'd love to hear from you.
+        <motion.p variants={itemVariants} className="text-gray-600 pt-4 text-lg">
+          Ready to elevate your digital presence? Let's start a conversation about bringing your vision to life.
         </motion.p>
       </div>
 
@@ -131,7 +130,7 @@ export default function ContactPage() {
         <div className="md:col-span-2 flex flex-col">
           <Textarea
             name="message"
-            placeholder="Tell us what's on your mind—big ideas, small details, or anything in between..."
+            placeholder="Tell us about your project—your goals, vision, and what success looks like..."
             value={formData.message}
             onChange={handleChange}
             className="bg-gray-100 border-none flex-grow px-4 py-4 min-h-[150px]"
@@ -159,12 +158,12 @@ export default function ContactPage() {
         className="mt-24 pt-12 border-t border-[var(--border)] grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-sm"
       >
         <div>
-          <h4 className="text-gray-400 mb-2">CONTACT ME</h4>
-          <p className="font-semibold">hello@mattedigital.com</p>
+          <h4 className="text-gray-400 mb-2">CONTACT US</h4>
+          <p className="font-semibold">hello@haelostudio.com</p>
         </div>
         <div>
-          <h4 className="text-gray-400 mb-2">LOCATION</h4>
-          <p className="font-semibold">Based in Planet Earth</p>
+          <h4 className="text-gray-400 mb-2">AVAILABILITY</h4>
+          <p className="font-semibold">Now onboarding select clients for Q1</p>
         </div>
       </motion.div>
     </motion.div>

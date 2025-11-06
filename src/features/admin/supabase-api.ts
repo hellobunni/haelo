@@ -1,4 +1,4 @@
-import { createClient as createServerClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import type { Document, Invoice, Project, User } from "@/types";
 
 export interface ClientDetailData {
@@ -24,7 +24,7 @@ export async function getAllClientsWithDataFromSupabase(): Promise<
 > {
   console.log("👥 [Supabase] Fetching all clients with their data...");
 
-  const supabase = await createServerClient();
+  const supabase = await createClient();
 
   // Fetch all users with role 'client'
   const { data: clients, error: clientsError } = await supabase
@@ -118,7 +118,7 @@ export async function getAllClientsWithDataFromSupabase(): Promise<
 export async function getAllProjectsFromSupabase() {
   console.log("🚀 [Supabase] Fetching all projects with client data...");
 
-  const supabase = await createServerClient();
+  const supabase = await createClient();
 
   // Fetch all projects with their associated client information
   const { data: projects, error } = await supabase
@@ -185,7 +185,7 @@ export async function getClientDetailByIdFromSupabase(
 ): Promise<ClientDetailData | null> {
   console.log(`👤 [Supabase] Fetching client details for ID: ${clientId}`);
 
-  const supabase = await createServerClient();
+  const supabase = await createClient();
 
   // Fetch client
   const { data: client, error: clientError } = await supabase
@@ -212,17 +212,22 @@ export async function getClientDetailByIdFromSupabase(
     .from("invoices")
     .select("*")
     .eq("client_id", clientId)
-    .order("created_at", { ascending: false });
+    .order("issue_date", { ascending: false });
 
   // Fetch documents
   const { data: documentsData, error: documentsError } = await supabase
     .from("documents")
     .select("*")
     .eq("client_id", clientId)
-    .order("created_at", { ascending: false });
+    .order("upload_date", { ascending: false });
 
   if (projectsError) console.error("⚠️ Error fetching projects:", projectsError);
-  if (invoicesError) console.error("⚠️ Error fetching invoices:", invoicesError);
+  if (invoicesError) {
+    console.error("⚠️ Error fetching invoices:", invoicesError);
+  } else {
+    console.log(`📄 Found ${invoicesData?.length || 0} invoices for client ${clientId}`);
+    console.log('Invoice data:', invoicesData);
+  }
   if (documentsError)
     console.error("⚠️ Error fetching documents:", documentsError);
 

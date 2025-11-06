@@ -20,21 +20,21 @@ const itemVariants = {
 };
 
 const services = [
-  { n: "01", title: "Web Design", desc: "User-centric and beautiful designs." },
+  { n: "01", title: "Web & Interface Design", desc: "Intuitive, elegant UI that feels luxe and functions flawlessly." },
   {
     n: "02",
-    title: "Development",
-    desc: "Pixel-perfect and scalable solutions.",
+    title: "Engineering & Development",
+    desc: "Built with Next.js, TypeScript & Tailwind for scalable, performance-driven builds.",
   },
   {
     n: "03",
-    title: "UI/UX",
-    desc: "Intuitive interfaces and seamless user experiences.",
+    title: "UX Strategy & Research",
+    desc: "User journeys informed by data, crafted for conversion and delight.",
   },
   {
     n: "04",
-    title: "Consulting",
-    desc: "Strategic guidance to elevate your digital presence.",
+    title: "Digital Consulting",
+    desc: "Custom roadmaps, process optimisation & tech strategy for growing brands.",
   },
 ];
 
@@ -85,11 +85,17 @@ export default function HomePage() {
       {/* Hero */}
       <section className="py-24 md:py-32 px-12 shadow-xl rounded-2xl">
         <motion.h1 variants={itemVariants} className="layered-heading">
-          Elevate Beyond <br /> the Ordinary.
+          Haelo Studio
           <span aria-hidden="true">
-            Elevate Beyond <br /> the Ordinary.
+            Haelo Studio
           </span>
         </motion.h1>
+        <motion.p variants={itemVariants} className="text-2xl md:text-3xl font-light mt-8 max-w-4xl">
+          We craft elevated digital experiences for premium brands.
+        </motion.p>
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light mt-4 max-w-3xl text-gray-600">
+          Refined design. Smart engineering. Lasting impact.
+        </motion.p>
       </section>
 
       {/* Intro */}
@@ -101,11 +107,10 @@ export default function HomePage() {
         variants={containerVariants}
       >
         <motion.h2 variants={itemVariants} className="sub-heading">
-          Stand Out, Not Blend In
+          What We Offer
         </motion.h2>
         <motion.p variants={itemVariants} className="text-lg text-gray-600">
-          I run a digital creative studio that partners with brands and
-          individuals to create exceptional digital experiences.
+          Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.
         </motion.p>
       </motion.section>
 
@@ -132,7 +137,7 @@ export default function HomePage() {
                 <h3 className="list-item-heading">{service.title}</h3>
               </div>
               <div className="flex items-center gap-4">
-                <p className="text-gray-600">{service.desc}</p>
+                <p className="text-gray-600 text-sm text-right opacity-0 group-hover:opacity-100 transition-opacity">{service.desc}</p>
                 <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </Link>
@@ -148,9 +153,12 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.1 }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants} className="sub-heading mb-12">
+        <motion.h2 variants={itemVariants} className="sub-heading mb-4">
           Selected Works
         </motion.h2>
+        <motion.p variants={itemVariants} className="text-lg text-gray-600 mb-12 max-w-3xl">
+          Each project reflects our signature blend of elegance + engineering — crafted for clients who demand more than ordinary.
+        </motion.p>
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
           {projects.map((project) => (
             <motion.div key={project.title} variants={itemVariants}>
@@ -178,29 +186,26 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      {/* Team */}
+      {/* Why Choose Us */}
       <motion.section
-        className="py-16 grid md:grid-cols-2 gap-8 items-center"
+        className="py-24 bg-gray-50 rounded-2xl px-8 md:px-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants} className="sub-heading">
-          A Creator That's Anything But Ordinary
+        <motion.h2 variants={itemVariants} className="sub-heading mb-8">
+          Why Choose Us
         </motion.h2>
-        <motion.div variants={itemVariants} className="relative h-64 md:h-96">
-          <Image
-            src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop"
-            alt="Solopreneur"
-            fill
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover rounded-lg shadow-xl"
-          />
-        </motion.div>
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl">
+          At Haelo Studio, we believe in more than pretty visuals — we build digital presence with intention.
+        </motion.p>
+        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mt-6">
+          Our clients trust us because we deliver clarity in design, precision in code, and dedication in execution. Boutique-studio vibe, agency-grade results.
+        </motion.p>
       </motion.section>
 
-      {/* Clients */}
+      {/* Process */}
       <motion.section
         className="py-24 mx-auto w-full"
         initial="hidden"
@@ -208,20 +213,30 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        <motion.p variants={itemVariants} className="text-lg text-center mb-12">
-          Working with clients who share my passion for quality is what drives
-          me.
-        </motion.p>
-        <div className="grid grid-cols-4 md:grid-cols-6 gap-8 items-center mx-auto w-full">
-          {clients.map((client) => (
-            <motion.div
-              key={client}
-              variants={itemVariants}
-              className="text-center text-xl font-bold text-gray-400 grayscale hover:grayscale-0 transition-all"
-            >
-              {client}
-            </motion.div>
-          ))}
+        <motion.h2 variants={itemVariants} className="sub-heading mb-12 text-center">
+          Our Process
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start mx-auto w-full max-w-7xl">
+          <motion.div variants={itemVariants} className="text-left">
+            <h3 className="text-4xl font-bold text-periwinkle mb-4">01</h3>
+            <h4 className="text-xl font-bold mb-2">Discovery</h4>
+            <p className="text-gray-600">We dive deep into your brand, goals, and user needs.</p>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-left">
+            <h3 className="text-4xl font-bold text-periwinkle mb-4">02</h3>
+            <h4 className="text-xl font-bold mb-2">Design</h4>
+            <p className="text-gray-600">Concept, iterate, refine until it aligns with your vision.</p>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-left">
+            <h3 className="text-4xl font-bold text-periwinkle mb-4">03</h3>
+            <h4 className="text-xl font-bold mb-2">Build</h4>
+            <p className="text-gray-600">Code with craftsmanship, test with precision, launch with confidence.</p>
+          </motion.div>
+          <motion.div variants={itemVariants} className="text-left">
+            <h3 className="text-4xl font-bold text-periwinkle mb-4">04</h3>
+            <h4 className="text-xl font-bold mb-2">Optimize</h4>
+            <p className="text-gray-600">Post-launch monitoring, tweaking, and scaling for growth.</p>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -232,13 +247,13 @@ export default function HomePage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="sub-heading mb-4">Let's Create Something That Lasts</h2>
-        <p className="mb-8 max-w-xl mx-auto">
-          Get in touch with us today to discuss your project.
+        <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+        <p className="mb-8 max-w-xl mx-auto text-lg">
+          We're now onboarding select clients for Q1.
         </p>
         <Link href="/contact">
           <Button className="bg-white text-black font-bold text-lg px-8 py-6 rounded-full hover:bg-gray-200">
-            Start a project
+            Start your project →
           </Button>
         </Link>
       </motion.section>

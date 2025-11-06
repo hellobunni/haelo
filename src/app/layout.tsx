@@ -4,8 +4,8 @@ import SiteHeader from "@/components/layout/site-header/site-header";
 import FooterAuth from "./footer-auth";
 
 export const metadata: Metadata = {
-  title: "Matte Digital",
-  description: "Creative Digital Studio",
+  title: "Haelo Studio",
+  description: "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
 };
 
 export default function RootLayout({
@@ -23,9 +23,9 @@ export default function RootLayout({
         <main className="pt-24">{children}</main>
         <footer className="bg-white mt-20 py-8">
           <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex flex-wrap justify-between items-center gap-4">
-            <p>© Matte Digital {new Date().getFullYear()}</p>
+            <p>© {new Date().getFullYear()} Haelo Studio</p>
             <FooterAuth />
-            <p>Creative Digital Studio</p>
+            <p>Crafted for brands that won't settle for ordinary.</p>
           </div>
         </footer>
       </body>

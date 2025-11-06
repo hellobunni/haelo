@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginForm() {
-  const _router = useRouter();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +31,8 @@ export default function LoginForm() {
     setIsLoading(true);
 
     try {
+      console.log("🔐 Attempting login for:", email);
+      
       const { data, error: signInError } =
         await supabase.auth.signInWithPassword({
           email,
@@ -38,11 +40,15 @@ export default function LoginForm() {
         });
 
       if (signInError) {
+        console.error("❌ Sign in error:", signInError);
         setError(signInError.message);
+        setIsLoading(false);
         return;
       }
 
       if (data.user) {
+        console.log("✅ User authenticated:", data.user.id);
+        
         // Get user role
         const { data: profile, error: profileError } = await supabase
           .from("users")
@@ -51,20 +57,28 @@ export default function LoginForm() {
           .single();
 
         if (profileError) {
+          console.error("❌ Profile fetch error:", profileError);
           setError(`Error fetching profile: ${profileError.message}`);
+          setIsLoading(false);
           return;
         }
 
-        // Role-based redirect - use window.location for hard redirect
-        // This ensures cookies are properly synced and no race conditions
+        console.log("👤 User role:", profile?.role);
+
+        // Role-based redirect
         const redirectPath =
           profile?.role === "admin" ? "/admin" : "/client-portal";
+        
+        console.log("🔄 Redirecting to:", redirectPath);
+        
+        // Wait a moment for cookies to be set, then refresh and redirect
+        await new Promise(resolve => setTimeout(resolve, 100));
+        router.refresh();
         window.location.href = redirectPath;
       }
     } catch (err) {
-      console.error("Login error:", err);
+      console.error("❌ Login error:", err);
       setError("An error occurred during login. Please try again.");
-    } finally {
       setIsLoading(false);
     }
   };

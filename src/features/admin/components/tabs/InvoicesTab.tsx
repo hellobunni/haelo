@@ -1,7 +1,7 @@
 "use client";
 
 import { format } from "date-fns";
-import { Edit, Eye, FileText, Loader2, Upload } from "lucide-react";
+import { Edit, Eye, FileText, Loader2, RefreshCw, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,8 @@ import PdfViewer from "../dialogs/PdfViewer";
 export default function InvoicesTab() {
   const [invoices, setInvoices] = useState<InvoiceWithClient[]>([]);
   const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
+  const [syncingId, setSyncingId] = useState<string | null>(null);
   const [pdfViewerOpen, setPdfViewerOpen] = useState(false);
   const [selectedInvoicePdf, setSelectedInvoicePdf] = useState<{
     url: string;
@@ -112,6 +114,77 @@ export default function InvoicesTab() {
     console.log(`✅ Invoice ${updatedInvoice.invoiceNumber} updated`);
   };
 
+  const handleSyncAll = async () => {
+    setSyncing(true);
+    try {
+      const response = await fetch('/api/admin/invoices/sync-all', {
+        method: 'POST',
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to sync invoices');
+      }
+
+      console.log(`✅ Synced ${result.synced} invoices`);
+      
+      // Refresh the invoices list
+      const data = await getAllInvoices();
+      data.sort(
+        (a, b) =>
+          new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime(),
+      );
+      setInvoices(data);
+    } catch (error) {
+      console.error('❌ Error syncing invoices:', error);
+      alert('Failed to sync invoices from Stripe');
+    } finally {
+      setSyncing(false);
+    }
+  };
+
+  const handleSyncSingle = async (invoiceId: string) => {
+    setSyncingId(invoiceId);
+    try {
+      const response = await fetch(`/api/admin/invoices/${invoiceId}/sync`, {
+        method: 'POST',
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to sync invoice');
+      }
+
+      console.log(`✅ Synced invoice ${invoiceId}`);
+      
+      // Update the specific invoice in the list
+      const updatedInvoices = invoices.map((inv) =>
+        inv.id === invoiceId ? {
+          ...inv,
+          ...result.invoice,
+          // Transform snake_case to camelCase
+          invoiceNumber: result.invoice.invoice_number,
+          clientEmail: result.invoice.client_email,
+          clientName: result.invoice.client_name,
+          issueDate: result.invoice.issue_date,
+          dueDate: result.invoice.due_date,
+          totalAmount: result.invoice.total_amount,
+          pdfUrl: result.invoice.pdf_url,
+          stripeInvoiceId: result.invoice.stripe_invoice_id,
+          stripeHostedUrl: result.invoice.stripe_hosted_url,
+        } : inv
+      );
+      setInvoices(updatedInvoices);
+    } catch (error) {
+      console.error('❌ Error syncing invoice:', error);
+      alert('Failed to sync invoice from Stripe');
+    } finally {
+      setSyncingId(null);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center py-16">
@@ -136,16 +209,27 @@ export default function InvoicesTab() {
             <FileText className="h-5 w-5" />
             All Invoices ({invoices.length})
           </CardTitle>
-          <Button
-            onClick={() => {
-              setSelectedInvoice(null);
-              setUploadDialogOpen(true);
-            }}
-            size="sm"
-          >
-            <Upload className="h-4 w-4 mr-2" />
-            New Invoice
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              onClick={handleSyncAll}
+              disabled={syncing}
+              variant="outline"
+              size="sm"
+            >
+              <RefreshCw className={`h-4 w-4 mr-2 ${syncing ? 'animate-spin' : ''}`} />
+              {syncing ? 'Syncing...' : 'Sync from Stripe'}
+            </Button>
+            <Button
+              onClick={() => {
+                setSelectedInvoice(null);
+                setUploadDialogOpen(true);
+              }}
+              size="sm"
+            >
+              <Upload className="h-4 w-4 mr-2" />
+              New Invoice
+            </Button>
+          </div>
         </div>
         <div className="flex gap-6 mt-4 text-sm">
           <div>
@@ -181,6 +265,7 @@ export default function InvoicesTab() {
                 <TableHead>Due Date</TableHead>
                 <TableHead className="text-right">Amount</TableHead>
                 <TableHead className="text-center">Status</TableHead>
+                <TableHead className="text-center">Source</TableHead>
                 <TableHead className="text-center">PDF</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
               </TableRow>
@@ -207,6 +292,18 @@ export default function InvoicesTab() {
                     </Badge>
                   </TableCell>
                   <TableCell className="text-center">
+                    {invoice.stripeInvoiceId ? (
+                      <Badge className="bg-purple-500/20 text-purple-600">
+                        <span className="mr-1">⚡</span>
+                        Stripe
+                      </Badge>
+                    ) : (
+                      <Badge className="bg-gray-500/20 text-gray-600">
+                        Manual
+                      </Badge>
+                    )}
+                  </TableCell>
+                  <TableCell className="text-center">
                     {invoice.pdfUrl ? (
                       <Badge className="bg-green-500/20 text-green-600">
                         <FileText className="h-3 w-3 mr-1" />
@@ -220,6 +317,27 @@ export default function InvoicesTab() {
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex gap-1 justify-end">
+                      {invoice.stripeInvoiceId && (
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => handleSyncSingle(invoice.id)}
+                          disabled={syncingId === invoice.id}
+                          title="Sync from Stripe"
+                        >
+                          <RefreshCw className={`h-4 w-4 ${syncingId === invoice.id ? 'animate-spin' : ''}`} />
+                        </Button>
+                      )}
+                      {invoice.stripeHostedUrl && (
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => window.open(invoice.stripeHostedUrl, '_blank')}
+                          title="View in Stripe"
+                        >
+                          <span className="text-purple-600">⚡</span>
+                        </Button>
+                      )}
                       {invoice.pdfUrl && (
                         <Button
                           variant="ghost"
