@@ -31,7 +31,9 @@ export async function POST(_request: NextRequest) {
           `🔄 Fetching invoice ${invoice.stripe_invoice_id} from Stripe...`,
         );
         if (!invoice.stripe_invoice_id) {
-          console.warn(`⚠️ Invoice ${invoice.id} has no Stripe invoice ID, skipping`);
+          console.warn(
+            `⚠️ Invoice ${invoice.id} has no Stripe invoice ID, skipping`,
+          );
           continue;
         }
         const stripeInvoice = await stripe.invoices.retrieve(

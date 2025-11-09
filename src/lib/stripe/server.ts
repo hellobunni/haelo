@@ -14,7 +14,7 @@ export async function getOrCreateStripeCustomer(
   userId: string,
   email: string,
   name: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: SupabaseClient type varies by usage context
   supabase: any, // SupabaseClient type varies by usage context
 ) {
   // Check if customer already exists in our DB

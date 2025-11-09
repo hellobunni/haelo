@@ -148,7 +148,7 @@ export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
     issueDate: inv.issue_date,
     dueDate: inv.due_date,
     totalAmount: Number(inv.total_amount),
-    status: inv.status as any,
+    status: inv.status as Invoice["status"],
     pdfUrl: inv.pdf_url,
     stripeInvoiceId: inv.stripe_invoice_id,
     stripeHostedUrl: inv.stripe_hosted_url,

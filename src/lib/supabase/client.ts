@@ -38,6 +38,7 @@ export function createClient() {
           if (options?.domain) cookie += `; domain=${options.domain}`;
           if (options?.sameSite) cookie += `; samesite=${options.sameSite}`;
           if (options?.secure) cookie += "; secure";
+          // biome-ignore lint/suspicious/noDocumentCookie: Required for Supabase SSR cookie handling
           document.cookie = cookie;
         });
       },

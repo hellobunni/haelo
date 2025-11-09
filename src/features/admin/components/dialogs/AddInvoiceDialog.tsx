@@ -40,7 +40,10 @@ export function AddInvoiceDialog({
   const [error, setError] = useState("");
 
   const handleAddLineItem = () => {
-    setLineItems([...lineItems, { id: crypto.randomUUID(), description: "", quantity: 1, rate: 0 }]);
+    setLineItems([
+      ...lineItems,
+      { id: crypto.randomUUID(), description: "", quantity: 1, rate: 0 },
+    ]);
   };
 
   const handleRemoveLineItem = (index: number) => {
@@ -110,7 +113,9 @@ export function AddInvoiceDialog({
       onClose();
 
       // Reset form
-      setLineItems([{ description: "", quantity: 1, rate: 0 }]);
+      setLineItems([
+        { id: crypto.randomUUID(), description: "", quantity: 1, rate: 0 },
+      ]);
       setDueDate("");
     } catch (error) {
       console.error("❌ Error creating invoice:", error);

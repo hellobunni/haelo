@@ -96,10 +96,10 @@ export async function syncStripeInvoiceToSupabase(
     subtotal: (stripeInvoice.subtotal || 0) / 100,
     // Note: tax_amounts exists at runtime but isn't in Stripe TypeScript types
     tax:
-      ((stripeInvoice as unknown as { tax_amounts?: Array<{ amount?: number }> }).tax_amounts?.reduce(
-        (sum: number, tax) => sum + (tax.amount || 0),
-        0,
-      ) || 0) / 100,
+      ((
+        stripeInvoice as unknown as { tax_amounts?: Array<{ amount?: number }> }
+      ).tax_amounts?.reduce((sum: number, tax) => sum + (tax.amount || 0), 0) ||
+        0) / 100,
     total_amount: (stripeInvoice.total || 0) / 100,
     status: mapStripeStatusToOurs(stripeInvoice.status ?? "draft"),
     currency: stripeInvoice.currency,
@@ -120,7 +120,11 @@ export async function syncStripeInvoiceToSupabase(
           : invoice.payment_intent?.id || null;
       }
       // Check charge object if available
-      if (invoice.charge && typeof invoice.charge === "object" && invoice.charge.payment_intent) {
+      if (
+        invoice.charge &&
+        typeof invoice.charge === "object" &&
+        invoice.charge.payment_intent
+      ) {
         return typeof invoice.charge.payment_intent === "string"
           ? invoice.charge.payment_intent
           : invoice.charge.payment_intent?.id || null;
