@@ -118,7 +118,12 @@ export async function POST(request: NextRequest) {
           .eq("stripe_invoice_id", invoice.id);
 
         // Record payment
-        const paymentIntent = (invoice as any).payment_intent;
+        // Note: payment_intent exists at runtime but isn't in Stripe TypeScript types
+        type InvoiceWithPaymentIntent = Stripe.Invoice & {
+          payment_intent?: string | { id: string } | null;
+        };
+        const invoiceWithPayment = invoice as InvoiceWithPaymentIntent;
+        const paymentIntent = invoiceWithPayment.payment_intent;
         if (paymentIntent) {
           const paymentIntentId =
             typeof paymentIntent === "string"

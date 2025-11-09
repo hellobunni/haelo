@@ -14,7 +14,8 @@ export async function getOrCreateStripeCustomer(
   userId: string,
   email: string,
   name: string,
-  supabase: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  supabase: any, // SupabaseClient type varies by usage context
 ) {
   // Check if customer already exists in our DB
   const { data: user } = await supabase

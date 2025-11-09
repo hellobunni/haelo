@@ -94,9 +94,10 @@ export async function syncStripeInvoiceToSupabase(
       ? new Date(stripeInvoice.due_date * 1000).toISOString().split("T")[0]
       : new Date(stripeInvoice.created * 1000).toISOString().split("T")[0],
     subtotal: (stripeInvoice.subtotal || 0) / 100,
+    // Note: tax_amounts exists at runtime but isn't in Stripe TypeScript types
     tax:
-      ((stripeInvoice as any).tax_amounts?.reduce(
-        (sum: number, tax: any) => sum + (tax.amount || 0),
+      ((stripeInvoice as unknown as { tax_amounts?: Array<{ amount?: number }> }).tax_amounts?.reduce(
+        (sum: number, tax) => sum + (tax.amount || 0),
         0,
       ) || 0) / 100,
     total_amount: (stripeInvoice.total || 0) / 100,
@@ -104,23 +105,25 @@ export async function syncStripeInvoiceToSupabase(
     currency: stripeInvoice.currency,
     pdf_url: stripeInvoice.invoice_pdf || null,
     stripe_hosted_url: stripeInvoice.hosted_invoice_url || null,
+    // Note: payment_intent exists at runtime but isn't in Stripe TypeScript types
     stripe_payment_intent_id: (() => {
-      // payment_intent might be available at runtime but not in types
-      const invoiceAny = stripeInvoice as any;
+      type InvoiceWithPaymentIntent = Stripe.Invoice & {
+        payment_intent?: string | { id: string } | null;
+        charge?: string | { payment_intent?: string | { id: string } } | null;
+      };
+      const invoice = stripeInvoice as InvoiceWithPaymentIntent;
       // Try to get payment_intent from the invoice
       // It might be expanded or a string ID
-      if (invoiceAny.payment_intent) {
-        return typeof invoiceAny.payment_intent === "string"
-          ? invoiceAny.payment_intent
-          : invoiceAny.payment_intent?.id || null;
+      if (invoice.payment_intent) {
+        return typeof invoice.payment_intent === "string"
+          ? invoice.payment_intent
+          : invoice.payment_intent?.id || null;
       }
       // Check charge object if available
-      if (invoiceAny.charge && typeof invoiceAny.charge === "object") {
-        if (invoiceAny.charge.payment_intent) {
-          return typeof invoiceAny.charge.payment_intent === "string"
-            ? invoiceAny.charge.payment_intent
-            : invoiceAny.charge.payment_intent?.id || null;
-        }
+      if (invoice.charge && typeof invoice.charge === "object" && invoice.charge.payment_intent) {
+        return typeof invoice.charge.payment_intent === "string"
+          ? invoice.charge.payment_intent
+          : invoice.charge.payment_intent?.id || null;
       }
       return null;
     })(),

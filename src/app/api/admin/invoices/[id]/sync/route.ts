@@ -72,11 +72,15 @@ export async function POST(
       pdf_url: stripeInvoice.invoice_pdf,
       hosted_url: stripeInvoice.hosted_invoice_url,
       payment_intent: (() => {
-        const invoiceAny = stripeInvoice as any;
-        if (invoiceAny.payment_intent) {
-          return typeof invoiceAny.payment_intent === "string"
-            ? invoiceAny.payment_intent
-            : invoiceAny.payment_intent.id || null;
+        // Note: payment_intent exists at runtime but isn't in Stripe TypeScript types
+        type InvoiceWithPaymentIntent = Stripe.Invoice & {
+          payment_intent?: string | { id: string } | null;
+        };
+        const invoice = stripeInvoice as InvoiceWithPaymentIntent;
+        if (invoice.payment_intent) {
+          return typeof invoice.payment_intent === "string"
+            ? invoice.payment_intent
+            : invoice.payment_intent.id || null;
         }
         return null;
       })(),
