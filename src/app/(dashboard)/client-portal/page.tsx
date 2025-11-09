@@ -23,7 +23,7 @@ import {
   getDocumentsByEmail,
   updateDocumentStatus,
 } from "@/features/documents/api";
-import { getAllInvoicesByEmail } from "@/features/invoices/api";
+import { getAllInvoicesByEmailClient } from "@/features/invoices/api-client";
 import { getProjectsByEmail } from "@/features/projects/api";
 import { createClient } from "@/lib/supabase/client";
 import { getCurrentUserClient } from "@/lib/supabase/client-helpers";
@@ -66,7 +66,7 @@ export default function ClientPortalPage() {
 
         // Fetch all data in parallel
         const [userInvoices, userProjects, userDocuments] = await Promise.all([
-          getAllInvoicesByEmail(currentUser.email),
+          getAllInvoicesByEmailClient(currentUser.email),
           getProjectsByEmail(currentUser.email),
           getDocumentsByEmail(currentUser.email),
         ]);
