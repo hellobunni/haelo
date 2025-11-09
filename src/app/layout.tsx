@@ -27,7 +27,7 @@ export default function RootLayout({
         <footer className="bg-white mt-20 py-8">
           <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 text-sm text-gray-500 flex flex-wrap justify-between items-center gap-4">
             <p>© {new Date().getFullYear()} Haelo Studio</p>
-            <FooterAuth />
+            {/* <FooterAuth /> */}
             <p>Crafted for brands that won't settle for ordinary.</p>
           </div>
         </footer>
