@@ -20,7 +20,11 @@ const itemVariants = {
 };
 
 const services = [
-  { n: "01", title: "Web & Interface Design", desc: "Intuitive, elegant UI that feels luxe and functions flawlessly." },
+  {
+    n: "01",
+    title: "Web & Interface Design",
+    desc: "Intuitive, elegant UI that feels luxe and functions flawlessly.",
+  },
   {
     n: "02",
     title: "Engineering & Development",
@@ -65,7 +69,7 @@ const projects = [
   },
 ];
 
-const clients = [
+const _clients = [
   "StockX",
   "Fanatics",
   "Rocket Mortgage",
@@ -86,14 +90,18 @@ export default function HomePage() {
       <section className="py-24 md:py-32 px-12 shadow-xl rounded-2xl">
         <motion.h1 variants={itemVariants} className="layered-heading">
           Haelo Studio
-          <span aria-hidden="true">
-            Haelo Studio
-          </span>
+          <span aria-hidden="true">Haelo Studio</span>
         </motion.h1>
-        <motion.p variants={itemVariants} className="text-2xl md:text-3xl font-light mt-8 max-w-4xl">
+        <motion.p
+          variants={itemVariants}
+          className="text-2xl md:text-3xl font-light mt-8 max-w-4xl"
+        >
           We craft elevated digital experiences for premium brands.
         </motion.p>
-        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light mt-4 max-w-3xl text-gray-600">
+        <motion.p
+          variants={itemVariants}
+          className="text-xl md:text-2xl font-light mt-4 max-w-3xl text-gray-600"
+        >
           Refined design. Smart engineering. Lasting impact.
         </motion.p>
       </section>
@@ -110,7 +118,8 @@ export default function HomePage() {
           What We Offer
         </motion.h2>
         <motion.p variants={itemVariants} className="text-lg text-gray-600">
-          Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.
+          Boutique digital-engineering studio blending aesthetics + tech to
+          build brands that stand out.
         </motion.p>
       </motion.section>
 
@@ -137,7 +146,9 @@ export default function HomePage() {
                 <h3 className="list-item-heading">{service.title}</h3>
               </div>
               <div className="flex items-center gap-4">
-                <p className="text-gray-600 text-sm text-right opacity-0 group-hover:opacity-100 transition-opacity">{service.desc}</p>
+                <p className="text-gray-600 text-sm text-right opacity-0 group-hover:opacity-100 transition-opacity">
+                  {service.desc}
+                </p>
                 <ArrowRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </Link>
@@ -156,8 +167,12 @@ export default function HomePage() {
         <motion.h2 variants={itemVariants} className="sub-heading mb-4">
           Selected Works
         </motion.h2>
-        <motion.p variants={itemVariants} className="text-lg text-gray-600 mb-12 max-w-3xl">
-          Each project reflects our signature blend of elegance + engineering — crafted for clients who demand more than ordinary.
+        <motion.p
+          variants={itemVariants}
+          className="text-lg text-gray-600 mb-12 max-w-3xl"
+        >
+          Each project reflects our signature blend of elegance + engineering —
+          crafted for clients who demand more than ordinary.
         </motion.p>
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-16">
           {projects.map((project) => (
@@ -197,11 +212,20 @@ export default function HomePage() {
         <motion.h2 variants={itemVariants} className="sub-heading mb-8">
           Why Choose Us
         </motion.h2>
-        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl">
-          At Haelo Studio, we believe in more than pretty visuals — we build digital presence with intention.
+        <motion.p
+          variants={itemVariants}
+          className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl"
+        >
+          At Haelo Studio, we believe in more than pretty visuals — we build
+          digital presence with intention.
         </motion.p>
-        <motion.p variants={itemVariants} className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mt-6">
-          Our clients trust us because we deliver clarity in design, precision in code, and dedication in execution. Boutique-studio vibe, agency-grade results.
+        <motion.p
+          variants={itemVariants}
+          className="text-xl md:text-2xl font-light leading-relaxed max-w-4xl mt-6"
+        >
+          Our clients trust us because we deliver clarity in design, precision
+          in code, and dedication in execution. Boutique-studio vibe,
+          agency-grade results.
         </motion.p>
       </motion.section>
 
@@ -213,29 +237,41 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        <motion.h2 variants={itemVariants} className="sub-heading mb-12 text-center">
+        <motion.h2
+          variants={itemVariants}
+          className="sub-heading mb-12 text-center"
+        >
           Our Process
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start mx-auto w-full max-w-7xl">
           <motion.div variants={itemVariants} className="text-left">
             <h3 className="text-4xl font-bold text-periwinkle mb-4">01</h3>
             <h4 className="text-xl font-bold mb-2">Discovery</h4>
-            <p className="text-gray-600">We dive deep into your brand, goals, and user needs.</p>
+            <p className="text-gray-600">
+              We dive deep into your brand, goals, and user needs.
+            </p>
           </motion.div>
           <motion.div variants={itemVariants} className="text-left">
             <h3 className="text-4xl font-bold text-periwinkle mb-4">02</h3>
             <h4 className="text-xl font-bold mb-2">Design</h4>
-            <p className="text-gray-600">Concept, iterate, refine until it aligns with your vision.</p>
+            <p className="text-gray-600">
+              Concept, iterate, refine until it aligns with your vision.
+            </p>
           </motion.div>
           <motion.div variants={itemVariants} className="text-left">
             <h3 className="text-4xl font-bold text-periwinkle mb-4">03</h3>
             <h4 className="text-xl font-bold mb-2">Build</h4>
-            <p className="text-gray-600">Code with craftsmanship, test with precision, launch with confidence.</p>
+            <p className="text-gray-600">
+              Code with craftsmanship, test with precision, launch with
+              confidence.
+            </p>
           </motion.div>
           <motion.div variants={itemVariants} className="text-left">
             <h3 className="text-4xl font-bold text-periwinkle mb-4">04</h3>
             <h4 className="text-xl font-bold mb-2">Optimize</h4>
-            <p className="text-gray-600">Post-launch monitoring, tweaking, and scaling for growth.</p>
+            <p className="text-gray-600">
+              Post-launch monitoring, tweaking, and scaling for growth.
+            </p>
           </motion.div>
         </div>
       </motion.section>
@@ -247,7 +283,9 @@ export default function HomePage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+        <h2 className="sub-heading mb-4">
+          Ready to elevate your digital presence?
+        </h2>
         <p className="mb-8 max-w-xl mx-auto text-lg">
           We're now onboarding select clients for Q1.
         </p>

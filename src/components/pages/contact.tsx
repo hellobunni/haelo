@@ -63,7 +63,8 @@ export default function ContactPage() {
         >
           <h1 className="sub-heading mb-4">Thank You!</h1>
           <p className="text-lg text-gray-600">
-            Your message has been sent successfully. We'll get back to you within 24 hours.
+            Your message has been sent successfully. We'll get back to you
+            within 24 hours.
           </p>
         </motion.div>
       </div>
@@ -91,8 +92,12 @@ export default function ContactPage() {
             Together
           </span>
         </motion.h1>
-        <motion.p variants={itemVariants} className="text-gray-600 pt-4 text-lg">
-          Ready to elevate your digital presence? Let's start a conversation about bringing your vision to life.
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-600 pt-4 text-lg"
+        >
+          Ready to elevate your digital presence? Let's start a conversation
+          about bringing your vision to life.
         </motion.p>
       </div>
 

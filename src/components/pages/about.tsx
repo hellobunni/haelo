@@ -26,15 +26,17 @@ export default function AboutPage() {
         variants={itemVariants}
         className="max-w-5xl mx-auto text-left my-16"
       >
-        <h1 className="section-heading mb-12">
-          About Haelo Studio
-        </h1>
+        <h1 className="section-heading mb-12">About Haelo Studio</h1>
         <div className="grid md:grid-cols-1 gap-8 text-gray-700 text-lg leading-relaxed">
           <p>
-            Haelo Studio is led by full-stack engineer and designer Bryanna "Bree" Lynae. With a passion for UI/UX, high-performance builds, and aesthetic excellence, our studio is built for brands that value both form and function.
+            Haelo Studio is led by full-stack engineer and designer Bryanna
+            "Bree" Lynae. With a passion for UI/UX, high-performance builds, and
+            aesthetic excellence, our studio is built for brands that value both
+            form and function.
           </p>
           <p>
-            Whether you're scaling up or starting new, we bring bespoke solutions, high-touch service, and a refined finish.
+            Whether you're scaling up or starting new, we bring bespoke
+            solutions, high-touch service, and a refined finish.
           </p>
           <p className="text-xl font-semibold text-periwinkle">
             Let's build your next chapter together.
@@ -60,7 +62,8 @@ export default function AboutPage() {
           <span className="bg-periwinkle/30 px-2 rounded-md">
             more than pretty visuals
           </span>{" "}
-          — we build digital presence with intention. Our clients trust us because we deliver
+          — we build digital presence with intention. Our clients trust us
+          because we deliver
           <span className="bg-periwinkle/30 px-2 rounded-md">
             clarity in design, precision in code,
           </span>{" "}
@@ -93,7 +96,9 @@ export default function AboutPage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+        <h2 className="sub-heading mb-4">
+          Ready to elevate your digital presence?
+        </h2>
         <p className="mb-8 max-w-xl mx-auto text-lg">
           We're now onboarding select clients for Q1.
         </p>

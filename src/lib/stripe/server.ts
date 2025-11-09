@@ -1,11 +1,11 @@
-import Stripe from 'stripe';
+import Stripe from "stripe";
 
 if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing STRIPE_SECRET_KEY environment variable');
+  throw new Error("Missing STRIPE_SECRET_KEY environment variable");
 }
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2024-11-20.acacia',
+  apiVersion: "2025-10-29.clover",
   typescript: true,
 });
 
@@ -14,13 +14,13 @@ export async function getOrCreateStripeCustomer(
   userId: string,
   email: string,
   name: string,
-  supabase: any
+  supabase: any,
 ) {
   // Check if customer already exists in our DB
   const { data: user } = await supabase
-    .from('users')
-    .select('stripe_customer_id')
-    .eq('id', userId)
+    .from("users")
+    .select("stripe_customer_id")
+    .eq("id", userId)
     .single();
 
   if (user?.stripe_customer_id) {
@@ -38,9 +38,9 @@ export async function getOrCreateStripeCustomer(
 
   // Update our DB with Stripe customer ID
   await supabase
-    .from('users')
+    .from("users")
     .update({ stripe_customer_id: customer.id })
-    .eq('id', userId);
+    .eq("id", userId);
 
   return customer.id;
 }

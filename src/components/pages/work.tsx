@@ -66,8 +66,12 @@ export default function WorkPage() {
       >
         Selected Works
       </motion.h1>
-      <motion.p variants={itemVariants} className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-        Each project reflects our signature blend of elegance + engineering — crafted for clients who demand more than ordinary.
+      <motion.p
+        variants={itemVariants}
+        className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto"
+      >
+        Each project reflects our signature blend of elegance + engineering —
+        crafted for clients who demand more than ordinary.
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
         {projects.map((project) => (

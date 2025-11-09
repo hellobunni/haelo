@@ -225,8 +225,10 @@ export async function getClientDetailByIdFromSupabase(
   if (invoicesError) {
     console.error("⚠️ Error fetching invoices:", invoicesError);
   } else {
-    console.log(`📄 Found ${invoicesData?.length || 0} invoices for client ${clientId}`);
-    console.log('Invoice data:', invoicesData);
+    console.log(
+      `📄 Found ${invoicesData?.length || 0} invoices for client ${clientId}`,
+    );
+    console.log("Invoice data:", invoicesData);
   }
   if (documentsError)
     console.error("⚠️ Error fetching documents:", documentsError);

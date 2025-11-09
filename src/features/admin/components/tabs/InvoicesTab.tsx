@@ -117,18 +117,18 @@ export default function InvoicesTab() {
   const handleSyncAll = async () => {
     setSyncing(true);
     try {
-      const response = await fetch('/api/admin/invoices/sync-all', {
-        method: 'POST',
+      const response = await fetch("/api/admin/invoices/sync-all", {
+        method: "POST",
       });
-      
+
       const result = await response.json();
-      
+
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to sync invoices');
+        throw new Error(result.error || "Failed to sync invoices");
       }
 
       console.log(`✅ Synced ${result.synced} invoices`);
-      
+
       // Refresh the invoices list
       const data = await getAllInvoices();
       data.sort(
@@ -137,8 +137,8 @@ export default function InvoicesTab() {
       );
       setInvoices(data);
     } catch (error) {
-      console.error('❌ Error syncing invoices:', error);
-      alert('Failed to sync invoices from Stripe');
+      console.error("❌ Error syncing invoices:", error);
+      alert("Failed to sync invoices from Stripe");
     } finally {
       setSyncing(false);
     }
@@ -148,38 +148,40 @@ export default function InvoicesTab() {
     setSyncingId(invoiceId);
     try {
       const response = await fetch(`/api/admin/invoices/${invoiceId}/sync`, {
-        method: 'POST',
+        method: "POST",
       });
-      
+
       const result = await response.json();
-      
+
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to sync invoice');
+        throw new Error(result.error || "Failed to sync invoice");
       }
 
       console.log(`✅ Synced invoice ${invoiceId}`);
-      
+
       // Update the specific invoice in the list
       const updatedInvoices = invoices.map((inv) =>
-        inv.id === invoiceId ? {
-          ...inv,
-          ...result.invoice,
-          // Transform snake_case to camelCase
-          invoiceNumber: result.invoice.invoice_number,
-          clientEmail: result.invoice.client_email,
-          clientName: result.invoice.client_name,
-          issueDate: result.invoice.issue_date,
-          dueDate: result.invoice.due_date,
-          totalAmount: result.invoice.total_amount,
-          pdfUrl: result.invoice.pdf_url,
-          stripeInvoiceId: result.invoice.stripe_invoice_id,
-          stripeHostedUrl: result.invoice.stripe_hosted_url,
-        } : inv
+        inv.id === invoiceId
+          ? {
+              ...inv,
+              ...result.invoice,
+              // Transform snake_case to camelCase
+              invoiceNumber: result.invoice.invoice_number,
+              clientEmail: result.invoice.client_email,
+              clientName: result.invoice.client_name,
+              issueDate: result.invoice.issue_date,
+              dueDate: result.invoice.due_date,
+              totalAmount: result.invoice.total_amount,
+              pdfUrl: result.invoice.pdf_url,
+              stripeInvoiceId: result.invoice.stripe_invoice_id,
+              stripeHostedUrl: result.invoice.stripe_hosted_url,
+            }
+          : inv,
       );
       setInvoices(updatedInvoices);
     } catch (error) {
-      console.error('❌ Error syncing invoice:', error);
-      alert('Failed to sync invoice from Stripe');
+      console.error("❌ Error syncing invoice:", error);
+      alert("Failed to sync invoice from Stripe");
     } finally {
       setSyncingId(null);
     }
@@ -216,8 +218,10 @@ export default function InvoicesTab() {
               variant="outline"
               size="sm"
             >
-              <RefreshCw className={`h-4 w-4 mr-2 ${syncing ? 'animate-spin' : ''}`} />
-              {syncing ? 'Syncing...' : 'Sync from Stripe'}
+              <RefreshCw
+                className={`h-4 w-4 mr-2 ${syncing ? "animate-spin" : ""}`}
+              />
+              {syncing ? "Syncing..." : "Sync from Stripe"}
             </Button>
             <Button
               onClick={() => {
@@ -325,14 +329,18 @@ export default function InvoicesTab() {
                           disabled={syncingId === invoice.id}
                           title="Sync from Stripe"
                         >
-                          <RefreshCw className={`h-4 w-4 ${syncingId === invoice.id ? 'animate-spin' : ''}`} />
+                          <RefreshCw
+                            className={`h-4 w-4 ${syncingId === invoice.id ? "animate-spin" : ""}`}
+                          />
                         </Button>
                       )}
                       {invoice.stripeHostedUrl && (
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => window.open(invoice.stripeHostedUrl, '_blank')}
+                          onClick={() =>
+                            window.open(invoice.stripeHostedUrl, "_blank")
+                          }
                           title="View in Stripe"
                         >
                           <span className="text-purple-600">⚡</span>

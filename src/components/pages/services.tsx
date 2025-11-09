@@ -37,8 +37,7 @@ const services = [
   {
     n: "01",
     title: "Web & Interface Design",
-    desc1:
-      "Intuitive, elegant UI that feels luxe and functions flawlessly.",
+    desc1: "Intuitive, elegant UI that feels luxe and functions flawlessly.",
     desc2:
       "We create interfaces that don't just look beautiful—they guide users seamlessly through their journey, converting visits into meaningful actions.",
     imageUrl:
@@ -88,15 +87,15 @@ export default function ServicesPage() {
         variants={itemVariants}
         className="py-24 max-w-7xl mx-auto"
       >
-        <h1 className="section-heading mb-6">
-          What We Offer
-        </h1>
+        <h1 className="section-heading mb-6">What We Offer</h1>
         <div className="grid md:grid-cols-2 gap-8 text-gray-600 mt-12">
           <p className="max-w-md text-lg">
-            Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.
+            Boutique digital-engineering studio blending aesthetics + tech to
+            build brands that stand out.
           </p>
           <p className="max-w-md text-lg">
-            From strategy to launch, we deliver elegant solutions that combine refined design with powerful engineering.
+            From strategy to launch, we deliver elegant solutions that combine
+            refined design with powerful engineering.
           </p>
         </div>
       </motion.section>
@@ -167,7 +166,9 @@ export default function ServicesPage() {
         viewport={{ once: true, amount: 0.5 }}
       >
         <div className="max-w-7xl mx-auto px-8 text-center">
-          <h2 className="sub-heading mb-4">Ready to elevate your digital presence?</h2>
+          <h2 className="sub-heading mb-4">
+            Ready to elevate your digital presence?
+          </h2>
           <p className="mb-8 text-lg">
             We're now onboarding select clients for Q1.
           </p>

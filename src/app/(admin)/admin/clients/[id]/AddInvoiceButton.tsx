@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 import { Plus } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { AddInvoiceDialog } from "@/features/admin/components/dialogs/AddInvoiceDialog";
-import { useParams, useRouter } from "next/navigation";
 
 export function AddInvoiceButton() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -20,6 +20,7 @@ export function AddInvoiceButton() {
   return (
     <>
       <button
+        type="button"
         onClick={() => setIsDialogOpen(true)}
         className="p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md cursor-pointer hover:bg-white transition-colors"
         aria-label="Add Invoice"

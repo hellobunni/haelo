@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import SiteHeader from "@/components/layout/site-header/site-header";
 import FooterAuth from "./footer-auth";
 
 export const metadata: Metadata = {
   title: "Haelo Studio",
-  description: "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
+  description:
+    "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
 };
 
 export default function RootLayout({
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-white text-[#1d1d1f] font-sans antialiased">
+        <Analytics />
         <StyleTokens />
         {/* Client header with its own state */}
         <SiteHeader />

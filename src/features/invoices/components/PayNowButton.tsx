@@ -1,12 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { getStripe } from '@/lib/stripe/client';
-import { Button } from '@/components/ui/button';
-import { Loader2 } from 'lucide-react';
+import {
+  Elements,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { getStripe } from "@/lib/stripe/client";
 
-function CheckoutForm({ invoiceId, onSuccess }: { invoiceId: string; onSuccess?: () => void }) {
+function CheckoutForm({
+  invoiceId,
+  onSuccess,
+}: {
+  invoiceId: string;
+  onSuccess?: () => void;
+}) {
   const stripe = useStripe();
   const elements = useElements();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -28,7 +39,7 @@ function CheckoutForm({ invoiceId, onSuccess }: { invoiceId: string; onSuccess?:
     });
 
     if (error) {
-      setErrorMessage(error.message || 'Payment failed');
+      setErrorMessage(error.message || "Payment failed");
       setIsProcessing(false);
     } else {
       onSuccess?.();
@@ -41,26 +52,30 @@ function CheckoutForm({ invoiceId, onSuccess }: { invoiceId: string; onSuccess?:
       {errorMessage && (
         <div className="text-red-600 text-sm">{errorMessage}</div>
       )}
-      <Button type="submit" disabled={!stripe || isProcessing} className="w-full">
+      <Button
+        type="submit"
+        disabled={!stripe || isProcessing}
+        className="w-full"
+      >
         {isProcessing ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Processing...
           </>
         ) : (
-          'Pay Now'
+          "Pay Now"
         )}
       </Button>
     </form>
   );
 }
 
-export function PayNowButton({ 
-  invoiceId, 
+export function PayNowButton({
+  invoiceId,
   amount,
-  currency = 'USD' 
-}: { 
-  invoiceId: string; 
+  currency = "USD",
+}: {
+  invoiceId: string;
   amount: number;
   currency?: string;
 }) {
@@ -73,14 +88,17 @@ export function PayNowButton({
     setError(null);
 
     try {
-      const response = await fetch(`/api/invoices/${invoiceId}/payment-intent`, {
-        method: 'POST',
-      });
+      const response = await fetch(
+        `/api/invoices/${invoiceId}/payment-intent`,
+        {
+          method: "POST",
+        },
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to initialize payment');
+        throw new Error(data.error || "Failed to initialize payment");
       }
 
       // If Stripe hosted invoice URL is available, redirect to it
@@ -92,7 +110,9 @@ export function PayNowButton({
       // Otherwise use custom checkout
       setClientSecret(data.clientSecret);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to initialize payment');
+      setError(
+        err instanceof Error ? err.message : "Failed to initialize payment",
+      );
     } finally {
       setLoading(false);
     }
@@ -111,8 +131,8 @@ export function PayNowButton({
 
   if (!clientSecret) {
     return (
-      <Button 
-        onClick={handlePayClick} 
+      <Button
+        onClick={handlePayClick}
         disabled={loading}
         size="lg"
         className="w-full"
@@ -130,12 +150,12 @@ export function PayNowButton({
   }
 
   return (
-    <Elements 
-      stripe={getStripe()} 
-      options={{ 
+    <Elements
+      stripe={getStripe()}
+      options={{
         clientSecret,
         appearance: {
-          theme: 'stripe',
+          theme: "stripe",
         },
       }}
     >

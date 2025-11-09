@@ -2,7 +2,7 @@ import { getDocumentsByEmail } from "@/features/documents/api";
 import { getAllInvoicesByEmail } from "@/features/invoices/api";
 import { getProjectsByEmail } from "@/features/projects/api";
 import { MOCK_USERS } from "@/lib/api/mock/users";
-import { createClient } from '@/lib/supabase/client';
+import { createClient } from "@/lib/supabase/client";
 
 import type {
   Document,
@@ -121,9 +121,9 @@ export async function getAllDocuments(): Promise<DocumentWithClient[]> {
 
 export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
   const supabase = createClient();
-  
+
   const { data, error } = await supabase
-    .from('invoices')
+    .from("invoices")
     .select(`
       *,
       users!client_id (
@@ -132,10 +132,10 @@ export async function getAllInvoices(): Promise<InvoiceWithClient[]> {
         full_name
       )
     `)
-    .order('issue_date', { ascending: false });
+    .order("issue_date", { ascending: false });
 
   if (error) {
-    console.error('Error fetching invoices:', error);
+    console.error("Error fetching invoices:", error);
     throw error;
   }
 

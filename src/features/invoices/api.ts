@@ -1,15 +1,15 @@
-import type { Invoice, InvoiceLineItem } from "@/types";
 import { createClient } from "@/lib/supabase/server";
+import type { Invoice, InvoiceLineItem } from "@/types";
 
 export async function getInvoiceById(id: string): Promise<Invoice | null> {
   console.log(`📄 [Supabase] Fetching invoice with ID: ${id}`);
-  
+
   const supabase = await createClient();
 
   const { data: invoice, error } = await supabase
-    .from('invoices')
-    .select('*')
-    .eq('id', id)
+    .from("invoices")
+    .select("*")
+    .eq("id", id)
     .single();
 
   if (error) {
@@ -43,14 +43,14 @@ export async function getLineItemsByInvoiceId(
   invoiceId: string,
 ): Promise<InvoiceLineItem[]> {
   console.log(`📋 [Supabase] Fetching line items for invoice: ${invoiceId}`);
-  
+
   const supabase = await createClient();
 
   const { data: items, error } = await supabase
-    .from('invoice_line_items')
-    .select('*')
-    .eq('invoice_id', invoiceId)
-    .order('id', { ascending: true });
+    .from("invoice_line_items")
+    .select("*")
+    .eq("invoice_id", invoiceId)
+    .order("id", { ascending: true });
 
   if (error) {
     console.error(`❌ [Supabase] Error fetching line items:`, error);
@@ -74,21 +74,23 @@ export async function getLineItemsByInvoiceId(
 
 export async function getAllInvoicesByEmail(email: string): Promise<Invoice[]> {
   console.log(`📬 [Supabase] Fetching all invoices for email: ${email}`);
-  
+
   const supabase = await createClient();
 
   const { data: invoices, error } = await supabase
-    .from('invoices')
-    .select('*')
-    .eq('client_email', email)
-    .order('issue_date', { ascending: false });
+    .from("invoices")
+    .select("*")
+    .eq("client_email", email)
+    .order("issue_date", { ascending: false });
 
   if (error) {
     console.error(`❌ [Supabase] Error fetching invoices:`, error);
     return [];
   }
 
-  console.log(`✅ [Supabase] Found ${invoices?.length || 0} invoice(s) for ${email}`);
+  console.log(
+    `✅ [Supabase] Found ${invoices?.length || 0} invoice(s) for ${email}`,
+  );
 
   // Transform database columns to match Invoice type
   return (invoices || []).map((invoice) => ({
@@ -107,14 +109,14 @@ export async function getAllInvoicesByEmail(email: string): Promise<Invoice[]> {
 
 export async function payInvoice(id: string): Promise<Invoice | null> {
   console.log(`💳 [Supabase] Processing payment for invoice: ${id}`);
-  
+
   const supabase = await createClient();
 
   // Update invoice status to Paid
   const { data: invoice, error } = await supabase
-    .from('invoices')
-    .update({ status: 'Paid' })
-    .eq('id', id)
+    .from("invoices")
+    .update({ status: "Paid" })
+    .eq("id", id)
     .select()
     .single();
 

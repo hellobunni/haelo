@@ -25,8 +25,8 @@ export function createClient() {
   return createBrowserClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
       getAll() {
-        return document.cookie.split(';').map(cookie => {
-          const [name, value] = cookie.trim().split('=');
+        return document.cookie.split(";").map((cookie) => {
+          const [name, value] = cookie.trim().split("=");
           return { name, value };
         });
       },
@@ -37,7 +37,7 @@ export function createClient() {
           if (options?.path) cookie += `; path=${options.path}`;
           if (options?.domain) cookie += `; domain=${options.domain}`;
           if (options?.sameSite) cookie += `; samesite=${options.sameSite}`;
-          if (options?.secure) cookie += '; secure';
+          if (options?.secure) cookie += "; secure";
           document.cookie = cookie;
         });
       },

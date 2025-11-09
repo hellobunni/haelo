@@ -82,8 +82,8 @@ export default async function InvoicePage({ params }: Props) {
 
           {invoice.status !== "Paid" ? (
             <div className="flex flex-col gap-2 items-end">
-              <PayNowButton 
-                invoiceId={invoice.id} 
+              <PayNowButton
+                invoiceId={invoice.id}
                 amount={invoice.totalAmount}
                 currency="USD"
               />

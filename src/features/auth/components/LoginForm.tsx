@@ -32,7 +32,7 @@ export default function LoginForm() {
 
     try {
       console.log("🔐 Attempting login for:", email);
-      
+
       const { data, error: signInError } =
         await supabase.auth.signInWithPassword({
           email,
@@ -48,7 +48,7 @@ export default function LoginForm() {
 
       if (data.user) {
         console.log("✅ User authenticated:", data.user.id);
-        
+
         // Get user role
         const { data: profile, error: profileError } = await supabase
           .from("users")
@@ -68,11 +68,11 @@ export default function LoginForm() {
         // Role-based redirect
         const redirectPath =
           profile?.role === "admin" ? "/admin" : "/client-portal";
-        
+
         console.log("🔄 Redirecting to:", redirectPath);
-        
+
         // Wait a moment for cookies to be set, then refresh and redirect
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise((resolve) => setTimeout(resolve, 100));
         router.refresh();
         window.location.href = redirectPath;
       }
