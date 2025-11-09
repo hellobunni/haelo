@@ -1,4 +1,3 @@
-import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import type { Invoice, InvoiceLineItem } from "@/types";
 

@@ -35,6 +35,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    turbopack: {
+      resolveAlias: {
+        // Ensure Turbopack understands this is an App Router project
+      },
+    },
+  },
 };
 
 export default nextConfig;
