@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import type { Project, ProjectStatus } from "@/types";
 
@@ -114,26 +114,28 @@ export default function EditProjectDialog({
 
           <div className="space-y-2">
             <Label>Status</Label>
-            <div className="flex gap-2 flex-wrap">
+            <RadioGroup
+              value={formData.status}
+              onValueChange={(value) =>
+                setFormData({
+                  ...formData,
+                  status: value as Project["status"],
+                })
+              }
+              className="flex flex-row flex-wrap gap-4"
+            >
               {statuses.map((status) => (
-                <Badge
-                  key={status}
-                  className={`cursor-pointer ${
-                    formData.status === status
-                      ? "bg-periwinkle text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() =>
-                    setFormData({
-                      ...formData,
-                      status: status as Project["status"],
-                    })
-                  }
-                >
-                  {status}
-                </Badge>
+                <div key={status} className="flex items-center space-x-2">
+                  <RadioGroupItem value={status} id={`status-${status}`} />
+                  <Label
+                    htmlFor={`status-${status}`}
+                    className="cursor-pointer font-normal"
+                  >
+                    {status}
+                  </Label>
+                </div>
               ))}
-            </div>
+            </RadioGroup>
           </div>
 
           <div className="space-y-2">
