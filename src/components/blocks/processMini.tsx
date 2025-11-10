@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import contentData from "@/lib/data/content.json";
 import servicesData from "@/lib/data/services.json";
+import { Button } from "../ui/button";
 
 // Icon mapping function
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -44,7 +45,7 @@ export default function ProcessMini() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 mx-auto b">
           {miniSteps.map((step, index) => {
             const Icon = iconMap[step.icon] || Target;
 
@@ -55,28 +56,26 @@ export default function ProcessMini() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
+                className="relative flex flex-col justify-center items-center text-center mx-auto" 
+                
               >
-                <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 h-full">
-                  <div className="text-7xl font-bold text-periwinkle-500 absolute top-4 right-4">
+                  <div className="text-[140px] font-bold text-gray-200 absolute -top-20 left-20 z-0">
                     {step.number}
                   </div>
-
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-periwinkle-500 to-periwinkle-600 flex items-center justify-center mb-4 shadow-lg shadow-periwinkle-200 bg-peri">
-                      <Icon className="w-7 h-7 text-periwinkle-500" />
+                <div className="z-10 flex flex-col items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-periwinkle-600 flex items-center justify-center mb-2 shadow-lg shadow-periwinkle-200">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
-
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-0">
                       {step.title}
                     </h3>
                     <p className="text-gray-600 text-sm">{step.description}</p>
+                    
                   </div>
-                </div>
-
+                  
                 {/* Connector Line (except last item) */}
                 {index < miniSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-periwinkle-300 to-transparent"></div>
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-linear-to-r from-periwinkle-300 to-transparent"></div>
                 )}
               </motion.div>
             );
@@ -90,15 +89,15 @@ export default function ProcessMini() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Link href={processMini.cta.href}>
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold hover:gap-4 transition-all duration-300"
-            >
-              {processMini.cta.text}
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </Link>
+          <Button
+            type="button"
+            variant="periwinkle"
+            className="rounded-md"
+            href={processMini.cta.href}
+          >
+            {processMini.cta.text}
+            <ArrowRight className="w-5 h-5" />
+          </Button>
         </motion.div>
       </div>
     </section>

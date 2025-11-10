@@ -17,14 +17,14 @@ export default function FinalCTA() {
   const PrimaryIcon = iconMap[home.finalCTA.buttons.primary.icon] || Calendar;
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-32 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-periwinkle-600 to-periwinkle-500 rounded-3xl p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl"
+          className="bg-linear-to-br from-periwinkle-600 to-periwinkle-500 rounded-3xl p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl"
         >
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-10"></div>

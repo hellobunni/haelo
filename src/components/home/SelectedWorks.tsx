@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import contentData from "@/lib/data/content.json";
 import projectsData from "@/lib/data/projects.json";
+import { Button } from "../ui/button";
 
 export default function SelectedWorks() {
   const { home } = contentData;
@@ -12,7 +13,7 @@ export default function SelectedWorks() {
   const featuredProjects = projectsData.slice(0, 3);
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-32 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -91,15 +92,16 @@ export default function SelectedWorks() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          <Link href={home.selectedWorks.cta.href}>
-            <button
+          
+          <Button
               type="button"
-              className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold hover:gap-4 transition-all duration-300"
+              variant="periwinkle"
+              className="rounded-md"
+              href={home.selectedWorks.cta.href}
             >
               {home.selectedWorks.cta.text}
               <ArrowRight className="w-5 h-5" />
-            </button>
-          </Link>
+            </Button>
         </motion.div>
       </div>
     </section>
