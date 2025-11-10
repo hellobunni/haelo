@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import type { Document, DocumentStatus, DocumentType } from "@/types";
 
 interface EditDocumentDialogProps {
@@ -94,26 +94,28 @@ export default function EditDocumentDialog({
 
           <div className="space-y-2">
             <Label>Document Type</Label>
-            <div className="flex gap-2 flex-wrap">
+            <RadioGroup
+              value={formData.documentType}
+              onValueChange={(value) =>
+                setFormData({
+                  ...formData,
+                  documentType: value as DocumentType,
+                })
+              }
+              className="flex flex-row flex-wrap gap-4"
+            >
               {documentTypes.map((type) => (
-                <Badge
-                  key={type}
-                  className={`cursor-pointer ${
-                    formData.documentType === type
-                      ? "bg-periwinkle text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() =>
-                    setFormData({
-                      ...formData,
-                      documentType: type as DocumentType,
-                    })
-                  }
-                >
-                  {type}
-                </Badge>
+                <div key={type} className="flex items-center space-x-2">
+                  <RadioGroupItem value={type} id={`type-${type}`} />
+                  <Label
+                    htmlFor={`type-${type}`}
+                    className="cursor-pointer font-normal"
+                  >
+                    {type}
+                  </Label>
+                </div>
               ))}
-            </div>
+            </RadioGroup>
           </div>
 
           <div className="space-y-2">
@@ -143,26 +145,28 @@ export default function EditDocumentDialog({
 
           <div className="space-y-2">
             <Label>Status</Label>
-            <div className="flex gap-2 flex-wrap">
+            <RadioGroup
+              value={formData.status}
+              onValueChange={(value) =>
+                setFormData({
+                  ...formData,
+                  status: value as Document["status"],
+                })
+              }
+              className="flex flex-row gap-4"
+            >
               {statuses.map((status) => (
-                <Badge
-                  key={status}
-                  className={`cursor-pointer ${
-                    formData.status === status
-                      ? "bg-periwinkle text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() =>
-                    setFormData({
-                      ...formData,
-                      status: status as Document["status"],
-                    })
-                  }
-                >
-                  {status}
-                </Badge>
+                <div key={status} className="flex items-center space-x-2">
+                  <RadioGroupItem value={status} id={`status-${status}`} />
+                  <Label
+                    htmlFor={`status-${status}`}
+                    className="cursor-pointer font-normal"
+                  >
+                    {status}
+                  </Label>
+                </div>
               ))}
-            </div>
+            </RadioGroup>
           </div>
         </div>
 
