@@ -3,6 +3,7 @@
 import { format } from "date-fns";
 import { Edit, Eye, FileText, Loader2, RefreshCw, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -78,7 +79,7 @@ export default function InvoicesTab() {
       });
       setPdfViewerOpen(true);
     } else {
-      alert("No PDF available for this invoice");
+      toast.error("No PDF available for this invoice");
     }
   };
 
@@ -138,7 +139,7 @@ export default function InvoicesTab() {
       setInvoices(data);
     } catch (error) {
       console.error("❌ Error syncing invoices:", error);
-      alert("Failed to sync invoices from Stripe");
+      toast.error("Failed to sync invoices from Stripe");
     } finally {
       setSyncing(false);
     }
@@ -181,7 +182,7 @@ export default function InvoicesTab() {
       setInvoices(updatedInvoices);
     } catch (error) {
       console.error("❌ Error syncing invoice:", error);
-      alert("Failed to sync invoice from Stripe");
+      toast.error("Failed to sync invoice from Stripe");
     } finally {
       setSyncingId(null);
     }

@@ -3,6 +3,7 @@
 import { format } from "date-fns";
 import { Edit, Eye, FileText, Loader2, Rocket, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,7 +77,7 @@ export default function ProjectsTab() {
       });
       setPdfViewerOpen(true);
     } else {
-      alert("No PDF available for this project");
+      toast.error("No PDF available for this project");
     }
   };
 
