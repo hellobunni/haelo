@@ -116,12 +116,8 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <MobileMenu onClose={() => setIsMobileMenuOpen(false)} />
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu Sheet */}
+      <MobileMenu open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen} />
     </motion.nav>
   );
 }
