@@ -89,11 +89,18 @@ function Button({
   } else if (onClick) {
     // Has onClick - use button
     Comp = "button";
-    finalProps = { ...finalProps, onClick, type: "button" } as React.ComponentProps<"button">;
+    finalProps = {
+      ...finalProps,
+      onClick,
+      type: "button",
+    } as React.ComponentProps<"button">;
   } else {
     // Default - use button
     Comp = "button";
-    finalProps = { ...finalProps, type: "button" } as React.ComponentProps<"button">;
+    finalProps = {
+      ...finalProps,
+      type: "button",
+    } as React.ComponentProps<"button">;
   }
 
   return (
@@ -102,7 +109,7 @@ function Button({
       className={cn(
         buttonVariants({ variant, size, rounded }),
         className,
-        variant === "periwinkle" && "!text-white"
+        variant === "periwinkle" && "!text-white",
       )}
       {...finalProps}
     />

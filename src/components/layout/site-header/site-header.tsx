@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import { ArrowRight, Menu } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -7,7 +8,6 @@ import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
 import { navigationItems } from "@/lib/utils";
-import clsx from "clsx";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -23,9 +23,11 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when pathname changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <motion.nav
@@ -49,19 +51,25 @@ export default function SiteHeader() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navigationItems.slice(1,7).map((item) => (
-              <Link key={item.name} href={item.url} className={clsx("text-sm font-medium transition-colors duration-300 relative group", pathname === item.url ? "border-b-2 border-periwinkle-600": "text-gray-600 hover:text-periwinkle-600")}>{item.name}</Link>
+            {navigationItems.slice(1, 7).map((item) => (
+              <Link
+                key={item.name}
+                href={item.url}
+                className={clsx(
+                  "text-sm font-medium transition-colors duration-300 relative group",
+                  pathname === item.url
+                    ? "border-b-2 border-periwinkle-600"
+                    : "text-gray-600 hover:text-periwinkle-600",
+                )}
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              size="sm"
-              variant="periwinkle"
-              rounded
-              href="/contact"
-            >
+            <Button size="sm" variant="periwinkle" rounded href="/contact">
               Let's Talk
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

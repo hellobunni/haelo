@@ -3,10 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { navigationItems } from "@/lib/utils";
 
 interface MobileMenuProps {
@@ -27,6 +24,7 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
         side="left"
         className="w-full sm:max-w-sm bg-white p-0 flex flex-col"
       >
+        <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <div className="px-6 py-6 space-y-4">
           {navigationItems.map((item) => (
             <Link
@@ -34,9 +32,7 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
               href={item.url}
               onClick={handleLinkClick}
               className={`block text-lg font-medium transition-colors duration-300 ${
-                pathname === item.url
-                  ? "text-periwinkle-600"
-                  : "text-gray-600"
+                pathname === item.url ? "text-periwinkle-600" : "text-gray-600"
               }`}
             >
               {item.name}
