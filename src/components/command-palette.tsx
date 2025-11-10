@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Mail, Rocket, Settings, User, Work } from "lucide-react";
+import { Home, Mail, Network, Rocket, Settings, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -15,7 +15,7 @@ import {
 import { navigationItems } from "@/lib/utils";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Work,
+  Network,
   Services: Rocket,
   Process: Settings,
   About: User,
@@ -78,4 +78,3 @@ export function CommandPalette() {
     </CommandDialog>
   );
 }
-

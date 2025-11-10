@@ -215,9 +215,9 @@ export default function InvoicesTab() {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 5 }, (_, i) => i).map((idx) => (
               <div
-                key={`skeleton-invoice-${i}`}
+                key={`skeleton-invoice-${idx}`}
                 className="flex items-center gap-4 py-3 border-b"
               >
                 <Skeleton className="h-4 w-24" />

@@ -1,8 +1,8 @@
 "use client";
 import { ArrowRight, Menu, Moon, Plus, Sun, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useTheme } from "next-themes";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";

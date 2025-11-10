@@ -132,9 +132,9 @@ export default function DocumentsTab() {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 5 }, (_, i) => i).map((idx) => (
               <div
-                key={`skeleton-document-${i}`}
+                key={`skeleton-document-${idx}`}
                 className="flex items-center gap-4 py-3 border-b"
               >
                 <Skeleton className="h-4 w-48" />

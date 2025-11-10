@@ -138,9 +138,9 @@ export default function ProjectsTab() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {Array.from({ length: 3 }).map((_, i) => (
+            {Array.from({ length: 3 }, (_, i) => i).map((idx) => (
               <div
-                key={`skeleton-project-${i}`}
+                key={`skeleton-project-${idx}`}
                 className="border rounded-lg p-6 space-y-4"
               >
                 <div className="flex justify-between items-start">

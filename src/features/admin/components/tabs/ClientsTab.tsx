@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Loader2, Users } from "lucide-react";
+import { AlertCircle, Users } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -71,9 +71,9 @@ export default function ClientsTab() {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 5 }, (_, i) => i).map((idx) => (
               <div
-                key={`skeleton-client-${i}`}
+                key={`skeleton-client-${idx}`}
                 className="flex items-center gap-4 py-3 border-b"
               >
                 <Skeleton className="h-10 w-10 rounded-full" />
@@ -139,7 +139,9 @@ export default function ClientsTab() {
                     <div className="flex items-center gap-3">
                       <Avatar>
                         <AvatarImage src={undefined} alt={client.full_name} />
-                        <AvatarFallback>{getInitials(client.full_name)}</AvatarFallback>
+                        <AvatarFallback>
+                          {getInitials(client.full_name)}
+                        </AvatarFallback>
                       </Avatar>
                       <span>{client.full_name}</span>
                     </div>

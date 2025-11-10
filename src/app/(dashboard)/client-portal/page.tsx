@@ -172,9 +172,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                {Array.from({ length: 2 }).map((_, i) => (
+                {Array.from({ length: 2 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-project-${i}`}
+                    key={`skeleton-project-${idx}`}
                     className="border rounded-lg p-6 space-y-4"
                   >
                     <div className="flex justify-between items-start">
@@ -208,9 +208,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {Array.from({ length: 3 }).map((_, i) => (
+                {Array.from({ length: 3 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-document-${i}`}
+                    key={`skeleton-document-${idx}`}
                     className="flex items-center gap-4 py-3 border-b"
                   >
                     <Skeleton className="h-4 w-48" />
@@ -234,9 +234,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {Array.from({ length: 3 }).map((_, i) => (
+                {Array.from({ length: 3 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-invoice-${i}`}
+                    key={`skeleton-invoice-${idx}`}
                     className="flex items-center gap-4 py-3 border-b"
                   >
                     <Skeleton className="h-4 w-24" />
