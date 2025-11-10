@@ -27,18 +27,18 @@ export default function SiteHeader() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-lg shadow-sm" : "bg-transparent"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 shadow-sm ${
+        isScrolled ? "bg-white/95 backdrop-blur-lg shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-12">
         <div className="relative flex justify-between items-center h-24">
           {/* Left Button */}
           <div className="hidden md:block">
             <Link href="/contact" className="group">
               <Button
                 variant="outline"
-                className="rounded-full border-[var(--border)] bg-white/50 backdrop-blur-md cursor-pointer hover:bg-periwinkle transition-all duration-300"
+                className="rounded-full border-border bg-white/50 backdrop-blur-md cursor-pointer hover:bg-periwinkle transition-all duration-300"
               >
                 <ArrowRight className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-rotate-45" />
                 Let's Talk
@@ -48,10 +48,7 @@ export default function SiteHeader() {
 
           {/* Centered Logo */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <Link
-              href="/"
-              className="text-2xl font-bold text-[var(--foreground)]"
-            >
+            <Link href="/" className="text-2xl font-bold text-foreground">
               Haelo Studio
             </Link>
           </div>
@@ -71,7 +68,7 @@ export default function SiteHeader() {
                     exit={{ scale: 0, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     onClick={() => setIsNavPillOpen(true)}
-                    className="p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md cursor-pointer"
+                    className="p-2 border border-border rounded-full bg-white/50 backdrop-blur-md cursor-pointer"
                     aria-label="Open navigation"
                   >
                     <Plus className="h-5 w-5" />
@@ -85,7 +82,7 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md"
+                className="text-foreground p-2 border border-border rounded-full bg-white/50 backdrop-blur-md"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />

@@ -22,7 +22,7 @@ export function AddInvoiceButton() {
       <button
         type="button"
         onClick={() => setIsDialogOpen(true)}
-        className="p-2 border border-[var(--border)] rounded-full bg-white/50 backdrop-blur-md cursor-pointer hover:bg-white transition-colors"
+        className="p-2 border border-border rounded-full bg-white/50 backdrop-blur-md cursor-pointer hover:bg-white transition-colors"
         aria-label="Add Invoice"
       >
         <Plus className="h-5 w-5 text-periwinkle" />

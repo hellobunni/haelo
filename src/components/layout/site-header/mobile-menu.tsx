@@ -21,7 +21,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
         <button
           type="button"
           onClick={onClose}
-          className="text-[var(--foreground)] p-2 border border-[var(--border)] rounded-full"
+          className="text-[var(--foreground)] p-2 border border-border rounded-full"
           aria-label="Close menu"
         >
           <X className="h-5 w-5" />

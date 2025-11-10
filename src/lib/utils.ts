@@ -8,6 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export const navigationItems = [
   { name: "Work", url: "/work" },
   { name: "Services", url: "/services" },
+  { name: "Process", url: "/process" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];

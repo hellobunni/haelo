@@ -1,40 +1,28 @@
 "use client";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { Calendar, Loader2, Mail, MessageCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
-import type React from "react";
 import { useState } from "react";
+import HeroSection from "@/components/blocks/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+import contentData from "@/lib/data/content.json";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
+    company: "",
+    budget: "",
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  }
+  const { contact } = contentData;
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       alert("Please fill out all required fields.");
@@ -44,7 +32,7 @@ export default function ContactPage() {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("📧 Inquiry submitted:", formData);
+      console.log("📧 Form submitted:", formData);
       setSubmitted(true);
     } catch (error) {
       console.error("Failed to submit inquiry:", error);
@@ -52,125 +40,295 @@ export default function ContactPage() {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   if (submitted) {
     return (
-      <div className="min-h-[80vh] flex flex-col justify-center items-center text-center max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <h1 className="sub-heading mb-4">Thank You!</h1>
-          <p className="text-lg text-gray-600">
-            Your message has been sent successfully. We'll get back to you
-            within 24 hours.
-          </p>
-        </motion.div>
+      <div className="bg-white min-h-screen">
+        <HeroSection
+          variant="standard"
+          badge={contact.hero.badge}
+          title={contact.hero.title}
+          description={contact.hero.description}
+          maxWidth="max-w-5xl"
+          blobs={[
+            {
+              position: "top-1/4",
+              horizontal: "right-1/4",
+              color: "bg-thistle",
+              animated: false,
+            },
+          ]}
+        />
+        <div className="min-h-[60vh] flex flex-col justify-center items-center text-center max-w-2xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Thank You!
+            </h1>
+            <p className="text-lg text-gray-600">
+              Your message has been sent successfully. We'll get back to you
+              within 24 hours.
+            </p>
+          </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12 py-16"
-    >
-      <div className="grid md:grid-cols-3 gap-16 items-start pt-16 ">
-        <motion.h1
-          variants={itemVariants}
-          className="layered-heading md:col-span-2"
-        >
-          Let's Build
-          <br />
-          Together
-          <span aria-hidden="true">
-            Let's Build
-            <br />
-            Together
-          </span>
-        </motion.h1>
-        <motion.p
-          variants={itemVariants}
-          className="text-gray-600 pt-4 text-lg"
-        >
-          Ready to elevate your digital presence? Let's start a conversation
-          about bringing your vision to life.
-        </motion.p>
-      </div>
+    <div className="bg-white min-h-screen">
+      <HeroSection
+        variant="standard"
+        badge={contact.hero.badge}
+        title={contact.hero.title}
+        description={contact.hero.description}
+        maxWidth="max-w-5xl"
+        blobs={[
+          {
+            position: "top-1/4",
+            horizontal: "right-1/4",
+            color: "bg-thistle",
+            animated: false,
+          },
+        ]}
+      />
 
-      <motion.form
-        variants={itemVariants}
-        onSubmit={handleSubmit}
-        className="mt-29 grid md:grid-cols-3 gap-8"
-      >
-        <div className="space-y-4">
-          <Input
-            name="name"
-            placeholder="NAME"
-            value={formData.name}
-            onChange={handleChange}
-            className="bg-gray-100 h-14 px-4"
-            required
-          />
-          <Input
-            name="email"
-            type="email"
-            placeholder="EMAIL ADDRESS"
-            value={formData.email}
-            onChange={handleChange}
-            className="bg-gray-100 h-14 px-4"
-            required
-          />
-          <Input
-            name="phone"
-            placeholder="PHONE NUMBER"
-            value={formData.phone}
-            onChange={handleChange}
-            className="bg-gray-100 h-14 px-4"
-          />
-        </div>
-        <div className="md:col-span-2 flex flex-col">
-          <Textarea
-            name="message"
-            placeholder="Tell us about your project—your goals, vision, and what success looks like..."
-            value={formData.message}
-            onChange={handleChange}
-            className="bg-gray-100 border-none flex-grow px-4 py-4 min-h-[150px]"
-            required
-          />
-          <div className="flex justify-end mt-4">
-            <Button
-              type="submit"
-              className="bg-periwinkle text-white font-bold text-lg px-8 py-6 rounded-full hover:bg-opacity-90 flex items-center"
-              disabled={isLoading}
+      {/* Contact Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-5 gap-12">
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2 space-y-8"
             >
-              {isLoading ? (
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              ) : (
-                <ArrowRight className="mr-2 h-5 w-5" />
-              )}
-              SEND
-            </Button>
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Get Started
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-8">
+                  Whether you have a detailed brief or just an idea, we'd love
+                  to hear from you. We typically respond within 24 hours.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Email Us
+                    </h3>
+                    <a
+                      href="mailto:hello@haelostudios.com"
+                      className="text-lavender-floral hover:text-dark-purple transition-colors cursor-pointer"
+                    >
+                      hello@haelostudios.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                    <Calendar className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Book a Call
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      Schedule a free 30-minute discovery call
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                    <MessageCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Response Time
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      We typically respond within 24 hours
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-gray-200">
+                <h3 className="font-semibold text-gray-900 mb-4">
+                  What to Expect
+                </h3>
+                <ul className="space-y-3 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    Initial consultation to discuss your needs
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    Tailored proposal and timeline
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    Transparent pricing and process
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-3"
+            >
+              <form
+                onSubmit={handleSubmit}
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border border-gray-100"
+              >
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <Label
+                        htmlFor="name"
+                        className="text-gray-700 font-medium mb-2 block"
+                      >
+                        Your Name *
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        required
+                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                      />
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="email"
+                        className="text-gray-700 font-medium mb-2 block"
+                      >
+                        Email Address *
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        required
+                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <Label
+                        htmlFor="company"
+                        className="text-gray-700 font-medium mb-2 block"
+                      >
+                        Company
+                      </Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Your Company"
+                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                      />
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="budget"
+                        className="text-gray-700 font-medium mb-2 block"
+                      >
+                        Budget Range
+                      </Label>
+                      <Input
+                        id="budget"
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        placeholder="$10k - $50k"
+                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label
+                      htmlFor="message"
+                      className="text-gray-700 font-medium mb-2 block"
+                    >
+                      Tell Us About Your Project *
+                    </Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Share your vision, goals, and any specific requirements..."
+                      required
+                      rows={6}
+                      className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isLoading}
+                    className="w-full bg-lavender-floral hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer"
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="ml-2 w-4 h-4" />
+                      </>
+                    )}
+                  </Button>
+
+                  <p className="text-sm text-gray-500 text-center">
+                    By submitting this form, you agree to our privacy policy and
+                    terms of service.
+                  </p>
+                </div>
+              </form>
+            </motion.div>
           </div>
         </div>
-      </motion.form>
-
-      <motion.div
-        variants={itemVariants}
-        className="mt-24 pt-12 border-t border-[var(--border)] grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-sm"
-      >
-        <div>
-          <h4 className="text-gray-400 mb-2">CONTACT US</h4>
-          <p className="font-semibold">hello@haelostudio.com</p>
-        </div>
-        <div>
-          <h4 className="text-gray-400 mb-2">AVAILABILITY</h4>
-          <p className="font-semibold">Now onboarding select clients for Q1</p>
-        </div>
-      </motion.div>
-    </motion.div>
+      </section>
+    </div>
   );
 }

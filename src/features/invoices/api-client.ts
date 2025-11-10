@@ -113,4 +113,3 @@ export async function getLineItemsByInvoiceIdClient(
     amount: Number(item.amount),
   }));
 }
-

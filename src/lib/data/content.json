@@ -1,0 +1,209 @@
+{
+  "home": {
+    "hero": {
+      "badge": {
+        "text": "Haelo Studios",
+        "icon": "Sparkles"
+      },
+      "title": {
+        "line1": "Where Vision",
+        "line2": "Meets Execution"
+      },
+      "description": "Boutique digital studio blending aesthetics + tech to build brands that stand out. Refined design. Smart engineering. Lasting impact.",
+      "buttons": {
+        "primary": {
+          "text": "Start Your Project",
+          "href": "/contact"
+        },
+        "secondary": {
+          "text": "View Our Work",
+          "href": "/work"
+        }
+      }
+    },
+    "whatWeDo": {
+      "title": "What We Offer",
+      "description": "Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.",
+      "cta": {
+        "text": "Explore All Services",
+        "href": "/services"
+      }
+    },
+    "selectedWorks": {
+      "title": "Selected Works",
+      "description": "Projects that showcase our signature blend of elegance + engineering",
+      "cta": {
+        "text": "View All Projects",
+        "href": "/work"
+      }
+    },
+    "cta": {
+      "title": {
+        "line1": "Ready to Elevate Your",
+        "line2": "Digital Presence?"
+      },
+      "description": "Let's discuss how we can transform your vision into an exceptional digital experience.",
+      "button": {
+        "text": "View Our Work",
+        "href": "/work"
+      }
+    },
+    "finalCTA": {
+      "title": "Let's Start Your Project",
+      "description": "Schedule a free consultation and discover how we can bring your vision to life with our proven process.",
+      "buttons": {
+        "primary": {
+          "text": "Schedule a Call",
+          "href": "/contact",
+          "icon": "Calendar"
+        },
+        "secondary": {
+          "text": "Learn More About Us",
+          "href": "/about"
+        }
+      },
+      "stats": [
+        {
+          "value": "24h",
+          "label": "Response Time"
+        },
+        {
+          "value": "Free",
+          "label": "Initial Consultation"
+        },
+        {
+          "value": "100%",
+          "label": "Transparent Pricing"
+        }
+      ]
+    }
+  },
+  "work": {
+    "hero": {
+      "badge": {
+        "text": "Selected Works",
+        "icon": "Sparkles"
+      },
+      "title": {
+        "line1": "Projects That",
+        "line2": "Define Excellence"
+      },
+      "description": "Each project reflects our signature blend of elegance + engineering — crafted for clients who demand more than ordinary."
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": {
+        "text": "Get In Touch",
+        "icon": "Sparkles"
+      },
+      "title": {
+        "line1": "Let's Build Something",
+        "line2": "Extraordinary"
+      },
+      "description": "Ready to elevate your digital presence? Tell us about your project and let's start the conversation."
+    }
+  },
+  "processMini": {
+    "header": {
+      "title": "Our Process",
+      "description": "A refined four-phase approach from concept to launch"
+    },
+    "cta": {
+      "text": "Learn More About Our Process",
+      "href": "/process"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "Haelo Studios",
+      "description": "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact."
+    },
+    "contact": {
+      "email": "hello@haelostudios.com",
+      "availability": "Available for select projects"
+    },
+    "links": {
+      "privacy": "#",
+      "terms": "#"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": {
+        "text": "About Haelo Studios",
+        "icon": "Sparkles"
+      },
+      "title": {
+        "line1": "Small Team.",
+        "line2": "Big Impact."
+      },
+      "description": "We're a boutique digital studio that blends aesthetic sophistication with engineering excellence. As a solo-preneur operating as a studio, I bring the agility of an independent with the professionalism of an agency."
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraphs": [
+        "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences. Too often, businesses are forced to choose between beautiful design and robust engineering—or settle for cookie-cutter solutions that don't reflect their unique identity.",
+        "As a studio, we bridge that gap. Every project is an opportunity to craft something truly exceptional—where form meets function, where aesthetics serve strategy, and where attention to detail transforms good into extraordinary.",
+        "Working with select clients means we can give each project the focus it deserves. We're not trying to be everything to everyone. Instead, we partner with ambitious brands who value quality, understand the power of thoughtful design, and are ready to invest in their digital presence."
+      ]
+    },
+    "stats": [
+      {
+        "value": "50+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": "5+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "100%",
+        "label": "Remote Capable"
+      }
+    ],
+    "values": {
+      "header": {
+        "title": "What We Stand For",
+        "description": "Our values guide every project, every interaction, every line of code."
+      },
+      "items": [
+        {
+          "icon": "Heart",
+          "title": "Craft Over Speed",
+          "description": "We believe in taking the time to do things right. Every pixel, every line of code matters."
+        },
+        {
+          "icon": "Target",
+          "title": "Strategic Thinking",
+          "description": "Beautiful design means nothing without purpose. We align every decision with your business goals."
+        },
+        {
+          "icon": "Code2",
+          "title": "Technical Excellence",
+          "description": "Clean, maintainable code that scales. We build for today and tomorrow."
+        },
+        {
+          "icon": "Users",
+          "title": "Partnership Approach",
+          "description": "Your success is our success. We're not just vendors—we're collaborators in your vision."
+        }
+      ]
+    },
+    "cta": {
+      "title": {
+        "line1": "Let's Create Something",
+        "line2": "Remarkable Together"
+      },
+      "description": "If you're a brand that values quality over quantity and believes in the power of exceptional design, let's talk.",
+      "button": {
+        "text": "Schedule a Discovery Call",
+        "href": "/contact"
+      }
+    }
+  }
+}

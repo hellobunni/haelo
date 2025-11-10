@@ -41,6 +41,29 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Purple color palette */
+  --color-magnolia: #ebe6ef;
+  --color-thistle: #d7ccdf;
+  --color-pale-purple: #ece0f5;
+  --color-thistle-2: #d8c1eb;
+  --color-wisteria: #c5a3e1;
+  --color-lavender-floral: #a874d2;
+  --color-dark-purple: #372246;
+  --color-dark-purple-2: #230c33;
+  --color-periwinkle: #9381ff;
+
+  /* Periwinkle scale for backward compatibility */
+  --color-periwinkle-50: #ece0f5;
+  --color-periwinkle-100: #ece0f5;
+  --color-periwinkle-200: #d7ccdf;
+  --color-periwinkle-300: #d8c1eb;
+  --color-periwinkle-400: #c5a3e1;
+  --color-periwinkle-500: #a874d2;
+  --color-periwinkle-600: #a874d2;
+  --color-periwinkle-700: #372246;
+  --color-periwinkle-800: #230c33;
+  --color-periwinkle-900: #230c33;
 }
 
 :root {
@@ -132,4 +155,383 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Purple color palette - Background colors */
+.bg-magnolia {
+  background-color: #ebe6ef;
+}
+
+.bg-thistle {
+  background-color: #d7ccdf;
+}
+
+.bg-pale-purple {
+  background-color: #ece0f5;
+}
+
+.bg-thistle-2 {
+  background-color: #d8c1eb;
+}
+
+.bg-wisteria {
+  background-color: #c5a3e1;
+}
+
+.bg-lavender-floral {
+  background-color: #a874d2;
+}
+
+.bg-dark-purple {
+  background-color: #372246;
+}
+
+.bg-dark-purple-2 {
+  background-color: #230c33;
+}
+
+/* Purple color palette - Text colors */
+.text-magnolia {
+  color: #ebe6ef;
+}
+
+.text-thistle {
+  color: #d7ccdf;
+}
+
+.text-pale-purple {
+  color: #ece0f5;
+}
+
+.text-thistle-2 {
+  color: #d8c1eb;
+}
+
+.text-wisteria {
+  color: #c5a3e1;
+}
+
+.text-lavender-floral {
+  color: #a874d2;
+}
+
+.text-dark-purple {
+  color: #372246;
+}
+
+.text-dark-purple-2 {
+  color: #230c33;
+}
+
+/* Purple color palette - Border colors */
+.border-magnolia {
+  border-color: #ebe6ef;
+}
+
+.border-thistle {
+  border-color: #d7ccdf;
+}
+
+.border-pale-purple {
+  border-color: #ece0f5;
+}
+
+.border-thistle-2 {
+  border-color: #d8c1eb;
+}
+
+.border-wisteria {
+  border-color: #c5a3e1;
+}
+
+.border-lavender-floral {
+  border-color: #a874d2;
+}
+
+.border-dark-purple {
+  border-color: #372246;
+}
+
+.border-dark-purple-2 {
+  border-color: #230c33;
+}
+
+/* Purple color palette - Gradient from */
+.from-magnolia {
+  --tw-gradient-from: #ebe6ef;
+}
+
+.from-thistle {
+  --tw-gradient-from: #d7ccdf;
+}
+
+.from-pale-purple {
+  --tw-gradient-from: #ece0f5;
+}
+
+.from-thistle-2 {
+  --tw-gradient-from: #d8c1eb;
+}
+
+.from-wisteria {
+  --tw-gradient-from: #c5a3e1;
+}
+
+.from-lavender-floral {
+  --tw-gradient-from: #a874d2;
+}
+
+.from-dark-purple {
+  --tw-gradient-from: #372246;
+}
+
+.from-dark-purple-2 {
+  --tw-gradient-from: #230c33;
+}
+
+/* Purple color palette - Gradient to */
+.to-magnolia {
+  --tw-gradient-to: #ebe6ef;
+}
+
+.to-thistle {
+  --tw-gradient-to: #d7ccdf;
+}
+
+.to-pale-purple {
+  --tw-gradient-to: #ece0f5;
+}
+
+.to-thistle-2 {
+  --tw-gradient-to: #d8c1eb;
+}
+
+.to-wisteria {
+  --tw-gradient-to: #c5a3e1;
+}
+
+.to-lavender-floral {
+  --tw-gradient-to: #a874d2;
+}
+
+.to-dark-purple {
+  --tw-gradient-to: #372246;
+}
+
+.to-dark-purple-2 {
+  --tw-gradient-to: #230c33;
+}
+
+/* Purple color palette - Shadow colors */
+.shadow-magnolia {
+  --tw-shadow-color: #ebe6ef;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.shadow-thistle {
+  --tw-shadow-color: #d7ccdf;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.shadow-wisteria {
+  --tw-shadow-color: #c5a3e1;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.shadow-lavender-floral {
+  --tw-shadow-color: #a874d2;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.shadow-dark-purple {
+  --tw-shadow-color: #372246;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.shadow-dark-purple-2 {
+  --tw-shadow-color: #230c33;
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+/* Blob animation */
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(50px, 50px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 10s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Additional purple color variants - Hover states */
+.group-hover\:text-magnolia:hover {
+  color: #ebe6ef;
+}
+
+.group-hover\:text-pale-purple:hover {
+  color: #ece0f5;
+}
+
+.group-hover\:bg-lavender-floral:hover {
+  background-color: #a874d2;
+}
+
+.hover\:bg-dark-purple:hover {
+  background-color: #372246;
+}
+
+.hover\:border-thistle:hover {
+  border-color: #d7ccdf;
+}
+
+.hover\:border-thistle-2:hover {
+  border-color: #d8c1eb;
+}
+
+.hover\:text-lavender-floral:hover {
+  color: #a874d2;
+}
+
+.hover\:text-wisteria:hover {
+  color: #c5a3e1;
+}
+
+/* Additional purple variants with opacity for overlays */
+.bg-dark-purple-2\/30 {
+  background-color: rgba(35, 12, 51, 0.3);
+}
+
+.border-dark-purple\/30 {
+  border-color: rgba(55, 34, 70, 0.3);
+}
+
+.shadow-dark-purple-2\/50 {
+  --tw-shadow-color: rgba(35, 12, 51, 0.5);
+}
+
+.shadow-dark-purple\/50 {
+  --tw-shadow-color: rgba(55, 34, 70, 0.5);
+}
+
+/* Legacy periwinkle classes mapped to new purple palette for backward compatibility */
+.bg-periwinkle-50,
+.bg-periwinkle-100 {
+  background-color: #ece0f5; /* pale-purple */
+}
+
+.bg-periwinkle-200 {
+  background-color: #d7ccdf; /* thistle */
+}
+
+.bg-periwinkle-300,
+.text-periwinkle-300 {
+  background-color: #d8c1eb; /* thistle-2 */
+  color: #d8c1eb;
+}
+
+.bg-periwinkle-400,
+.to-periwinkle-400 {
+  background-color: #c5a3e1; /* wisteria */
+  --tw-gradient-to: #c5a3e1;
+}
+
+.bg-periwinkle-500,
+.bg-periwinkle-600,
+.text-periwinkle-600,
+.from-periwinkle-500,
+.from-periwinkle-600,
+.to-periwinkle-500,
+.to-periwinkle-600 {
+  background-color: #a874d2; /* lavender-floral */
+  color: #a874d2;
+  --tw-gradient-from: #a874d2;
+  --tw-gradient-to: #a874d2;
+}
+
+.bg-periwinkle-700,
+.hover\:bg-periwinkle-700:hover {
+  background-color: #372246; /* dark-purple */
+}
+
+.bg-periwinkle-800,
+.bg-periwinkle-900,
+.text-periwinkle-900 {
+  background-color: #230c33; /* dark-purple-2 */
+  color: #230c33;
+}
+
+.border-periwinkle-200,
+.hover\:border-periwinkle-200:hover,
+.border-periwinkle-100 {
+  border-color: #d7ccdf; /* thistle */
+}
+
+.shadow-periwinkle-200,
+.shadow-periwinkle-300 {
+  --tw-shadow-color: #d7ccdf; /* thistle */
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.bg-periwinkle-900\/30,
+.border-periwinkle-700\/30 {
+  background-color: rgba(35, 12, 51, 0.3);
+  border-color: rgba(55, 34, 70, 0.3);
+}
+
+.shadow-periwinkle-900\/50,
+.shadow-periwinkle-800\/50 {
+  --tw-shadow-color: rgba(35, 12, 51, 0.5);
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.from-periwinkle-50,
+.from-periwinkle-400 {
+  --tw-gradient-from: #ece0f5; /* pale-purple */
+}
+
+.group-hover\:bg-periwinkle-600:hover {
+  background-color: #a874d2; /* lavender-floral */
+}
+
+.group-hover\:text-periwinkle-50:hover {
+  color: #ece0f5; /* pale-purple */
+}
+
+.group-hover\:text-periwinkle-600:hover {
+  color: #a874d2; /* lavender-floral */
 }
