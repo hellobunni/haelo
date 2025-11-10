@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Textarea } from "@/components/ui/textarea";
 import type { Project, ProjectStatus } from "@/types";
 
@@ -83,119 +84,121 @@ export default function EditProjectDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-md max-h-[90vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Edit Project</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="projectName">Project Name</Label>
-            <Input
-              id="projectName"
-              value={formData.projectName}
-              onChange={(e) =>
-                setFormData({ ...formData, projectName: e.target.value })
-              }
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              id="description"
-              value={formData.description}
-              onChange={(e) =>
-                setFormData({ ...formData, description: e.target.value })
-              }
-              rows={3}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Status</Label>
-            <RadioGroup
-              value={formData.status}
-              onValueChange={(value) =>
-                setFormData({
-                  ...formData,
-                  status: value as Project["status"],
-                })
-              }
-              className="flex flex-row flex-wrap gap-4"
-            >
-              {statuses.map((status) => (
-                <div key={status} className="flex items-center space-x-2">
-                  <RadioGroupItem value={status} id={`status-${status}`} />
-                  <Label
-                    htmlFor={`status-${status}`}
-                    className="cursor-pointer font-normal"
-                  >
-                    {status}
-                  </Label>
-                </div>
-              ))}
-            </RadioGroup>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="progress">Progress (%)</Label>
-            <Input
-              id="progress"
-              type="number"
-              min="0"
-              max="100"
-              value={formData.progress}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  progress: parseInt(e.target.value, 10) || 0,
-                })
-              }
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
+        <ScrollArea className="flex-1 pr-4">
+          <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="startDate">Start Date</Label>
+              <Label htmlFor="projectName">Project Name</Label>
               <Input
-                id="startDate"
-                type="date"
-                value={formData.startDate}
+                id="projectName"
+                value={formData.projectName}
                 onChange={(e) =>
-                  setFormData({ ...formData, startDate: e.target.value })
+                  setFormData({ ...formData, projectName: e.target.value })
                 }
               />
             </div>
+
             <div className="space-y-2">
-              <Label htmlFor="estimatedCompletion">Est. Completion</Label>
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                id="description"
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
+                rows={3}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Status</Label>
+              <RadioGroup
+                value={formData.status}
+                onValueChange={(value) =>
+                  setFormData({
+                    ...formData,
+                    status: value as Project["status"],
+                  })
+                }
+                className="flex flex-row flex-wrap gap-4"
+              >
+                {statuses.map((status) => (
+                  <div key={status} className="flex items-center space-x-2">
+                    <RadioGroupItem value={status} id={`status-${status}`} />
+                    <Label
+                      htmlFor={`status-${status}`}
+                      className="cursor-pointer font-normal"
+                    >
+                      {status}
+                    </Label>
+                  </div>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="progress">Progress (%)</Label>
               <Input
-                id="estimatedCompletion"
-                type="date"
-                value={formData.estimatedCompletion}
+                id="progress"
+                type="number"
+                min="0"
+                max="100"
+                value={formData.progress}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    estimatedCompletion: e.target.value,
+                    progress: parseInt(e.target.value, 10) || 0,
                   })
                 }
               />
             </div>
-          </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="pdfUrl">Project PDF URL</Label>
-            <Input
-              id="pdfUrl"
-              type="url"
-              placeholder="https://example.com/project.pdf"
-              value={formData.pdfUrl}
-              onChange={(e) =>
-                setFormData({ ...formData, pdfUrl: e.target.value })
-              }
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="startDate">Start Date</Label>
+                <Input
+                  id="startDate"
+                  type="date"
+                  value={formData.startDate}
+                  onChange={(e) =>
+                    setFormData({ ...formData, startDate: e.target.value })
+                  }
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="estimatedCompletion">Est. Completion</Label>
+                <Input
+                  id="estimatedCompletion"
+                  type="date"
+                  value={formData.estimatedCompletion}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      estimatedCompletion: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="pdfUrl">Project PDF URL</Label>
+              <Input
+                id="pdfUrl"
+                type="url"
+                placeholder="https://example.com/project.pdf"
+                value={formData.pdfUrl}
+                onChange={(e) =>
+                  setFormData({ ...formData, pdfUrl: e.target.value })
+                }
+              />
+            </div>
           </div>
-        </div>
+        </ScrollArea>
 
         <DialogFooter>
           <Button variant="outline" onClick={onClose}>
