@@ -1,141 +1,81 @@
 "use client";
-import { ArrowRight, Menu, Moon, Plus, Sun, X } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Switch } from "@/components/ui/switch";
 import { navigationItems } from "@/lib/utils";
+import clsx from "clsx";
 
 export default function SiteHeader() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isNavPillOpen, setIsNavPillOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // Avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50); // Change background after 50px scroll
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 shadow-sm ${
-        isScrolled ? "bg-white/95 backdrop-blur-lg shadow-lg" : "bg-transparent"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="relative flex justify-between items-center h-24">
-          {/* Left Button */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="text-xl font-bold text-gray-900 group-hover:text-periwinkle-600 transition-colors duration-300">
+              Haelo Studios
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navigationItems.slice(1,7).map((item) => (
+              <Link key={item.name} href={item.url} className={clsx("text-sm font-medium transition-colors duration-300 relative group", pathname === item.url ? "border-b-2 border-periwinkle-600": "text-gray-600 hover:text-periwinkle-600")}>{item.name}</Link>
+            ))}
+          </div>
+
+          {/* CTA Button */}
           <div className="hidden md:block">
-            <Link href="/contact" className="group">
-              <Button
-                variant="outline"
-                className="rounded-full border-border bg-white/50 backdrop-blur-md cursor-pointer hover:bg-periwinkle transition-all duration-300"
-              >
-                <ArrowRight className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-rotate-45" />
-                Let's Talk
-              </Button>
-            </Link>
+            <Button
+              size="sm"
+              variant="periwinkle"
+              rounded
+              href="/contact"
+            >
+              Let's Talk
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
           </div>
 
-          {/* Centered Logo */}
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <Link href="/" className="text-2xl font-bold text-foreground">
-              Haelo Studio
-            </Link>
-          </div>
-
-          {/* Right Side: Desktop Pill Nav & Mobile Button */}
-          <div className="flex-1 flex justify-end items-center gap-3">
-            {/* Theme Toggle */}
-            {mounted && (
-              <div className="hidden md:flex items-center gap-2">
-                <Sun className="h-4 w-4 text-gray-600" />
-                <Switch
-                  checked={theme === "dark"}
-                  onCheckedChange={(checked) => {
-                    setTheme(checked ? "dark" : "light");
-                  }}
-                  aria-label="Toggle theme"
-                />
-                <Moon className="h-4 w-4 text-gray-600" />
-              </div>
-            )}
-            {/* Desktop Pill Navigation */}
-            <div className="hidden md:flex items-center justify-end">
-              <Popover open={isNavPillOpen} onOpenChange={setIsNavPillOpen}>
-                <PopoverTrigger asChild>
-                  <button
-                    type="button"
-                    className="p-2 border border-border rounded-full bg-white/50 backdrop-blur-md cursor-pointer hover:bg-white/70 transition-colors"
-                    aria-label="Open navigation"
-                  >
-                    <Plus className="h-5 w-5" />
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent
-                  align="end"
-                  sideOffset={8}
-                  className="bg-periwinkle rounded-full border-0 p-0 w-auto shadow-lg"
-                >
-                  <nav className="flex items-center pl-6 pr-2 py-1 space-x-4">
-                    {navigationItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.url}
-                        onClick={() => setIsNavPillOpen(false)}
-                        className="text-white text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap cursor-pointer"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                    <button
-                      type="button"
-                      onClick={() => setIsNavPillOpen(false)}
-                      className="p-2 bg-black/10 rounded-full cursor-pointer hover:bg-black/20 transition-colors"
-                      aria-label="Close navigation"
-                    >
-                      <X className="h-5 w-5 text-white" />
-                    </button>
-                  </nav>
-                </PopoverContent>
-              </Popover>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="text-foreground p-2 border border-border rounded-full bg-white/50 backdrop-blur-md"
-                aria-label="Open menu"
-              >
-                <Menu className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-gray-600 hover:text-periwinkle-600 transition-colors duration-300"
+            aria-label="Toggle menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
       </div>
 

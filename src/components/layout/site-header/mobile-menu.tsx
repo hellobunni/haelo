@@ -1,12 +1,11 @@
 "use client";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
 } from "@/components/ui/sheet";
 import { navigationItems } from "@/lib/utils";
 
@@ -16,6 +15,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
+  const pathname = usePathname();
+
   const handleLinkClick = () => {
     onOpenChange(false);
   };
@@ -26,38 +27,31 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
         side="left"
         className="w-full sm:max-w-sm bg-white p-0 flex flex-col"
       >
-        <SheetHeader className="p-4 border-b">
-          <SheetTitle asChild>
-            <Link
-              href="/"
-              onClick={handleLinkClick}
-              className="text-xl font-bold"
-            >
-              Matte Digital
-            </Link>
-          </SheetTitle>
-        </SheetHeader>
-
-        <div className="flex-1 p-4 mt-8">
+        <div className="px-6 py-6 space-y-4">
           {navigationItems.map((item) => (
             <Link
               key={item.name}
               href={item.url}
               onClick={handleLinkClick}
-              className="block text-5xl font-bold py-3"
+              className={`block text-lg font-medium transition-colors duration-300 ${
+                pathname === item.url
+                  ? "text-periwinkle-600"
+                  : "text-gray-600"
+              }`}
             >
               {item.name}
             </Link>
           ))}
-        </div>
-
-        <SheetFooter className="p-4 border-t">
-          <Link href="/contact" onClick={handleLinkClick} className="w-full">
-            <Button className="w-full bg-periwinkle text-white font-bold text-lg h-16 rounded-2xl">
+          <Link href="/contact" onClick={handleLinkClick} className="block">
+            <Button
+              size="sm"
+              className="w-full bg-periwinkle-600 hover:bg-periwinkle-700 text-white rounded-xl"
+            >
               Let's Talk
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
-        </SheetFooter>
+        </div>
       </SheetContent>
     </Sheet>
   );

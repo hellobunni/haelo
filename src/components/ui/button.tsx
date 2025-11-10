@@ -1,11 +1,12 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link from "next/link";
 import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -19,6 +20,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        periwinkle:
+          "bg-periwinkle-600 text-white hover:bg-periwinkle-700 shadow-lg shadow-periwinkle-200 hover:shadow-xl hover:shadow-periwinkle-300",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -28,10 +31,15 @@ const buttonVariants = cva(
         "icon-sm": "size-8",
         "icon-lg": "size-10",
       },
+      rounded: {
+        true: "rounded-xl",
+        false: "",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      rounded: false,
     },
   },
 );
@@ -40,19 +48,63 @@ function Button({
   className,
   variant,
   size,
+  rounded,
   asChild = false,
+  href,
+  onClick,
   ...props
-}: React.ComponentProps<"button"> &
+}: (React.ComponentProps<"button"> | React.ComponentProps<"a">) &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    href?: string;
   }) {
-  const Comp = asChild ? Slot : "button";
+  // Determine if href is external (mailto, https, http, www)
+  const isExternal =
+    href &&
+    (href.startsWith("mailto:") ||
+      href.startsWith("https://") ||
+      href.startsWith("http://") ||
+      href.startsWith("www.") ||
+      href.startsWith("//"));
+
+  // Determine the component to use
+  let Comp: React.ElementType;
+  let finalProps = props;
+
+  if (asChild) {
+    Comp = Slot;
+  } else if (href && !isExternal) {
+    // Internal link - use Next.js Link
+    Comp = Link;
+    finalProps = { ...finalProps, href } as React.ComponentProps<typeof Link>;
+  } else if (href && isExternal) {
+    // External link - use anchor tag
+    Comp = "a";
+    finalProps = {
+      ...finalProps,
+      href,
+      target: "_blank",
+      rel: "noopener noreferrer",
+    } as React.ComponentProps<"a">;
+  } else if (onClick) {
+    // Has onClick - use button
+    Comp = "button";
+    finalProps = { ...finalProps, onClick, type: "button" } as React.ComponentProps<"button">;
+  } else {
+    // Default - use button
+    Comp = "button";
+    finalProps = { ...finalProps, type: "button" } as React.ComponentProps<"button">;
+  }
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
+      className={cn(
+        buttonVariants({ variant, size, rounded }),
+        className,
+        variant === "periwinkle" && "!text-white"
+      )}
+      {...finalProps}
     />
   );
 }

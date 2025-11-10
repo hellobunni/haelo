@@ -34,7 +34,7 @@ export default function RootLayout({
             {/* Client header with its own state */}
             <SiteHeader />
             {/* Page content (route transitions handled in app/template.tsx) */}
-            <main className="pt-24">{children}</main>
+            <main className="pt-20">{children}</main>
             <footer className="bg-gradient-to-b from-gray-900 to-black text-white py-20 relative overflow-hidden">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-periwinkle-900 rounded-full blur-3xl opacity-10"></div>
