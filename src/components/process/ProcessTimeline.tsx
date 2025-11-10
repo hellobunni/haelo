@@ -2,6 +2,7 @@
 import type { LucideIcon } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Separator } from "@/components/ui/separator";
 
 interface ProcessTimelineProps {
   steps: Array<{
@@ -117,7 +118,8 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                         </ul>
                       </div>
 
-                      <div className="pt-6 border-t border-gray-200 grid grid-cols-2 gap-4">
+                      <Separator className="mb-6" />
+                      <div className="grid grid-cols-2 gap-4">
                         <div>
                           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
                             Duration

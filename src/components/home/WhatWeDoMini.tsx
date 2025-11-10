@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 import contentData from "@/lib/data/content.json";
 import servicesData from "@/lib/data/services.json";
 
@@ -55,7 +56,8 @@ export default function WhatWeDoMini() {
               className="group"
             >
               <Link href={home.whatWeDo.cta.href}>
-                <div className="grid lg:grid-cols-12 gap-6 py-8 border-b border-gray-200 hover:border-periwinkle-300 transition-all duration-300 cursor-pointer">
+                <div className="grid lg:grid-cols-12 gap-6 py-8 cursor-pointer group">
+                  <Separator className="mb-8 group-hover:bg-periwinkle-300 transition-colors col-span-full -mx-6" />
                   <div className="lg:col-span-1 flex items-start">
                     <span className="text-sm font-medium text-gray-400 group-hover:text-periwinkle-600 transition-colors duration-300">
                       {service.number}

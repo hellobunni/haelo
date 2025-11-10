@@ -3,6 +3,7 @@ import { ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import servicesData from "@/lib/data/services.json";
 
 // Icon mapping function
@@ -85,8 +86,9 @@ export default function ProcessCTA() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-16 pt-16 border-t border-gray-700"
+            className="mt-16 pt-16"
           >
+            <Separator className="mb-16" />
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {cta.stats.map((stat) => (
                 <div key={`${stat.value}-${stat.label}`}>
