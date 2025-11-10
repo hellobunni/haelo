@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -265,10 +266,23 @@ export default function ClientPortalPage() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
     >
       <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold">Client Portal</h1>
-          <p className="text-gray-500">Welcome back, {user.full_name}.</p>
-          <p className="text-sm text-gray-400">{user.email}</p>
+        <div className="flex items-center gap-4">
+          <Avatar className="h-16 w-16">
+            <AvatarImage src={undefined} alt={user.full_name} />
+            <AvatarFallback className="text-lg">
+              {user.full_name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()
+                .slice(0, 2)}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h1 className="text-3xl font-bold">Client Portal</h1>
+            <p className="text-gray-500">Welcome back, {user.full_name}.</p>
+            <p className="text-sm text-gray-400">{user.email}</p>
+          </div>
         </div>
         <LogoutButton />
       </div>
