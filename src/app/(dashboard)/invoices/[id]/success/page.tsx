@@ -35,7 +35,7 @@ export default async function PaymentSuccessPage({
         <p className="text-xl font-bold">{invoice.invoice_number}</p>
         <p className="text-sm text-green-600 mt-2">Status: {invoice.status}</p>
       </div>
-      <div className="space-x-4">
+      <div className="space--4">
         <Button asChild>
           <Link href={`/invoices/${params.id}`}>View Invoice</Link>
         </Button>

@@ -25,14 +25,15 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
         className="w-full sm:max-w-sm bg-white p-0 flex flex-col"
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-        <div className="px-6 py-6 space-y-4">
+        
+        <div className="px-6 py-26 space-y-4">
           {navigationItems.map((item) => (
             <Link
               key={item.name}
               href={item.url}
               onClick={handleLinkClick}
               className={`block text-lg font-medium transition-colors duration-300 ${
-                pathname === item.url ? "text-periwinkle-600" : "text-gray-600"
+                pathname === item.url ? "text-gray-600" : "text-gray-600"
               }`}
             >
               {item.name}
@@ -40,8 +41,8 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
           ))}
           <Link href="/contact" onClick={handleLinkClick} className="block">
             <Button
-              size="sm"
-              className="w-full bg-periwinkle-600 hover:bg-periwinkle-700 text-white rounded-xl"
+              size="full"
+              variant="periwinkle"
             >
               Let's Talk
               <ArrowRight className="ml-2 w-4 h-4" />

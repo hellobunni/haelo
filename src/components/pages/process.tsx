@@ -18,7 +18,7 @@ export default function ProcessPage() {
   return (
     <div className="bg-white">
       {/* Process Steps */}
-      <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white">
+      <section className="py-32 bg-linear-to-b from-white via-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
