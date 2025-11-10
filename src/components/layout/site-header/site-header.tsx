@@ -1,6 +1,7 @@
 "use client";
-import { ArrowRight, Menu, Plus, X } from "lucide-react";
+import { ArrowRight, Menu, Moon, Plus, Sun, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
@@ -10,12 +11,20 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Switch } from "@/components/ui/switch";
 import { navigationItems } from "@/lib/utils";
 
 export default function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavPillOpen, setIsNavPillOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +68,21 @@ export default function SiteHeader() {
           </div>
 
           {/* Right Side: Desktop Pill Nav & Mobile Button */}
-          <div className="flex-1 flex justify-end items-center">
+          <div className="flex-1 flex justify-end items-center gap-3">
+            {/* Theme Toggle */}
+            {mounted && (
+              <div className="hidden md:flex items-center gap-2">
+                <Sun className="h-4 w-4 text-gray-600" />
+                <Switch
+                  checked={theme === "dark"}
+                  onCheckedChange={(checked) => {
+                    setTheme(checked ? "dark" : "light");
+                  }}
+                  aria-label="Toggle theme"
+                />
+                <Moon className="h-4 w-4 text-gray-600" />
+              </div>
+            )}
             {/* Desktop Pill Navigation */}
             <div className="hidden md:flex items-center justify-end">
               <Popover open={isNavPillOpen} onOpenChange={setIsNavPillOpen}>
