@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -118,7 +119,9 @@ export default function AddClientDialog({
               className={errors.full_name ? "border-red-500" : ""}
             />
             {errors.full_name && (
-              <p className="text-sm text-red-500">{errors.full_name}</p>
+              <Alert variant="destructive" className="mt-2">
+                <AlertDescription>{errors.full_name}</AlertDescription>
+              </Alert>
             )}
           </div>
 
@@ -137,7 +140,9 @@ export default function AddClientDialog({
               className={errors.email ? "border-red-500" : ""}
             />
             {errors.email && (
-              <p className="text-sm text-red-500">{errors.email}</p>
+              <Alert variant="destructive" className="mt-2">
+                <AlertDescription>{errors.email}</AlertDescription>
+              </Alert>
             )}
           </div>
 

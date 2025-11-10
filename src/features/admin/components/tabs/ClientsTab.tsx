@@ -1,8 +1,9 @@
 "use client";
 
-import { Loader2, Users } from "lucide-react";
+import { AlertCircle, Loader2, Users } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -60,10 +61,11 @@ export default function ClientsTab() {
     return (
       <Card>
         <CardContent className="py-16">
-          <div className="text-center text-red-600">
-            <p className="font-medium">Error loading clients</p>
-            <p className="text-sm mt-2">{error}</p>
-          </div>
+          <Alert variant="destructive">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Error loading clients</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
         </CardContent>
       </Card>
     );
