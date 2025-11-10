@@ -2,6 +2,12 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import contentData from "@/lib/data/content.json";
 import servicesData from "@/lib/data/services.json";
@@ -10,11 +16,13 @@ export default function WhatWeDoMini() {
   const { services } = servicesData;
   const { home } = contentData;
 
-  // Create mini version of services
+  // Create mini version of services with full details for accordion
   const miniServices = services.items.map((service) => ({
     number: service.number,
     title: service.title,
-    description: `${service.description.split(".")[0]}.`, // First sentence only
+    description: service.description,
+    shortDescription: `${service.description.split(".")[0]}.`, // First sentence only
+    features: service.features,
   }));
 
   return (
@@ -45,7 +53,7 @@ export default function WhatWeDoMini() {
             </p>
           </motion.div>
         </div>
-        <div className="space-y-0">
+        <Accordion type="single" collapsible className="w-full">
           {miniServices.map((service, index) => (
             <motion.div
               key={service.number}
@@ -53,37 +61,75 @@ export default function WhatWeDoMini() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
             >
-              <Link href={home.whatWeDo.cta.href}>
-                <div className="grid lg:grid-cols-12 gap-6 py-8 cursor-pointer group">
-                  <Separator className="mb-8 group-hover:bg-periwinkle-300 transition-colors col-span-full -mx-6" />
-                  <div className="lg:col-span-1 flex items-start">
-                    <span className="text-sm font-medium text-gray-400 group-hover:text-periwinkle-600 transition-colors duration-300">
-                      {service.number}
-                    </span>
-                  </div>
+              <AccordionItem value={service.number} className="border-none">
+                <Separator className="mb-0" />
+                <AccordionTrigger className="py-8 hover:no-underline">
+                  <div className="grid lg:grid-cols-12 gap-6 w-full text-left">
+                    <div className="lg:col-span-1 flex items-start">
+                      <span className="text-sm font-medium text-gray-400">
+                        {service.number}
+                      </span>
+                    </div>
 
-                  <div className="lg:col-span-5">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-periwinkle-600 transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                  </div>
+                    <div className="lg:col-span-5">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                        {service.title}
+                      </h3>
+                    </div>
 
-                  <div className="lg:col-span-5 flex items-start">
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
+                    <div className="lg:col-span-5 flex items-start">
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {service.shortDescription}
+                      </p>
+                    </div>
 
-                  <div className="lg:col-span-1 flex items-start justify-end">
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-periwinkle-600 group-hover:translate-x-2 transition-all duration-300" />
+                    <div className="lg:col-span-1 flex items-start justify-end">
+                      <ArrowRight className="w-5 h-5 text-gray-400 transition-all duration-300" />
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="grid lg:grid-cols-12 gap-6 pb-8">
+                    <div className="lg:col-span-1"></div>
+                    <div className="lg:col-span-11 space-y-4">
+                      <p className="text-base text-gray-600 leading-relaxed">
+                        {service.description}
+                      </p>
+                      {service.features && service.features.length > 0 && (
+                        <div className="space-y-2 pt-4">
+                          <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+                            Key Features
+                          </h4>
+                          <ul className="space-y-2">
+                            {service.features.map((feature) => (
+                              <li
+                                key={feature}
+                                className="flex items-start gap-3 text-sm text-gray-600"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-periwinkle-500 mt-2 flex-shrink-0" />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      <div className="pt-4">
+                        <Link
+                          href={home.whatWeDo.cta.href}
+                          className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold hover:gap-4 transition-all duration-300"
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             </motion.div>
           ))}
-        </div>
+        </Accordion>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,9 +1,10 @@
 "use client";
 
-import { AlertCircle, Loader2, Users } from "lucide-react";
+import { AlertCircle, Users } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -15,6 +16,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { ClientWithData } from "@/features/admin/api";
+
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+}
 
 // NEW: We'll fetch via a client-accessible API route
 async function fetchClientsData(): Promise<ClientWithData[]> {
@@ -61,11 +71,12 @@ export default function ClientsTab() {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 5 }, (_, i) => i).map((idx) => (
               <div
-                key={`skeleton-client-${i}`}
+                key={`skeleton-client-${idx}`}
                 className="flex items-center gap-4 py-3 border-b"
               >
+                <Skeleton className="h-10 w-10 rounded-full" />
                 <Skeleton className="h-4 w-32" />
                 <Skeleton className="h-4 w-48" />
                 <Skeleton className="h-4 w-16" />
@@ -125,9 +136,34 @@ export default function ClientsTab() {
                   onClick={() => router.push(`/admin/clients/${client.id}`)}
                 >
                   <TableCell className="font-medium">
-                    {client.full_name}
+                    <div className="flex items-center gap-3">
+                      <Avatar>
+                        <AvatarImage src={undefined} alt={client.full_name} />
+                        <AvatarFallback>
+                          {getInitials(client.full_name)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span>{client.full_name}</span>
+                    </div>
                   </TableCell>
-                  {/* ... rest of the cells remain the same ... */}
+                  <TableCell>{client.email}</TableCell>
+                  <TableCell className="text-center">
+                    {client.projectCount || 0}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {client.invoiceCount || 0}
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {client.documentCount || 0}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    ${(client.totalSpent || 0).toFixed(2)}
+                  </TableCell>
+                  <TableCell>
+                    {client.createdAt
+                      ? new Date(client.createdAt).toLocaleDateString()
+                      : "N/A"}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

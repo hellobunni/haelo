@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,6 +20,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
 import {
   getDocumentsByEmail,
@@ -166,9 +172,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                {Array.from({ length: 2 }).map((_, i) => (
+                {Array.from({ length: 2 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-project-${i}`}
+                    key={`skeleton-project-${idx}`}
                     className="border rounded-lg p-6 space-y-4"
                   >
                     <div className="flex justify-between items-start">
@@ -202,9 +208,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {Array.from({ length: 3 }).map((_, i) => (
+                {Array.from({ length: 3 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-document-${i}`}
+                    key={`skeleton-document-${idx}`}
                     className="flex items-center gap-4 py-3 border-b"
                   >
                     <Skeleton className="h-4 w-48" />
@@ -228,9 +234,9 @@ export default function ClientPortalPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {Array.from({ length: 3 }).map((_, i) => (
+                {Array.from({ length: 3 }, (_, i) => i).map((idx) => (
                   <div
-                    key={`skeleton-invoice-${i}`}
+                    key={`skeleton-invoice-${idx}`}
                     className="flex items-center gap-4 py-3 border-b"
                   >
                     <Skeleton className="h-4 w-24" />
@@ -260,10 +266,23 @@ export default function ClientPortalPage() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
     >
       <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold">Client Portal</h1>
-          <p className="text-gray-500">Welcome back, {user.full_name}.</p>
-          <p className="text-sm text-gray-400">{user.email}</p>
+        <div className="flex items-center gap-4">
+          <Avatar className="h-16 w-16">
+            <AvatarImage src={undefined} alt={user.full_name} />
+            <AvatarFallback className="text-lg">
+              {user.full_name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()
+                .slice(0, 2)}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h1 className="text-3xl font-bold">Client Portal</h1>
+            <p className="text-gray-500">Welcome back, {user.full_name}.</p>
+            <p className="text-sm text-gray-400">{user.email}</p>
+          </div>
         </div>
         <LogoutButton />
       </div>
@@ -378,15 +397,19 @@ export default function ClientPortalPage() {
                       </Badge>
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDocumentView(doc)}
-                        aria-label={`View ${doc.documentName}`}
-                        title="View Document"
-                      >
-                        <Eye className="h-4 w-4" />
-                      </Button>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handleDocumentView(doc)}
+                            aria-label={`View ${doc.documentName}`}
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>View Document</TooltipContent>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -451,14 +474,18 @@ export default function ClientPortalPage() {
                       <td className="text-right py-3 px-4">
                         <div className="flex items-center justify-end gap-1">
                           <Link href={`/invoices/${invoice.id}`}>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              aria-label={`View invoice ${invoice.invoiceNumber}`}
-                              title="View Invoice"
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Button>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  aria-label={`View invoice ${invoice.invoiceNumber}`}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>View Invoice</TooltipContent>
+                            </Tooltip>
                           </Link>
                           {invoice.pdfUrl && (
                             <a
@@ -471,14 +498,18 @@ export default function ClientPortalPage() {
                                 )
                               }
                             >
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                aria-label={`Download PDF for ${invoice.invoiceNumber}`}
-                                title="Download PDF"
-                              >
-                                <Download className="h-4 w-4" />
-                              </Button>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    aria-label={`Download PDF for ${invoice.invoiceNumber}`}
+                                  >
+                                    <Download className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>Download PDF</TooltipContent>
+                              </Tooltip>
                             </a>
                           )}
                         </div>
