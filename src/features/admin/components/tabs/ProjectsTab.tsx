@@ -9,6 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { Project } from "@/types";
 import EditProjectDialog from "../dialogs/EditProjectDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
@@ -247,31 +252,43 @@ export default function ProjectsTab() {
                   </div>
                   <div className="flex gap-1">
                     {project.pdfUrl && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleViewPdf(project)}
-                        title="View PDF"
-                      >
-                        <Eye className="h-4 w-4" />
-                      </Button>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleViewPdf(project)}
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>View PDF</TooltipContent>
+                      </Tooltip>
                     )}
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleUploadPdf(project)}
-                      title="Upload PDF"
-                    >
-                      <Upload className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleEdit(project)}
-                      title="Edit Project"
-                    >
-                      <Edit className="h-4 w-4" />
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleUploadPdf(project)}
+                        >
+                          <Upload className="h-4 w-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>Upload PDF</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleEdit(project)}
+                        >
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>Edit Project</TooltipContent>
+                    </Tooltip>
                   </div>
                 </div>
               </div>

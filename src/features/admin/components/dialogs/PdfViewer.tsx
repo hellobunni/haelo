@@ -8,6 +8,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface PdfViewerProps {
   isOpen: boolean;
@@ -40,24 +45,32 @@ export default function PdfViewer({
           <DialogTitle className="flex items-center justify-between pr-8">
             <span>{title}</span>
             <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleDownload}
-                title="Download PDF"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleOpenInNewTab}
-                title="Open in new tab"
-              >
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Open
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleDownload}
+                  >
+                    <Download className="h-4 w-4 mr-2" />
+                    Download
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Download PDF</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleOpenInNewTab}
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Open
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Open in new tab</TooltipContent>
+              </Tooltip>
             </div>
           </DialogTitle>
         </DialogHeader>

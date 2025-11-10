@@ -6,6 +6,7 @@ import SiteHeader from "@/components/layout/site-header/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import contentData from "@/lib/data/content.json";
 import { navigationItems } from "@/lib/utils";
 
@@ -24,8 +25,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-white text-foreground font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <Analytics />
-          <Toaster />
+          <TooltipProvider>
+            <Analytics />
+            <Toaster />
           <StyleTokens />
           {/* Client header with its own state */}
           <SiteHeader />
@@ -110,6 +112,7 @@ export default function RootLayout({
               </div>
             </div>
           </footer>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

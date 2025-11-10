@@ -19,6 +19,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
 import {
   getDocumentsByEmail,
@@ -378,15 +383,19 @@ export default function ClientPortalPage() {
                       </Badge>
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDocumentView(doc)}
-                        aria-label={`View ${doc.documentName}`}
-                        title="View Document"
-                      >
-                        <Eye className="h-4 w-4" />
-                      </Button>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handleDocumentView(doc)}
+                            aria-label={`View ${doc.documentName}`}
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>View Document</TooltipContent>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -451,14 +460,18 @@ export default function ClientPortalPage() {
                       <td className="text-right py-3 px-4">
                         <div className="flex items-center justify-end gap-1">
                           <Link href={`/invoices/${invoice.id}`}>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              aria-label={`View invoice ${invoice.invoiceNumber}`}
-                              title="View Invoice"
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Button>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  aria-label={`View invoice ${invoice.invoiceNumber}`}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>View Invoice</TooltipContent>
+                            </Tooltip>
                           </Link>
                           {invoice.pdfUrl && (
                             <a
@@ -471,14 +484,18 @@ export default function ClientPortalPage() {
                                 )
                               }
                             >
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                aria-label={`Download PDF for ${invoice.invoiceNumber}`}
-                                title="Download PDF"
-                              >
-                                <Download className="h-4 w-4" />
-                              </Button>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    aria-label={`Download PDF for ${invoice.invoiceNumber}`}
+                                  >
+                                    <Download className="h-4 w-4" />
+                                  </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>Download PDF</TooltipContent>
+                              </Tooltip>
                             </a>
                           )}
                         </div>

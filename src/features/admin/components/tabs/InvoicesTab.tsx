@@ -16,6 +16,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { getAllInvoices } from "@/features/admin/api";
 import type { InvoiceWithClient } from "@/types";
 import EditInvoiceDialog from "../dialogs/EditInvoiceDialog";
@@ -359,56 +364,76 @@ export default function InvoicesTab() {
                   <TableCell className="text-right">
                     <div className="flex gap-1 justify-end">
                       {invoice.stripeInvoiceId && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleSyncSingle(invoice.id)}
-                          disabled={syncingId === invoice.id}
-                          title="Sync from Stripe"
-                        >
-                          <RefreshCw
-                            className={`h-4 w-4 ${syncingId === invoice.id ? "animate-spin" : ""}`}
-                          />
-                        </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleSyncSingle(invoice.id)}
+                              disabled={syncingId === invoice.id}
+                            >
+                              <RefreshCw
+                                className={`h-4 w-4 ${syncingId === invoice.id ? "animate-spin" : ""}`}
+                              />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>Sync from Stripe</TooltipContent>
+                        </Tooltip>
                       )}
                       {invoice.stripeHostedUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() =>
-                            window.open(invoice.stripeHostedUrl, "_blank")
-                          }
-                          title="View in Stripe"
-                        >
-                          <span className="text-purple-600">⚡</span>
-                        </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() =>
+                                window.open(invoice.stripeHostedUrl, "_blank")
+                              }
+                            >
+                              <span className="text-purple-600">⚡</span>
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>View in Stripe</TooltipContent>
+                        </Tooltip>
                       )}
                       {invoice.pdfUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => handleViewPdf(invoice)}
-                          title="View PDF"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => handleViewPdf(invoice)}
+                            >
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>View PDF</TooltipContent>
+                        </Tooltip>
                       )}
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleUploadPdf(invoice)}
-                        title="Upload PDF"
-                      >
-                        <Upload className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleEdit(invoice)}
-                        title="Edit Invoice"
-                      >
-                        <Edit className="h-4 w-4" />
-                      </Button>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handleUploadPdf(invoice)}
+                          >
+                            <Upload className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Upload PDF</TooltipContent>
+                      </Tooltip>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => handleEdit(invoice)}
+                          >
+                            <Edit className="h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Edit Invoice</TooltipContent>
+                      </Tooltip>
                     </div>
                   </TableCell>
                 </TableRow>
