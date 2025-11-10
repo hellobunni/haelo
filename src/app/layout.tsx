@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
+import { CommandPalette } from "@/components/command-palette";
 import SiteHeader from "@/components/layout/site-header/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Separator } from "@/components/ui/separator";
@@ -28,6 +29,7 @@ export default function RootLayout({
           <TooltipProvider>
             <Analytics />
             <Toaster />
+            <CommandPalette />
           <StyleTokens />
           {/* Client header with its own state */}
           <SiteHeader />
