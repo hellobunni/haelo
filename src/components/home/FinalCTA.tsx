@@ -1,7 +1,6 @@
 "use client";
 import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import contentData from "@/lib/data/content.json";
 
@@ -59,23 +58,23 @@ export default function FinalCTA() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
-                  size="lg"
-                  href={home.finalCTA.buttons.primary.href}
-                  variant="periwinkle"
-                  className="px-8 py-6 text-lg rounded-xl shadow-none hover:shadow-none"
-                >
-                  <PrimaryIcon className="mr-2 w-5 h-5" />
-                  {home.finalCTA.buttons.primary.text}
-                </Button>
+                size="lg"
+                href={home.finalCTA.buttons.primary.href}
+                variant="periwinkle"
+                className="px-8 py-6 text-lg rounded-xl shadow-none hover:shadow-none"
+              >
+                <PrimaryIcon className="mr-2 w-5 h-5" />
+                {home.finalCTA.buttons.primary.text}
+              </Button>
               <Button
-                  size="lg"
-                  variant="outline"
-                  href={home.finalCTA.buttons.secondary.href}
-                  className="px-8 py-6 text-lg rounded-xl"
-                >
-                  {home.finalCTA.buttons.secondary.text}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                size="lg"
+                variant="outline"
+                href={home.finalCTA.buttons.secondary.href}
+                className="px-8 py-6 text-lg rounded-xl"
+              >
+                {home.finalCTA.buttons.secondary.text}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </motion.div>
 
             <motion.div

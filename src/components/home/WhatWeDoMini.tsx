@@ -2,13 +2,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
 import contentData from "@/lib/data/content.json";
 import servicesData from "@/lib/data/services.json";
 import { Button } from "../ui/button";
@@ -54,9 +47,8 @@ export default function WhatWeDoMini() {
             </p>
           </motion.div>
         </div>
-        <>
         {miniServices.map((service, index) => (
-            <motion.div
+          <motion.div
             key={service.number}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,27 +56,24 @@ export default function WhatWeDoMini() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group flex items-center justify-between hover:bg-gray-50 transition-colors duration-300"
           >
-              <div className="flex items-center gap-2 py-8">
+            <div className="flex items-center gap-2 py-8">
               <span className="text-sm font-medium text-gray-400">
-                      {service.number}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {service.title}
-                    </h3>
-          </div>
-          <div className="flex items-center gap-4">
-          <p className="text-sm text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-md">
-                        {service.shortDescription}
-                      </p>
-          <Link href="/services" className="shrink-0 cursor-pointer">
-            <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-all duration-300 group-hover:translate-x-1" />
-          </Link>
-          </div>
-            </motion.div>
+                {service.number}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                {service.title}
+              </h3>
+            </div>
+            <div className="flex items-center gap-4">
+              <p className="text-sm text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-md">
+                {service.shortDescription}
+              </p>
+              <Link href="/services" className="shrink-0 cursor-pointer">
+                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-all duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </motion.div>
         ))}
-
-        
-        </>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -93,16 +82,15 @@ export default function WhatWeDoMini() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-10 text-center"
         >
-           <Button
-              type="button"
-              variant="periwinkle"
-              className="rounded-md"
-              href={home.whatWeDo.cta.href}
-            >
-              {home.whatWeDo.cta.text}
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-         
+          <Button
+            type="button"
+            variant="periwinkle"
+            className="rounded-md"
+            href={home.whatWeDo.cta.href}
+          >
+            {home.whatWeDo.cta.text}
+            <ArrowRight className="w-5 h-5" />
+          </Button>
         </motion.div>
       </div>
     </section>

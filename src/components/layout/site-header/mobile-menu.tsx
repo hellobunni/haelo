@@ -25,7 +25,7 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
         className="w-full sm:max-w-sm bg-white p-0 flex flex-col"
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-        
+
         <div className="px-6 py-26 space-y-4">
           {navigationItems.map((item) => (
             <Link
@@ -40,10 +40,7 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
             </Link>
           ))}
           <Link href="/contact" onClick={handleLinkClick} className="block">
-            <Button
-              size="full"
-              variant="periwinkle"
-            >
+            <Button size="full" variant="periwinkle">
               Let's Talk
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

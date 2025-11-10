@@ -92,16 +92,15 @@ export default function SelectedWorks() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          
           <Button
-              type="button"
-              variant="periwinkle"
-              className="rounded-md"
-              href={home.selectedWorks.cta.href}
-            >
-              {home.selectedWorks.cta.text}
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            type="button"
+            variant="periwinkle"
+            className="rounded-md"
+            href={home.selectedWorks.cta.href}
+          >
+            {home.selectedWorks.cta.text}
+            <ArrowRight className="w-5 h-5" />
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import contentData from "@/lib/data/content.json";
 
@@ -32,14 +31,14 @@ export default function CTASection() {
             {home.cta.description}
           </p>
           <Button
-              size="lg"
-              variant="periwinkle"
-              href={home.cta.button.href}
-              className="transition-all duration-300 hover:scale-105 shadow-sm shadow-periwinkle-500 rounded-md w-48"
-            >
-              {home.cta.button.text}
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            size="lg"
+            variant="periwinkle"
+            href={home.cta.button.href}
+            className="transition-all duration-300 hover:scale-105 shadow-sm shadow-periwinkle-500 rounded-md w-48"
+          >
+            {home.cta.button.text}
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </motion.div>
       </div>
     </section>
