@@ -2,6 +2,7 @@
 import { Calendar, Loader2, Mail, MessageCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { toast } from "sonner";
 import HeroSection from "@/components/blocks/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,7 +26,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      alert("Please fill out all required fields.");
+      toast.error("Please fill out all required fields.");
       return;
     }
     setIsLoading(true);
@@ -36,7 +37,9 @@ export default function ContactPage() {
       setSubmitted(true);
     } catch (error) {
       console.error("Failed to submit inquiry:", error);
-      alert("There was an error sending your message. Please try again later.");
+      toast.error(
+        "There was an error sending your message. Please try again later.",
+      );
     } finally {
       setIsLoading(false);
     }
