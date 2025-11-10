@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
 import SiteHeader from "@/components/layout/site-header/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
 import contentData from "@/lib/data/content.json";
 import { navigationItems } from "@/lib/utils";
@@ -86,7 +87,8 @@ export default function RootLayout({
               </div>
 
               {/* Bottom Bar */}
-              <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+              <Separator className="mt-8 mb-8" />
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-500 text-sm">
                   © {new Date().getFullYear()} Haelo Studios. All rights
                   reserved.

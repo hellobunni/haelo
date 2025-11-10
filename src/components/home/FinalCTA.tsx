@@ -3,6 +3,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import contentData from "@/lib/data/content.json";
 
 // Icon mapping function
@@ -84,8 +85,9 @@ export default function FinalCTA() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12 pt-8 border-t border-white/20"
+              className="mt-12 pt-8"
             >
+              <Separator className="mb-8 opacity-20" />
               <div className="grid md:grid-cols-3 gap-6 text-center">
                 {home.finalCTA.stats.map((stat) => (
                   <div key={`${stat.value}-${stat.label}`}>
