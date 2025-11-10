@@ -1,11 +1,16 @@
 "use client";
-import { ArrowRight, Menu, Plus } from "lucide-react";
+import { ArrowRight, Menu, Plus, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import DesktopPillNav from "@/components/layout/site-header/desktop-pill-nav";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { navigationItems } from "@/lib/utils";
 
 export default function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,24 +62,43 @@ export default function SiteHeader() {
           <div className="flex-1 flex justify-end items-center">
             {/* Desktop Pill Navigation */}
             <div className="hidden md:flex items-center justify-end">
-              <AnimatePresence mode="wait">
-                {isNavPillOpen ? (
-                  <DesktopPillNav onClose={() => setIsNavPillOpen(false)} />
-                ) : (
-                  <motion.button
-                    key="nav-plus"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    onClick={() => setIsNavPillOpen(true)}
-                    className="p-2 border border-border rounded-full bg-white/50 backdrop-blur-md cursor-pointer"
+              <Popover open={isNavPillOpen} onOpenChange={setIsNavPillOpen}>
+                <PopoverTrigger asChild>
+                  <button
+                    type="button"
+                    className="p-2 border border-border rounded-full bg-white/50 backdrop-blur-md cursor-pointer hover:bg-white/70 transition-colors"
                     aria-label="Open navigation"
                   >
                     <Plus className="h-5 w-5" />
-                  </motion.button>
-                )}
-              </AnimatePresence>
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent
+                  align="end"
+                  sideOffset={8}
+                  className="bg-periwinkle rounded-full border-0 p-0 w-auto shadow-lg"
+                >
+                  <nav className="flex items-center pl-6 pr-2 py-1 space-x-4">
+                    {navigationItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.url}
+                        onClick={() => setIsNavPillOpen(false)}
+                        className="text-white text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap cursor-pointer"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() => setIsNavPillOpen(false)}
+                      className="p-2 bg-black/10 rounded-full cursor-pointer hover:bg-black/20 transition-colors"
+                      aria-label="Close navigation"
+                    >
+                      <X className="h-5 w-5 text-white" />
+                    </button>
+                  </nav>
+                </PopoverContent>
+              </Popover>
             </div>
 
             {/* Mobile Menu Button */}
