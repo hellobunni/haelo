@@ -19,6 +19,7 @@ export default function DesktopPillNav({ onClose }: { onClose: () => void }) {
           <Link
             key={item.name}
             href={item.url}
+            onClick={onClose}
             className="text-white text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap cursor-pointer"
           >
             {item.name}

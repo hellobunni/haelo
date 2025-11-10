@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Qualigence International",
+    "category": "Web Development",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551269/logos/672be188078c634fa78c2cf3_QInternational_No_icons_RGB_1_qvj1kf.svg",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Recruiting-Company-More-Qualigence-International_oj3frx.png",
+    "url": "https://qualigence.com"
+  },
+  {
+    "title": "Fanatics Collectables",
+    "category": "Branding",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551268/logos/Fanatics_company_logo.svg_znimx8.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782041/screenshots/Fanatics-Collectibles-_-Fanatics-Inc_eycm6c.png",
+    "url": "https://fanatics.com"
+  },
+  {
+    "title": "StockX",
+    "category": "Web Design",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551269/logos/stockx-logo-brandlogos.net__nc7mij.png",
+    "url": "https://stockx.com"
+  },
+  {
+    "title": "University of Michigan Athletic Department",
+    "category": "Development",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/c_thumb,w_200,g_face/v1762781977/logos/University-Of-Michigan-Logo_sitcrd.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/University-of-Michigan-Athletics-Official-Athletics-Website_sginht.png",
+    "url": "https://umich.edu"
+  },
+  {
+    "title": "Zingermans Delicatessen",
+    "category": "Branding",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781980/logos/Zingermans_Website_logo_nyymzs.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/Homepage-Zingerman-s-Deli_wpepcc.png",
+    "url": "https://zingermans.com"
+  },
+  {
+    "title": "Bitwise Investments",
+    "category": "Web Development",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/w_200,ar_16:9,c_fill,g_auto,e_sharpen/v1762718231/logos/download_suzo3i.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782118/screenshots/Screenshot_2025-11-10_at_8.41.36_AM_cequs4.png",
+    "url": "https://bitwise.com"
+  },
+  {
+    "title": "Detroit Flower Co",
+    "category": "Web Development",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781979/logos/Detroit_Flower_Company_heckyx.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Detroit-Flower-Co-_-Detroit-Flower-Company_kdfb0h.png",
+    "url": "https://www.detroitflowercompany.com/"
+  },
+  {
+    "title": "Benzinga",
+    "category": "Web Development",
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781977/logos/Benzinga-Logo_fu6gqw.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/2023-Cannabis-Conference-Benzinga-Cannabis-Capital-Conference_fonu2o.png",
+    "url": "https://benzinga.com"
+  }
+]

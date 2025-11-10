@@ -22,3 +22,12 @@ export interface Project {
 export interface ProjectWithClient extends Project {
   clientName: string;
 }
+
+// Type for portfolio/selected works projects
+export interface PortfolioProject {
+  title: string;
+  category: string;
+  imageUrl: string;
+  screenshotUrl?: string;
+  url?: string;
+}
