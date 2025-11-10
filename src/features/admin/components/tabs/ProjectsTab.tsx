@@ -1,13 +1,14 @@
 "use client";
 
 import { format } from "date-fns";
-import { Edit, Eye, FileText, Loader2, Rocket, Upload } from "lucide-react";
+import { Edit, Eye, FileText, Rocket, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { Project } from "@/types";
 import EditProjectDialog from "../dialogs/EditProjectDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
@@ -120,9 +121,44 @@ export default function ProjectsTab() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-16">
-        <Loader2 className="h-8 w-8 animate-spin text-periwinkle" />
-      </div>
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="flex items-center gap-2">
+              <Rocket className="h-5 w-5" />
+              <Skeleton className="h-6 w-32" />
+            </CardTitle>
+            <Skeleton className="h-9 w-28" />
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={`skeleton-project-${i}`}
+                className="border rounded-lg p-6 space-y-4"
+              >
+                <div className="flex justify-between items-start">
+                  <div className="flex-1 space-y-2">
+                    <Skeleton className="h-6 w-48" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-3/4" />
+                    <Skeleton className="h-4 w-32" />
+                  </div>
+                  <Skeleton className="h-6 w-20 rounded-full" />
+                </div>
+                <div className="space-y-2">
+                  <Skeleton className="h-2 w-full" />
+                </div>
+                <div className="flex gap-4">
+                  <Skeleton className="h-4 w-24" />
+                  <Skeleton className="h-4 w-32" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
