@@ -3,6 +3,7 @@
 import { FileText, Upload } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -41,7 +42,7 @@ export default function PdfUploadDialog({
         const tempUrl = URL.createObjectURL(file);
         setPdfUrl(tempUrl);
       } else {
-        alert("Please select a PDF file");
+        toast.error("Please select a PDF file");
       }
     }
   };
@@ -68,7 +69,7 @@ export default function PdfUploadDialog({
         const tempUrl = URL.createObjectURL(file);
         setPdfUrl(tempUrl);
       } else {
-        alert("Please select a PDF file");
+        toast.error("Please select a PDF file");
       }
     }
   };

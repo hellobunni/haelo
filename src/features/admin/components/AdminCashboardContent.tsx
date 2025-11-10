@@ -3,6 +3,7 @@
 import { Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ClientsTab from "@/features/admin/components/tabs/ClientsTab";
@@ -34,14 +35,14 @@ export default function AdminDashboardContent() {
       }
 
       console.log("Client added successfully:", result);
-      alert(`✅ ${result.message}`);
+      toast.success(result.message);
 
       // Refresh the clients list by changing the key
       setRefreshKey((prev) => prev + 1);
     } catch (error) {
       console.error("Error adding client:", error);
-      alert(
-        `❌ ${error instanceof Error ? error.message : "Failed to add client"}`,
+      toast.error(
+        error instanceof Error ? error.message : "Failed to add client",
       );
     }
   };
