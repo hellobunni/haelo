@@ -1,24 +1,13 @@
 {
   "hero": {
     "badge": {
-      "text": "Haelo Studios",
+      "text": "Our Services",
       "icon": "Sparkles"
     },
     "title": {
-      "line1": "Where Vision",
-      "line2": "Meets Execution"
+      "line1": "What We Offer"
     },
-    "description": "A refined, four-phase approach that transforms ambitious ideas into exceptional digital experiences—crafted with precision, delivered with care.",
-    "buttons": {
-      "primary": {
-        "text": "Explore Our Services",
-        "href": "#services"
-      },
-      "secondary": {
-        "text": "View Case Studies",
-        "href": "/work"
-      }
-    }
+    "description": "Comprehensive digital solutions that blend strategy, design, and engineering to create exceptional experiences that drive real business results."
   },
   "process": {
     "header": {
@@ -220,8 +209,7 @@
           "Responsive Web Design",
           "Brand Identity Integration",
           "Interactive Prototyping"
-        ],
-        "color": "from-lavender-floral to-lavender-floral"
+        ]
       },
       {
         "number": "02",
@@ -234,8 +222,7 @@
           "API Integration & Backend",
           "Performance Optimization",
           "Progressive Web Apps"
-        ],
-        "color": "from-gray-700 to-gray-900"
+        ]
       },
       {
         "number": "03",
@@ -248,8 +235,7 @@
           "Conversion Optimization",
           "Analytics & Insights",
           "Usability Audits"
-        ],
-        "color": "from-wisteria to-lavender-floral"
+        ]
       },
       {
         "number": "04",
@@ -262,8 +248,7 @@
           "Process Optimization",
           "Technical Audits",
           "Growth Roadmapping"
-        ],
-        "color": "from-gray-600 to-gray-800"
+        ]
       }
     ],
     "cta": {

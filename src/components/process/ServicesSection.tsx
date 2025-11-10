@@ -8,7 +8,6 @@ import {
   Users,
 } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import servicesData from "@/lib/data/services.json";
 
@@ -24,42 +23,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function ServicesSection() {
   const { services } = servicesData;
-  const BadgeIcon = iconMap[services.header.badge.icon] || Sparkles;
 
   return (
     <section
       className="pt-12 pb-28 bg-white relative overflow-hidden"
       id="services"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-periwinkle-100 rounded-full blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gray-100 rounded-full blur-3xl opacity-30 transform -translate-x-1/2 translate-y-1/2"></div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-periwinkle-50 border border-periwinkle-200 mb-6">
-            <BadgeIcon className="w-4 h-4 text-periwinkle-600" />
-            <span className="text-sm font-medium text-periwinkle-900">
-              {services.header.badge.text}
-            </span>
-          </div>
-
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            {services.header.title}
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            {services.header.description}
-          </p>
-        </motion.div>
-
         <div className="grid lg:grid-cols-2 gap-8">
           {services.items.map((service, index) => {
             const Icon = iconMap[service.icon] || Palette;
@@ -74,15 +44,15 @@ export default function ServicesSection() {
                 whileHover={{ y: -8 }}
                 className="group relative"
               >
-                <div className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100 h-full transition-all duration-500 group-hover:shadow-2xl group-hover:border-periwinkle-200">
+                <div className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 md:p-10 shadow-md border border-gray-100 h-full transition-all duration-500 group-hover:shadow-2xl group-hover:border-periwinkle-200">
                   {/* Number Badge */}
-                  <div className="absolute top-8 right-8 text-7xl font-bold text-gray-100 group-hover:text-periwinkle-50 transition-colors duration-500">
+                  <div className="absolute top-8 right-8 text-7xl font-bold text-periwinkle-200 group-hover:text-periwinkle-50 transition-colors duration-500">
                     {service.number}
                   </div>
 
                   {/* Icon */}
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-linear-to-br ${service.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}
+                    className={`w-16 h-16 rounded-2xl bg-linear-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -120,13 +90,14 @@ export default function ServicesSection() {
                     </div>
 
                     {/* Learn More Link */}
-                    <button
-                      type="button"
-                      className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold group-hover:gap-4 transition-all duration-300"
+                    <Button
+                      size="lg"
+                      variant="periwinkle"
+                      className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold group-hover:gap-4 transition-all duration-300 rounded-sm w-56"
                     >
                       Learn More
                       <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </motion.div>
@@ -142,22 +113,22 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-20 text-center"
         >
-          <div className="bg-linear-to-r from-periwinkle-50 to-gray-50 rounded-2xl p-12 border border-periwinkle-100">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="bg-linear-to-r from-periwinkle-50 to-gray-50 rounded-2xl shadow-md px-12 py-20">
+            <h3 className="text-4xl font-bold text-gray-900 mb-2">
               {services.cta.title}
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-base text-gray-600 mb-8 max-w-2xl mx-auto">
               {services.cta.description}
             </p>
-            <Link href={services.cta.button.href}>
-              <Button
-                size="lg"
-                className="bg-periwinkle-600 hover:bg-periwinkle-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
-              >
-                {services.cta.button.text}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
+            <Button
+              href={services.cta.button.href}
+              size="lg"
+              variant="periwinkle"
+              className="rounded-sm"
+            >
+              {services.cta.button.text}
+              <ArrowRight className="w-4 h-4" />
+            </Button>
           </div>
         </motion.div>
       </div>

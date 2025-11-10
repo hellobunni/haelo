@@ -56,7 +56,7 @@ export interface HeroButton {
 }
 
 export interface HeroSectionProps {
-  variant?: "fullscreen" | "standard";
+  variant?: "fullscreen" | "standard" | "simple";
   badge?: {
     text: string;
     icon?: string;
@@ -77,6 +77,7 @@ export interface HeroSectionProps {
   titleSize?:
     | "text-5xl md:text-6xl lg:text-7xl"
     | "text-6xl md:text-7xl lg:text-8xl";
+  badgeVariant?: "default" | "periwinkle";
 }
 
 export default function HeroSection({
@@ -90,6 +91,7 @@ export default function HeroSection({
   scrollAnimation = false,
   maxWidth = "max-w-6xl",
   titleSize = "text-5xl md:text-6xl lg:text-7xl",
+  badgeVariant = "default",
 }: HeroSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -131,7 +133,13 @@ export default function HeroSection({
   const sectionClasses =
     variant === "fullscreen"
       ? "relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-50 to-white"
-      : "relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white";
+      : variant === "simple"
+        ? "relative py-16 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+        : "relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white";
+
+  // Override maxWidth for simple variant if not explicitly set
+  const effectiveMaxWidth =
+    variant === "simple" && maxWidth === "max-w-6xl" ? "max-w-5xl" : maxWidth;
 
   // Motion div style
   const motionStyle =
@@ -166,7 +174,7 @@ export default function HeroSection({
       {/* Content */}
       <motion.div
         style={motionStyle}
-        className={`relative z-10 ${maxWidth} mx-auto px-6 ${variant === "fullscreen" ? "text-center" : ""}`}
+        className={`relative z-10 ${effectiveMaxWidth} mx-auto px-6 ${variant === "fullscreen" ? "text-center" : ""}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -179,9 +187,27 @@ export default function HeroSection({
         >
           {/* Badge */}
           {badge && (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pale-purple border border-thistle mb-8">
-              <BadgeIcon className="w-4 h-4 text-lavender-floral" />
-              <span className="text-sm font-medium text-dark-purple-2">
+            <div
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 ${
+                badgeVariant === "periwinkle"
+                  ? "bg-periwinkle-50 border border-periwinkle-200"
+                  : "bg-pale-purple border border-thistle"
+              }`}
+            >
+              <BadgeIcon
+                className={`w-4 h-4 ${
+                  badgeVariant === "periwinkle"
+                    ? "text-periwinkle-600"
+                    : "text-lavender-floral"
+                }`}
+              />
+              <span
+                className={`text-sm font-medium ${
+                  badgeVariant === "periwinkle"
+                    ? "text-periwinkle-900"
+                    : "text-dark-purple-2"
+                }`}
+              >
                 {badge.text}
               </span>
             </div>
@@ -199,12 +225,18 @@ export default function HeroSection({
             className={`${titleSize} font-bold text-gray-900 mb-6 ${variant === "fullscreen" ? "tracking-tight" : ""}`}
           >
             {title.line1}
-            {title.line2 && (
+            {title.line2 && variant !== "simple" && (
               <>
                 <br />
                 <span className="bg-gradient-to-r from-lavender-floral to-wisteria bg-clip-text text-transparent">
                   {title.line2}
                 </span>
+              </>
+            )}
+            {title.line2 && variant === "simple" && (
+              <>
+                <br />
+                {title.line2}
               </>
             )}
           </motion.h1>
@@ -218,7 +250,7 @@ export default function HeroSection({
               delay: variant === "fullscreen" ? 0.2 : 0,
               ease: "easeOut",
             }}
-            className={`text-xl ${variant === "fullscreen" ? "md:text-2xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-3xl ${variant === "fullscreen" ? "mx-auto" : "mx-auto"} leading-relaxed`}
+            className={`text-xl ${variant === "fullscreen" ? "md:text-2xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-3xl mx-auto leading-relaxed`}
           >
             {description}
           </motion.p>

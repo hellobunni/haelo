@@ -9,11 +9,10 @@ export default function ServicesPage() {
   return (
     <div className="bg-white">
       <HeroSection
-        variant="fullscreen"
+        variant="standard"
         badge={hero.badge}
         title={hero.title}
         description={hero.description}
-        buttons={hero.buttons}
         scrollIndicator={true}
         scrollAnimation={true}
         maxWidth="max-w-6xl"
