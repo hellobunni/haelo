@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 interface LineItem {
   id: string;
@@ -254,7 +255,8 @@ export function AddInvoiceDialog({
             ))}
 
             {/* Total */}
-            <div className="border-t pt-4 flex justify-end">
+            <Separator className="my-4" />
+            <div className="flex justify-end">
               <div className="text-right">
                 <p className="text-sm text-gray-500">Total Amount</p>
                 <p className="text-2xl font-bold">

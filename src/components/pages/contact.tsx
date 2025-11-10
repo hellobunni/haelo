@@ -7,6 +7,7 @@ import HeroSection from "@/components/blocks/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import contentData from "@/lib/data/content.json";
 
@@ -177,7 +178,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-gray-200">
+              <Separator className="my-8" />
+              <div>
                 <h3 className="font-semibold text-gray-900 mb-4">
                   What to Expect
                 </h3>
