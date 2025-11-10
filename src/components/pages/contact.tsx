@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import HeroSection from "@/components/blocks/HeroSection";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -19,6 +20,7 @@ export default function ContactPage() {
     budget: "",
     message: "",
   });
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -28,6 +30,10 @@ export default function ContactPage() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill out all required fields.");
+      return;
+    }
+    if (!acceptedTerms) {
+      toast.error("Please accept the terms and conditions to continue.");
       return;
     }
     setIsLoading(true);
@@ -305,11 +311,41 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  <div className="flex items-start space-x-2">
+                    <Checkbox
+                      id="terms"
+                      checked={acceptedTerms}
+                      onCheckedChange={(checked) =>
+                        setAcceptedTerms(checked === true)
+                      }
+                    />
+                    <label
+                      htmlFor="terms"
+                      className="text-sm text-gray-600 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                    >
+                      I agree to the{" "}
+                      <a
+                        href="/privacy"
+                        className="text-lavender-floral hover:underline"
+                      >
+                        privacy policy
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="/terms"
+                        className="text-lavender-floral hover:underline"
+                      >
+                        terms of service
+                      </a>
+                      .
+                    </label>
+                  </div>
+
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={isLoading}
-                    className="w-full bg-lavender-floral hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer"
+                    disabled={isLoading || !acceptedTerms}
+                    className="w-full bg-lavender-floral hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>
@@ -323,11 +359,6 @@ export default function ContactPage() {
                       </>
                     )}
                   </Button>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    By submitting this form, you agree to our privacy policy and
-                    terms of service.
-                  </p>
                 </div>
               </form>
             </motion.div>
