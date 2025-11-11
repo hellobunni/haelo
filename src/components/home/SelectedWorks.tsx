@@ -22,7 +22,7 @@ export default function SelectedWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-periwinkle-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {home.selectedWorks.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ export default function SelectedWorks() {
                     <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium">
                       {project.category}
                     </span>
-                    <h3 className="text-xl font-bold text-periwinkle-900 mt-3 mb-2 group-hover:text-periwinkle-600 transition-colors duration-300">
+                    <h3 className="text-xl font-bold tetext-gray-900t-3 mb-2 group-hover:text-periwinkle-600 transition-colors duration-300">
                       {project.title}
                     </h3>
                   </div>

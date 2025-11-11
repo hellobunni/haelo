@@ -30,7 +30,7 @@ export default function WhatWeDoMini() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-periwinkle-900">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
               {home.whatWeDo.title}
             </h2>
           </motion.div>
@@ -60,7 +60,7 @@ export default function WhatWeDoMini() {
               <span className="text-sm font-medium text-gray-400">
                 {service.number}
               </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-periwinkle-900">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                 {service.title}
               </h3>
             </div>
@@ -69,7 +69,7 @@ export default function WhatWeDoMini() {
                 {service.shortDescription}
               </p>
               <Link href="/services" className="shrink-0 cursor-pointer">
-                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-periwinkle-900 transition-all duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-all duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </motion.div>

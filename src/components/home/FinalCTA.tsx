@@ -25,8 +25,8 @@ export default function FinalCTA() {
           className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl"
         >
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-periwinkle-600 rounded-full blur-3xl opacity-10"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-periwinkle-600 rounded-full blur-3xl opacity-10"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-periwinkle-500 rounded-full blur-3xl opacity-10"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-periwinkle-500 rounded-full blur-3xl opacity-10"></div>
           </div>
 
           <div className="relative z-10">
