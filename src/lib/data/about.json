@@ -5,17 +5,17 @@
       "icon": "Sparkles"
     },
     "title": {
-      "line1": "Small Team.",
-      "line2": "Big Impact."
+      "line1": "Solo Expertise.",
+      "line2": "Collective Power."
     },
-    "description": "We're a boutique digital studio that blends aesthetic sophistication with engineering excellence. As a solo-preneur operating as a studio, I bring the agility of an independent with the professionalism of an agency."
+    "description": "I'm a freelance designer-developer with deep expertise in digital craft. When projects call for it, I collaborate with a curated network of specialists—copywriters, brand strategists, and content creators— ensuring you get comprehensive solutions without the agency overhead."
   },
   "story": {
-    "title": "Our Story",
+    "title": "Our Approach",
     "paragraphs": [
-      "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences. Too often, businesses are forced to choose between beautiful design and robust engineering—or settle for cookie-cutter solutions that don't reflect their unique identity.",
-      "As a studio, we bridge that gap. Every project is an opportunity to craft something truly exceptional—where form meets function, where aesthetics serve strategy, and where attention to detail transforms good into extraordinary.",
-      "Working with select clients means we can give each project the focus it deserves. We're not trying to be everything to everyone. Instead, we partner with ambitious brands who value quality, understand the power of thoughtful design, and are ready to invest in their digital presence."
+      "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences without the complexity and cost of traditional agencies. I lead every project personally, handling design and development directly—no middlemen, no account managers, just direct collaboration.",
+      "Over the years, I've built relationships with exceptional freelance specialists. When a project needs compelling copy, strategic branding, or professional photography, I bring in trusted collaborators. This flexible model means you get agency-level results with freelance efficiency and personal attention.",
+      "Working with select clients means each project gets the focus it deserves. I partner with ambitious brands who value quality, understand the power of thoughtful design, and appreciate the benefits of working directly with an experienced professional backed by a reliable creative network."
     ]
   },
   "founder": {
@@ -30,14 +30,14 @@
       "alt": "Founder"
     },
     "bio": [
-      "With over 5 years of experience in digital design and engineering, I've had the privilege of working with brands across industries—from startups finding their voice to established companies reimagining their digital presence.",
+      "With over 8 years of experience in digital design and engineering, I've had the privilege of working with brands across industries—from startups finding their voice to established companies reimagining their digital presence.",
       "My approach combines strategic thinking with hands-on craft. I believe the best digital experiences come from understanding both the business goals and the user needs, then translating that into elegant, functional design backed by solid engineering.",
-      "When I'm not designing or coding, you'll find me exploring the latest design trends, contributing to open-source projects, or working on side projects that push the boundaries of what's possible on the web."
+      "When projects require specialized skills like copywriting, videography, or photography, I bring in trusted collaborators I've worked with for years. This gives you the comprehensive solutions you need while maintaining the efficiency and personal attention of working with a freelancer."
     ],
     "social": {
       "email": {
         "text": "Get in Touch",
-        "href": "mailto:brylyngardner@gmail.com",
+        "href": "mailto:bryanna@haelostudios.com",
         "icon": "Mail"
       },
       "linkedin": {
@@ -100,7 +100,7 @@
     },
     "description": "If you're a brand that values quality over quantity and believes in the power of exceptional design, let's talk.",
     "button": {
-      "text": "Schedule a Discovery Call",
+      "text": "Schedule a Consultation",
       "href": "/contact"
     }
   }

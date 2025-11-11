@@ -26,7 +26,7 @@ export interface ProjectWithClient extends Project {
 // Type for portfolio/selected works projects
 export interface PortfolioProject {
   title: string;
-  category: string;
+  categories: string[]; // Array of categories (max 3)
   imageUrl: string;
   screenshotUrl?: string;
   url?: string;

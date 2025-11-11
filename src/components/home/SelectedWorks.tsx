@@ -63,9 +63,16 @@ export default function SelectedWorks() {
                     </div>
                   </div>
                   <div className="p-4">
-                    <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium">
-                      {project.category}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap mb-3">
+                      {project.categories.map((category) => (
+                        <span
+                          key={category}
+                          className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium"
+                        >
+                          {category}
+                        </span>
+                      ))}
+                    </div>
                     <h3 className="text-xl font-bold tetext-gray-900 mt-3  group-hover:text-jordy-blue transition-colors duration-300">
                       {project.title}
                     </h3>

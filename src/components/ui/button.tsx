@@ -102,7 +102,7 @@ function Button({
     Comp = "button";
     finalProps = {
       ...finalProps,
-      type: "button",
+      type: (props as React.ComponentProps<"button">).type || "button",
     } as React.ComponentProps<"button">;
   }
 

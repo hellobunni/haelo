@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
 import { Separator } from "@/components/ui/separator";
 import contentData from "@/lib/data/content.json";
 import { DARK_LOGO_URL, navigationItems } from "@/lib/utils";
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-linear-to-b from-gray-900 to-black text-white py-20 relative overflow-hidden">
+    <footer className="bg-linear-to-b from-gray-900 to-black text-white pt-20 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-periwinkle-900 rounded-full blur-3xl opacity-10"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-periwinkle-800 rounded-full blur-3xl opacity-10"></div>
@@ -25,9 +26,10 @@ export default function SiteFooter() {
                 className="transition-opacity duration-300 group-hover:opacity-80"
               />
             </Link>
-            <p className="text-gray-400 leading-relaxed max-w-md">
+            <p className="text-gray-400 leading-relaxed max-w-md mb-6">
               {contentData.footer.brand.description}
             </p>
+            <SocialLinks social={contentData.contact.social} variant="dark" />
           </div>
 
           {/* Quick Links */}

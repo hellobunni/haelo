@@ -1064,5 +1064,5 @@
 
 /* Smooth dialog overlay transitions */
 [data-radix-dialog-overlay] {
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
