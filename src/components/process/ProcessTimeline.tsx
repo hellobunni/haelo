@@ -33,7 +33,7 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 transform -translate-x-1/2 hidden lg:block">
         <motion.div
           style={{ height: lineHeight }}
-          className="w-full bg-gradient-to-b from-periwinkle-500 to-periwinkle-600 origin-top"
+          className="w-full bg-linear-to-b from-periwinkle-500 to-periwinkle-500 origin-top"
         />
       </div>
 
@@ -62,10 +62,10 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                   <span className="text-6xl md:text-7xl font-bold text-gray-100 block mb-2">
                     {step.number}
                   </span>
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-3xl md:text-4xl font-bold text-periwinkle-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-lg text-periwinkle-600 font-medium mb-4">
+                  <p className="text-lg text-periwinkle-500 font-medium mb-4">
                     {step.subtitle}
                   </p>
                   <p className="text-gray-600 text-lg leading-relaxed">
@@ -77,7 +77,7 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                 <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-20 h-20 rounded-full bg-gradient-to-br from-periwinkle-500 to-periwinkle-600 shadow-xl shadow-periwinkle-300 flex items-center justify-center"
+                    className="w-20 h-20 rounded-full bg-linear-to-br from-periwinkle-500 to-periwinkle-500 shadow-xl shadow-periwinkle-300 flex items-center justify-center"
                   >
                     <Icon className="w-10 h-10 text-white" />
                   </motion.div>
@@ -89,10 +89,10 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                 >
                   <motion.div
                     whileHover={{ y: -5 }}
-                    className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                    className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg border border-gray-100"
                   >
                     <div className="flex items-center gap-3 mb-6 lg:hidden">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-periwinkle-500 to-periwinkle-600 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-linear-to-br from-periwinkle-500 to-periwinkle-500 flex items-center justify-center">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-sm font-medium text-gray-500">
@@ -111,7 +111,7 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                               key={detail}
                               className="flex items-start gap-2 text-gray-700"
                             >
-                              <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-500 mt-2 flex-shrink-0" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-500 mt-2 shrink-0" />
                               <span>{detail}</span>
                             </li>
                           ))}
@@ -124,7 +124,7 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
                             Duration
                           </p>
-                          <p className="text-sm font-medium text-gray-900">
+                          <p className="text-sm font-medium text-periwinkle-900">
                             {step.duration}
                           </p>
                         </div>
@@ -132,7 +132,7 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
                           <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
                             Deliverables
                           </p>
-                          <p className="text-sm font-medium text-gray-900">
+                          <p className="text-sm font-medium text-periwinkle-900">
                             {step.deliverables.length} items
                           </p>
                         </div>

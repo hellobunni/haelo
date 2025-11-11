@@ -15,7 +15,7 @@ export default function ProcessMetrics() {
   const { metrics } = servicesData;
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-32 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -24,7 +24,7 @@ export default function ProcessMetrics() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-periwinkle-900 mb-6">
             {metrics.header.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -47,10 +47,10 @@ export default function ProcessMetrics() {
                 <div className="w-12 h-12 rounded-lg bg-periwinkle/10 flex items-center justify-center mb-6">
                   <Icon className="w-6 h-6 text-periwinkle" />
                 </div>
-                <div className="text-5xl font-bold text-gray-900 mb-2">
+                <div className="text-5xl font-bold text-periwinkle-900 mb-2">
                   {metric.value}
                 </div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">
+                <div className="text-lg font-semibold text-periwinkle-900 mb-2">
                   {metric.label}
                 </div>
                 <div className="text-sm text-gray-500">

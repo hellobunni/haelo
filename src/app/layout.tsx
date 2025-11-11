@@ -35,7 +35,7 @@ export default function RootLayout({
             <SiteHeader />
             {/* Page content (route transitions handled in app/template.tsx) */}
             <main className="pt-20">{children}</main>
-            <footer className="bg-gradient-to-b from-gray-900 to-black text-white py-20 relative overflow-hidden">
+            <footer className="bg-linear-to-b from-gray-900 to-black text-white py-20 relative overflow-hidden">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-periwinkle-900 rounded-full blur-3xl opacity-10"></div>
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-periwinkle-800 rounded-full blur-3xl opacity-10"></div>
@@ -46,7 +46,7 @@ export default function RootLayout({
                   {/* Brand Column */}
                   <div className="md:col-span-2">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-periwinkle-600 to-periwinkle-500 flex items-center justify-center shadow-lg">
+                      <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-periwinkle-500 flex items-center justify-center shadow-lg">
                         <span className="text-white font-bold text-xl">H</span>
                       </div>
                       <span className="text-xl font-bold">Haelo Studios</span>

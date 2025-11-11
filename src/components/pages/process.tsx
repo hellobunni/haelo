@@ -1,46 +1,61 @@
 "use client";
-import { Sparkles, Target } from "lucide-react";
-import { motion } from "motion/react";
-import ProcessCTA from "@/components/process/ProcessCTA";
+import { Code, Palette, Search, Target, TrendingUp } from "lucide-react";
+import HeroSection from "@/components/blocks/HeroSection";
 import ProcessStep from "@/components/process/ProcessStep";
 import servicesData from "@/lib/data/services.json";
+import FinalCTA from "../home/FinalCTA";
 
 // Icon mapping function
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Sparkles,
+  Search,
+  Palette,
+  Code,
+  TrendingUp,
   Target,
 };
 
 export default function ProcessPage() {
   const { process } = servicesData;
-  const BadgeIcon = iconMap[process.header.badge.icon] || Sparkles;
 
   return (
     <div className="bg-white">
+      {/* Hero Section */}
+      <HeroSection
+        variant="standard"
+        badge={process.header.badge}
+        title={{ line1: process.header.title }}
+        description={process.header.description}
+        scrollIndicator={true}
+        scrollAnimation={true}
+        maxWidth="max-w-6xl"
+        titleSize="text-6xl md:text-7xl lg:text-8xl"
+        blobs={[
+          {
+            position: "top-1/4",
+            horizontal: "left-1/4",
+            color: "bg-periwinkle-200",
+            animated: true,
+          },
+          {
+            position: "top-1/3",
+            horizontal: "right-1/4",
+            color: "bg-periwinkle-300",
+            animated: true,
+            delay: 2000,
+          },
+          {
+            position: "bottom-1/4",
+            horizontal: "left-1/2",
+            color: "bg-gray-200",
+            animated: true,
+            delay: 4000,
+          },
+        ]}
+      />
+
       {/* Process Steps */}
       <section className="py-32 bg-linear-to-b from-white via-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-20"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-periwinkle-50 border border-periwinkle-200 mb-6">
-              <BadgeIcon className="w-4 h-4 text-periwinkle-600" />
-              <span className="text-sm font-medium text-periwinkle-900">
-                {process.header.badge.text}
-              </span>
-            </div>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              {process.header.title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {process.header.description}
-            </p>
-          </motion.div>
-
           {process.steps.map((step, index) => {
             const StepIcon = iconMap[step.icon] || Target;
             return (
@@ -55,8 +70,8 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <ProcessCTA />
+      {/* Final CTA to Contact */}
+      <FinalCTA />
     </div>
   );
 }

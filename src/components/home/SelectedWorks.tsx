@@ -22,7 +22,7 @@ export default function SelectedWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-periwinkle-900 mb-4">
             {home.selectedWorks.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ export default function SelectedWorks() {
                         className="object-contain p-8"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-xl">
                         <ExternalLink className="w-4 h-4 text-periwinkle-600" />
@@ -76,7 +76,7 @@ export default function SelectedWorks() {
                     <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium">
                       {project.category}
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2 group-hover:text-periwinkle-600 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-periwinkle-900 mt-3 mb-2 group-hover:text-periwinkle-600 transition-colors duration-300">
                       {project.title}
                     </h3>
                   </div>

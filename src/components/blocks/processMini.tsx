@@ -36,7 +36,7 @@ export default function ProcessMini() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-periwinkle-900 mb-4">
             {processMini.header.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -61,10 +61,10 @@ export default function ProcessMini() {
                   {step.number}
                 </div>
                 <div className="z-10 flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-periwinkle-600 flex items-center justify-center mb-2 shadow-lg shadow-periwinkle-200">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-periwinkle-500 flex items-center justify-center mb-2 shadow-lg shadow-periwinkle-200">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-0">
+                  <h3 className="text-3xl font-bold text-periwinkle-900 mb-0">
                     {step.title}
                   </h3>
                   <p className="text-gray-600 text-sm">{step.description}</p>

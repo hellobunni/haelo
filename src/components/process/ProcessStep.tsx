@@ -25,8 +25,9 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      animate={index === 0 ? { opacity: 1, y: 0 } : undefined}
+      whileInView={index > 0 ? { opacity: 1, y: 0 } : undefined}
+      viewport={index > 0 ? { once: true, margin: "-100px" } : undefined}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="relative mb-32"
     >
@@ -36,7 +37,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
           <div className="sticky top-32">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full bg-periwinkle/10 flex items-center justify-center">
-                <Icon className="w-8 h-8 text-periwinkle" />
+                <Icon className="w-8 h-8 text-lavender-floral" />
               </div>
               <span className="text-6xl font-bold text-gray-200">
                 {step.number}
@@ -63,7 +64,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
               <ul className="space-y-3">
                 {step.details.map((detail) => (
                   <li key={detail} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-periwinkle mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-lavender-floral mt-0.5 shrink-0" />
                     <span className="text-gray-600">{detail}</span>
                   </li>
                 ))}
@@ -89,7 +90,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
                         key={deliverable}
                         className="text-gray-600 flex items-center gap-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-periwinkle"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-lavender-floral"></span>
                         {deliverable}
                       </li>
                     ))}
@@ -103,7 +104,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
 
       {/* Connector Line */}
       {!isLast && (
-        <div className="absolute left-8 top-32 bottom-0 w-0.5 bg-gradient-to-b from-periwinkle/30 to-transparent hidden md:block"></div>
+        <div className="absolute left-8 top-32 bottom-0 w-0.5 bg-linear-to-b from-periwinkle/30 to-transparent hidden md:block"></div>
       )}
     </motion.div>
   );

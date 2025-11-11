@@ -48,7 +48,7 @@
   --color-pale-purple: #ece0f5;
   --color-thistle-2: #d8c1eb;
   --color-wisteria: #c5a3e1;
-  --color-lavender-floral: #a874d2;
+  --color-periwinkle-500: #a874d2;
   --color-dark-purple: #372246;
   --color-dark-purple-2: #230c33;
   --color-periwinkle: #9381ff;
@@ -178,7 +178,7 @@
   background-color: #c5a3e1;
 }
 
-.bg-lavender-floral {
+.bg-periwinkle-500 {
   background-color: #a874d2;
 }
 
@@ -211,7 +211,7 @@
   color: #c5a3e1;
 }
 
-.text-lavender-floral {
+.text-periwinkle-500 {
   color: #a874d2;
 }
 
@@ -244,7 +244,7 @@
   border-color: #c5a3e1;
 }
 
-.border-lavender-floral {
+.border-periwinkle-500 {
   border-color: #a874d2;
 }
 
@@ -277,7 +277,7 @@
   --tw-gradient-from: #c5a3e1;
 }
 
-.from-lavender-floral {
+.from-periwinkle-500 {
   --tw-gradient-from: #a874d2;
 }
 
@@ -310,7 +310,7 @@
   --tw-gradient-to: #c5a3e1;
 }
 
-.to-lavender-floral {
+.to-periwinkle-500 {
   --tw-gradient-to: #a874d2;
 }
 
@@ -344,7 +344,7 @@
     var(--tw-shadow);
 }
 
-.shadow-lavender-floral {
+.shadow-periwinkle-500 {
   --tw-shadow-color: #a874d2;
   box-shadow:
     var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
@@ -403,7 +403,7 @@
   color: #ece0f5;
 }
 
-.group-hover\:bg-lavender-floral:hover {
+.group-hover\:bg-periwinkle-500:hover {
   background-color: #a874d2;
 }
 
@@ -419,7 +419,7 @@
   border-color: #d8c1eb;
 }
 
-.hover\:text-lavender-floral:hover {
+.hover\:text-periwinkle-500:hover {
   color: #a874d2;
 }
 
@@ -467,12 +467,12 @@
 }
 
 .bg-periwinkle-500,
-.bg-periwinkle-600,
-.text-periwinkle-600,
+.bg-periwinkle-500,
+.text-periwinkle-500,
 .from-periwinkle-500,
-.from-periwinkle-600,
+.from-periwinkle-500,
 .to-periwinkle-500,
-.to-periwinkle-600 {
+.to-periwinkle-500 {
   background-color: #a874d2; /* lavender-floral */
   color: #a874d2;
   --tw-gradient-from: #a874d2;
@@ -524,7 +524,7 @@
   --tw-gradient-from: #ece0f5; /* pale-purple */
 }
 
-.group-hover\:bg-periwinkle-600:hover {
+.group-hover\:bg-periwinkle-500:hover {
   background-color: #a874d2; /* lavender-floral */
 }
 
@@ -532,6 +532,11 @@
   color: #ece0f5; /* pale-purple */
 }
 
-.group-hover\:text-periwinkle-600:hover {
+.group-hover\:text-periwinkle-500:hover {
   color: #a874d2; /* lavender-floral */
+}
+
+/* Smooth dialog overlay transitions */
+[data-radix-dialog-overlay] {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }

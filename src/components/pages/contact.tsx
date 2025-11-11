@@ -5,7 +5,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import HeroSection from "@/components/blocks/HeroSection";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -20,7 +19,6 @@ export default function ContactPage() {
     budget: "",
     message: "",
   });
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -30,10 +28,6 @@ export default function ContactPage() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill out all required fields.");
-      return;
-    }
-    if (!acceptedTerms) {
-      toast.error("Please accept the terms and conditions to continue.");
       return;
     }
     setIsLoading(true);
@@ -139,7 +133,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -148,7 +142,7 @@ export default function ContactPage() {
                     </h3>
                     <a
                       href="mailto:hello@haelostudios.com"
-                      className="text-lavender-floral hover:text-dark-purple transition-colors cursor-pointer"
+                      className="text-periwinkle-600 hover:text-dark-purple transition-colors cursor-pointer"
                     >
                       hello@haelostudios.com
                     </a>
@@ -156,7 +150,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <Calendar className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -170,7 +164,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lavender-floral to-lavender-floral flex items-center justify-center flex-shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -191,15 +185,15 @@ export default function ContactPage() {
                 </h3>
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
                     Initial consultation to discuss your needs
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
                     Tailored proposal and timeline
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-lavender-floral" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
                     Transparent pricing and process
                   </li>
                 </ul>
@@ -216,7 +210,7 @@ export default function ContactPage() {
             >
               <form
                 onSubmit={handleSubmit}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border border-gray-100"
+                className="bg-linear-to-br from-white to-gray-50 rounded-2xl p-8 shadow-xl border border-gray-100"
               >
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -234,7 +228,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
-                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
                       />
                     </div>
                     <div>
@@ -252,7 +246,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="john@company.com"
                         required
-                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
                       />
                     </div>
                   </div>
@@ -271,7 +265,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
                       />
                     </div>
                     <div>
@@ -287,7 +281,7 @@ export default function ContactPage() {
                         value={formData.budget}
                         onChange={handleChange}
                         placeholder="$10k - $50k"
-                        className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
                       />
                     </div>
                   </div>
@@ -307,45 +301,15 @@ export default function ContactPage() {
                       placeholder="Share your vision, goals, and any specific requirements..."
                       required
                       rows={6}
-                      className="border-gray-200 focus:border-lavender-floral focus:ring-lavender-floral"
+                      className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
                     />
-                  </div>
-
-                  <div className="flex items-start space-x-2">
-                    <Checkbox
-                      id="terms"
-                      checked={acceptedTerms}
-                      onCheckedChange={(checked) =>
-                        setAcceptedTerms(checked === true)
-                      }
-                    />
-                    <label
-                      htmlFor="terms"
-                      className="text-sm text-gray-600 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                    >
-                      I agree to the{" "}
-                      <a
-                        href="/privacy"
-                        className="text-lavender-floral hover:underline"
-                      >
-                        privacy policy
-                      </a>{" "}
-                      and{" "}
-                      <a
-                        href="/terms"
-                        className="text-lavender-floral hover:underline"
-                      >
-                        terms of service
-                      </a>
-                      .
-                    </label>
                   </div>
 
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={isLoading || !acceptedTerms}
-                    className="w-full bg-lavender-floral hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoading}
+                    className="w-full bg-periwinkle-600 hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>

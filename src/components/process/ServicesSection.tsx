@@ -81,7 +81,7 @@ export default function ServicesSection() {
                           }}
                           className="flex items-center gap-3"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-500 group-hover:bg-periwinkle-600 transition-colors duration-300" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600 group-hover:bg-periwinkle-600 transition-colors duration-300" />
                           <span className="text-gray-700 text-sm">
                             {feature}
                           </span>

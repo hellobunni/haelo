@@ -77,7 +77,7 @@ export interface HeroSectionProps {
   titleSize?:
     | "text-5xl md:text-6xl lg:text-7xl"
     | "text-6xl md:text-7xl lg:text-8xl";
-  badgeVariant?: "default" | "periwinkle";
+  badgeVariant?: "default" | "periwinkle" | "blank" | "dark";
 }
 
 export default function HeroSection({
@@ -186,32 +186,43 @@ export default function HeroSection({
           className={variant === "fullscreen" ? "" : "text-center"}
         >
           {/* Badge */}
-          {badge && (
-            <div
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 ${
-                badgeVariant === "periwinkle"
-                  ? "bg-periwinkle-50 border border-periwinkle-200"
-                  : "bg-pale-purple border border-thistle"
-              }`}
-            >
-              <BadgeIcon
-                className={`w-4 h-4 ${
-                  badgeVariant === "periwinkle"
-                    ? "text-periwinkle-600"
-                    : "text-lavender-floral"
-                }`}
-              />
-              <span
-                className={`text-sm font-medium ${
-                  badgeVariant === "periwinkle"
-                    ? "text-periwinkle-900"
-                    : "text-dark-purple-2"
-                }`}
-              >
-                {badge.text}
-              </span>
-            </div>
-          )}
+          {badge &&
+            (() => {
+              let badgeClasses =
+                "inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border";
+              let iconClasses = "w-4 h-4";
+              let textClasses = "text-sm font-medium";
+
+              switch (badgeVariant) {
+                case "periwinkle":
+                  badgeClasses += " bg-pale-purple border-periwinkle-200";
+                  iconClasses += " text-periwinkle-600";
+                  textClasses += " text-dark-purple";
+                  break;
+                case "blank":
+                  badgeClasses += " bg-white border-periwinkle-200";
+                  iconClasses += " text-periwinkle-600";
+                  textClasses += " text-dark-purple-2";
+                  break;
+                case "dark":
+                  badgeClasses += " bg-dark-purple-2 border-periwinkle-200";
+                  iconClasses += " text-white";
+                  textClasses += " text-white";
+                  break;
+                default:
+                  badgeClasses += " bg-pale-purple border-thistle";
+                  iconClasses += " text-periwinkle-600";
+                  textClasses += " text-dark-purple-2";
+                  break;
+              }
+
+              return (
+                <div className={badgeClasses}>
+                  <BadgeIcon className={iconClasses} />
+                  <span className={textClasses}>{badge.text}</span>
+                </div>
+              );
+            })()}
 
           {/* Title */}
           <motion.h1
@@ -228,7 +239,13 @@ export default function HeroSection({
             {title.line2 && variant !== "simple" && (
               <>
                 <br />
-                <span className="bg-gradient-to-r from-lavender-floral to-wisteria bg-clip-text text-transparent">
+                <span
+                  className={`bg-linear-to-r bg-clip-text text-transparent ${
+                    badgeVariant === "periwinkle"
+                      ? "from-periwinkle-600 to-periwinkle-400"
+                      : "from-periwinkle-600 to-wisteria"
+                  }`}
+                >
                   {title.line2}
                 </span>
               </>
@@ -250,7 +267,7 @@ export default function HeroSection({
               delay: variant === "fullscreen" ? 0.2 : 0,
               ease: "easeOut",
             }}
-            className={`text-xl ${variant === "fullscreen" ? "md:text-2xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-3xl mx-auto leading-relaxed`}
+            className={`text-lg ${variant === "fullscreen" ? "md:text-2xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-3xl mx-auto leading-relaxed`}
           >
             {description}
           </motion.p>
@@ -271,7 +288,8 @@ export default function HeroSection({
                 <Link href={buttons.primary.href}>
                   <Button
                     size="lg"
-                    className="bg-lavender-floral hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria"
+                    variant="periwinkle"
+                    className="bg-periwinkle-600 hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria"
                   >
                     {buttons.primary.text}
                     <PrimaryButtonIcon className="ml-2 w-5 h-5" />
