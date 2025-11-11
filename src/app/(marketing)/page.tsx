@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import HomePage from "../../components/pages/home";
-import { DARK_LOGO_URL } from "@/lib/utils";
 import contentData from "@/lib/data/content.json";
+import { DARK_LOGO_URL } from "@/lib/utils";
+import HomePage from "../../components/pages/home";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { home } = contentData;

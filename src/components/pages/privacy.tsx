@@ -51,12 +51,12 @@ export default function Privacy() {
                   1. Introduction
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Haelo Studios is committed to protecting
-                  your privacy. This Privacy Policy explains how information is collected, used,
-                  disclosed, and safeguarded when you visit the
-                  website or use the services. Please read this privacy policy
-                  carefully. If you do not agree with the terms of this privacy
-                  policy, please do not access the site.
+                  Haelo Studios is committed to protecting your privacy. This
+                  Privacy Policy explains how information is collected, used,
+                  disclosed, and safeguarded when you visit the website or use
+                  the services. Please read this privacy policy carefully. If
+                  you do not agree with the terms of this privacy policy, please
+                  do not access the site.
                 </p>
               </section>
 
@@ -71,7 +71,8 @@ export default function Privacy() {
                       2.1 Information You Provide
                     </h3>
                     <p>
-                      Information may be collected that you voluntarily provide when you:
+                      Information may be collected that you voluntarily provide
+                      when you:
                     </p>
                     <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
                       <li>Contact through the website or email</li>
@@ -80,8 +81,8 @@ export default function Privacy() {
                       <li>Engage with the services or client portal</li>
                     </ul>
                     <p className="mt-2">
-                      This information may include your name, email address, phone
-                      number, company name, project details, and any other
+                      This information may include your name, email address,
+                      phone number, company name, project details, and any other
                       information you choose to provide.
                     </p>
                   </div>
@@ -90,8 +91,8 @@ export default function Privacy() {
                       2.2 Automatically Collected Information
                     </h3>
                     <p>
-                      When you visit the website, certain information may be automatically collected
-                      about your device, including:
+                      When you visit the website, certain information may be
+                      automatically collected about your device, including:
                     </p>
                     <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
                       <li>IP address and location data</li>
@@ -107,12 +108,12 @@ export default function Privacy() {
                       2.3 Cookies and Tracking Technologies
                     </h3>
                     <p>
-                      Cookies and similar tracking technologies are used to track
-                      activity on the website and store certain information.
-                      Cookies are files with a small amount of data which may
-                      include an anonymous unique identifier. You can instruct
-                      your browser to refuse all cookies or to indicate when a
-                      cookie is being sent.
+                      Cookies and similar tracking technologies are used to
+                      track activity on the website and store certain
+                      information. Cookies are files with a small amount of data
+                      which may include an anonymous unique identifier. You can
+                      instruct your browser to refuse all cookies or to indicate
+                      when a cookie is being sent.
                     </p>
                   </div>
                 </div>
@@ -131,9 +132,16 @@ export default function Privacy() {
                   <li>
                     To provide, maintain, and improve the services and website
                   </li>
-                  <li>To respond to your inquiries and provide customer support</li>
-                  <li>To send you updates, newsletters, and marketing communications (with your consent)</li>
-                  <li>To process transactions and manage client relationships</li>
+                  <li>
+                    To respond to your inquiries and provide customer support
+                  </li>
+                  <li>
+                    To send you updates, newsletters, and marketing
+                    communications (with your consent)
+                  </li>
+                  <li>
+                    To process transactions and manage client relationships
+                  </li>
                   <li>To analyze website usage and improve user experience</li>
                   <li>To detect, prevent, and address technical issues</li>
                   <li>To comply with legal obligations</li>
@@ -147,29 +155,30 @@ export default function Privacy() {
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    Personal information is not sold, traded, or rented to
-                    third parties. Information may be shared only in the
-                    following circumstances:
+                    Personal information is not sold, traded, or rented to third
+                    parties. Information may be shared only in the following
+                    circumstances:
                   </p>
                   <ul className="list-disc list-inside ml-4 space-y-2">
                     <li>
-                      <strong>Service Providers:</strong> Information may be shared
-                      with third-party service providers who perform services, such as hosting, analytics, email delivery, and
+                      <strong>Service Providers:</strong> Information may be
+                      shared with third-party service providers who perform
+                      services, such as hosting, analytics, email delivery, and
                       payment processing.
                     </li>
                     <li>
-                      <strong>Legal Requirements:</strong> Information may be disclosed
-                      if required to do so by law or in response to
+                      <strong>Legal Requirements:</strong> Information may be
+                      disclosed if required to do so by law or in response to
                       valid requests by public authorities.
                     </li>
                     <li>
                       <strong>Business Transfers:</strong> In the event of a
-                      merger, acquisition, or sale of assets, your information may
-                      be transferred as part of that transaction.
+                      merger, acquisition, or sale of assets, your information
+                      may be transferred as part of that transaction.
                     </li>
                     <li>
-                      <strong>With Your Consent:</strong> Information may be shared
-                      with your explicit consent for any other purpose.
+                      <strong>With Your Consent:</strong> Information may be
+                      shared with your explicit consent for any other purpose.
                     </li>
                   </ul>
                 </div>
@@ -181,12 +190,12 @@ export default function Privacy() {
                   5. Data Security
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Appropriate technical and organizational security
-                  measures are implemented to protect your personal information against
+                  Appropriate technical and organizational security measures are
+                  implemented to protect your personal information against
                   unauthorized access, alteration, disclosure, or destruction.
                   However, no method of transmission over the Internet or
-                  electronic storage is 100% secure. While commercially acceptable means are used
-                  to protect your information,
+                  electronic storage is 100% secure. While commercially
+                  acceptable means are used to protect your information,
                   absolute security cannot be guaranteed.
                 </p>
               </section>
@@ -206,16 +215,16 @@ export default function Privacy() {
                     personal information
                   </li>
                   <li>
-                    <strong>Correction:</strong> The right to request correction of
-                    inaccurate or incomplete information
+                    <strong>Correction:</strong> The right to request correction
+                    of inaccurate or incomplete information
                   </li>
                   <li>
                     <strong>Deletion:</strong> The right to request deletion of
                     your personal information
                   </li>
                   <li>
-                    <strong>Objection:</strong> The right to object to processing
-                    of your personal information
+                    <strong>Objection:</strong> The right to object to
+                    processing of your personal information
                   </li>
                   <li>
                     <strong>Data Portability:</strong> The right to request
@@ -223,12 +232,13 @@ export default function Privacy() {
                   </li>
                   <li>
                     <strong>Withdraw Consent:</strong> The right to withdraw
-                    consent where consent is relied upon to process your information
+                    consent where consent is relied upon to process your
+                    information
                   </li>
                 </ul>
                 <p className="mt-4 text-gray-600 leading-relaxed">
-                  To exercise these rights, please contact using the
-                  information provided in the "Contact" section below.
+                  To exercise these rights, please contact using the information
+                  provided in the "Contact" section below.
                 </p>
               </section>
 
@@ -239,9 +249,9 @@ export default function Privacy() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
                   The website may contain links to third-party websites or
-                  services that are not owned or controlled by Haelo Studios. The
-                  privacy practices of these
-                  third-party sites are not the responsibility of Haelo Studios. Reviewing the privacy
+                  services that are not owned or controlled by Haelo Studios.
+                  The privacy practices of these third-party sites are not the
+                  responsibility of Haelo Studios. Reviewing the privacy
                   policies of any third-party sites you visit is encouraged.
                 </p>
               </section>
@@ -267,9 +277,10 @@ export default function Privacy() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
                   The Privacy Policy may be updated from time to time. You will
-                  be notified of any changes by posting the new Privacy Policy on
-                  this page and updating the "Last updated" date. You are advised
-                  to review this Privacy Policy periodically for any changes.
+                  be notified of any changes by posting the new Privacy Policy
+                  on this page and updating the "Last updated" date. You are
+                  advised to review this Privacy Policy periodically for any
+                  changes.
                 </p>
               </section>
 
@@ -279,8 +290,8 @@ export default function Privacy() {
                   10. Contact
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  If you have any questions about this Privacy Policy or
-                  privacy practices, please contact:
+                  If you have any questions about this Privacy Policy or privacy
+                  practices, please contact:
                 </p>
                 <div className="bg-gray-50 rounded-lg p-6 space-y-2 text-gray-600">
                   <p>
@@ -310,4 +321,3 @@ export default function Privacy() {
     </div>
   );
 }
-

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import WorkPage from "@/components/pages/work";
-import { DARK_LOGO_URL } from "@/lib/utils";
 import contentData from "@/lib/data/content.json";
+import { DARK_LOGO_URL } from "@/lib/utils";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { work } = contentData;
 
 export const metadata: Metadata = {
-  title: "Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
+  title:
+    "Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
   description: work.hero.description,
   openGraph: {
     title: `${work.hero.title.line1} ${work.hero.title.line2} | Haelo Studios`,

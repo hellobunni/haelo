@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import ServicesPage from "@/components/pages/services";
-import { DARK_LOGO_URL } from "@/lib/utils";
 import servicesData from "@/lib/data/services.json";
+import { DARK_LOGO_URL } from "@/lib/utils";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
-const { hero, services } = servicesData;
+const { hero } = servicesData;
 
 export const metadata: Metadata = {
-  title: "Services | Web Design, Development & Digital Strategy | Haelo Studios",
+  title:
+    "Services | Web Design, Development & Digital Strategy | Haelo Studios",
   description: hero.description,
   openGraph: {
     title: `${hero.title.line1} | Haelo Studios`,

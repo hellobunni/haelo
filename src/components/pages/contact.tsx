@@ -138,9 +138,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      Email
-                    </h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a
                       href={`mailto:${contact.email}`}
                       className="text-jordy-blue hover:text-dark-purple transition-colors cursor-pointer"

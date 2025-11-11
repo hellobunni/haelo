@@ -67,29 +67,29 @@
   ],
   "values": {
     "header": {
-        "title": "Core Values",
-        "description": "Values guide every project, every interaction, every line of code."
+      "title": "Core Values",
+      "description": "Values guide every project, every interaction, every line of code."
     },
     "items": [
       {
         "icon": "Heart",
         "title": "Craft Over Speed",
-          "description": "Taking the time to do things right. Every pixel, every line of code matters."
+        "description": "Taking the time to do things right. Every pixel, every line of code matters."
       },
       {
         "icon": "Target",
         "title": "Strategic Thinking",
-          "description": "Beautiful design means nothing without purpose. Every decision is aligned with business goals."
+        "description": "Beautiful design means nothing without purpose. Every decision is aligned with business goals."
       },
       {
         "icon": "Code2",
         "title": "Technical Excellence",
-          "description": "Clean, maintainable code that scales. Built for today and tomorrow."
+        "description": "Clean, maintainable code that scales. Built for today and tomorrow."
       },
       {
         "icon": "Users",
         "title": "Partnership Approach",
-          "description": "Client success drives everything. Not just vendors—collaborators in your vision."
+        "description": "Client success drives everything. Not just vendors—collaborators in your vision."
       }
     ]
   },

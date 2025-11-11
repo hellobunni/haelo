@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AboutPage from "@/components/pages/about";
-import { DARK_LOGO_URL } from "@/lib/utils";
 import aboutData from "@/lib/data/about.json";
+import { DARK_LOGO_URL } from "@/lib/utils";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { hero } = aboutData;
