@@ -13,3 +13,11 @@ export const navigationItems = [
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ];
+
+// Logo for light backgrounds (blue/black logo)
+export const LOGO_URL =
+  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762869041/Haelo%20Studios/log/svg/haelo-blue-black_edmsvy.svg";
+
+// Logo for dark backgrounds (white logo)
+export const DARK_LOGO_URL =
+  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762869809/Haelo%20Studios/log/svg/haelo_1_-cropped_bkvd32.svg";

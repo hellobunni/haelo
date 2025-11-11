@@ -81,7 +81,7 @@ export default function ServicesSection() {
                           }}
                           className="flex items-center gap-3"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600 group-hover:bg-periwinkle-600 transition-colors duration-300" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-jordy-blue group-hover:bg-jordy-blue transition-colors duration-300" />
                           <span className="text-gray-700 text-sm">
                             {feature}
                           </span>
@@ -93,7 +93,7 @@ export default function ServicesSection() {
                     <Button
                       size="lg"
                       variant="periwinkle"
-                      className="inline-flex items-center gap-2 text-periwinkle-600 font-semibold group-hover:gap-4 transition-all duration-300 rounded-sm w-56"
+                      className="inline-flex items-center gap-2 text-jordy-blue font-semibold group-hover:gap-4 transition-all duration-300 rounded-sm w-56"
                     >
                       Learn More
                       <ArrowRight className="w-4 h-4" />

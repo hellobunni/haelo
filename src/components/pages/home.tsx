@@ -55,7 +55,11 @@ export default function HomePage() {
       <SelectedWorks />
 
       {/* CTA Section */}
-      <CTASection />
+      <CTASection
+        title={home.cta.title}
+        description={home.cta.description}
+        button={home.cta.button}
+      />
 
       {/* Process - Mini Version */}
       <ProcessMini />

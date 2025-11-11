@@ -84,8 +84,7 @@ export default function WhatWeDoMini() {
         >
           <Button
             type="button"
-            variant="periwinkle"
-            className="rounded-md"
+            variant="ghost"
             href={home.whatWeDo.cta.href}
           >
             {home.whatWeDo.cta.text}

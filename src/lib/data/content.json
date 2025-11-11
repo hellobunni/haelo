@@ -9,45 +9,44 @@
         "line1": "Where Vision",
         "line2": "Meets Execution"
       },
-      "description": "Boutique digital studio blending aesthetics + tech to build brands that stand out. Refined design. Smart engineering. Lasting impact.",
+      "description": "We help forward-thinking brands turn ideas into digital experiences that captivate and convert. Refined visuals. Smart systems. Work that resonates and performs",
       "buttons": {
         "primary": {
           "text": "Start Your Project",
           "href": "/contact"
         },
         "secondary": {
-          "text": "View Our Work",
+          "text": "View Work",
           "href": "/work"
         }
       }
     },
-    "whatWeDo": {
-      "title": "What We Offer",
-      "description": "Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out.",
-      "cta": {
-        "text": "Explore All Services",
-        "href": "/services"
-      }
-    },
+"whatWeDo": {
+  "title": "What We Offer",
+  "description": "Independent digital design and development studio crafting thoughtful, high-impact web experiences. We lead every project personally, collaborating with trusted creatives to bring each vision to life.",
+  "cta": {
+    "text": "Explore All Services",
+    "href": "/services"
+  }
+},
     "selectedWorks": {
       "title": "Selected Works",
-      "description": "Projects that showcase our signature blend of elegance + engineering",
-      "cta": {
-        "text": "View All Projects",
-        "href": "/work"
-      }
+      "description": "A curated collection of projects that reflect Haelo’s focus on thoughtful design, clean engineering, and refined digital craftsmanship. Each build is designed to feel elevated, intuitive, and distinctly made.",
+  "cta": {
+    "text": "View All Projects",
+    "href": "/work"
+  }
     },
-    "cta": {
-      "title": {
-        "line1": "Ready to Elevate Your",
-        "line2": "Digital Presence?"
-      },
-      "description": "Let's discuss how we can transform your vision into an exceptional digital experience.",
-      "button": {
-        "text": "View Our Work",
-        "href": "/work"
-      }
-    },
+"cta": {
+  "title": {
+    "line2": "See the craft in action."
+  },
+  "description": "See how design, technology, and intention come together to craft digital experiences that feel as good as they look.",
+  "button": {
+    "text": "View My Work",
+    "href": "/work"
+  }
+},
     "finalCTA": {
       "title": "Let's Start Your Project",
       "description": "Schedule a free consultation and discover how we can bring your vision to life with our proven process.",

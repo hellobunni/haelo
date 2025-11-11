@@ -25,7 +25,7 @@
         "subtitle": "Understanding Your Vision",
         "description": "We begin by immersing ourselves in your brand universe. Through strategic conversations and research, we uncover what makes your brand unique and identify opportunities for digital excellence.",
         "icon": "Search",
-        "color": "lavender-floral",
+        "color": "jordy-blue",
         "details": [
           "Brand audit & competitive analysis",
           "Stakeholder interviews",
@@ -46,7 +46,7 @@
         "subtitle": "Crafting Your Experience",
         "description": "Where strategy meets aesthetics. We translate insights into elegant interfaces, creating design systems that are both beautiful and purposeful—every pixel placed with intention.",
         "icon": "Palette",
-        "color": "lavender-floral",
+        "color": "jordy-blue",
         "details": [
           "Mood boards & style exploration",
           "Wireframing & user flows",
@@ -63,7 +63,7 @@
         "subtitle": "Engineering Excellence",
         "description": "Precision in code. We craft performant, scalable solutions using modern technologies. Every line of code is written with care, tested thoroughly, and optimized for speed.",
         "icon": "Code",
-        "color": "lavender-floral",
+        "color": "jordy-blue",
         "details": [
           "Component development",
           "API integration & backend setup",
@@ -84,7 +84,7 @@
         "subtitle": "Continuous Growth",
         "description": "Launch is just the beginning. We monitor, analyze, and refine—ensuring your digital presence not only performs but evolves with your business goals.",
         "icon": "TrendingUp",
-        "color": "lavender-floral",
+        "color": "jordy-blue",
         "details": [
           "Performance monitoring",
           "Analytics setup & tracking",
@@ -202,20 +202,20 @@
         "number": "01",
         "icon": "Palette",
         "title": "Web & Interface Design",
-        "description": "Intuitive, elegant UI that feels luxe and functions flawlessly. We craft pixel-perfect designs that captivate users and elevate your brand above the competition.",
+        "description": "Clean, elegant interfaces that capture your brand’s essence and guide users effortlessly. Every layout, color, and interaction is designed with intention and polish.",
         "features": [
-          "Custom UI/UX Design",
-          "Design Systems & Style Guides",
-          "Responsive Web Design",
-          "Brand Identity Integration",
-          "Interactive Prototyping"
+          "Next.js & TypeScript Development",
+          "Custom Web Applications",
+          "API Integration & Supabase",
+          "Performance Optimization",
+          "SEO-Friendly Architecture"
         ]
       },
       {
         "number": "02",
         "icon": "Code2",
         "title": "Engineering & Development",
-        "description": "Built with React, TypeScript & modern frameworks for scalable, performance-driven builds. Clean code architecture that's maintainable and future-proof.",
+       "description": "Beautifully built websites powered by modern frameworks like React and TypeScript. Each build is structured for performance, scalability, and lasting quality.",
         "features": [
           "Custom Web Applications",
           "React & TypeScript Development",
@@ -233,8 +233,8 @@
           "User Research & Testing",
           "Journey Mapping",
           "Conversion Optimization",
-          "Analytics & Insights",
-          "Usability Audits"
+          "Analytics & Behavioral Insights",
+          "Accessibility Reviews"
         ]
       },
       {
@@ -243,9 +243,9 @@
         "title": "Digital Consulting",
         "description": "Custom roadmaps, process optimization & tech strategy for growing brands. Strategic guidance to help you make informed decisions about your digital presence.",
         "features": [
-          "Digital Strategy Planning",
-          "Technology Consulting",
-          "Process Optimization",
+          "Digital Strategy & Planning",
+          "Technology Direction",
+          "Workflow Optimization",
           "Technical Audits",
           "Growth Roadmapping"
         ]

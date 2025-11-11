@@ -37,7 +37,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
           <div className="sticky top-32">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full bg-periwinkle/10 flex items-center justify-center">
-                <Icon className="w-8 h-8 text-lavender-floral" />
+                <Icon className="w-8 h-8 text-jordy-blue" />
               </div>
               <span className="text-6xl font-bold text-gray-200">
                 {step.number}
@@ -64,7 +64,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
               <ul className="space-y-3">
                 {step.details.map((detail) => (
                   <li key={detail} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-lavender-floral mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-jordy-blue mt-0.5 shrink-0" />
                     <span className="text-gray-600">{detail}</span>
                   </li>
                 ))}
@@ -90,7 +90,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
                         key={deliverable}
                         className="text-gray-600 flex items-center gap-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-lavender-floral"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-jordy-blue"></span>
                         {deliverable}
                       </li>
                     ))}

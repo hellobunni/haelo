@@ -2,10 +2,29 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import contentData from "@/lib/data/content.json";
 
-export default function CTASection() {
-  const { home } = contentData;
+interface CTASectionProps {
+  title?: {
+    line1?: string;
+    line2?: string;
+  } | string;
+  description: string;
+  button: {
+    text: string;
+    href: string;
+  };
+}
+
+export default function CTASection({
+  title,
+  description,
+  button,
+}: CTASectionProps) {
+  // Handle both string and object title formats
+  const titleLine1 =
+    typeof title === "string" ? title : title?.line1 || "";
+  const titleLine2 =
+    typeof title === "string" ? "" : title?.line2 || "";
 
   return (
     <section className="py-32 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
@@ -20,23 +39,31 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            {home.cta.title.line1}
-            <br />
-            <span className="bg-linear-to-r from-periwinkle-400 to-periwinkle-300 bg-clip-text text-transparent">
-              {home.cta.title.line2}
-            </span>
-          </h2>
+          {(titleLine1 || titleLine2) && (
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              {titleLine1 && (
+                <>
+                  {titleLine1}
+                  {titleLine2 && <br />}
+                </>
+              )}
+              {titleLine2 && (
+                <span className="bg-linear-to-r from-periwinkle-400 to-periwinkle-300 bg-clip-text text-transparent">
+                  {titleLine2}
+                </span>
+              )}
+            </h2>
+          )}
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            {home.cta.description}
+            {description}
           </p>
           <Button
             size="lg"
             variant="periwinkle"
-            href={home.cta.button.href}
+            href={button.href}
             className="transition-all duration-300 hover:scale-105 shadow-sm shadow-periwinkle-500 rounded-md w-48"
           >
-            {home.cta.button.text}
+            {button.text}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>

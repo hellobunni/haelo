@@ -133,7 +133,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-jordy-blue to-jordy-blue flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                     </h3>
                     <a
                       href="mailto:hello@haelostudios.com"
-                      className="text-periwinkle-600 hover:text-dark-purple transition-colors cursor-pointer"
+                      className="text-jordy-blue hover:text-dark-purple transition-colors cursor-pointer"
                     >
                       hello@haelostudios.com
                     </a>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-jordy-blue to-jordy-blue flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <Calendar className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -164,7 +164,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-jordy-blue to-jordy-blue flex items-center justify-center shrink-0 shadow-lg shadow-thistle">
                     <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -185,15 +185,15 @@ export default function ContactPage() {
                 </h3>
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-jordy-blue" />
                     Initial consultation to discuss your needs
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-jordy-blue" />
                     Tailored proposal and timeline
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-periwinkle-600" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-jordy-blue" />
                     Transparent pricing and process
                   </li>
                 </ul>
@@ -228,7 +228,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
-                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
+                        className="border-gray-200 focus:border-jordy-blue focus:ring-jordy-blue"
                       />
                     </div>
                     <div>
@@ -246,7 +246,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder="john@company.com"
                         required
-                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
+                        className="border-gray-200 focus:border-jordy-blue focus:ring-jordy-blue"
                       />
                     </div>
                   </div>
@@ -265,7 +265,7 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
+                        className="border-gray-200 focus:border-jordy-blue focus:ring-jordy-blue"
                       />
                     </div>
                     <div>
@@ -281,7 +281,7 @@ export default function ContactPage() {
                         value={formData.budget}
                         onChange={handleChange}
                         placeholder="$10k - $50k"
-                        className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
+                        className="border-gray-200 focus:border-jordy-blue focus:ring-jordy-blue"
                       />
                     </div>
                   </div>
@@ -301,7 +301,7 @@ export default function ContactPage() {
                       placeholder="Share your vision, goals, and any specific requirements..."
                       required
                       rows={6}
-                      className="border-gray-200 focus:border-periwinkle-600 focus:ring-periwinkle-600"
+                      className="border-gray-200 focus:border-jordy-blue focus:ring-jordy-blue"
                     />
                   </div>
 
@@ -309,7 +309,7 @@ export default function ContactPage() {
                     type="submit"
                     size="lg"
                     disabled={isLoading}
-                    className="w-full bg-periwinkle-600 hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-jordy-blue hover:bg-dark-purple text-white rounded-xl shadow-lg shadow-thistle hover:shadow-xl hover:shadow-wisteria transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>

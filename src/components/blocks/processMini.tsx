@@ -61,7 +61,7 @@ export default function ProcessMini() {
                   {step.number}
                 </div>
                 <div className="z-10 flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-lavender-floral flex items-center justify-center mb-2 shadow-lg shadow-periwinkle-200">
+                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-periwinkle-500 to-vista-blue flex items-center justify-center mb-2 shadow-lg shadow-periwinkle-200">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-0">

@@ -1,10 +1,11 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { navigationItems } from "@/lib/utils";
+import { LOGO_URL, navigationItems } from "@/lib/utils";
 
 interface MobileMenuProps {
   open: boolean;
@@ -26,7 +27,18 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
       >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
-        <div className="px-6 py-26 space-y-4">
+        <div className="px-6 pt-6 pb-4 border-b border-gray-100">
+          <Link href="/" onClick={handleLinkClick}>
+            <Image
+              src={LOGO_URL}
+              alt="Haelo Studios Logo"
+              width={175}
+              height={32}
+            />
+          </Link>
+        </div>
+
+        <div className="px-6 py-6 space-y-4">
           {navigationItems.map((item) => (
             <Link
               key={item.name}

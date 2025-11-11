@@ -25,7 +25,7 @@ export default function SelectedWorks() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {home.selectedWorks.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
             {home.selectedWorks.description}
           </p>
         </motion.div>
@@ -48,35 +48,25 @@ export default function SelectedWorks() {
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl group-hover:border-periwinkle-200">
                   <div className="relative h-56 overflow-hidden bg-gray-100">
-                    {project.screenshotUrl ? (
-                      <Image
-                        src={project.screenshotUrl}
-                        alt={project.title}
-                        fill
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    ) : (
-                      <Image
+                  <Image
                         src={project.imageUrl}
                         alt={project.title}
                         fill
                         sizes="(min-width: 768px) 33vw, 100vw"
                         className="object-contain p-8"
                       />
-                    )}
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-xl">
-                        <ExternalLink className="w-4 h-4 text-periwinkle-600" />
+                        <ExternalLink className="w-4 h-4 text-jordy-blue" />
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-4">
                     <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium">
                       {project.category}
                     </span>
-                    <h3 className="text-xl font-bold tetext-gray-900t-3 mb-2 group-hover:text-periwinkle-600 transition-colors duration-300">
+                    <h3 className="text-xl font-bold tetext-gray-900 mt-3  group-hover:text-jordy-blue transition-colors duration-300"> 
                       {project.title}
                     </h3>
                   </div>
@@ -94,7 +84,7 @@ export default function SelectedWorks() {
         >
           <Button
             type="button"
-            variant="periwinkle"
+            variant="dark"
             className="rounded-md"
             href={home.selectedWorks.cta.href}
           >

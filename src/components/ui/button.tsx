@@ -18,8 +18,9 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-accent hover:text-accent-foreground text-base dark:hover:bg-accent/50  text-slate-500 bg-transparent",
         link: "text-primary underline-offset-4 hover:underline",
+        dark: "bg-dark-purple-2 text-white hover:bg-dark-purple-3 shadow-lg hover:scale-105",
         periwinkle:
           "bg-periwinkle-500 text-white hover:bg-periwinkle-700 shadow-lg shadow-periwinkle-200 hover:shadow-xl hover:shadow-periwinkle-300",
       },

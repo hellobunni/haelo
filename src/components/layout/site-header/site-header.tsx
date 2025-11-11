@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
-import { navigationItems } from "@/lib/utils";
+import { LOGO_URL, navigationItems } from "@/lib/utils";
+import Image from "next/image";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -44,9 +45,13 @@ export default function SiteHeader() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="text-xl font-bold text-gray-900 group-hover:text-periwinkle-600 transition-colors duration-300">
-              Haelo Studios
-            </span>
+            <Image
+              src={LOGO_URL}
+              alt="Haelo Studios Logo"
+              width={175}
+              height={32}
+              className="transition-opacity duration-300 group-hover:opacity-80"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,8 +63,8 @@ export default function SiteHeader() {
                 className={clsx(
                   "text-sm font-medium transition-colors duration-300 relative group",
                   pathname === item.url
-                    ? "border-b-2 border-periwinkle-600"
-                    : "text-gray-600 hover:text-periwinkle-600",
+                    ? "border-b-2 border-jordy-blue"
+                    : "text-gray-600 hover:text-jordy-blue",
                 )}
               >
                 {item.name}
@@ -79,7 +84,7 @@ export default function SiteHeader() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-periwinkle-600 transition-colors duration-300"
+            className="md:hidden p-2 text-gray-600 hover:text-jordy-blue transition-colors duration-300"
             aria-label="Toggle menu"
           >
             <Menu className="w-6 h-6" />

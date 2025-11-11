@@ -258,12 +258,12 @@ function ProjectCardContent({
               aria-label={`View screenshot of ${project.title}`}
               type="button"
             >
-              <ImageIcon className="w-5 h-5 text-periwinkle-600" />
+              <ImageIcon className="w-5 h-5 text-jordy-blue" />
             </button>
           )}
           {project.url && (
             <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-xl">
-              <ExternalLink className="w-5 h-5 text-periwinkle-600" />
+              <ExternalLink className="w-5 h-5 text-jordy-blue" />
             </div>
           )}
         </div>
@@ -276,7 +276,7 @@ function ProjectCardContent({
             {project.category}
           </span>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-periwinkle-600 transition-colors duration-300">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-jordy-blue transition-colors duration-300">
           {project.title}
         </h3>
       </div>

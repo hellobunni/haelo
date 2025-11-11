@@ -131,7 +131,7 @@ export default function About() {
             <div className="order-1 lg:order-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-periwinkle-50 border border-periwinkle-200 mb-6">
                 {FounderBadgeIcon && (
-                  <FounderBadgeIcon className="w-4 h-4 text-periwinkle-600" />
+                  <FounderBadgeIcon className="w-4 h-4 text-jordy-blue" />
                 )}
                 <span className="text-sm font-medium text-dark-purple">
                   {founder.badge.text}
@@ -141,7 +141,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 {founder.name}
               </h2>
-              <p className="text-xl text-periwinkle-600 font-medium mb-6">
+              <p className="text-xl text-jordy-blue font-medium mb-6">
                 {founder.title}
               </p>
 
@@ -157,7 +157,7 @@ export default function About() {
               <div className="flex gap-4">
                 <a
                   href={founder.social.email.href}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-periwinkle-600 hover:bg-periwinkle-700 text-white font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-periwinkle-200"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-jordy-blue hover:bg-periwinkle-700 text-white font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-periwinkle-200"
                 >
                   {EmailIcon && <EmailIcon className="w-4 h-4" />}
                   {founder.social.email.text}
@@ -190,7 +190,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-periwinkle-600 to-periwinkle-400 bg-clip-text text-transparent mb-2">
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-jordy-blue to-periwinkle-400 bg-clip-text text-transparent mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-600 font-medium">
@@ -234,7 +234,7 @@ export default function About() {
                   className="bg-linear-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-periwinkle-200"
                 >
                   {Icon && (
-                    <div className="w-14 h-14 rounded-xl bg-linear-to-br from-periwinkle-600 to-periwinkle-600 flex items-center justify-center mb-6 shadow-lg shadow-periwinkle-200">
+                    <div className="w-14 h-14 rounded-xl bg-linear-to-br from-jordy-blue to-jordy-blue flex items-center justify-center mb-6 shadow-lg shadow-periwinkle-200">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                   )}

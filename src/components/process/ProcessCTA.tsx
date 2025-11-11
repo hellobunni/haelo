@@ -20,8 +20,8 @@ export default function ProcessCTA() {
     <section className="py-32 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-periwinkle-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-periwinkle-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-jordy-blue rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-jordy-blue rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -55,7 +55,7 @@ export default function ProcessCTA() {
             <Link href={cta.buttons.primary.href}>
               <Button
                 size="lg"
-                className="bg-periwinkle-600 hover:bg-periwinkle-600 text-white px-8 py-6 text-lg rounded-xl shadow-xl shadow-periwinkle-900/50 transition-all duration-300 hover:shadow-2xl hover:shadow-periwinkle-800/50 hover:scale-105"
+                className="bg-jordy-blue hover:bg-jordy-blue text-white px-8 py-6 text-lg rounded-xl shadow-xl shadow-periwinkle-900/50 transition-all duration-300 hover:shadow-2xl hover:shadow-periwinkle-800/50 hover:scale-105"
               >
                 {(() => {
                   const PrimaryIcon =

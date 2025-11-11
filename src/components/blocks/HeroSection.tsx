@@ -139,7 +139,7 @@ export default function HeroSection({
 
   // Override maxWidth for simple variant if not explicitly set
   const effectiveMaxWidth =
-    variant === "simple" && maxWidth === "max-w-6xl" ? "max-w-5xl" : maxWidth;
+    variant === "simple" && maxWidth === "max-w-7xl" ? "max-w-6xl" : maxWidth;
 
   // Motion div style
   const motionStyle =
@@ -196,12 +196,12 @@ export default function HeroSection({
               switch (badgeVariant) {
                 case "periwinkle":
                   badgeClasses += " bg-pale-purple border-periwinkle-200";
-                  iconClasses += " text-periwinkle-600";
+                  iconClasses += " text-jordy-blue";
                   textClasses += " text-dark-purple";
                   break;
                 case "blank":
                   badgeClasses += " bg-white border-periwinkle-200";
-                  iconClasses += " text-periwinkle-600";
+                  iconClasses += " text-jordy-blue";
                   textClasses += " text-dark-purple-2";
                   break;
                 case "dark":
@@ -211,7 +211,7 @@ export default function HeroSection({
                   break;
                 default:
                   badgeClasses += " bg-pale-purple border-thistle";
-                  iconClasses += " text-periwinkle-600";
+                  iconClasses += " text-jordy-blue";
                   textClasses += " text-dark-purple-2";
                   break;
               }
@@ -242,8 +242,8 @@ export default function HeroSection({
                 <span
                   className={`bg-linear-to-r bg-clip-text text-transparent ${
                     badgeVariant === "periwinkle"
-                      ? "from-periwinkle-600 to-periwinkle-400"
-                      : "from-periwinkle-600 to-wisteria"
+                      ? "from-jordy-blue to-periwinkle-400"
+                      : "from-jordy-blue to-wisteria"
                   }`}
                 >
                   {title.line2}
@@ -267,7 +267,7 @@ export default function HeroSection({
               delay: variant === "fullscreen" ? 0.2 : 0,
               ease: "easeOut",
             }}
-            className={`text-lg ${variant === "fullscreen" ? "md:text-2xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-3xl mx-auto leading-relaxed`}
+            className={`text-lg ${variant === "fullscreen" ? "md:text-xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-4xl mx-auto leading-relaxed`}
           >
             {description}
           </motion.p>
@@ -289,7 +289,7 @@ export default function HeroSection({
                   <Button
                     size="lg"
                     variant="periwinkle"
-                    className="bg-periwinkle-600 hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria"
+                    className="bg-jordy-blue hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria"
                   >
                     {buttons.primary.text}
                     <PrimaryButtonIcon className="ml-2 w-5 h-5" />
