@@ -59,7 +59,7 @@ export default function ProcessStep({ step, index, isLast }: ProcessStepProps) {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h4 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">
-                What We Do
+                Activities
               </h4>
               <ul className="space-y-3">
                 {step.details.map((detail) => (

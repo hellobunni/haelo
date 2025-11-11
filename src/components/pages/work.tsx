@@ -109,8 +109,7 @@ export default function WorkPage() {
               </span>
             </h2>
             <p className="text-xl text-gray-300 mb-10">
-              Let's discuss how we can bring your vision to life with our proven
-              approach.
+              Discuss how a proven approach can bring your vision to life.
             </p>
             <Link href="/contact">
               <Button

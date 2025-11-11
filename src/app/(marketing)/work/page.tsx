@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { work } = contentData;
 
 export const metadata: Metadata = {
-  title: "Our Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
+  title: "Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
   description: work.hero.description,
   openGraph: {
     title: `${work.hero.title.line1} ${work.hero.title.line2} | Haelo Studios`,

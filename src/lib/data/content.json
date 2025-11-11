@@ -9,7 +9,7 @@
         "line1": "Where Vision",
         "line2": "Meets Execution"
       },
-      "description": "We help forward-thinking brands turn ideas into digital experiences that captivate and convert. Refined visuals. Smart systems. Work that resonates and performs",
+      "description": "Helping forward-thinking brands turn ideas into digital experiences that captivate and convert. Refined visuals. Smart systems. Work that resonates and performs",
       "buttons": {
         "primary": {
           "text": "Start Your Project",
@@ -22,8 +22,8 @@
       }
     },
     "whatWeDo": {
-      "title": "What We Offer",
-      "description": "Independent digital design and development studio crafting thoughtful, high-impact web experiences. We lead every project personally, collaborating with trusted creatives to bring each vision to life.",
+      "title": "Services",
+      "description": "Independent digital design and development studio crafting thoughtful, high-impact web experiences. Every project is led personally, collaborating with trusted creatives to bring each vision to life.",
       "cta": {
         "text": "Explore All Services",
         "href": "/services"
@@ -49,7 +49,7 @@
     },
     "finalCTA": {
       "title": "Let's Start Your Project",
-      "description": "Schedule a free consultation and discover how we can bring your vision to life with our proven process.",
+      "description": "Schedule a free consultation and discover how a proven process can bring your vision to life.",
       "buttons": {
         "primary": {
           "text": "Schedule a Call",
@@ -57,7 +57,7 @@
           "icon": "Calendar"
         },
         "secondary": {
-          "text": "Learn More About Us",
+          "text": "Learn More",
           "href": "/about"
         }
       },
@@ -87,7 +87,7 @@
         "line1": "Projects That",
         "line2": "Define Excellence"
       },
-      "description": "Each project reflects our signature blend of elegance + engineering — crafted for clients who demand more than ordinary."
+      "description": "Each project reflects a signature blend of elegance + engineering — crafted for clients who demand more than ordinary."
     }
   },
   "contact": {
@@ -100,7 +100,7 @@
         "line1": "Let's Build Something",
         "line2": "Extraordinary"
       },
-      "description": "Ready to elevate your digital presence? Tell us about your project and let's start the conversation."
+      "description": "Ready to elevate your digital presence? Share project details to start the conversation."
     },
     "calendlyUrl": "https://calendly.com/haelostudios/30min",
     "email": "hello@haelostudios.com",
@@ -112,18 +112,18 @@
   },
   "processMini": {
     "header": {
-      "title": "Our Process",
+      "title": "The Process",
       "description": "A refined four-phase approach from concept to launch"
     },
     "cta": {
-      "text": "Learn More About Our Process",
+      "text": "Learn More About The Process",
       "href": "/process"
     }
   },
   "footer": {
     "brand": {
       "name": "Haelo Studios",
-      "description": "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact."
+      "description": "Crafting elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact."
     },
     "contact": {
       "email": "hello@haelostudios.com",
@@ -144,14 +144,14 @@
         "line1": "Small Team.",
         "line2": "Big Impact."
       },
-      "description": "We're a boutique digital studio that blends aesthetic sophistication with engineering excellence. As a solo-preneur operating as a studio, I bring the agility of an independent with the professionalism of an agency."
+      "description": "A boutique digital studio that blends aesthetic sophistication with engineering excellence. Operating as a studio brings the agility of an independent with the professionalism of an agency."
     },
     "story": {
-      "title": "Our Story",
+      "title": "The Story",
       "paragraphs": [
         "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences. Too often, businesses are forced to choose between beautiful design and robust engineering—or settle for cookie-cutter solutions that don't reflect their unique identity.",
-        "As a studio, we bridge that gap. Every project is an opportunity to craft something truly exceptional—where form meets function, where aesthetics serve strategy, and where attention to detail transforms good into extraordinary.",
-        "Working with select clients means we can give each project the focus it deserves. We're not trying to be everything to everyone. Instead, we partner with ambitious brands who value quality, understand the power of thoughtful design, and are ready to invest in their digital presence."
+        "As a studio, that gap is bridged. Every project is an opportunity to craft something truly exceptional—where form meets function, where aesthetics serve strategy, and where attention to detail transforms good into extraordinary.",
+        "Working with select clients means each project gets the focus it deserves. The goal is not to be everything to everyone. Instead, partnerships are formed with ambitious brands who value quality, understand the power of thoughtful design, and are ready to invest in their digital presence."
       ]
     },
     "stats": [
@@ -174,29 +174,29 @@
     ],
     "values": {
       "header": {
-        "title": "What We Stand For",
-        "description": "Our values guide every project, every interaction, every line of code."
+        "title": "Core Values",
+        "description": "Values guide every project, every interaction, every line of code."
       },
       "items": [
         {
           "icon": "Heart",
           "title": "Craft Over Speed",
-          "description": "We believe in taking the time to do things right. Every pixel, every line of code matters."
+          "description": "Taking the time to do things right. Every pixel, every line of code matters."
         },
         {
           "icon": "Target",
           "title": "Strategic Thinking",
-          "description": "Beautiful design means nothing without purpose. We align every decision with your business goals."
+          "description": "Beautiful design means nothing without purpose. Every decision is aligned with business goals."
         },
         {
           "icon": "Code2",
           "title": "Technical Excellence",
-          "description": "Clean, maintainable code that scales. We build for today and tomorrow."
+          "description": "Clean, maintainable code that scales. Built for today and tomorrow."
         },
         {
           "icon": "Users",
           "title": "Partnership Approach",
-          "description": "Your success is our success. We're not just vendors—we're collaborators in your vision."
+          "description": "Client success drives everything. Not just vendors—collaborators in your vision."
         }
       ]
     },

@@ -14,13 +14,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 export const metadata: Metadata = {
   title: "Haelo Studios",
   description:
-    "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
+    "Crafting elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
   manifest: "/site.webmanifest",
   metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Haelo Studios",
     description:
-      "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
+      "Crafting elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
     url: siteUrl,
     siteName: "Haelo Studios",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Haelo Studios",
     description:
-      "We craft elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
+      "Crafted elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
     images: [DARK_LOGO_URL],
   },
   icons: {

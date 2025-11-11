@@ -127,8 +127,8 @@ export default function ContactPage() {
                   Get Started
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-8">
-                  Whether you have a detailed brief or just an idea, we'd love
-                  to hear from you. We typically respond within 24 hours.
+                  Whether you have a detailed brief or just an idea, responses
+                  are typically within 24 hours.
                 </p>
               </div>
 
@@ -139,7 +139,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
-                      Email Us
+                      Email
                     </h3>
                     <a
                       href={`mailto:${contact.email}`}
@@ -196,8 +196,7 @@ export default function ContactPage() {
                       Thank You!
                     </h2>
                     <p className="text-lg text-gray-600 mb-6">
-                      Your message has been sent successfully. We'll get back to
-                      you within 24 hours.
+                      Your message has been sent successfully.
                     </p>
                   </motion.div>
                 </div>
@@ -285,7 +284,7 @@ export default function ContactPage() {
                         htmlFor="message"
                         className="text-gray-700 font-medium mb-2 block"
                       >
-                        Tell Us About Your Project *
+                        Project Details *
                       </Label>
                       <Textarea
                         id="message"

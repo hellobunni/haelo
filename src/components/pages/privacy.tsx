@@ -12,7 +12,7 @@ export default function Privacy() {
         variant="standard"
         badge={{ text: "Privacy Policy", icon: "Shield" }}
         title={{ line1: "Your Privacy", line2: "Matters" }}
-        description="Committed to protecting your privacy and ensuring transparency about how I collect, use, and safeguard your information."
+        description="Committed to protecting your privacy and ensuring transparency about how information is collected, used, and safeguarded."
         badgeVariant="blank"
         maxWidth="max-w-5xl"
         blobs={[
@@ -51,19 +51,19 @@ export default function Privacy() {
                   1. Introduction
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Haelo Studios ("we," "our," or "us") is committed to protecting
-                  your privacy. This Privacy Policy explains how we collect, use,
-                  disclose, and safeguard your information when you visit our
-                  website or use our services. Please read this privacy policy
+                  Haelo Studios is committed to protecting
+                  your privacy. This Privacy Policy explains how information is collected, used,
+                  disclosed, and safeguarded when you visit the
+                  website or use the services. Please read this privacy policy
                   carefully. If you do not agree with the terms of this privacy
                   policy, please do not access the site.
                 </p>
               </section>
 
-              {/* Information We Collect */}
+              {/* Information Collected */}
               <section>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  2. Information We Collect
+                  2. Information Collected
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <div>
@@ -71,14 +71,13 @@ export default function Privacy() {
                       2.1 Information You Provide
                     </h3>
                     <p>
-                      We may collect information that you voluntarily provide to
-                      us when you:
+                      Information may be collected that you voluntarily provide when you:
                     </p>
                     <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                      <li>Contact us through our website or email</li>
+                      <li>Contact through the website or email</li>
                       <li>Fill out contact forms or request consultations</li>
-                      <li>Subscribe to our newsletter or communications</li>
-                      <li>Engage with our services or client portal</li>
+                      <li>Subscribe to the newsletter or communications</li>
+                      <li>Engage with the services or client portal</li>
                     </ul>
                     <p className="mt-2">
                       This information may include your name, email address, phone
@@ -91,8 +90,8 @@ export default function Privacy() {
                       2.2 Automatically Collected Information
                     </h3>
                     <p>
-                      When you visit our website, we may automatically collect
-                      certain information about your device, including:
+                      When you visit the website, certain information may be automatically collected
+                      about your device, including:
                     </p>
                     <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
                       <li>IP address and location data</li>
@@ -108,8 +107,8 @@ export default function Privacy() {
                       2.3 Cookies and Tracking Technologies
                     </h3>
                     <p>
-                      We use cookies and similar tracking technologies to track
-                      activity on our website and store certain information.
+                      Cookies and similar tracking technologies are used to track
+                      activity on the website and store certain information.
                       Cookies are files with a small amount of data which may
                       include an anonymous unique identifier. You can instruct
                       your browser to refuse all cookies or to indicate when a
@@ -119,18 +118,18 @@ export default function Privacy() {
                 </div>
               </section>
 
-              {/* How We Use Your Information */}
+              {/* How Your Information Is Used */}
               <section>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  3. How We Use Your Information
+                  3. How Your Information Is Used
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  We use the information we collect for various purposes,
+                  The information collected is used for various purposes,
                   including:
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-2 text-gray-600 leading-relaxed">
                   <li>
-                    To provide, maintain, and improve our services and website
+                    To provide, maintain, and improve the services and website
                   </li>
                   <li>To respond to your inquiries and provide customer support</li>
                   <li>To send you updates, newsletters, and marketing communications (with your consent)</li>
@@ -148,20 +147,19 @@ export default function Privacy() {
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    We do not sell, trade, or rent your personal information to
-                    third parties. We may share your information only in the
+                    Personal information is not sold, traded, or rented to
+                    third parties. Information may be shared only in the
                     following circumstances:
                   </p>
                   <ul className="list-disc list-inside ml-4 space-y-2">
                     <li>
-                      <strong>Service Providers:</strong> We may share information
-                      with third-party service providers who perform services on
-                      our behalf, such as hosting, analytics, email delivery, and
+                      <strong>Service Providers:</strong> Information may be shared
+                      with third-party service providers who perform services, such as hosting, analytics, email delivery, and
                       payment processing.
                     </li>
                     <li>
-                      <strong>Legal Requirements:</strong> We may disclose your
-                      information if required to do so by law or in response to
+                      <strong>Legal Requirements:</strong> Information may be disclosed
+                      if required to do so by law or in response to
                       valid requests by public authorities.
                     </li>
                     <li>
@@ -170,8 +168,8 @@ export default function Privacy() {
                       be transferred as part of that transaction.
                     </li>
                     <li>
-                      <strong>With Your Consent:</strong> We may share your
-                      information with your explicit consent for any other purpose.
+                      <strong>With Your Consent:</strong> Information may be shared
+                      with your explicit consent for any other purpose.
                     </li>
                   </ul>
                 </div>
@@ -183,13 +181,13 @@ export default function Privacy() {
                   5. Data Security
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  We implement appropriate technical and organizational security
-                  measures to protect your personal information against
+                  Appropriate technical and organizational security
+                  measures are implemented to protect your personal information against
                   unauthorized access, alteration, disclosure, or destruction.
                   However, no method of transmission over the Internet or
-                  electronic storage is 100% secure. While we strive to use
-                  commercially acceptable means to protect your information, we
-                  cannot guarantee absolute security.
+                  electronic storage is 100% secure. While commercially acceptable means are used
+                  to protect your information,
+                  absolute security cannot be guaranteed.
                 </p>
               </section>
 
@@ -225,12 +223,12 @@ export default function Privacy() {
                   </li>
                   <li>
                     <strong>Withdraw Consent:</strong> The right to withdraw
-                    consent where we rely on consent to process your information
+                    consent where consent is relied upon to process your information
                   </li>
                 </ul>
                 <p className="mt-4 text-gray-600 leading-relaxed">
-                  To exercise these rights, please contact us using the
-                  information provided in the "Contact Us" section below.
+                  To exercise these rights, please contact using the
+                  information provided in the "Contact" section below.
                 </p>
               </section>
 
@@ -240,11 +238,11 @@ export default function Privacy() {
                   7. Third-Party Links
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Our website may contain links to third-party websites or
-                  services that are not owned or controlled by Haelo Studios. We
-                  are not responsible for the privacy practices of these
-                  third-party sites. We encourage you to review the privacy
-                  policies of any third-party sites you visit.
+                  The website may contain links to third-party websites or
+                  services that are not owned or controlled by Haelo Studios. The
+                  privacy practices of these
+                  third-party sites are not the responsibility of Haelo Studios. Reviewing the privacy
+                  policies of any third-party sites you visit is encouraged.
                 </p>
               </section>
 
@@ -254,10 +252,10 @@ export default function Privacy() {
                   8. Children's Privacy
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Our services are not directed to individuals under the age of
-                  18. We do not knowingly collect personal information from
-                  children. If you become aware that a child has provided us with
-                  personal information, please contact us, and we will take steps
+                  The services are not directed to individuals under the age of
+                  18. Personal information is not knowingly collected from
+                  children. If you become aware that a child has provided
+                  personal information, please contact, and steps will be taken
                   to delete such information.
                 </p>
               </section>
@@ -268,21 +266,21 @@ export default function Privacy() {
                   9. Changes to This Privacy Policy
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  We may update our Privacy Policy from time to time. We will
-                  notify you of any changes by posting the new Privacy Policy on
+                  The Privacy Policy may be updated from time to time. You will
+                  be notified of any changes by posting the new Privacy Policy on
                   this page and updating the "Last updated" date. You are advised
                   to review this Privacy Policy periodically for any changes.
                 </p>
               </section>
 
-              {/* Contact Us */}
+              {/* Contact */}
               <section>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  10. Contact Us
+                  10. Contact
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  If you have any questions about this Privacy Policy or our
-                  privacy practices, please contact us:
+                  If you have any questions about this Privacy Policy or
+                  privacy practices, please contact:
                 </p>
                 <div className="bg-gray-50 rounded-lg p-6 space-y-2 text-gray-600">
                   <p>

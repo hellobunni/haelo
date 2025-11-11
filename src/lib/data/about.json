@@ -8,14 +8,14 @@
       "line1": "Solo Expertise.",
       "line2": "Collective Power."
     },
-    "description": "I'm a freelance designer-developer with deep expertise in digital craft. When projects call for it, I collaborate with a curated network of specialists—copywriters, brand strategists, and content creators— ensuring you get comprehensive solutions without the agency overhead."
+    "description": "A freelance designer-developer with deep expertise in digital craft. When projects call for it, collaboration happens with a curated network of specialists—copywriters, brand strategists, and content creators— ensuring comprehensive solutions without the agency overhead."
   },
   "story": {
-    "title": "Our Approach",
+    "title": "The Approach",
     "paragraphs": [
-      "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences without the complexity and cost of traditional agencies. I lead every project personally, handling design and development directly—no middlemen, no account managers, just direct collaboration.",
-      "Over the years, I've built relationships with exceptional freelance specialists. When a project needs compelling copy, strategic branding, or professional photography, I bring in trusted collaborators. This flexible model means you get agency-level results with freelance efficiency and personal attention.",
-      "Working with select clients means each project gets the focus it deserves. I partner with ambitious brands who value quality, understand the power of thoughtful design, and appreciate the benefits of working directly with an experienced professional backed by a reliable creative network."
+      "Haelo Studios was born from a simple belief: premium brands deserve premium digital experiences without the complexity and cost of traditional agencies. Every project is led personally, handling design and development directly—no middlemen, no account managers, just direct collaboration.",
+      "Over the years, relationships have been built with exceptional freelance specialists. When a project needs compelling copy, strategic branding, or professional photography, trusted collaborators are brought in. This flexible model means agency-level results with freelance efficiency and personal attention.",
+      "Working with select clients means each project gets the focus it deserves. Partnerships are formed with ambitious brands who value quality, understand the power of thoughtful design, and appreciate the benefits of working directly with an experienced professional backed by a reliable creative network."
     ]
   },
   "founder": {
@@ -30,9 +30,9 @@
       "alt": "Founder"
     },
     "bio": [
-      "With over 8 years of experience in digital design and engineering, I've had the privilege of working with brands across industries—from startups finding their voice to established companies reimagining their digital presence.",
-      "My approach combines strategic thinking with hands-on craft. I believe the best digital experiences come from understanding both the business goals and the user needs, then translating that into elegant, functional design backed by solid engineering.",
-      "When projects require specialized skills like copywriting, videography, or photography, I bring in trusted collaborators I've worked with for years. This gives you the comprehensive solutions you need while maintaining the efficiency and personal attention of working with a freelancer."
+      "With over 8 years of experience in digital design and engineering, there has been the privilege of working with brands across industries—from startups finding their voice to established companies reimagining their digital presence.",
+      "The approach combines strategic thinking with hands-on craft. The best digital experiences come from understanding both the business goals and the user needs, then translating that into elegant, functional design backed by solid engineering.",
+      "When projects require specialized skills like copywriting, videography, or photography, trusted collaborators are brought in. This provides comprehensive solutions while maintaining the efficiency and personal attention of working with a freelancer."
     ],
     "social": {
       "email": {
@@ -67,29 +67,29 @@
   ],
   "values": {
     "header": {
-      "title": "What We Stand For",
-      "description": "Our values guide every project, every interaction, every line of code."
+        "title": "Core Values",
+        "description": "Values guide every project, every interaction, every line of code."
     },
     "items": [
       {
         "icon": "Heart",
         "title": "Craft Over Speed",
-        "description": "We believe in taking the time to do things right. Every pixel, every line of code matters."
+          "description": "Taking the time to do things right. Every pixel, every line of code matters."
       },
       {
         "icon": "Target",
         "title": "Strategic Thinking",
-        "description": "Beautiful design means nothing without purpose. We align every decision with your business goals."
+          "description": "Beautiful design means nothing without purpose. Every decision is aligned with business goals."
       },
       {
         "icon": "Code2",
         "title": "Technical Excellence",
-        "description": "Clean, maintainable code that scales. We build for today and tomorrow."
+          "description": "Clean, maintainable code that scales. Built for today and tomorrow."
       },
       {
         "icon": "Users",
         "title": "Partnership Approach",
-        "description": "Your success is our success. We're not just vendors—we're collaborators in your vision."
+          "description": "Client success drives everything. Not just vendors—collaborators in your vision."
       }
     ]
   },

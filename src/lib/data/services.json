@@ -1,21 +1,21 @@
 {
   "hero": {
     "badge": {
-      "text": "Our Services",
+      "text": "Services",
       "icon": "Sparkles"
     },
     "title": {
-      "line1": "What We Offer"
+      "line1": "Services"
     },
     "description": "Comprehensive digital solutions that blend strategy, design, and engineering to create exceptional experiences that drive real business results."
   },
   "process": {
     "header": {
       "badge": {
-        "text": "How We Work",
+        "text": "How Things Work",
         "icon": "Sparkles"
       },
-      "title": "Our Process",
+      "title": "The Process",
       "description": "Four distinct phases, each meticulously designed to elevate your brand from concept to market-leading digital presence."
     },
     "steps": [
@@ -23,7 +23,7 @@
         "number": "01",
         "title": "Discovery",
         "subtitle": "Understanding Your Vision",
-        "description": "We begin by immersing ourselves in your brand universe. Through strategic conversations and research, we uncover what makes your brand unique and identify opportunities for digital excellence.",
+        "description": "The process begins by immersing in the brand universe. Through strategic conversations and research, what makes the brand unique is uncovered and opportunities for digital excellence are identified.",
         "icon": "Search",
         "color": "jordy-blue",
         "details": [
@@ -44,7 +44,7 @@
         "number": "02",
         "title": "Design",
         "subtitle": "Crafting Your Experience",
-        "description": "Where strategy meets aesthetics. We translate insights into elegant interfaces, creating design systems that are both beautiful and purposeful—every pixel placed with intention.",
+        "description": "Where strategy meets aesthetics. Insights are translated into elegant interfaces, creating design systems that are both beautiful and purposeful—every pixel placed with intention.",
         "icon": "Palette",
         "color": "jordy-blue",
         "details": [
@@ -61,7 +61,7 @@
         "number": "03",
         "title": "Build",
         "subtitle": "Engineering Excellence",
-        "description": "Precision in code. We craft performant, scalable solutions using modern technologies. Every line of code is written with care, tested thoroughly, and optimized for speed.",
+        "description": "Precision in code. Performant, scalable solutions are crafted using modern technologies. Every line of code is written with care, tested thoroughly, and optimized for speed.",
         "icon": "Code",
         "color": "jordy-blue",
         "details": [
@@ -82,7 +82,7 @@
         "number": "04",
         "title": "Optimize",
         "subtitle": "Continuous Growth",
-        "description": "Launch is just the beginning. We monitor, analyze, and refine—ensuring your digital presence not only performs but evolves with your business goals.",
+        "description": "Launch is just the beginning. Monitoring, analyzing, and refining ensures the digital presence not only performs but evolves with business goals.",
         "icon": "TrendingUp",
         "color": "jordy-blue",
         "details": [
@@ -104,7 +104,7 @@
   "metrics": {
     "header": {
       "title": "Proven Results",
-      "description": "Numbers that speak to our commitment to excellence and client success."
+      "description": "Numbers that speak to a commitment to excellence and client success."
     },
     "items": [
       {
@@ -142,7 +142,7 @@
       "line1": "Ready to Start Your",
       "line2": "Digital Journey?"
     },
-    "description": "Let's discuss how our proven process can transform your vision into a digital experience that drives real business results.",
+    "description": "Discuss how a proven process can transform your vision into a digital experience that drives real business results.",
     "buttons": {
       "primary": {
         "text": "Schedule a Discovery Call",
@@ -150,7 +150,7 @@
         "icon": "Calendar"
       },
       "secondary": {
-        "text": "Send Us a Message",
+        "text": "Send a Message",
         "href": "/contact",
         "icon": "MessageCircle"
       }
@@ -173,7 +173,7 @@
   "approachSteps": [
     {
       "title": "Discovery",
-      "desc": "We dive deep into your brand, goals, and user needs."
+      "desc": "Diving deep into brand, goals, and user needs."
     },
     {
       "title": "Design",
@@ -191,10 +191,10 @@
   "services": {
     "header": {
       "badge": {
-        "text": "Our Services",
+        "text": "Services",
         "icon": "Sparkles"
       },
-      "title": "What We Offer",
+      "title": "Services",
       "description": "Boutique digital-engineering studio blending aesthetics + tech to build brands that stand out"
     },
     "items": [
@@ -228,7 +228,7 @@
         "number": "03",
         "icon": "Users",
         "title": "UX Strategy & Research",
-        "description": "User journeys informed by data, crafted for conversion and delight. We dig deep to understand your users and create experiences that resonate.",
+        "description": "User journeys informed by data, crafted for conversion and delight. Deep research into user needs creates experiences that resonate.",
         "features": [
           "User Research & Testing",
           "Journey Mapping",
@@ -253,7 +253,7 @@
     ],
     "cta": {
       "title": "Not sure what you need?",
-      "description": "We offer complimentary discovery calls to discuss your project and recommend the perfect solution for your needs.",
+      "description": "Complimentary discovery calls are available to discuss projects and recommend the perfect solution for your needs.",
       "button": {
         "text": "Schedule a Free Consultation",
         "href": "/contact"

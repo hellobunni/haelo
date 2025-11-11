@@ -48,7 +48,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* What We Do - Mini Version */}
+      {/* Services - Mini Version */}
       <WhatWeDoMini />
 
       {/* Selected Works */}
