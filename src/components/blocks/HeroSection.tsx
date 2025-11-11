@@ -10,6 +10,7 @@ import {
   LineChart,
   MessageCircle,
   Palette,
+  Shield,
   Sparkles,
   Target,
   TrendingUp,
@@ -38,6 +39,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   LineChart,
   Award,
   Zap,
+  Shield,
 };
 
 export interface BlobConfig {

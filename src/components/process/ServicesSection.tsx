@@ -88,16 +88,6 @@ export default function ServicesSection() {
                         </motion.div>
                       ))}
                     </div>
-
-                    {/* Learn More Link */}
-                    <Button
-                      size="lg"
-                      variant="periwinkle"
-                      className="inline-flex items-center gap-2 text-jordy-blue font-semibold group-hover:gap-4 transition-all duration-300 rounded-sm w-56"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
                   </div>
                 </div>
               </motion.div>

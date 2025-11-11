@@ -20,4 +20,4 @@ export const LOGO_URL =
 
 // Logo for dark backgrounds (white logo)
 export const DARK_LOGO_URL =
-  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762869809/Haelo%20Studios/log/svg/haelo_1_-cropped_bkvd32.svg";
+  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762902526/haelo_polu9p.png";

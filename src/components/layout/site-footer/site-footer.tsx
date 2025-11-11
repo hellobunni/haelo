@@ -73,18 +73,18 @@ export default function SiteFooter() {
             © {new Date().getFullYear()} Haelo Studios. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
-            <a
+            <Link
               href={contentData.footer.links.privacy}
               className="hover:text-periwinkle-400 transition-colors duration-300"
             >
               Privacy Policy
-            </a>
-            <a
+            </Link>
+            <Link
               href={contentData.footer.links.terms}
               className="hover:text-periwinkle-400 transition-colors duration-300"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
