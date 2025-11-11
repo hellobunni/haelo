@@ -61,7 +61,7 @@ export default function CTASection({
             size="lg"
             variant="periwinkle"
             href={button.href}
-            className="transition-all duration-300 hover:scale-105 shadow-sm shadow-periwinkle-500 rounded-md w-48"
+            className="transition-all duration-300 hover:scale-105 shadow-sm shadow-periwinkle-500 rounded-md px-22 md:w-48"
           >
             {button.text}
             <ArrowRight className="ml-2 w-5 h-5" />

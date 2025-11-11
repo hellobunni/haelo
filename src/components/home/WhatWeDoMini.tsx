@@ -65,7 +65,7 @@ export default function WhatWeDoMini() {
               </h3>
             </div>
             <div className="flex items-center gap-4">
-              <p className="text-sm text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-md">
+              <p className="text-sm text-gray-600 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-w-md hidden md:block">
                 {service.shortDescription}
               </p>
               <Link href="/services" className="shrink-0 cursor-pointer">
