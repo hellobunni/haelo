@@ -1,55 +1,95 @@
 [
   {
     "title": "Qualigence International",
-    "category": "Web Development",
+    "categories": ["Web Development", "Marketing"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551269/logos/672be188078c634fa78c2cf3_QInternational_No_icons_RGB_1_qvj1kf.svg",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Recruiting-Company-More-Qualigence-International_oj3frx.png",
     "url": "https://qualigence.com"
   },
   {
     "title": "Fanatics Collectables",
-    "category": "Branding",
+    "categories": ["Web Development", "E-commerce", "Web Design"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551268/logos/Fanatics_company_logo.svg_znimx8.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782041/screenshots/Fanatics-Collectibles-_-Fanatics-Inc_eycm6c.png",
     "url": "https://fanatics.com"
   },
   {
     "title": "StockX",
-    "category": "Web Design",
+    "categories": ["Web Development", "Web Design"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551269/logos/stockx-logo-brandlogos.net__nc7mij.png",
     "url": "https://stockx.com"
   },
   {
     "title": "University of Michigan Athletics",
-    "category": "Development",
+    "categories": ["Web Design", "Graphic Design"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/c_thumb,w_200,g_face/v1762781977/logos/University-Of-Michigan-Logo_sitcrd.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/University-of-Michigan-Athletics-Official-Athletics-Website_sginht.png",
     "url": "https://umich.edu"
   },
   {
     "title": "Zingermans Delicatessen",
-    "category": "Branding",
+    "categories": ["Branding", "Graphic Design"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781980/logos/Zingermans_Website_logo_nyymzs.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/Homepage-Zingerman-s-Deli_wpepcc.png",
     "url": "https://zingermans.com"
   },
   {
     "title": "Bitwise Investments",
-    "category": "Web Development",
+    "categories": ["Web Development"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/w_200,ar_16:9,c_fill,g_auto,e_sharpen/v1762718231/logos/download_suzo3i.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782118/screenshots/Screenshot_2025-11-10_at_8.41.36_AM_cequs4.png",
     "url": "https://bitwise.com"
   },
   {
+    "title": "Praktio",
+    "categories": ["Software Development", "Graphic Design"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762882715/logos/Praktio_Logo_White_ekowtk.webp",
+    "url": "https://praktio.com"
+  },
+  {
+    "title": "The Deep End: Cafe & Gallery",
+    "categories": ["Web Development"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781978/logos/deepend_pdoukc.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Detroit-Flower-Co-_-Detroit-Flower-Company_kdfb0h.png",
+    "url": "https://www.detroitflowercompany.com/"
+  },
+  {
+    "title": "Red Bull Arts",
+    "categories": ["Web Development"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762883146/logos/Unknown_lyoxj1.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762883109/screenshots/Screenshot_2025-11-11_at_12.45.03_PM_chcwly.png",
+    "url": "https://www.redbull.com/us-en"
+  },
+
+  {
+    "title": "Plugged In Collection",
+    "categories": ["Web Development", "eCommerce", "SEO"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1751551269/logos/PLUGGED_001_275x_2x_mu9gpc.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762882986/screenshots/Screenshot_2025-11-11_at_12.42.57_PM_n9gssi.png",
+    "url": "https://pluggedincollection.com/"
+  },
+  {
     "title": "Detroit Flower Co",
-    "category": "Web Development",
+    "categories": ["Web Development"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781979/logos/Detroit_Flower_Company_heckyx.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Detroit-Flower-Co-_-Detroit-Flower-Company_kdfb0h.png",
     "url": "https://www.detroitflowercompany.com/"
   },
   {
+    "title": "Soccer Swag Society",
+    "categories": ["Web Development", "Web Design"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781993/logos/soccer_swag_o7stlx.png",
+    "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782043/screenshots/Detroit-Flower-Co-_-Detroit-Flower-Company_kdfb0h.png"
+  },
+  {
+    "title": "Fluid Spaces",
+    "categories": ["Web Development", "Web Design"],
+    "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781980/logos/fluid_spaces_nozg0d.png",
+    "url": "https://www.fluidspaces.com/"
+  },
+  {
     "title": "Benzinga",
-    "category": "Web Development",
+    "categories": ["Web Development"],
     "imageUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762781977/logos/Benzinga-Logo_fu6gqw.png",
     "screenshotUrl": "https://res.cloudinary.com/bytebeardigital/image/upload/v1762782042/screenshots/2023-Cannabis-Conference-Benzinga-Cannabis-Capital-Conference_fonu2o.png",
     "url": "https://benzinga.com"

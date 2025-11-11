@@ -43,8 +43,8 @@
       },
       "description": "See how design, technology, and intention come together to craft digital experiences that feel as good as they look.",
       "button": {
-        "text": "View My Work",
-        "href": "/work"
+        "text": "Schedule a Consultation",
+        "href": "https://calendly.com/your-username/consultation"
       }
     },
     "finalCTA": {
@@ -101,6 +101,14 @@
         "line2": "Extraordinary"
       },
       "description": "Ready to elevate your digital presence? Tell us about your project and let's start the conversation."
+    },
+    "calendlyUrl": "https://calendly.com/haelostudios/30min",
+    "email": "hello@haelostudios.com",
+    "social": {
+      "github": "https://github.com/your-username",
+      "x": "https://x.com/your-username",
+      "linkedin": "https://linkedin.com/in/your-username",
+      "instagram": "https://instagram.com/your-username"
     }
   },
   "processMini": {

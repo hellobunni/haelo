@@ -18,11 +18,10 @@ export default function WorkPage() {
   const { work } = contentData;
   const [filter, setFilter] = useState<string>("all");
 
-  // Extract unique categories from projects
+  // Extract unique categories from projects (flatten all categories arrays)
   const categories = useMemo(() => {
-    const uniqueCategories = Array.from(
-      new Set(projects.map((project) => project.category)),
-    );
+    const allCategories = projects.flatMap((project) => project.categories);
+    const uniqueCategories = Array.from(new Set(allCategories));
     return ["all", ...uniqueCategories];
   }, []);
 
@@ -31,7 +30,7 @@ export default function WorkPage() {
     if (filter === "all") {
       return projects;
     }
-    return projects.filter((project) => project.category === filter);
+    return projects.filter((project) => project.categories.includes(filter));
   }, [filter]);
 
   return (
@@ -271,10 +270,15 @@ function ProjectCardContent({
 
       {/* Content */}
       <div className="py-4 px-3 flex-1 flex flex-col">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-dark-purple text-xs font-medium">
-            {project.category}
-          </span>
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
+          {project.categories.map((category) => (
+            <span
+              key={category}
+              className="px-3 py-1 rounded-full bg-periwinkle-50 text-dark-purple text-xs font-medium"
+            >
+              {category}
+            </span>
+          ))}
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-jordy-blue transition-colors duration-300">
           {project.title}
