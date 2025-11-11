@@ -82,11 +82,7 @@ export default function WhatWeDoMini() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-10 text-center"
         >
-          <Button
-            type="button"
-            variant="ghost"
-            href={home.whatWeDo.cta.href}
-          >
+          <Button type="button" variant="ghost" href={home.whatWeDo.cta.href}>
             {home.whatWeDo.cta.text}
             <ArrowRight className="w-5 h-5" />
           </Button>

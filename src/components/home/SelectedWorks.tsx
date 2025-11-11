@@ -48,13 +48,13 @@ export default function SelectedWorks() {
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl group-hover:border-periwinkle-200">
                   <div className="relative h-56 overflow-hidden bg-gray-100">
-                  <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        fill
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                        className="object-contain p-8"
-                      />
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-contain p-8"
+                    />
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-xl">
@@ -66,7 +66,7 @@ export default function SelectedWorks() {
                     <span className="px-3 py-1 rounded-full bg-periwinkle-50 text-periwinkle-700 text-xs font-medium">
                       {project.category}
                     </span>
-                    <h3 className="text-xl font-bold tetext-gray-900 mt-3  group-hover:text-jordy-blue transition-colors duration-300"> 
+                    <h3 className="text-xl font-bold tetext-gray-900 mt-3  group-hover:text-jordy-blue transition-colors duration-300">
                       {project.title}
                     </h3>
                   </div>

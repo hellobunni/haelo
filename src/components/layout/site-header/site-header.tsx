@@ -2,13 +2,13 @@
 import clsx from "clsx";
 import { ArrowRight, Menu } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, navigationItems } from "@/lib/utils";
-import Image from "next/image";
 
 export default function SiteHeader() {
   const pathname = usePathname();

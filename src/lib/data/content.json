@@ -21,32 +21,32 @@
         }
       }
     },
-"whatWeDo": {
-  "title": "What We Offer",
-  "description": "Independent digital design and development studio crafting thoughtful, high-impact web experiences. We lead every project personally, collaborating with trusted creatives to bring each vision to life.",
-  "cta": {
-    "text": "Explore All Services",
-    "href": "/services"
-  }
-},
+    "whatWeDo": {
+      "title": "What We Offer",
+      "description": "Independent digital design and development studio crafting thoughtful, high-impact web experiences. We lead every project personally, collaborating with trusted creatives to bring each vision to life.",
+      "cta": {
+        "text": "Explore All Services",
+        "href": "/services"
+      }
+    },
     "selectedWorks": {
       "title": "Selected Works",
       "description": "A curated collection of projects that reflect Haelo’s focus on thoughtful design, clean engineering, and refined digital craftsmanship. Each build is designed to feel elevated, intuitive, and distinctly made.",
-  "cta": {
-    "text": "View All Projects",
-    "href": "/work"
-  }
+      "cta": {
+        "text": "View All Projects",
+        "href": "/work"
+      }
     },
-"cta": {
-  "title": {
-    "line2": "See the craft in action."
-  },
-  "description": "See how design, technology, and intention come together to craft digital experiences that feel as good as they look.",
-  "button": {
-    "text": "View My Work",
-    "href": "/work"
-  }
-},
+    "cta": {
+      "title": {
+        "line2": "See the craft in action."
+      },
+      "description": "See how design, technology, and intention come together to craft digital experiences that feel as good as they look.",
+      "button": {
+        "text": "View My Work",
+        "href": "/work"
+      }
+    },
     "finalCTA": {
       "title": "Let's Start Your Project",
       "description": "Schedule a free consultation and discover how we can bring your vision to life with our proven process.",

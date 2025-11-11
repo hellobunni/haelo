@@ -4,10 +4,12 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 
 interface CTASectionProps {
-  title?: {
-    line1?: string;
-    line2?: string;
-  } | string;
+  title?:
+    | {
+        line1?: string;
+        line2?: string;
+      }
+    | string;
   description: string;
   button: {
     text: string;
@@ -21,10 +23,8 @@ export default function CTASection({
   button,
 }: CTASectionProps) {
   // Handle both string and object title formats
-  const titleLine1 =
-    typeof title === "string" ? title : title?.line1 || "";
-  const titleLine2 =
-    typeof title === "string" ? "" : title?.line2 || "";
+  const titleLine1 = typeof title === "string" ? title : title?.line1 || "";
+  const titleLine2 = typeof title === "string" ? "" : title?.line2 || "";
 
   return (
     <section className="py-32 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">

@@ -215,7 +215,7 @@
         "number": "02",
         "icon": "Code2",
         "title": "Engineering & Development",
-       "description": "Beautifully built websites powered by modern frameworks like React and TypeScript. Each build is structured for performance, scalability, and lasting quality.",
+        "description": "Beautifully built websites powered by modern frameworks like React and TypeScript. Each build is structured for performance, scalability, and lasting quality.",
         "features": [
           "Custom Web Applications",
           "React & TypeScript Development",
