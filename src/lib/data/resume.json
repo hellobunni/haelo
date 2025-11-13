@@ -35,27 +35,90 @@
     "techStack": {
       "title": "Technologies & Tools",
       "items": [
-        "React",
-        "Next.js 14",
-        "TypeScript",
-        "JavaScript ES2023+",
-        "Elixir",
-        "Storybook",
-        "Firebase",
-        "MySQL",
-        "Shadcn/UI",
-        "Redux",
-        "Jest",
-        "GraphQL",
-        "Figma",
-        "Tailwind CSS",
-        "HTML5",
-        "CSS3",
-        "Node.js",
-        "Git",
-        "WebRTC",
-        "Vercel",
-        "Supabase"
+        {
+          "name": "React",
+          "description": "Building interactive, component-based user interfaces"
+        },
+        {
+          "name": "Next.js 14",
+          "description": "Full-stack React framework with App Router and server components"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Type-safe JavaScript for scalable, maintainable code"
+        },
+        {
+          "name": "JavaScript ES2023+",
+          "description": "Modern JavaScript features and async patterns"
+        },
+        {
+          "name": "Elixir",
+          "description": "Functional programming for robust backend systems"
+        },
+        {
+          "name": "Storybook",
+          "description": "Component development and documentation tool"
+        },
+        {
+          "name": "Firebase",
+          "description": "Backend-as-a-service for authentication and real-time data"
+        },
+        {
+          "name": "MySQL",
+          "description": "Relational database management and querying"
+        },
+        {
+          "name": "Shadcn/UI",
+          "description": "Reusable, accessible component library built on Radix UI"
+        },
+        {
+          "name": "Redux",
+          "description": "State management for complex application data flow"
+        },
+        {
+          "name": "Jest",
+          "description": "Testing framework for unit and integration tests"
+        },
+        {
+          "name": "GraphQL",
+          "description": "Query language for flexible, efficient API data fetching"
+        },
+        {
+          "name": "Figma",
+          "description": "Design and prototyping tool for UI/UX work"
+        },
+        {
+          "name": "Tailwind CSS",
+          "description": "Utility-first CSS framework for rapid UI development"
+        },
+        {
+          "name": "HTML5",
+          "description": "Semantic markup and modern web standards"
+        },
+        {
+          "name": "CSS3",
+          "description": "Advanced styling with animations, grids, and flexbox"
+        },
+        {
+          "name": "Node.js",
+          "description": "JavaScript runtime for server-side development"
+        },
+        {
+          "name": "Git",
+          "description": "Version control and collaborative development workflows"
+        },
+        {
+          "name": "WebRTC",
+          "description": "Real-time communication for video, voice, and data"
+        },
+        {
+          "name": "Vercel",
+          "description": "Deployment platform for modern web applications"
+        },
+        {
+          "name": "Supabase",
+          "description": "Open-source Firebase alternative with PostgreSQL"
+        }
       ]
     }
   },
