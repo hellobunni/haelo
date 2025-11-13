@@ -1,0 +1,248 @@
+{
+  "header": {
+    "badge": "Available for Opportunities",
+    "name": "Bryanna Gardner",
+    "title": "UI Engineer / Front-End Engineer",
+    "description": "Crafting innovative and scalable web solutions with 8+ years of expertise in React, TypeScript, and Tailwind CSS. Bridging design and engineering to create seamless, accessible digital experiences.",
+    "location": "Detroit, MI",
+    "buttons": {
+      "primary": {
+        "text": "Let's Connect",
+        "href": "mailto:brylyngardner@gmail.com"
+      },
+      "secondary": {
+        "text": "LinkedIn",
+        "href": "https://www.linkedin.com/in/bryannagardner"
+      }
+    }
+  },
+  "about": {
+    "label": "About",
+    "title": "Transforming UI concepts into seamless user experiences",
+    "paragraphs": [
+      "<strong>Hi, my name is Bryanna</strong>, and I am a full-stack engineer with a passion for creating beautiful, intuitive, and scalable digital experiences. I blend my background in UI and UX research with modern engineering practices to bring thoughtful products to life.",
+      "I bring more than eight years of experience across design, user research, web development, and full software engineering. My journey began with UI and UX research paired with marketing studies, which shaped how I think about users and the stories digital products tell.",
+      "I expanded that foundation at Washtenaw Community College, where I earned hands-on training and certifications in Web Design and Development. I worked deeply with HTML, CSS, JavaScript, WordPress, and PHP, and realized I wanted to build products that combined strong design with clean engineering.",
+      "My career grew through marketing management and web design roles before evolving into full software engineering positions. Over time, I gained experience building responsive, accessible, and high-quality interfaces across a variety of industries. My work today focuses on modern frontend development using React, TypeScript, Next.js, Tailwind, and component-driven architectures.",
+      "I specialize in translating high-fidelity concepts into production-ready experiences with a focus on scalability, performance, and design systems. I love creating interfaces that feel intentional, polished, and human, supported by clean code and thoughtful engineering patterns.",
+      "I am currently open to mid-level and senior UI and Frontend Engineering opportunities where I can contribute to impactful products and collaborate with teams who value quality, creativity, and strong execution."
+    ],
+    "lastParagraphClass": "text-gray-600 italic"
+  },
+  "skills": {
+    "label": "Expertise",
+    "title": "Tech Stack",
+    "techStack": {
+      "title": "Technologies & Tools",
+      "items": [
+        {
+          "name": "React",
+          "description": "Building interactive, component-based user interfaces"
+        },
+        {
+          "name": "Next.js 14",
+          "description": "Full-stack React framework with App Router and server components"
+        },
+        {
+          "name": "TypeScript",
+          "description": "Type-safe JavaScript for scalable, maintainable code"
+        },
+        {
+          "name": "JavaScript ES2023+",
+          "description": "Modern JavaScript features and async patterns"
+        },
+        {
+          "name": "Elixir",
+          "description": "Functional programming for robust backend systems"
+        },
+        {
+          "name": "Storybook",
+          "description": "Component development and documentation tool"
+        },
+        {
+          "name": "Firebase",
+          "description": "Backend-as-a-service for authentication and real-time data"
+        },
+        {
+          "name": "MySQL",
+          "description": "Relational database management and querying"
+        },
+        {
+          "name": "Shadcn/UI",
+          "description": "Reusable, accessible component library built on Radix UI"
+        },
+        {
+          "name": "Redux",
+          "description": "State management for complex application data flow"
+        },
+        {
+          "name": "Jest",
+          "description": "Testing framework for unit and integration tests"
+        },
+        {
+          "name": "GraphQL",
+          "description": "Query language for flexible, efficient API data fetching"
+        },
+        {
+          "name": "Figma",
+          "description": "Design and prototyping tool for UI/UX work"
+        },
+        {
+          "name": "Tailwind CSS",
+          "description": "Utility-first CSS framework for rapid UI development"
+        },
+        {
+          "name": "HTML5",
+          "description": "Semantic markup and modern web standards"
+        },
+        {
+          "name": "CSS3",
+          "description": "Advanced styling with animations, grids, and flexbox"
+        },
+        {
+          "name": "Node.js",
+          "description": "JavaScript runtime for server-side development"
+        },
+        {
+          "name": "Git",
+          "description": "Version control and collaborative development workflows"
+        },
+        {
+          "name": "WebRTC",
+          "description": "Real-time communication for video, voice, and data"
+        },
+        {
+          "name": "Vercel",
+          "description": "Deployment platform for modern web applications"
+        },
+        {
+          "name": "Supabase",
+          "description": "Open-source Firebase alternative with PostgreSQL"
+        }
+      ]
+    }
+  },
+  "experience": {
+    "label": "Experience",
+    "title": "Recent Work",
+    "items": [
+      {
+        "role": "Software Engineer",
+        "company": "Fanatics, Inc.",
+        "period": "MAR 2022 - OCT 2025",
+        "achievements": [
+          "Led major frontend redesigns and architected UI solutions for high-traffic commerce experiences serving millions of users",
+          "Developed scalable, reusable component systems using React, TypeScript, and internal design tokens",
+          "Partnered with designers and backend teams to maintain and evolve multiple design systems across product lines",
+          "Expanded skillset into full-stack workflows by learning Elixir and contributing to features within a monolithic codebase"
+        ]
+      },
+      {
+        "role": "Front-End Engineer (Freelance)",
+        "company": "StockX",
+        "period": "JUN 2021 - SEP 2021",
+        "achievements": [
+          "Delivered polished, high-quality frontend features for a global e-commerce marketplace",
+          "Collaborated with product, design, and engineering teams to elevate UX and modernize web experiences"
+        ]
+      },
+      {
+        "role": "Front-End Engineer (Contract)",
+        "company": "ZeroCool",
+        "period": "JAN 2022 - MAR 2022",
+        "achievements": [
+          "Built responsive, accessible UI features using modern React tooling",
+          "Contributed to a fast-paced team shipping trading-card marketplace features, leading to a full-time offer at Fanatics"
+        ]
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "InsideOut Design + Development",
+        "period": "JUL 2020 - MAR 2022",
+        "achievements": [
+          "Designed and developed responsive marketing websites and web applications for 6+ agency clients",
+          "Improved performance, accessibility, and SEO across client platforms using modern best practices",
+          "Collaborated closely with designers and project managers to deliver polished, high-impact client work"
+        ]
+      },
+      {
+        "role": "Web Developer / Assistant Marketing Manager",
+        "company": "Qualigence International",
+        "period": "NOV 2018 - JAN 2020",
+        "achievements": [
+          "Developed and maintained internal and client-facing web applications for recruiting technology products",
+          "Managed project timelines and coordinated cross-functional workflows between marketing, product, and engineering",
+          "Shipped user-centered digital experiences that supported brand growth and lead generation"
+        ]
+      },
+      {
+        "role": "Senior Marketing Manager",
+        "company": "Procerus Skin Care, LLC",
+        "period": "JAN 2015 - DEC 2018",
+        "achievements": [
+          "Led creative strategy and designed print + digital campaigns from concept to production",
+          "Owned branding, content creation, and marketing collateral across web, email, social, and in-office materials",
+          "Built and maintained vendor, supplier, and media relationships while tracking KPIs and campaign performance",
+          "Managed website content and social platforms, driving engagement and supporting business growth"
+        ]
+      },
+      {
+        "role": "Web Developer / Designer (Freelance)",
+        "company": "Zingerman's",
+        "period": "2014 - 2015",
+        "achievements": [
+          "Created and maintained digital assets and web content for one of Ann Arbor’s most well-known brands",
+          "Designed marketing and web materials that blended brand storytelling with functional UX"
+        ]
+      },
+      {
+        "role": "Graphic Design Intern",
+        "company": "University of Michigan Athletics",
+        "period": "INTERNSHIP",
+        "achievements": [
+          "Supported development and maintenance of websites across the athletics department",
+          "Gained hands-on experience working at the intersection of sports, media, and digital technology"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "label": "Education",
+    "title": "Academic Background",
+    "items": [
+      {
+        "degree": "UI/UX Research",
+        "school": "University of Michigan",
+        "schoolDetail": "School of Information",
+        "period": "2011 - 2015",
+        "description": "Focused on user experience research, interface design, and information architecture"
+      },
+      {
+        "degree": "Web Design Certification",
+        "school": "Washtenaw Community College",
+        "period": "2014 - 2015",
+        "description": "Certification in web design and development fundamentals"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let's Build Something Great Together",
+    "description": "I'm actively seeking new opportunities to create impactful user experiences. Whether you're looking for a UI Engineer, Frontend Developer, or design-minded engineer, I'd love to hear from you.",
+    "email": {
+      "text": "brylyngardner@gmail.com",
+      "href": "mailto:brylyngardner@gmail.com"
+    },
+    "phone": {
+      "text": "(248) 250-3816",
+      "href": "tel:2482503816"
+    },
+    "social": {
+      "linkedin": {
+        "href": "https://www.linkedin.com/in/bryannagardner"
+      },
+      "website": {
+        "href": "https://www.haelostudios.com"
+      }
+    }
+  }
+}

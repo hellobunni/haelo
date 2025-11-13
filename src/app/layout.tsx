@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { CommandPalette } from "@/components/command-palette";
-import SiteFooter from "@/components/layout/site-footer/site-footer";
-import SiteHeader from "@/components/layout/site-header/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DARK_LOGO_URL } from "@/lib/utils";
+import ConditionalHeaderFooter from "./conditional-header-footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 
@@ -64,11 +63,7 @@ export default function RootLayout({
             <Toaster />
             <CommandPalette />
             <StyleTokens />
-            {/* Client header with its own state */}
-            <SiteHeader />
-            {/* Page content (route transitions handled in app/template.tsx) */}
-            <main className="pt-20">{children}</main>
-            <SiteFooter />
+            <ConditionalHeaderFooter>{children}</ConditionalHeaderFooter>
           </TooltipProvider>
         </ThemeProvider>
       </body>

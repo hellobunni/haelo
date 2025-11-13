@@ -1,98 +1,86 @@
-# Contact Form & Calendly Integration + Project Categories Enhancement
+# ✨ feat: Brand new resume page with all the goodies!
 
-## Overview
-This PR implements Calendly integration for virtual consultations, contact form email functionality, social media links, and enhances project categorization to support multiple categories.
+Hey team! Just shipped a gorgeous new resume page that showcases everything in a clean, modern way. This was super fun to build and I'm excited to share it with y'all!
 
-## Features Added
+## 🎯 What's New
 
-### 1. Contact Form Email Integration
-- ✅ Integrated Gmail SMTP using Nodemailer for sending contact form submissions
-- ✅ Form submissions are sent to `hello@haelostudios.com`
-- ✅ Email includes all form fields (name, email, company, budget, message)
-- ✅ Reply-to is set to the form submitter's email for easy responses
-- ✅ Success state replaces only the form box (not entire page) with a thank you message
+### ✨ Resume Page Sections
+Created a beautiful, fully-featured resume page (`/resume`) with:
+- **Hero Header** - Eye-catching intro with decorative blobs and smooth animations
+- **About Section** - Personal intro that feels warm and inviting
+- **Tech Stack** - Clean display of all the technologies I work with
+- **Portfolio/Works** - Showcasing projects with beautiful card layouts
+- **Experience Timeline** - Chronological work history with smooth transitions
+- **CTA Section** - Call-to-action to connect and collaborate
+- **Custom Footer** - With cute coffee emoji because we all need that energy ☕
 
-### 2. Calendly Integration
-- ✅ Added Calendly popup widget to contact page
-- ✅ "Book a Call" section now opens Calendly scheduling modal
-- ✅ Updated CTASection to support Calendly links
-- ✅ Calendly URL stored in `content.json` for easy configuration
+### 🎨 Design & Styling
+- Custom resume color palette (`resume-purple`, `resume-pink` variants) for that premium feel
+- Decorative blob components for visual interest
+- Smooth Framer Motion animations throughout
+- Responsive design that looks great on all devices
+- Fluid typography and spacing that feels just right
 
-### 3. Social Media Links Component
-- ✅ Created reusable `SocialLinks` component
-- ✅ Supports GitHub, X (Twitter), LinkedIn, and Instagram
-- ✅ Added to contact page and site footer
-- ✅ Two variants: `light` (for contact page) and `dark` (for footer)
-- ✅ Links stored in `content.json` for easy management
+### 🧹 Cleanup
+- Removed unused markdown documentation files
+- Cleaned up unused components
+- Streamlined the work page component
+- Simplified global styles
 
-### 4. Project Categories Enhancement
-- ✅ Updated projects to support multiple categories (max 3)
-- ✅ Changed from single `category` string to `categories` array
-- ✅ Updated filtering logic to work with multiple categories
-- ✅ Category badges display all categories for each project
-- ✅ Filter shows projects that match any of their categories
+## 📁 Files Changed
 
-### 5. Content Updates
-- ✅ Updated about page content (years of experience, email, bio)
-- ✅ Fixed JSON syntax errors in about.json
-- ✅ Added new projects to portfolio
-- ✅ Updated contact page copy
+### Added
+- `src/app/(marketing)/resume/page.tsx` - New resume route
+- `src/app/(marketing)/resume/layout.tsx` - Resume page layout
+- `src/components/pages/resume.tsx` - Main resume page component
+- `src/components/resume/portfolioHeader.tsx` - Hero header component
+- `src/components/resume/aboutSection.tsx` - About section
+- `src/components/resume/skillsSection.tsx` - Tech stack display
+- `src/components/resume/works.tsx` - Portfolio projects section
+- `src/components/resume/experience.tsx` - Work experience timeline
+- `src/components/resume/resumeCTA.tsx` - Call-to-action section
+- `src/components/resume/SectionHeader.tsx` - Reusable section headers
+- `src/components/resume/DecorativeBlobs.tsx` - Animated blob decorations
+- `src/lib/data/resume.json` - Resume data structure
+- `src/lib/helpers/resume-colors.ts` - Custom color utilities
+- `src/lib/helpers/motion-variants.ts` - Animation variants
+- `src/components/blocks/ProjectCard.tsx` - Project card component
 
-### 6. UI/UX Improvements
-- ✅ Improved form submission UX with inline success message
-- ✅ Better error handling and user feedback
-- ✅ Fixed Button component to properly handle `type="submit"`
-- ✅ Added proper TypeScript types throughout
+### Modified
+- `src/app/layout.tsx` - Updated to support conditional header/footer
+- `src/app/conditional-header-footer.tsx` - New conditional rendering logic
+- `src/components/pages/work.tsx` - Refactored and simplified
+- `src/styles/globals.css` - Cleaned up unused styles
+- `tsconfig.json` - Updated paths
 
-## Technical Changes
+### Removed
+- `PR_DESCRIPTION.md` - Old documentation
+- `README.md` - Unused docs
+- `STRIPE_SYNC_GUIDE.md` - Unused guide
+- `scripts/README.md` - Unused docs
 
-### New Files
-- `src/app/api/contact/route.ts` - Contact form API endpoint
-- `src/components/SocialLinks.tsx` - Reusable social media links component
+## 🚀 Usage
 
-### Modified Files
-- `src/components/pages/contact.tsx` - Added Calendly popup, email form submission
-- `src/components/pages/work.tsx` - Updated for multiple categories
-- `src/components/home/SelectedWorks.tsx` - Updated for multiple categories
-- `src/components/layout/site-footer/site-footer.tsx` - Added social links
-- `src/components/home/CTASection.tsx` - Updated to support Calendly links
-- `src/components/ui/button.tsx` - Fixed submit button type handling
-- `src/types/project.ts` - Updated PortfolioProject interface
-- `src/lib/data/projects.json` - Converted to categories array
-- `src/lib/data/content.json` - Added Calendly URL and social links
-- `src/lib/data/about.json` - Content updates and JSON fixes
+Navigate to `/resume` to see the new page in action! All the data is pulled from `src/lib/data/resume.json` so it's super easy to update.
 
-### Dependencies Added
-- `nodemailer` - For Gmail SMTP email sending
-- `@types/nodemailer` - TypeScript types for nodemailer
-- `react-calendly` - Already installed, now integrated
+## 🎨 Design Notes
 
-## Environment Variables Required
+- Used a soft gradient background (`from-gray-50 via-white to-resume-pink-1/20`) for that premium feel
+- Decorative blobs add visual interest without being overwhelming
+- Smooth scroll animations make the page feel alive
+- Color palette is cohesive and matches the overall brand aesthetic
 
-Add to `.env.local`:
-```bash
-GMAIL_USER=your-email@gmail.com
-GMAIL_APP_PASSWORD=your-app-password
-CONTACT_EMAIL=hello@haelostudios.com
-```
+## 💭 Questions for the Team
 
-## Testing Checklist
-- [x] Contact form submits successfully
-- [x] Emails are received at hello@haelostudios.com
-- [x] Calendly popup opens correctly
-- [x] Social media links work and open in new tabs
-- [x] Project filtering works with multiple categories
-- [x] All category badges display correctly
-- [x] Form validation works
-- [x] Success state displays correctly
-- [x] No linting errors
+- Should we add more interactive elements to the experience timeline?
+- Do we want to add a download resume button somewhere?
+- Should we create Storybook stories for these new components?
+- Any specific animations or micro-interactions you'd like to see?
 
-## Notes
-- Gmail requires 2FA and an App Password for SMTP authentication
-- Calendly URL can be updated in `content.json`
-- Social media links can be added/removed in `content.json`
-- Projects can have 1-3 categories maximum
+## 📸 Screenshots
 
-## Related Issue
-Closes #24 - CTA links for FinalCTA need to be connected to Calendly
+_(Add screenshots here when ready!)_
 
+---
+
+Built with lots of ✨ and React! Let me know what you think!

@@ -8,7 +8,7 @@ const { work } = contentData;
 
 export const metadata: Metadata = {
   title:
-    "Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
+    "Work | Resume of Digital Design & Development Projects | Haelo Studios",
   description: work.hero.description,
   openGraph: {
     title: `${work.hero.title.line1} ${work.hero.title.line2} | Haelo Studios`,

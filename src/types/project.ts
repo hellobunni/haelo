@@ -23,7 +23,7 @@ export interface ProjectWithClient extends Project {
   clientName: string;
 }
 
-// Type for portfolio/selected works projects
+// Type for resume/selected works projects
 export interface PortfolioProject {
   title: string;
   categories: string[]; // Array of categories (max 3)

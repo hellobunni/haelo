@@ -54,6 +54,7 @@
   --color-periwinkle-4: #afbef7;
   --color-vista-blue: #a1aae5;
   --color-tropical-indigo: #9395d3;
+  --color-tropical-indigo-2: #6f709f;
   --color-black: #000000;
 
   /* Gray/Slate palette for muted/foreground sections */
@@ -68,27 +69,51 @@
   --color-slate-800: #1e293b;
   --color-slate-900: #0f172a;
 
-  /* Legacy color mappings for backward compatibility */
-  --color-magnolia: #edf2fb; /* alice-blue */
-  --color-thistle: #d7e3fc; /* lavender-web-2 */
-  --color-pale-purple: #e2eafc; /* lavender-web */
-  --color-thistle-2: #ccdbfd; /* periwinkle */
-  --color-wisteria: #abc4ff; /* jordy-blue */
-  --color-lavender-floral: #a1aae5; /* vista-blue */
-  --color-dark-purple: #4c5a7a; /* darker blue-gray */
-  --color-dark-purple-2: #2d3748; /* darker slate */
+  /* Legacy color mappings for backward compatibility - using var() references */
+  --color-magnolia: var(--color-alice-blue);
+  --color-thistle: var(--color-lavender-web-2);
+  --color-pale-purple: var(--color-lavender-web);
+  --color-thistle-2: var(--color-periwinkle);
+  --color-wisteria: var(--color-jordy-blue);
+  --color-lavender-floral: var(--color-vista-blue);
+  --color-dark-purple: #4c5a7a; /* darker blue-gray - unique color */
+  --color-dark-purple-2: #2d3748; /* darker slate - unique color */
 
-  /* Periwinkle scale for backward compatibility */
-  --color-periwinkle-50: #edf2fb; /* alice-blue */
-  --color-periwinkle-100: #e2eafc; /* lavender-web */
-  --color-periwinkle-200: #d7e3fc; /* lavender-web-2 */
-  --color-periwinkle-300: #ccdbfd; /* periwinkle */
-  --color-periwinkle-400: #c1d3fe; /* periwinkle-2 */
-  --color-periwinkle-500: #abc4ff; /* jordy-blue */
-  --color-periwinkle-600: #a1aae5; /* vista-blue */
-  --color-periwinkle-700: #4c5a7a; /* dark blue-gray */
-  --color-periwinkle-800: #2d3748; /* dark slate */
-  --color-periwinkle-900: #1a202c; /* darker slate */
+  /* Periwinkle scale for backward compatibility - using var() references */
+  --color-periwinkle-50: var(--color-alice-blue);
+  --color-periwinkle-100: var(--color-lavender-web);
+  --color-periwinkle-200: var(--color-lavender-web-2);
+  --color-periwinkle-300: var(--color-periwinkle);
+  --color-periwinkle-400: var(--color-periwinkle-2);
+  --color-periwinkle-500: var(--color-jordy-blue);
+  --color-periwinkle-600: var(--color-vista-blue);
+  --color-periwinkle-700: var(--color-dark-purple);
+  --color-periwinkle-800: var(--color-dark-purple-2);
+  --color-periwinkle-900: #1a202c; /* darker slate - unique color */
+
+  /* Portfolio color palette */
+  --color-fairy-tale: #fdc3dcff;
+  --color-cherry-blossom-pink: #fcb0c6ff;
+  --color-light-red: #fd7272ff;
+  --color-sandy-brown: #ffa970ff;
+  --color-earth-yellow: #ffc370ff;
+
+  /* Resume color palette */
+  --color-resume-purple-1: #b892ff;
+  --color-resume-purple-2: #936bff;
+  --color-resume-purple-3: var(--color-resume-purple-1); /* same as purple-1 */
+  --color-resume-purple-4: #dcaaf1;
+  --color-resume-pink-1: #ffc2e2;
+  --color-resume-pink-2: #ffa9cb;
+  --color-resume-pink-3: #ff90b3;
+
+  /* Coral color palette */
+  --color-coral-50: #fff5f4;
+  --color-coral-100: #ffe5e2;
+  --color-coral-200: #ffb8b1;
+  --color-coral-500: #ff6f61;
+  --color-coral-600: #e85d51;
+  --color-coral-700: #d64d3f;
 }
 
 :root {
@@ -124,6 +149,58 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Blue/Periwinkle color palette - also in :root for CSS access */
+  --color-white: #ffffff;
+  --color-alice-blue: #edf2fb;
+  --color-lavender-web: #e2eafc;
+  --color-lavender-web-2: #d7e3fc;
+  --color-periwinkle: #ccdbfd;
+  --color-periwinkle-2: #c1d3fe;
+  --color-periwinkle-3: #b6ccfe;
+  --color-jordy-blue: #abc4ff;
+  --color-periwinkle-4: #afbef7;
+  --color-vista-blue: #a1aae5;
+  --color-tropical-indigo: #9395d3;
+  --color-black: #000000;
+  --color-dark-purple: #4c5a7a;
+  --color-dark-purple-2: #2d3748;
+
+  /* Legacy color mappings for backward compatibility - using var() references */
+  --color-magnolia: var(--color-alice-blue);
+  --color-thistle: var(--color-lavender-web-2);
+  --color-pale-purple: var(--color-lavender-web);
+  --color-thistle-2: var(--color-periwinkle);
+  --color-wisteria: var(--color-jordy-blue);
+  --color-lavender-floral: var(--color-vista-blue);
+
+  /* Periwinkle scale for backward compatibility - using var() references */
+  --color-periwinkle-50: var(--color-alice-blue);
+  --color-periwinkle-100: var(--color-lavender-web);
+  --color-periwinkle-200: var(--color-lavender-web-2);
+  --color-periwinkle-300: var(--color-periwinkle);
+  --color-periwinkle-400: var(--color-periwinkle-2);
+  --color-periwinkle-500: var(--color-jordy-blue);
+  --color-periwinkle-600: var(--color-vista-blue);
+  --color-periwinkle-700: var(--color-dark-purple);
+  --color-periwinkle-800: var(--color-dark-purple-2);
+  --color-periwinkle-900: #1a202c;
+
+  /* Portfolio color palette - also in :root for CSS access */
+  --fairy-tale: var(--color-fairy-tale);
+  --cherry-blossom-pink: var(--color-cherry-blossom-pink);
+  --light-red: var(--color-light-red);
+  --sandy-brown: var(--color-sandy-brown);
+  --earth-yellow: var(--color-earth-yellow);
+
+  /* Resume color palette - also in :root for CSS access */
+  --resume-purple-1: var(--color-resume-purple-1);
+  --resume-purple-2: var(--color-resume-purple-2);
+  --resume-purple-3: var(--color-resume-purple-3);
+  --resume-purple-4: var(--color-resume-purple-4);
+  --resume-pink-1: var(--color-resume-pink-1);
+  --resume-pink-2: var(--color-resume-pink-2);
+  --resume-pink-3: var(--color-resume-pink-3);
 }
 
 .dark {
@@ -182,672 +259,11 @@
   border-width: 0;
 }
 
-/* Blue/Periwinkle color palette - Background colors */
-.bg-white {
-  background-color: #ffffff;
-}
-
-.bg-alice-blue {
-  background-color: #edf2fb;
-}
-
-.bg-lavender-web {
-  background-color: #e2eafc;
-}
-
-.bg-lavender-web-2 {
-  background-color: #d7e3fc;
-}
-
-.bg-periwinkle {
-  background-color: #ccdbfd;
-}
-
-.bg-periwinkle-2 {
-  background-color: #c1d3fe;
-}
-
-.bg-periwinkle-3 {
-  background-color: #b6ccfe;
-}
-
-.bg-jordy-blue {
-  background-color: #abc4ff;
-}
-
-.bg-periwinkle-4 {
-  background-color: #afbef7;
-}
-
-.bg-vista-blue {
-  background-color: #a1aae5;
-}
-
-.bg-tropical-indigo {
-  background-color: #9395d3;
-}
-
-.bg-black {
-  background-color: #000000;
-}
-
-/* Legacy color mappings for backward compatibility */
-.bg-magnolia {
-  background-color: #edf2fb; /* alice-blue */
-}
-
-.bg-thistle {
-  background-color: #d7e3fc; /* lavender-web-2 */
-}
-
-.bg-pale-purple {
-  background-color: #e2eafc; /* lavender-web */
-}
-
-.bg-thistle-2 {
-  background-color: #ccdbfd; /* periwinkle */
-}
-
-.bg-wisteria {
-  background-color: #abc4ff; /* jordy-blue */
-}
-
-.bg-lavender-floral {
-  background-color: #a1aae5; /* vista-blue */
-}
-
-.bg-periwinkle-500 {
-  background-color: #abc4ff; /* jordy-blue */
-}
-
-.bg-dark-purple {
-  background-color: #4c5a7a; /* darker blue-gray */
-}
-
-.bg-dark-purple-2 {
-  background-color: #2d3748; /* darker slate */
-}
-
-/* Gray/Slate palette - Background colors */
-.bg-slate-50 {
-  background-color: #f8fafc;
-}
-
-.bg-slate-100 {
-  background-color: #f1f5f9;
-}
-
-.bg-slate-200 {
-  background-color: #e2e8f0;
-}
-
-.bg-slate-300 {
-  background-color: #cbd5e1;
-}
-
-.bg-slate-400 {
-  background-color: #94a3b8;
-}
-
-.bg-slate-500 {
-  background-color: #64748b;
-}
-
-.bg-slate-600 {
-  background-color: #475569;
-}
-
-.bg-slate-700 {
-  background-color: #334155;
-}
-
-.bg-slate-800 {
-  background-color: #1e293b;
-}
-
-.bg-slate-900 {
-  background-color: #0f172a;
-}
-
-/* Blue/Periwinkle color palette - Text colors */
-.text-white {
-  color: #ffffff;
-}
-
-.text-alice-blue {
-  color: #edf2fb;
-}
-
-.text-lavender-web {
-  color: #e2eafc;
-}
-
-.text-lavender-web-2 {
-  color: #d7e3fc;
-}
-
-.text-periwinkle {
-  color: #ccdbfd;
-}
-
-.text-periwinkle-2 {
-  color: #c1d3fe;
-}
-
-.text-periwinkle-3 {
-  color: #b6ccfe;
-}
-
-.text-jordy-blue {
-  color: #abc4ff;
-}
-
-.text-periwinkle-4 {
-  color: #afbef7;
-}
-
-.text-vista-blue {
-  color: #a1aae5;
-}
-
-.text-tropical-indigo {
-  color: #9395d3;
-}
-
-.text-black {
-  color: #000000;
-}
-
-/* Legacy color mappings for backward compatibility */
-.text-magnolia {
-  color: #edf2fb; /* alice-blue */
-}
-
-.text-thistle {
-  color: #d7e3fc; /* lavender-web-2 */
-}
-
-.text-pale-purple {
-  color: #e2eafc; /* lavender-web */
-}
-
-.text-thistle-2 {
-  color: #ccdbfd; /* periwinkle */
-}
-
-.text-wisteria {
-  color: #abc4ff; /* jordy-blue */
-}
-
-.text-lavender-floral {
-  color: #a1aae5; /* vista-blue */
-}
-
-.text-periwinkle-500 {
-  color: #abc4ff; /* jordy-blue */
-}
-
-.text-dark-purple {
-  color: #4c5a7a; /* darker blue-gray */
-}
-
-.text-dark-purple-2 {
-  color: #2d3748; /* darker slate */
-}
-
-/* Gray/Slate palette - Text colors */
-.text-slate-50 {
-  color: #f8fafc;
-}
-
-.text-slate-100 {
-  color: #f1f5f9;
-}
-
-.text-slate-200 {
-  color: #e2e8f0;
-}
-
-.text-slate-300 {
-  color: #cbd5e1;
-}
-
-.text-slate-400 {
-  color: #94a3b8;
-}
-
-.text-slate-500 {
-  color: #64748b;
-}
-
-.text-slate-600 {
-  color: #475569;
-}
-
-.text-slate-700 {
-  color: #334155;
-}
-
-.text-slate-800 {
-  color: #1e293b;
-}
-
-.text-slate-900 {
-  color: #0f172a;
-}
-
-/* Blue/Periwinkle color palette - Border colors */
-.border-white {
-  border-color: #ffffff;
-}
-
-.border-alice-blue {
-  border-color: #edf2fb;
-}
-
-.border-lavender-web {
-  border-color: #e2eafc;
-}
-
-.border-lavender-web-2 {
-  border-color: #d7e3fc;
-}
-
-.border-periwinkle {
-  border-color: #ccdbfd;
-}
-
-.border-periwinkle-2 {
-  border-color: #c1d3fe;
-}
-
-.border-periwinkle-3 {
-  border-color: #b6ccfe;
-}
-
-.border-jordy-blue {
-  border-color: #abc4ff;
-}
-
-.border-periwinkle-4 {
-  border-color: #afbef7;
-}
-
-.border-vista-blue {
-  border-color: #a1aae5;
-}
-
-.border-tropical-indigo {
-  border-color: #9395d3;
-}
-
-.border-black {
-  border-color: #000000;
-}
-
-/* Legacy color mappings for backward compatibility */
-.border-magnolia {
-  border-color: #edf2fb; /* alice-blue */
-}
-
-.border-thistle {
-  border-color: #d7e3fc; /* lavender-web-2 */
-}
-
-.border-pale-purple {
-  border-color: #e2eafc; /* lavender-web */
-}
-
-.border-thistle-2 {
-  border-color: #ccdbfd; /* periwinkle */
-}
-
-.border-wisteria {
-  border-color: #abc4ff; /* jordy-blue */
-}
-
-.border-lavender-floral {
-  border-color: #a1aae5; /* vista-blue */
-}
-
-.border-periwinkle-500 {
-  border-color: #abc4ff; /* jordy-blue */
-}
-
-.border-dark-purple {
-  border-color: #4c5a7a; /* darker blue-gray */
-}
-
-.border-dark-purple-2 {
-  border-color: #2d3748; /* darker slate */
-}
-
-/* Gray/Slate palette - Border colors */
-.border-slate-50 {
-  border-color: #f8fafc;
-}
-
-.border-slate-100 {
-  border-color: #f1f5f9;
-}
-
-.border-slate-200 {
-  border-color: #e2e8f0;
-}
-
-.border-slate-300 {
-  border-color: #cbd5e1;
-}
-
-.border-slate-400 {
-  border-color: #94a3b8;
-}
-
-.border-slate-500 {
-  border-color: #64748b;
-}
-
-.border-slate-600 {
-  border-color: #475569;
-}
-
-.border-slate-700 {
-  border-color: #334155;
-}
-
-.border-slate-800 {
-  border-color: #1e293b;
-}
-
-.border-slate-900 {
-  border-color: #0f172a;
-}
-
-/* Blue/Periwinkle color palette - Gradient from */
-.from-white {
-  --tw-gradient-from: #ffffff;
-}
-
-.from-alice-blue {
-  --tw-gradient-from: #edf2fb;
-}
-
-.from-lavender-web {
-  --tw-gradient-from: #e2eafc;
-}
-
-.from-lavender-web-2 {
-  --tw-gradient-from: #d7e3fc;
-}
-
-.from-periwinkle {
-  --tw-gradient-from: #ccdbfd;
-}
-
-.from-periwinkle-2 {
-  --tw-gradient-from: #c1d3fe;
-}
-
-.from-periwinkle-3 {
-  --tw-gradient-from: #b6ccfe;
-}
-
-.from-jordy-blue {
-  --tw-gradient-from: #abc4ff;
-}
-
-.from-periwinkle-4 {
-  --tw-gradient-from: #afbef7;
-}
-
-.from-vista-blue {
-  --tw-gradient-from: #a1aae5;
-}
-
-.from-tropical-indigo {
-  --tw-gradient-from: #9395d3;
-}
-
-.from-black {
-  --tw-gradient-from: #000000;
-}
-
-/* Legacy color mappings for backward compatibility */
-.from-magnolia {
-  --tw-gradient-from: #edf2fb; /* alice-blue */
-}
-
-.from-thistle {
-  --tw-gradient-from: #d7e3fc; /* lavender-web-2 */
-}
-
-.from-pale-purple {
-  --tw-gradient-from: #e2eafc; /* lavender-web */
-}
-
-.from-thistle-2 {
-  --tw-gradient-from: #ccdbfd; /* periwinkle */
-}
-
-.from-wisteria {
-  --tw-gradient-from: #abc4ff; /* jordy-blue */
-}
-
-.from-lavender-floral {
-  --tw-gradient-from: #a1aae5; /* vista-blue */
-}
-
-.from-periwinkle-500 {
-  --tw-gradient-from: #abc4ff; /* jordy-blue */
-}
-
-.from-dark-purple {
-  --tw-gradient-from: #4c5a7a; /* darker blue-gray */
-}
-
-.from-dark-purple-2 {
-  --tw-gradient-from: #2d3748; /* darker slate */
-}
-
-/* Blue/Periwinkle color palette - Gradient to */
-.to-white {
-  --tw-gradient-to: #ffffff;
-}
-
-.to-alice-blue {
-  --tw-gradient-to: #edf2fb;
-}
-
-.to-lavender-web {
-  --tw-gradient-to: #e2eafc;
-}
-
-.to-lavender-web-2 {
-  --tw-gradient-to: #d7e3fc;
-}
-
-.to-periwinkle {
-  --tw-gradient-to: #ccdbfd;
-}
-
-.to-periwinkle-2 {
-  --tw-gradient-to: #c1d3fe;
-}
-
-.to-periwinkle-3 {
-  --tw-gradient-to: #b6ccfe;
-}
-
-.to-jordy-blue {
-  --tw-gradient-to: #abc4ff;
-}
-
-.to-periwinkle-4 {
-  --tw-gradient-to: #afbef7;
-}
-
-.to-vista-blue {
-  --tw-gradient-to: #a1aae5;
-}
-
-.to-tropical-indigo {
-  --tw-gradient-to: #9395d3;
-}
-
-.to-black {
-  --tw-gradient-to: #000000;
-}
-
-/* Legacy color mappings for backward compatibility */
-.to-magnolia {
-  --tw-gradient-to: #edf2fb; /* alice-blue */
-}
-
-.to-thistle {
-  --tw-gradient-to: #d7e3fc; /* lavender-web-2 */
-}
-
-.to-pale-purple {
-  --tw-gradient-to: #e2eafc; /* lavender-web */
-}
-
-.to-thistle-2 {
-  --tw-gradient-to: #ccdbfd; /* periwinkle */
-}
-
-.to-wisteria {
-  --tw-gradient-to: #abc4ff; /* jordy-blue */
-}
-
-.to-lavender-floral {
-  --tw-gradient-to: #a1aae5; /* vista-blue */
-}
-
-.to-periwinkle-500 {
-  --tw-gradient-to: #abc4ff; /* jordy-blue */
-}
-
-.to-dark-purple {
-  --tw-gradient-to: #4c5a7a; /* darker blue-gray */
-}
-
-.to-dark-purple-2 {
-  --tw-gradient-to: #2d3748; /* darker slate */
-}
-
-/* Blue/Periwinkle color palette - Shadow colors */
-.shadow-white {
-  --tw-shadow-color: #ffffff;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-alice-blue {
-  --tw-shadow-color: #edf2fb;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-lavender-web {
-  --tw-shadow-color: #e2eafc;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-lavender-web-2 {
-  --tw-shadow-color: #d7e3fc;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-periwinkle {
-  --tw-shadow-color: #ccdbfd;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-jordy-blue {
-  --tw-shadow-color: #abc4ff;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-vista-blue {
-  --tw-shadow-color: #a1aae5;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-tropical-indigo {
-  --tw-shadow-color: #9395d3;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-black {
-  --tw-shadow-color: #000000;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-/* Legacy color mappings for backward compatibility */
-.shadow-magnolia {
-  --tw-shadow-color: #edf2fb; /* alice-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-thistle {
-  --tw-shadow-color: #d7e3fc; /* lavender-web-2 */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-wisteria {
-  --tw-shadow-color: #abc4ff; /* jordy-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-lavender-floral {
-  --tw-shadow-color: #a1aae5; /* vista-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-periwinkle-500 {
-  --tw-shadow-color: #abc4ff; /* jordy-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-dark-purple {
-  --tw-shadow-color: #4c5a7a; /* darker blue-gray */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-dark-purple-2 {
-  --tw-shadow-color: #2d3748; /* darker slate */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
+/* 
+  All utility classes (bg-*, text-*, border-*, from-*, to-*, shadow-*, hover:*, etc.)
+  are now automatically generated by Tailwind 4.1 from the @theme definitions above.
+  Only custom patterns that Tailwind doesn't generate are kept below.
+*/
 
 /* Blob animation */
 @keyframes blob {
@@ -876,190 +292,6 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
-}
-
-/* Additional purple color variants - Hover states */
-.group-hover\:text-magnolia:hover {
-  color: #edf2fb; /* alice-blue */
-}
-
-.group-hover\:text-pale-purple:hover {
-  color: #e2eafc; /* lavender-web */
-}
-
-.group-hover\:bg-lavender-floral:hover {
-  background-color: #a1aae5; /* vista-blue */
-}
-
-.group-hover\:bg-periwinkle-500:hover {
-  background-color: #abc4ff; /* jordy-blue */
-}
-
-.group-hover\:bg-jordy-blue:hover {
-  background-color: #abc4ff;
-}
-
-.group-hover\:bg-vista-blue:hover {
-  background-color: #a1aae5;
-}
-
-.hover\:bg-dark-purple:hover {
-  background-color: #4c5a7a; /* dark blue-gray */
-}
-
-.hover\:border-thistle:hover {
-  border-color: #d7e3fc; /* lavender-web-2 */
-}
-
-.hover\:border-thistle-2:hover {
-  border-color: #ccdbfd; /* periwinkle */
-}
-
-.hover\:border-lavender-web-2:hover {
-  border-color: #d7e3fc;
-}
-
-.hover\:border-periwinkle:hover {
-  border-color: #ccdbfd;
-}
-
-.hover\:text-lavender-floral:hover {
-  color: #a1aae5; /* vista-blue */
-}
-
-.hover\:text-periwinkle-500:hover {
-  color: #abc4ff; /* jordy-blue */
-}
-
-.hover\:text-wisteria:hover {
-  color: #abc4ff; /* jordy-blue */
-}
-
-.hover\:text-jordy-blue:hover {
-  color: #abc4ff;
-}
-
-.hover\:text-vista-blue:hover {
-  color: #a1aae5;
-}
-
-/* Additional blue variants with opacity for overlays */
-.bg-dark-purple-2\/30 {
-  background-color: rgba(45, 55, 72, 0.3); /* dark slate with opacity */
-}
-
-.border-dark-purple\/30 {
-  border-color: rgba(76, 90, 122, 0.3); /* dark blue-gray with opacity */
-}
-
-.shadow-dark-purple-2\/50 {
-  --tw-shadow-color: rgba(45, 55, 72, 0.5); /* dark slate with opacity */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.shadow-dark-purple\/50 {
-  --tw-shadow-color: rgba(76, 90, 122, 0.5); /* dark blue-gray with opacity */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-/* Legacy periwinkle classes mapped to new blue/periwinkle palette for backward compatibility */
-.bg-periwinkle-50,
-.bg-periwinkle-100 {
-  background-color: #edf2fb; /* alice-blue */
-}
-
-.bg-periwinkle-200 {
-  background-color: #d7e3fc; /* lavender-web-2 */
-}
-
-.bg-periwinkle-300,
-.text-periwinkle-300 {
-  background-color: #ccdbfd; /* periwinkle */
-  color: #ccdbfd;
-}
-
-.bg-periwinkle-400,
-.to-periwinkle-400 {
-  background-color: #c1d3fe; /* periwinkle-2 */
-  --tw-gradient-to: #c1d3fe;
-}
-
-.bg-periwinkle-500,
-.bg-periwinkle-500,
-.text-periwinkle-500,
-.from-periwinkle-500,
-.from-periwinkle-500,
-.to-periwinkle-500,
-.to-periwinkle-500,
-.bg-periwinkle-600,
-.text-periwinkle-600,
-.from-periwinkle-600,
-.to-periwinkle-600 {
-  background-color: #abc4ff; /* jordy-blue */
-  color: #abc4ff;
-  --tw-gradient-from: #abc4ff;
-  --tw-gradient-to: #abc4ff;
-}
-
-.bg-periwinkle-700,
-.hover\:bg-periwinkle-700:hover {
-  background-color: #4c5a7a; /* dark blue-gray */
-}
-
-.bg-periwinkle-800,
-.bg-periwinkle-900,
-.text-periwinkle-900 {
-  background-color: #2d3748; /* dark slate */
-  color: #2d3748;
-}
-
-.border-periwinkle-200,
-.hover\:border-periwinkle-200:hover,
-.border-periwinkle-100 {
-  border-color: #d7e3fc; /* lavender-web-2 */
-}
-
-.shadow-periwinkle-200,
-.shadow-periwinkle-300 {
-  --tw-shadow-color: #d7e3fc; /* lavender-web-2 */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.bg-periwinkle-900\/30,
-.border-periwinkle-700\/30 {
-  background-color: rgba(45, 55, 72, 0.3);
-  border-color: rgba(76, 90, 122, 0.3);
-}
-
-.shadow-periwinkle-900\/50,
-.shadow-periwinkle-800\/50 {
-  --tw-shadow-color: rgba(45, 55, 72, 0.5);
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
-}
-
-.from-periwinkle-50,
-.from-periwinkle-400 {
-  --tw-gradient-from: #edf2fb; /* alice-blue */
-}
-
-.group-hover\:bg-periwinkle-500:hover {
-  background-color: #abc4ff; /* jordy-blue */
-}
-
-.group-hover\:text-periwinkle-50:hover {
-  color: #edf2fb; /* alice-blue */
-}
-
-.group-hover\:text-periwinkle-500:hover {
-  color: #abc4ff; /* jordy-blue */
 }
 
 /* Smooth dialog overlay transitions */
