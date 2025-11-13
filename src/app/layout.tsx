@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { CommandPalette } from "@/components/command-palette";
-import SiteFooter from "@/components/layout/site-footer/site-footer";
-import SiteHeader from "@/components/layout/site-header/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";

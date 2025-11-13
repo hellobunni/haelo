@@ -10,7 +10,7 @@ export default function ConditionalHeaderFooter({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isPortfolioPage = pathname === "/portfolio";
+  const isPortfolioPage = pathname === "/resume";
 
   return (
     <>
@@ -22,5 +22,3 @@ export default function ConditionalHeaderFooter({
     </>
   );
 }
-
-

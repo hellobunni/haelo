@@ -126,30 +126,30 @@ function ProjectCardContent({
   onScreenshotClick?: (e?: React.MouseEvent) => void;
 }) {
   const isResume = variant === "resume";
-  
+
   // Color classes based on variant
-  const borderHoverClass = isResume 
-    ? "group-hover:border-coral-200" 
+  const borderHoverClass = isResume
+    ? "group-hover:border-none"
     : "group-hover:border-periwinkle-200";
-  
-  const iconColorClass = isResume 
-    ? "text-coral-600" 
-    : "text-jordy-blue";
-  
-  const categoryBgClass = isResume 
-    ? "bg-coral-50" 
+
+  const iconColorClass = isResume ? "text-tropical-indigo" : "text-jordy-blue";
+
+  const categoryBgClass = isResume
+    ? "bg-tropical-indigo/30"
     : "bg-periwinkle-50";
-  
-  const categoryTextClass = isResume 
-    ? "text-coral-700" 
+
+  const categoryTextClass = isResume
+    ? "text-tropical-indigo-2"
     : "text-dark-purple";
-  
-  const titleHoverClass = isResume 
-    ? "group-hover:text-coral-600" 
+
+  const titleHoverClass = isResume
+    ? "group-hover:text-tropical-indigo-2"
     : "group-hover:text-jordy-blue";
 
   return (
-    <div className={`bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl ${borderHoverClass} h-full flex flex-col`}>
+    <div
+      className={`bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl ${borderHoverClass} h-full flex flex-col`}
+    >
       {/* Image */}
       <div className="relative h-64 overflow-hidden bg-gray-100">
         <Image
@@ -182,16 +182,18 @@ function ProjectCardContent({
       {/* Content */}
       <div className="py-4 px-3 flex-1 flex flex-col">
         <div className="flex items-center gap-2 mb-3 flex-wrap">
-          {project.categories.map((category) => (
+          {project.categories.map((category, index) => (
             <span
               key={category}
-              className={`px-3 py-1 rounded-full ${categoryBgClass} ${categoryTextClass} text-xs font-medium`}
+              className={`px-3 py-1 rounded-full ${categoryBgClass} ${categoryTextClass} text-xs font-medium ${index >= 2 ? "hidden md:inline" : ""}`}
             >
               {category}
             </span>
           ))}
         </div>
-        <h3 className={`text-xl font-bold text-gray-900 mb-3 ${titleHoverClass} transition-colors duration-300`}>
+        <h3
+          className={`text-xl font-bold text-gray-900 mb-3 ${titleHoverClass} transition-colors duration-300`}
+        >
           {project.title}
         </h3>
       </div>
