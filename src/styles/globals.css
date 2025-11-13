@@ -738,115 +738,99 @@
 /* Blue/Periwinkle color palette - Shadow colors */
 .shadow-white {
   --tw-shadow-color: #ffffff;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-alice-blue {
   --tw-shadow-color: #edf2fb;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-lavender-web {
   --tw-shadow-color: #e2eafc;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-lavender-web-2 {
   --tw-shadow-color: #d7e3fc;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-periwinkle {
   --tw-shadow-color: #ccdbfd;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-jordy-blue {
   --tw-shadow-color: #abc4ff;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-vista-blue {
   --tw-shadow-color: #a1aae5;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-tropical-indigo {
   --tw-shadow-color: #9395d3;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-black {
   --tw-shadow-color: #000000;
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 /* Legacy color mappings for backward compatibility */
 .shadow-magnolia {
   --tw-shadow-color: #edf2fb; /* alice-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-thistle {
   --tw-shadow-color: #d7e3fc; /* lavender-web-2 */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-wisteria {
   --tw-shadow-color: #abc4ff; /* jordy-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-lavender-floral {
   --tw-shadow-color: #a1aae5; /* vista-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-periwinkle-500 {
   --tw-shadow-color: #abc4ff; /* jordy-blue */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-dark-purple {
   --tw-shadow-color: #4c5a7a; /* darker blue-gray */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-dark-purple-2 {
   --tw-shadow-color: #2d3748; /* darker slate */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 /* Blob animation */
@@ -954,16 +938,14 @@
 
 .shadow-dark-purple-2\/50 {
   --tw-shadow-color: rgba(45, 55, 72, 0.5); /* dark slate with opacity */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-dark-purple\/50 {
   --tw-shadow-color: rgba(76, 90, 122, 0.5); /* dark blue-gray with opacity */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 /* Legacy periwinkle classes mapped to new blue/periwinkle palette for backward compatibility */
@@ -1026,9 +1008,8 @@
 .shadow-periwinkle-200,
 .shadow-periwinkle-300 {
   --tw-shadow-color: #d7e3fc; /* lavender-web-2 */
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .bg-periwinkle-900\/30,
@@ -1040,9 +1021,8 @@
 .shadow-periwinkle-900\/50,
 .shadow-periwinkle-800\/50 {
   --tw-shadow-color: rgba(45, 55, 72, 0.5);
-  box-shadow:
-    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .from-periwinkle-50,
@@ -1065,4 +1045,248 @@
 /* Smooth dialog overlay transitions */
 [data-radix-dialog-overlay] {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Coral color palette */
+.bg-coral-50 {
+  background-color: #fff5f4;
+}
+
+.bg-coral-100 {
+  background-color: #ffe5e2;
+}
+
+.bg-coral-200 {
+  background-color: #ffb8b1;
+}
+
+.bg-coral-500 {
+  background-color: #ff6f61;
+}
+
+.bg-coral-500\/10 {
+  background-color: rgba(255, 111, 97, 0.1);
+}
+
+.bg-coral-600 {
+  background-color: #e85d51;
+}
+
+.bg-coral-700 {
+  background-color: #d64d3f;
+}
+
+.text-coral-600 {
+  color: #e85d51;
+}
+
+.text-coral-700 {
+  color: #d64d3f;
+}
+
+.border-coral-200 {
+  border-color: #ffb8b1;
+}
+
+.border-coral-500 {
+  border-color: #ff6f61;
+}
+
+.hover\:border-coral-500:hover {
+  border-color: #ff6f61;
+}
+
+.hover\:bg-coral-50:hover {
+  background-color: #fff5f4;
+}
+
+.hover\:bg-coral-600:hover {
+  background-color: #e85d51;
+}
+
+.from-coral-50 {
+  --tw-gradient-from: #fff5f4;
+}
+
+.from-coral-500 {
+  --tw-gradient-from: #ff6f61;
+}
+
+.to-coral-500 {
+  --tw-gradient-to: #ff6f61;
+}
+
+/* Portfolio color palette */
+:root {
+  --fairy-tale: #fdc3dcff;
+  --cherry-blossom-pink: #fcb0c6ff;
+  --light-red: #fd7272ff;
+  --sandy-brown: #ffa970ff;
+  --earth-yellow: #ffc370ff;
+}
+
+/* Portfolio color palette - Background colors */
+.bg-fairy-tale {
+  background-color: #fdc3dcff;
+}
+
+.bg-cherry-blossom-pink {
+  background-color: #fcb0c6ff;
+}
+
+.bg-light-red {
+  background-color: #fd7272ff;
+}
+
+.bg-sandy-brown {
+  background-color: #ffa970ff;
+}
+
+.bg-earth-yellow {
+  background-color: #ffc370ff;
+}
+
+/* Portfolio color palette - Text colors */
+.text-fairy-tale {
+  color: #fdc3dcff;
+}
+
+.text-cherry-blossom-pink {
+  color: #fcb0c6ff;
+}
+
+.text-light-red {
+  color: #fd7272ff;
+}
+
+.text-sandy-brown {
+  color: #ffa970ff;
+}
+
+.text-earth-yellow {
+  color: #ffc370ff;
+}
+
+/* Portfolio color palette - Border colors */
+.border-fairy-tale {
+  border-color: #fdc3dcff;
+}
+
+.border-cherry-blossom-pink {
+  border-color: #fcb0c6ff;
+}
+
+.border-light-red {
+  border-color: #fd7272ff;
+}
+
+.border-sandy-brown {
+  border-color: #ffa970ff;
+}
+
+.border-earth-yellow {
+  border-color: #ffc370ff;
+}
+
+/* Portfolio color palette - Shadow colors */
+.shadow-fairy-tale {
+  --tw-shadow-color: #fdc3dcff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-cherry-blossom-pink {
+  --tw-shadow-color: #fcb0c6ff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-light-red {
+  --tw-shadow-color: #fd7272ff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sandy-brown {
+  --tw-shadow-color: #ffa970ff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-earth-yellow {
+  --tw-shadow-color: #ffc370ff;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/* Portfolio color palette - Hover states */
+.hover\:bg-fairy-tale:hover {
+  background-color: #fdc3dcff;
+}
+
+.hover\:bg-cherry-blossom-pink:hover {
+  background-color: #fcb0c6ff;
+}
+
+.hover\:bg-light-red:hover {
+  background-color: #fd7272ff;
+}
+
+.hover\:bg-sandy-brown:hover {
+  background-color: #ffa970ff;
+}
+
+.hover\:bg-earth-yellow:hover {
+  background-color: #ffc370ff;
+}
+
+.hover\:text-fairy-tale:hover {
+  color: #fdc3dcff;
+}
+
+.hover\:text-cherry-blossom-pink:hover {
+  color: #fcb0c6ff;
+}
+
+.hover\:text-light-red:hover {
+  color: #fd7272ff;
+}
+
+.hover\:text-sandy-brown:hover {
+  color: #ffa970ff;
+}
+
+.hover\:text-earth-yellow:hover {
+  color: #ffc370ff;
+}
+
+/* Portfolio color palette - Shadow with opacity */
+.shadow-fairy-tale\/50 {
+  --tw-shadow-color: rgba(253, 195, 220, 0.5);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-cherry-blossom-pink\/50 {
+  --tw-shadow-color: rgba(252, 176, 198, 0.5);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-light-red\/50 {
+  --tw-shadow-color: rgba(253, 114, 114, 0.5);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sandy-brown\/50 {
+  --tw-shadow-color: rgba(255, 169, 112, 0.5);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-earth-yellow\/50 {
+  --tw-shadow-color: rgba(255, 195, 112, 0.5);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
