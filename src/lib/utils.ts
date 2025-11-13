@@ -18,6 +18,6 @@ export const navigationItems = [
 export const LOGO_URL =
   "https://res.cloudinary.com/bytebeardigital/image/upload/v1762869041/Haelo%20Studios/log/svg/haelo-blue-black_edmsvy.svg";
 
-// Logo for dark backgrounds (white logo)
+// Logo for dark backgrounds and meta images (same as site logo)
 export const DARK_LOGO_URL =
-  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762902526/haelo_polu9p.png";
+  "https://res.cloudinary.com/bytebeardigital/image/upload/v1762869041/Haelo%20Studios/log/svg/haelo-blue-black_edmsvy.svg";

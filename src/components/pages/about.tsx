@@ -92,9 +92,8 @@ export default function About() {
                   className={`text-gray-600 leading-relaxed ${
                     index < story.paragraphs.length - 1 ? "mb-6" : ""
                   }`}
-                >
-                  {paragraph}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
               ))}
             </div>
           </motion.div>
