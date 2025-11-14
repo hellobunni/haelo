@@ -11,14 +11,14 @@ export default function ConditionalHeaderFooter({
 }) {
   const pathname = usePathname();
   const isPortfolioPage = pathname === "/resume";
-
+  const isLabsPage = pathname?.startsWith("/labs");
   return (
     <>
       {/* Client header with its own state */}
-      {!isPortfolioPage && <SiteHeader />}
+      {!isPortfolioPage && !isLabsPage && <SiteHeader />}
       {/* Page content (route transitions handled in app/template.tsx) */}
-      <main className={isPortfolioPage ? "" : "pt-20"}>{children}</main>
-      {!isPortfolioPage && <SiteFooter />}
+      <main className={isPortfolioPage || isLabsPage ? "" : "pt-20"}>{children}</main>
+      {!isPortfolioPage && !isLabsPage && <SiteFooter />}
     </>
   );
 }
