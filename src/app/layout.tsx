@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { CommandPalette } from "@/components/command-palette";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { CommandPalette } from "@/components/shared/command-palette";
+import { Toaster } from "@/components/ui/sonner/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
 import { DARK_LOGO_URL } from "@/lib/utils";
 import ConditionalHeaderFooter from "./conditional-header-footer";
 

@@ -1,11 +1,11 @@
 "use client";
 import { useRef } from "react";
-import HeroSection from "@/components/blocks/HeroSection";
-import ProcessMini from "@/components/blocks/processMini";
-import CTASection from "@/components/home/CTASection";
-import FinalCTA from "@/components/home/FinalCTA";
-import SelectedWorks from "@/components/home/SelectedWorks";
-import WhatWeDoMini from "@/components/home/WhatWeDoMini";
+import CTASection from "@/components/sections/home/CTASection";
+import FinalCTA from "@/components/sections/home/FinalCTA";
+import SelectedWorks from "@/components/sections/home/SelectedWorks";
+import WhatWeDoMini from "@/components/sections/home/WhatWeDoMini";
+import HeroSection from "@/components/sections/shared/HeroSection";
+import ProcessMini from "@/components/sections/shared/processMini";
 import contentData from "@/lib/data/content.json";
 
 export default function HomePage() {

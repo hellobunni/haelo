@@ -6,7 +6,7 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/components/ui/card";
+} from "@/components/ui/card/card";
 import {
   getInvoiceById,
   getLineItemsByInvoiceId,

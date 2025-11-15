@@ -1,13 +1,13 @@
 "use client";
 
 import { Coffee } from "lucide-react";
-import AboutSection from "../resume/aboutSection";
-import { DecorativeBlobs } from "../resume/DecorativeBlobs";
-import Experience from "../resume/experience";
-import ResumeHeader from "../resume/portfolioHeader";
-import ResumeCTA from "../resume/resumeCTA";
-import SkillsSection from "../resume/skillsSection";
-import WorkSection from "../resume/works";
+import AboutSection from "../sections/resume/aboutSection";
+import { DecorativeBlobs } from "../sections/resume/DecorativeBlobs";
+import Experience from "../sections/resume/experience";
+import ResumeHeader from "../sections/resume/portfolioHeader";
+import ResumeCTA from "../sections/resume/resumeCTA";
+import SkillsSection from "../sections/resume/skillsSection";
+import WorkSection from "../sections/resume/works";
 
 export default function PortfolioPage() {
   return (

@@ -17,7 +17,9 @@ export default function ConditionalHeaderFooter({
       {/* Client header with its own state */}
       {!isPortfolioPage && !isLabsPage && <SiteHeader />}
       {/* Page content (route transitions handled in app/template.tsx) */}
-      <main className={isPortfolioPage || isLabsPage ? "" : "pt-20"}>{children}</main>
+      <main className={isPortfolioPage || isLabsPage ? "" : "pt-20"}>
+        {children}
+      </main>
       {!isPortfolioPage && !isLabsPage && <SiteFooter />}
     </>
   );

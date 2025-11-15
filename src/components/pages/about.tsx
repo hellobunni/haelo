@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import HeroSection from "@/components/blocks/HeroSection";
+import HeroSection from "@/components/sections/shared/HeroSection";
 import aboutData from "@/lib/data/about.json";
-import FinalCTA from "../home/FinalCTA";
+import FinalCTA from "../sections/home/FinalCTA";
 
 // Icon mapping helper
 const iconMap: Record<string, LucideIcon> = {

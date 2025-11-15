@@ -4,16 +4,21 @@ import { format } from "date-fns";
 import { Edit, Eye, FileText, Rocket, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge/badge";
+import { Button } from "@/components/ui/button/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card/card";
+import { Progress } from "@/components/ui/progress/progress";
+import { Skeleton } from "@/components/ui/skeleton/skeleton";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/tooltip";
 import type { Project } from "@/types";
 import EditProjectDialog from "../dialogs/EditProjectDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";

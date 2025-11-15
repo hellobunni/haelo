@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import { LOGO_URL, navigationItems } from "@/lib/utils";
 
 export default function SiteHeader() {

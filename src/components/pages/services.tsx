@@ -1,6 +1,6 @@
 "use client";
-import HeroSection from "@/components/blocks/HeroSection";
-import ServicesSection from "@/components/process/ServicesSection";
+import ServicesSection from "@/components/sections/process/ServicesSection";
+import HeroSection from "@/components/sections/shared/HeroSection";
 import servicesData from "@/lib/data/services.json";
 
 export default function ServicesPage() {

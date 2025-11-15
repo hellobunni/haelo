@@ -2,9 +2,9 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import HeroSection from "@/components/blocks/HeroSection";
-import ProjectCard from "@/components/blocks/ProjectCard";
-import { Button } from "@/components/ui/button";
+import HeroSection from "@/components/sections/shared/HeroSection";
+import ProjectCard from "@/components/sections/shared/ProjectCard";
+import { Button } from "@/components/ui/button/button";
 import contentData from "@/lib/data/content.json";
 import projectsData from "@/lib/data/projects.json";
 import type { PortfolioProject } from "@/types";

@@ -2,9 +2,9 @@ import { format } from "date-fns";
 import { ArrowLeft, Mail } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge/badge";
+import { Card, CardContent } from "@/components/ui/card/card";
+import { Progress } from "@/components/ui/progress/progress";
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table/table";
 import { getClientDetailById } from "@/features/admin/api";
 import { InvoiceStatusBadge } from "@/features/invoices/components/InvoiceStatusBadge";
 import { AddInvoiceButton } from "./AddInvoiceButton";

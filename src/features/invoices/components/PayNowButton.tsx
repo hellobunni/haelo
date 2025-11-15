@@ -8,7 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import { getStripe } from "@/lib/stripe/client";
 
 function CheckoutForm({

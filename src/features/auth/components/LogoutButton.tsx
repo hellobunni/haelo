@@ -2,7 +2,7 @@
 
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import { createClient } from "@/lib/supabase/client";
 
 export function LogoutButton() {

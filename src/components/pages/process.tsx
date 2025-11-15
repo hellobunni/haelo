@@ -1,9 +1,9 @@
 "use client";
 import { Code, Palette, Search, Target, TrendingUp } from "lucide-react";
-import HeroSection from "@/components/blocks/HeroSection";
-import ProcessStep from "@/components/process/ProcessStep";
+import ProcessStep from "@/components/sections/process/ProcessStep";
+import HeroSection from "@/components/sections/shared/HeroSection";
 import servicesData from "@/lib/data/services.json";
-import FinalCTA from "../home/FinalCTA";
+import FinalCTA from "../sections/home/FinalCTA";
 
 // Icon mapping function
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
