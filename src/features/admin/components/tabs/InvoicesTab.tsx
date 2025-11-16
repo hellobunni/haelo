@@ -27,6 +27,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip/tooltip";
 import { getAllInvoices } from "@/features/admin/api";
+import { cn } from "@/lib/utils";
 import type { InvoiceWithClient } from "@/types";
 import EditInvoiceDialog from "../dialogs/EditInvoiceDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
@@ -266,7 +267,7 @@ export default function InvoicesTab() {
               size="sm"
             >
               <RefreshCw
-                className={`h-4 w-4 mr-2 ${syncing ? "animate-spin" : ""}`}
+                className={cn("h-4 w-4 mr-2", syncing && "animate-spin")}
               />
               {syncing ? "Syncing..." : "Sync from Stripe"}
             </Button>
@@ -378,7 +379,10 @@ export default function InvoicesTab() {
                               disabled={syncingId === invoice.id}
                             >
                               <RefreshCw
-                                className={`h-4 w-4 ${syncingId === invoice.id ? "animate-spin" : ""}`}
+                                className={cn(
+                                  "h-4 w-4",
+                                  syncingId === invoice.id && "animate-spin",
+                                )}
                               />
                             </Button>
                           </TooltipTrigger>

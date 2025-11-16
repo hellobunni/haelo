@@ -1,0 +1,182 @@
+{
+  "experiments": [
+    {
+      "id": "glassmorphism-card",
+      "title": "Glassmorphism Card",
+      "description": "Frosted glass effect with backdrop blur",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      "gradient": "from-blue-500 to-cyan-500",
+      "tags": ["Design", "UI"],
+      "tag": "Design",
+      "url": "/labs/experiments/glassmorphism-card",
+      "featured": true
+    },
+    {
+      "id": "dark-mode-toggle",
+      "title": "Dark Mode Toggle",
+      "description": "Toggle between light and dark mode with smooth transition",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      "gradient": "from-gray-800 to-gray-900",
+      "tags": ["Interaction", "Motion"],
+      "tag": "Interaction",
+      "url": "/labs/experiments/dark-mode-toggle",
+      "featured": true
+    },
+    {
+      "id": "3d-card-flip",
+      "title": "3D Card Flip",
+      "description": "Three-dimensional card flip animation",
+      "gradient": "from-indigo-500 to-purple-500",
+      "tags": ["3D", "Animation"],
+      "tag": "3D",
+      "url": "/labs/experiments/3d-card-flip",
+      "featured": false
+    },
+    {
+      "id": "shimmer-effect",
+      "title": "Shimmer Effect",
+      "description": "Animated shimmer loading effect",
+      "gradient": "from-teal-500 to-cyan-500",
+      "tags": ["Loading", "Animation"],
+      "tag": "Loading",
+      "url": "/labs/experiments/shimmer-effect",
+      "featured": false
+    },
+    {
+      "id": "gradient-text",
+      "title": "Gradient Text",
+      "description": "Animated gradient text effect",
+      "gradient": "from-yellow-500 to-amber-500",
+      "tags": ["Typography", "Animation"],
+      "tag": "Typography",
+      "url": "/labs/experiments/gradient-text",
+      "featured": false
+    },
+    {
+      "id": "liquid-button",
+      "title": "Liquid Button",
+      "description": "Button with liquid-like fill animation",
+      "gradient": "from-emerald-500 to-teal-500",
+      "tags": ["Interaction", "Animation"],
+      "tag": "Interaction",
+      "url": "/labs/experiments/liquid-button",
+      "featured": false
+    }
+  ],
+  "details": {
+    "glassmorphism-card": {
+      "title": "Glassmorphism Card",
+      "subtitle": "Frosted Glass UI Pattern",
+      "description": "Frosted glass effect with backdrop blur, subtle borders, and elegant hover states. A modern UI pattern that creates depth and visual interest.",
+      "tag": "Design",
+      "gradient": "from-blue-500 to-cyan-500",
+      "tags": ["Design", "UI", "CSS", "Tailwind"],
+      "techStack": ["CSS", "Tailwind CSS", "Framer Motion"],
+      "codeSnippet": "// Glassmorphism styles\n<div className=\"\n  bg-white/10 \n  backdrop-blur-lg \n  border border-white/20 \n  rounded-2xl \n  shadow-2xl\n  hover:bg-white/15\n  transition-all\n\">\n  {/* Content */}\n</div>",
+      "features": [
+        "Backdrop blur effect",
+        "Semi-transparent backgrounds",
+        "Layered depth with shadows",
+        "Smooth hover transitions",
+        "Works on any background"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/glassmorphism-card",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/glassmorphism-card"
+    },
+    "dark-mode-toggle": {
+      "title": "Dark Mode Toggle",
+      "subtitle": "Smooth Theme Transition",
+      "description": "Toggle between light and dark mode with smooth transitions, animated icons, and system preference detection.",
+      "tag": "Interaction",
+      "gradient": "from-gray-800 to-gray-900",
+      "tags": ["Interaction", "Motion", "Theme"],
+      "techStack": ["React", "Framer Motion", "Tailwind CSS"],
+      "codeSnippet": "// Dark mode toggle\nconst [theme, setTheme] = useState('light');\n\nconst toggleTheme = () => {\n  const newTheme = theme === 'light' ? 'dark' : 'light';\n  setTheme(newTheme);\n  document.documentElement.classList.toggle('dark');\n};\n\n<motion.button\n  onClick={toggleTheme}\n  whileHover={{ scale: 1.1 }}\n  whileTap={{ scale: 0.9 }}\n>\n  {theme === 'light' ? <Moon /> : <Sun />}\n</motion.button>",
+      "features": [
+        "Smooth theme transitions",
+        "Animated icon rotation",
+        "System preference detection",
+        "Persistent theme storage",
+        "Accessible keyboard controls"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/dark-mode-toggle",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/dark-mode-toggle"
+    },
+    "3d-card-flip": {
+      "title": "3D Card Flip",
+      "subtitle": "Three-Dimensional Animation",
+      "description": "Three-dimensional card flip animation with perspective transforms and smooth transitions.",
+      "tag": "3D",
+      "gradient": "from-indigo-500 to-purple-500",
+      "tags": ["3D", "Animation", "CSS Transforms"],
+      "techStack": ["React", "CSS 3D Transforms", "Framer Motion"],
+      "codeSnippet": "// 3D card flip\n<div className=\"perspective-1000\">\n  <motion.div\n    className=\"preserve-3d\"\n    whileHover={{ rotateY: 180 }}\n    transition={{ duration: 0.6 }}\n  >\n    <div className=\"backface-hidden\">Front</div>\n    <div className=\"backface-hidden rotate-y-180\">Back</div>\n  </motion.div>\n</div>",
+      "features": [
+        "3D perspective transforms",
+        "Smooth flip animation",
+        "Backface visibility control",
+        "Hover and click triggers",
+        "Responsive design"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/3d-card-flip",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/3d-card-flip"
+    },
+    "shimmer-effect": {
+      "title": "Shimmer Effect",
+      "subtitle": "Loading Animation",
+      "description": "Animated shimmer loading effect for skeleton screens and loading states.",
+      "tag": "Loading",
+      "gradient": "from-teal-500 to-cyan-500",
+      "tags": ["Loading", "Animation", "Skeleton"],
+      "techStack": ["CSS", "Tailwind CSS", "Framer Motion"],
+      "codeSnippet": "// Shimmer effect\n<div className=\"relative overflow-hidden bg-gray-200\">\n  <motion.div\n    className=\"absolute inset-0 bg-linear-to-r from-transparent via-white/60 to-transparent\"\n    animate={{ x: [\"-100%\", \"100%\"] }}\n    transition={{ duration: 1.5, repeat: Infinity }}\n  />\n</div>",
+      "features": [
+        "Smooth shimmer animation",
+        "Configurable speed",
+        "Works on any background",
+        "Performance optimized",
+        "Accessible loading states"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/shimmer-effect",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/shimmer-effect"
+    },
+    "gradient-text": {
+      "title": "Gradient Text",
+      "subtitle": "Animated Typography",
+      "description": "Animated gradient text effect with smooth color transitions and customizable gradients.",
+      "tag": "Typography",
+      "gradient": "from-yellow-500 to-amber-500",
+      "tags": ["Typography", "Animation", "CSS"],
+      "techStack": ["CSS", "Tailwind CSS", "Framer Motion"],
+      "codeSnippet": "// Gradient text animation\n<motion.h1\n  className=\"bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent\"\n  animate={{\n    backgroundPosition: [\"0%\", \"100%\", \"0%\"]\n  }}\n  transition={{ duration: 3, repeat: Infinity }}\n>\n  Animated Gradient Text\n</motion.h1>",
+      "features": [
+        "Smooth gradient animation",
+        "Customizable color stops",
+        "Background clip text",
+        "Performance optimized",
+        "Accessible text rendering"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/gradient-text",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/gradient-text"
+    },
+    "liquid-button": {
+      "title": "Liquid Button",
+      "subtitle": "Organic Fill Animation",
+      "description": "Button with liquid-like fill animation, creating an organic and fluid interaction experience.",
+      "tag": "Interaction",
+      "gradient": "from-emerald-500 to-teal-500",
+      "tags": ["Interaction", "Animation", "Morph"],
+      "techStack": ["React", "Framer Motion", "SVG"],
+      "codeSnippet": "// Liquid button fill\n<motion.button\n  whileHover={{ scale: 1.05 }}\n  className=\"relative overflow-hidden\"\n>\n  <motion.div\n    className=\"absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500\"\n    initial={{ scaleX: 0 }}\n    whileHover={{ scaleX: 1 }}\n    transition={{ type: \"spring\", stiffness: 300 }}\n  />\n  <span className=\"relative z-10\">Button</span>\n</motion.button>",
+      "features": [
+        "Liquid fill animation",
+        "Spring physics",
+        "Smooth transitions",
+        "Hover and click states",
+        "Accessible interactions"
+      ],
+      "liveUrl": "https://experiments.haelostudios.com/liquid-button",
+      "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/liquid-button"
+    }
+  }
+}

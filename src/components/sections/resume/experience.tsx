@@ -5,6 +5,7 @@ import { useState } from "react";
 import resumeData from "@/lib/data/resume.json";
 import { fadeInUp, stagger } from "@/lib/helpers/motion-variants";
 import { timelineColors } from "@/lib/helpers/resume-colors";
+import { cn } from "@/lib/utils";
 import { SectionHeader } from "./SectionHeader";
 
 // Helper function to parse period and extract start date in YYYY-MM-DD format
@@ -109,16 +110,18 @@ const Experience = () => {
                         stiffness: 400,
                         damping: 17,
                       }}
-                      className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 border-2 border-white ${
-                        isHovered
-                          ? `${colors.bg} shadow-lg ${colors.shadow} scale-110`
-                          : colors.bg
-                      }`}
+                      className={cn(
+                        "w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 border-2 border-white",
+                        colors.bg,
+                        isHovered && "shadow-lg scale-110",
+                        isHovered && colors.shadow,
+                      )}
                     >
                       <Icon
-                        className={`w-5 h-5 md:w-6 md:h-6 text-white transition-transform duration-300 ${
-                          isHovered ? "scale-110" : ""
-                        }`}
+                        className={cn(
+                          "w-5 h-5 md:w-6 md:h-6 text-white transition-transform duration-300",
+                          isHovered && "scale-110",
+                        )}
                       />
                     </motion.div>
 
@@ -176,7 +179,7 @@ const Experience = () => {
                               className="flex items-start gap-2 text-sm lg:text-base text-gray-700"
                             >
                               <span
-                                className={`${colors.text} mt-1.5 shrink-0`}
+                                className={cn(colors.text, "mt-1.5 shrink-0")}
                               >
                                 •
                               </span>

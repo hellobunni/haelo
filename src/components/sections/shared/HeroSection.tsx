@@ -1,4 +1,5 @@
 "use client";
+import { cva } from "class-variance-authority";
 import {
   ArrowRight,
   Award,
@@ -22,6 +23,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge/badge";
 import { Button } from "@/components/ui/button/button";
+import { cn } from "@/lib/utils";
 
 // Icon mapping - add more icons as needed
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -43,6 +45,109 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Shield,
 };
 
+// CVA Variants
+const sectionVariants = cva("relative overflow-hidden", {
+  variants: {
+    variant: {
+      fullscreen:
+        "min-h-screen flex items-center justify-center bg-linear-to-b from-gray-50 to-white",
+      lab: "min-h-screen flex items-center justify-center bg-linear-to-b from-gray-900 via-gray-800 to-gray-900",
+      simple: "py-16 bg-linear-to-b from-gray-50 to-white",
+      standard: "py-32 bg-linear-to-b from-gray-50 to-white",
+    },
+  },
+  defaultVariants: {
+    variant: "standard",
+  },
+});
+
+const blobContainerVariants = cva("absolute inset-0 overflow-hidden", {
+  variants: {
+    variant: {
+      fullscreen: "",
+      lab: "pointer-events-none",
+      simple: "pointer-events-none",
+      standard: "pointer-events-none",
+    },
+  },
+  defaultVariants: {
+    variant: "standard",
+  },
+});
+
+const titleVariants = cva("font-bold mb-6", {
+  variants: {
+    variant: {
+      fullscreen: "text-gray-900 tracking-tight",
+      lab: "text-white tracking-tight",
+      simple: "text-gray-900",
+      standard: "text-gray-900",
+    },
+    size: {
+      default: "text-5xl md:text-6xl lg:text-7xl",
+      large: "text-6xl md:text-7xl lg:text-8xl",
+    },
+  },
+  defaultVariants: {
+    variant: "standard",
+    size: "default",
+  },
+});
+
+const titleGradientVariants = cva(
+  "bg-linear-to-r bg-clip-text text-transparent",
+  {
+    variants: {
+      variant: {
+        fullscreen: "from-jordy-blue to-wisteria",
+        lab: "from-purple-400 via-blue-400 to-teal-400",
+        simple: "",
+        standard: "from-jordy-blue to-wisteria",
+      },
+      badgeVariant: {
+        default: "from-jordy-blue to-wisteria",
+        periwinkle: "from-jordy-blue to-periwinkle-400",
+        blank: "from-jordy-blue to-wisteria",
+        dark: "from-jordy-blue to-wisteria",
+        lab: "from-purple-400 via-blue-400 to-teal-400",
+      },
+    },
+    defaultVariants: {
+      variant: "standard",
+      badgeVariant: "default",
+    },
+  },
+);
+
+const descriptionVariants = cva("text-lg max-w-4xl mx-auto leading-relaxed", {
+  variants: {
+    variant: {
+      fullscreen: "md:text-xl text-gray-600 mb-12",
+      lab: "md:text-xl text-gray-400 mb-12",
+      simple: "text-gray-600",
+      standard: "text-gray-600",
+    },
+  },
+  defaultVariants: {
+    variant: "standard",
+  },
+});
+
+const blobDelayVariants = cva("", {
+  variants: {
+    delay: {
+      0: "",
+      2000: "animation-delay-2000",
+      4000: "animation-delay-4000",
+    },
+  },
+  defaultVariants: {
+    delay: 0,
+  },
+});
+
+type BadgeVariantType = "default" | "periwinkle" | "blank" | "dark" | "lab";
+
 export interface BlobConfig {
   position: "top-1/4" | "top-1/3" | "bottom-1/4" | "bottom-1/3";
   horizontal: "left-1/4" | "left-1/2" | "right-1/4" | "right-1/3";
@@ -55,11 +160,11 @@ export interface HeroButton {
   text: string;
   href: string;
   icon?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "lab" | "gradient" | "glass";
 }
 
 export interface HeroSectionProps {
-  variant?: "fullscreen" | "standard" | "simple";
+  variant?: "fullscreen" | "standard" | "simple" | "lab";
   badge?: {
     text: string;
     icon?: string;
@@ -80,7 +185,7 @@ export interface HeroSectionProps {
   titleSize?:
     | "text-5xl md:text-6xl lg:text-7xl"
     | "text-6xl md:text-7xl lg:text-8xl";
-  badgeVariant?: "default" | "periwinkle" | "blank" | "dark";
+  badgeVariant?: "default" | "periwinkle" | "blank" | "dark" | "lab";
 }
 
 export default function HeroSection({
@@ -127,22 +232,108 @@ export default function HeroSection({
         ];
 
   // Icon resolution
-  const BadgeIcon = badge?.icon ? iconMap[badge.icon] || Sparkles : Sparkles;
+  const getBadgeIcon = () => {
+    if (!badge?.icon) return null;
+    // Try exact match first
+    if (iconMap[badge.icon]) return iconMap[badge.icon];
+    // Try capitalized version
+    const capitalized =
+      badge.icon.charAt(0).toUpperCase() + badge.icon.slice(1);
+    if (iconMap[capitalized]) return iconMap[capitalized];
+    // Fallback to Sparkles if icon not found
+    return Sparkles;
+  };
+  const BadgeIcon = getBadgeIcon();
   const PrimaryButtonIcon = buttons?.primary?.icon
-    ? iconMap[buttons.primary.icon] || ArrowRight
+    ? iconMap[buttons.primary.icon] ||
+      iconMap[
+        buttons.primary.icon.charAt(0).toUpperCase() +
+          buttons.primary.icon.slice(1)
+      ] ||
+      ArrowRight
     : ArrowRight;
 
-  // Section classes
-  const sectionClasses =
-    variant === "fullscreen"
-      ? "relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-50 to-white"
-      : variant === "simple"
-        ? "relative py-16 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
-        : "relative py-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white";
+  // Helper functions
+  const getBadgeVariant = (): BadgeVariantType => {
+    if (variant === "lab") return "lab";
+    if (badgeVariant === "default") return "periwinkle";
+    return badgeVariant;
+  };
+
+  const getPrimaryButtonVariant = ():
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link"
+    | "dark"
+    | "periwinkle"
+    | "white"
+    | "tropical-indigo"
+    | "gradient"
+    | "glass"
+    | "gradient-border" => {
+    if (variant === "lab") {
+      return buttons?.primary?.variant === "gradient" ||
+        buttons?.primary?.variant === "glass"
+        ? buttons.primary.variant
+        : "gradient";
+    }
+    return "periwinkle";
+  };
+
+  const getSecondaryButtonVariant = ():
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link"
+    | "dark"
+    | "periwinkle"
+    | "white"
+    | "tropical-indigo"
+    | "gradient"
+    | "glass"
+    | "gradient-border" => {
+    if (variant === "lab") {
+      return buttons?.secondary?.variant === "glass" ||
+        buttons?.secondary?.variant === "gradient"
+        ? buttons.secondary.variant
+        : "glass";
+    }
+    return "outline";
+  };
+
+  const getPrimaryButtonClassName = (): string => {
+    if (variant === "lab") {
+      return "px-8 py-6 text-lg";
+    }
+    return "bg-jordy-blue hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria";
+  };
+
+  const getSecondaryButtonClassName = (): string => {
+    if (variant === "lab") {
+      return "px-8 py-6 text-lg";
+    }
+    return "border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-lg rounded-xl transition-all duration-300";
+  };
+
+  const getTitleGradientClasses = (): string => {
+    if (variant === "lab") {
+      return titleGradientVariants({ variant: "lab" });
+    }
+    return titleGradientVariants({ variant, badgeVariant });
+  };
 
   // Override maxWidth for simple variant if not explicitly set
   const effectiveMaxWidth =
     variant === "simple" && maxWidth === "max-w-7xl" ? "max-w-6xl" : maxWidth;
+
+  // Animation duration helper
+  const isFullscreenOrLab = variant === "fullscreen" || variant === "lab";
+  const animationDuration = isFullscreenOrLab ? 0.8 : 0.6;
 
   // Motion div style
   const motionStyle =
@@ -151,24 +342,25 @@ export default function HeroSection({
       : undefined;
 
   return (
-    <section ref={containerRef} className={sectionClasses}>
+    <section ref={containerRef} className={sectionVariants({ variant })}>
       {/* Blob Backgrounds */}
-      <div
-        className={`absolute inset-0 overflow-hidden ${variant === "fullscreen" ? "" : "pointer-events-none"}`}
-      >
+      <div className={blobContainerVariants({ variant })}>
         {defaultBlobs.map((blob, index) => {
-          const delayClass =
-            blob.delay === 2000
-              ? "animation-delay-2000"
-              : blob.delay === 4000
-                ? "animation-delay-4000"
-                : "";
           const animatedClass = blob.animated !== false ? "animate-blob" : "";
 
           return (
             <div
               key={`${blob.position}-${blob.horizontal}-${blob.color}-${index}`}
-              className={`absolute ${blob.position} ${blob.horizontal} w-96 h-96 ${blob.color} rounded-full mix-blend-multiply filter blur-3xl opacity-20 ${animatedClass} ${delayClass}`}
+              className={cn(
+                "absolute w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20",
+                blob.position,
+                blob.horizontal,
+                blob.color,
+                animatedClass,
+                blobDelayVariants({
+                  delay: (blob.delay as 0 | 2000 | 4000) || 0,
+                }),
+              )}
             />
           );
         })}
@@ -177,26 +369,28 @@ export default function HeroSection({
       {/* Content */}
       <motion.div
         style={motionStyle}
-        className={`relative z-10 ${effectiveMaxWidth} mx-auto px-6 ${variant === "fullscreen" ? "text-center" : ""}`}
+        className={cn(
+          "relative z-10 mx-auto px-6 text-center",
+          effectiveMaxWidth,
+        )}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: variant === "fullscreen" ? 0.8 : 0.6,
+            duration: animationDuration,
             ease: "easeOut",
           }}
-          className={variant === "fullscreen" ? "" : "text-center"}
         >
           {/* Badge */}
           {badge && (
             <Badge
-              variant={badgeVariant === "default" ? "periwinkle" : badgeVariant}
+              variant={getBadgeVariant()}
               size="lg"
               rounded={true}
               className="mb-8"
             >
-              <BadgeIcon className="w-4 h-4" />
+              {BadgeIcon && <BadgeIcon className="w-4 h-4" />}
               {badge.text}
             </Badge>
           )}
@@ -206,25 +400,26 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: variant === "fullscreen" ? 0.8 : 0.6,
-              delay: variant === "fullscreen" ? 0.1 : 0,
+              duration: animationDuration,
+              delay: isFullscreenOrLab ? 0.1 : 0,
               ease: "easeOut",
             }}
-            className={`${titleSize} font-bold text-gray-900 mb-6 ${variant === "fullscreen" ? "tracking-tight" : ""}`}
+            className={cn(
+              titleVariants({
+                variant,
+                size:
+                  titleSize === "text-6xl md:text-7xl lg:text-8xl"
+                    ? "large"
+                    : "default",
+              }),
+              titleSize,
+            )}
           >
             {title.line1}
             {title.line2 && variant !== "simple" && (
               <>
                 <br />
-                <span
-                  className={`bg-linear-to-r bg-clip-text text-transparent ${
-                    badgeVariant === "periwinkle"
-                      ? "from-jordy-blue to-periwinkle-400"
-                      : "from-jordy-blue to-wisteria"
-                  }`}
-                >
-                  {title.line2}
-                </span>
+                <span className={getTitleGradientClasses()}>{title.line2}</span>
               </>
             )}
             {title.line2 && variant === "simple" && (
@@ -240,11 +435,11 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: variant === "fullscreen" ? 0.8 : 0.6,
-              delay: variant === "fullscreen" ? 0.2 : 0,
+              duration: animationDuration,
+              delay: isFullscreenOrLab ? 0.2 : 0,
               ease: "easeOut",
             }}
-            className={`text-lg ${variant === "fullscreen" ? "md:text-xl" : ""} text-gray-600 ${variant === "fullscreen" ? "mb-12" : ""} max-w-4xl mx-auto leading-relaxed`}
+            className={descriptionVariants({ variant })}
           >
             {description}
           </motion.p>
@@ -255,8 +450,8 @@ export default function HeroSection({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                duration: variant === "fullscreen" ? 0.8 : 0.6,
-                delay: variant === "fullscreen" ? 0.3 : 0,
+                duration: animationDuration,
+                delay: isFullscreenOrLab ? 0.3 : 0,
                 ease: "easeOut",
               }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
@@ -265,8 +460,8 @@ export default function HeroSection({
                 <Link href={buttons.primary.href}>
                   <Button
                     size="lg"
-                    variant="periwinkle"
-                    className="bg-jordy-blue hover:bg-dark-purple text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-thistle transition-all duration-300 hover:shadow-xl hover:shadow-wisteria"
+                    variant={getPrimaryButtonVariant()}
+                    className={getPrimaryButtonClassName()}
                   >
                     {buttons.primary.text}
                     <PrimaryButtonIcon className="ml-2 w-5 h-5" />
@@ -277,8 +472,8 @@ export default function HeroSection({
                 <Link href={buttons.secondary.href}>
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-6 text-lg rounded-xl transition-all duration-300"
+                    variant={getSecondaryButtonVariant()}
+                    className={getSecondaryButtonClassName()}
                   >
                     {buttons.secondary.text}
                   </Button>

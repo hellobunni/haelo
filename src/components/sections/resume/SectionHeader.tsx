@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
   label: string;
@@ -18,7 +19,7 @@ export const SectionHeader = ({
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className={`text-center mb-16 ${className || ""}`}
+      className={cn("text-center mb-16", className)}
     >
       <h2 className="text-sm uppercase tracking-widest text-resume-purple-1 font-semibold mb-4">
         {label}

@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface DecorativeBlobsProps {
   blobs?: Array<{
     position?: string;
@@ -30,7 +32,13 @@ export const DecorativeBlobs = ({ blobs }: DecorativeBlobsProps) => {
       {blobConfig.map((blob, index) => (
         <div
           key={`blob-${blob.position || ""}-${blob.horizontal || ""}-${blob.color}-${index}`}
-          className={`absolute ${blob.position || ""} ${blob.horizontal || ""} ${blob.size || ""} ${blob.color} rounded-full blur-3xl`}
+          className={cn(
+            "absolute rounded-full blur-3xl",
+            blob.position,
+            blob.horizontal,
+            blob.size,
+            blob.color,
+          )}
         />
       ))}
     </>

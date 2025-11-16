@@ -51,9 +51,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Icon */}
-                  <div
-                    className={`w-16 h-16 rounded-2xl bg-linear-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10`}
-                  >
+                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 relative z-10">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 

@@ -1,5 +1,4 @@
 "use client";
-import clsx from "clsx";
 import { ArrowRight, Menu } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -8,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/layout/site-header/mobile-menu";
 import { Button } from "@/components/ui/button/button";
-import { LOGO_URL, navigationItems } from "@/lib/utils";
+import { cn, LOGO_URL, navigationItems } from "@/lib/utils";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -35,11 +34,12 @@ export default function SiteHeader() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100"
-          : "bg-transparent"
-      }`}
+          : "bg-transparent",
+      )}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
@@ -60,7 +60,7 @@ export default function SiteHeader() {
               <Link
                 key={item.name}
                 href={item.url}
-                className={clsx(
+                className={cn(
                   "text-sm font-medium transition-colors duration-300 relative group",
                   pathname === item.url
                     ? "border-b-2 border-jordy-blue"

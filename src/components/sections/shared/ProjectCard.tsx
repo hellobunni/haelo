@@ -1,4 +1,5 @@
 "use client";
+import { cva } from "class-variance-authority";
 import { ExternalLink, ImageIcon, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
@@ -10,9 +11,64 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog/dialog";
 import { VisuallyHidden } from "@/components/ui/visually-hidden/visually-hidden";
+import { cn } from "@/lib/utils";
 import type { PortfolioProject } from "@/types";
 
 type ProjectCardVariant = "default" | "resume";
+
+const projectCardVariants = cva(
+  "bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl h-full flex flex-col",
+  {
+    variants: {
+      variant: {
+        default: "group-hover:border-periwinkle-200",
+        resume: "group-hover:border-none",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const iconVariants = cva("w-5 h-5", {
+  variants: {
+    variant: {
+      default: "text-jordy-blue",
+      resume: "text-tropical-indigo",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+const categoryVariants = cva("px-3 py-1 rounded-full text-xs font-medium", {
+  variants: {
+    variant: {
+      default: "bg-periwinkle-50 text-dark-purple",
+      resume: "bg-tropical-indigo/30 text-tropical-indigo-2",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+const titleVariants = cva(
+  "text-xl font-bold text-gray-900 mb-3 transition-colors duration-300",
+  {
+    variants: {
+      variant: {
+        default: "group-hover:text-jordy-blue",
+        resume: "group-hover:text-tropical-indigo-2",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
 
 function ProjectCard({
   project,
@@ -129,31 +185,8 @@ function ProjectCardContent({
   variant?: ProjectCardVariant;
   onScreenshotClick?: (e?: React.MouseEvent) => void;
 }) {
-  const isResume = variant === "resume";
-
-  // Color classes based on variant
-  const borderHoverClass = isResume
-    ? "group-hover:border-none"
-    : "group-hover:border-periwinkle-200";
-
-  const iconColorClass = isResume ? "text-tropical-indigo" : "text-jordy-blue";
-
-  const categoryBgClass = isResume
-    ? "bg-tropical-indigo/30"
-    : "bg-periwinkle-50";
-
-  const categoryTextClass = isResume
-    ? "text-tropical-indigo-2"
-    : "text-dark-purple";
-
-  const titleHoverClass = isResume
-    ? "group-hover:text-tropical-indigo-2"
-    : "group-hover:text-jordy-blue";
-
   return (
-    <div
-      className={`bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-all duration-500 group-hover:shadow-2xl ${borderHoverClass} h-full flex flex-col`}
-    >
+    <div className={cn(projectCardVariants({ variant }))}>
       {/* Image */}
       <div className="relative h-64 overflow-hidden bg-gray-100">
         <Image
@@ -172,12 +205,12 @@ function ProjectCardContent({
               aria-label={`View screenshot of ${project.title}`}
               type="button"
             >
-              <ImageIcon className={`w-5 h-5 ${iconColorClass}`} />
+              <ImageIcon className={cn(iconVariants({ variant }))} />
             </button>
           )}
           {project.url && (
             <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-xl">
-              <ExternalLink className={`w-5 h-5 ${iconColorClass}`} />
+              <ExternalLink className={cn(iconVariants({ variant }))} />
             </div>
           )}
         </div>
@@ -189,17 +222,16 @@ function ProjectCardContent({
           {project.categories.map((category, index) => (
             <span
               key={category}
-              className={`px-3 py-1 rounded-full ${categoryBgClass} ${categoryTextClass} text-xs font-medium ${index >= 2 ? "hidden md:inline" : ""}`}
+              className={cn(
+                categoryVariants({ variant }),
+                index >= 2 && "hidden md:inline",
+              )}
             >
               {category}
             </span>
           ))}
         </div>
-        <h3
-          className={`text-xl font-bold text-gray-900 mb-3 ${titleHoverClass} transition-colors duration-300`}
-        >
-          {project.title}
-        </h3>
+        <h3 className={cn(titleVariants({ variant }))}>{project.title}</h3>
       </div>
     </div>
   );

@@ -59,7 +59,7 @@ export default function WorkPage() {
                 key={category}
                 variant={filter === category ? "periwinkle" : "outline"}
                 onClick={() => setFilter(category)}
-                className={`rounded-full `}
+                className="rounded-full"
                 aria-pressed={filter === category}
                 aria-label={`Filter by ${category === "all" ? "all projects" : category}`}
               >

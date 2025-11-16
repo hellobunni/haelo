@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Separator } from "@/components/ui/separator/separator";
+import { cn } from "@/lib/utils";
 
 interface ProcessTimelineProps {
   steps: Array<{
@@ -53,11 +54,18 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
               className="relative"
             >
               <div
-                className={`lg:grid lg:grid-cols-2 gap-12 items-center ${isEven ? "" : "lg:grid-flow-dense"}`}
+                className={cn(
+                  "lg:grid lg:grid-cols-2 gap-12 items-center",
+                  !isEven && "lg:grid-flow-dense",
+                )}
               >
                 {/* Content Side */}
                 <div
-                  className={`${isEven ? "lg:text-right lg:pr-16" : "lg:col-start-2 lg:pl-16"}`}
+                  className={cn(
+                    isEven
+                      ? "lg:text-right lg:pr-16"
+                      : "lg:col-start-2 lg:pl-16",
+                  )}
                 >
                   <span className="text-6xl md:text-7xl font-bold text-gray-100 block mb-2">
                     {step.number}
@@ -85,7 +93,10 @@ export default function ProcessTimeline({ steps }: ProcessTimelineProps) {
 
                 {/* Visual Side */}
                 <div
-                  className={`mt-8 lg:mt-0 ${isEven ? "lg:pl-16" : "lg:col-start-1 lg:pr-16"}`}
+                  className={cn(
+                    "mt-8 lg:mt-0",
+                    isEven ? "lg:pl-16" : "lg:col-start-1 lg:pr-16",
+                  )}
                 >
                   <motion.div
                     whileHover={{ y: -5 }}
