@@ -70,8 +70,9 @@ export const Default: Story = {
 // Blur intensity variants
 export const BlurIntensities: Story = {
   args: {
-    title: "Blur Intensity",
-    description: "Different backdrop blur levels",
+    blurIntensity: "lg",
+    title: "Glassmorphism Card",
+    description: "Frosted glass effect with backdrop blur",
     index: 0,
   },
   render: () => (
@@ -387,7 +388,8 @@ export const WithAriaLabel: Story = {
     description: "This card has a custom aria-label for screen readers",
     index: 0,
     onClick: () => alert("Accessible card clicked!"),
-    "aria-label": "Premium glassmorphism card with frosted glass effect. Click to interact.",
+    "aria-label":
+      "Premium glassmorphism card with frosted glass effect. Click to interact.",
   },
   render: (args) => (
     <div className="p-8 bg-linear-to-br from-purple-500 via-blue-500 to-teal-500 min-h-[300px] w-[400px] rounded-2xl">
@@ -453,4 +455,3 @@ export const Playground: Story = {
     },
   },
 };
-

@@ -1,5 +1,4 @@
 "use client";
-import { cva, type VariantProps } from "class-variance-authority";
 import {
   ArrowLeft,
   Check,
@@ -13,6 +12,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
+import GlassCardShowcase from "@/components/experiments/GlassmorphismCardDemo/GlassCardShowcase";
 import { Button } from "@/components/ui/button/button";
 import {
   Tabs,
@@ -23,63 +23,13 @@ import {
 import { getExperimentById, getExperimentDetail } from "@/lib/data/labs-data";
 import { cn } from "@/lib/utils";
 import type { Experiment, ExperimentDetail } from "@/types/labs";
-import GlassCardShowcase from "@/components/experiments/GlassmorphismCardDemo/GlassCardShowcase";
 
-const gradientVariants = cva("bg-linear-to-r", {
-  variants: {
-    gradient: {
-      "from-purple-500 to-pink-500": "from-purple-500 to-pink-500",
-      "from-blue-500 to-teal-500": "from-blue-500 to-teal-500",
-      "from-orange-500 to-red-500": "from-orange-500 to-red-500",
-      "from-green-500 to-emerald-500": "from-green-500 to-emerald-500",
-      "from-indigo-500 to-purple-500": "from-indigo-500 to-purple-500",
-      "from-cyan-500 to-blue-500": "from-cyan-500 to-blue-500",
-      "from-rose-500 to-pink-500": "from-rose-500 to-pink-500",
-      "from-violet-500 to-purple-500": "from-violet-500 to-purple-500",
-      "from-amber-500 to-orange-500": "from-amber-500 to-orange-500",
-      "from-teal-500 to-cyan-500": "from-teal-500 to-cyan-500",
-      "from-slate-500 to-gray-500": "from-slate-500 to-gray-500",
-      "from-yellow-500 to-amber-500": "from-yellow-500 to-amber-500",
-      "from-blue-500 to-cyan-500": "from-blue-500 to-cyan-500",
-      "from-gray-800 to-gray-900": "from-gray-800 to-gray-900",
-      "from-emerald-500 to-teal-500": "from-emerald-500 to-teal-500",
-    },
-  },
-});
-
-// Helper function to get gradient classes, with fallback for gradients not in variants
+// Helper function to get gradient classes
 function getGradientClasses(
   gradient?: string,
   baseClass = "bg-linear-to-r",
 ): string {
   if (!gradient) return "";
-
-  // Check if gradient exists in variants
-  const validGradients: string[] = [
-    "from-purple-500 to-pink-500",
-    "from-blue-500 to-teal-500",
-    "from-orange-500 to-red-500",
-    "from-green-500 to-emerald-500",
-    "from-indigo-500 to-purple-500",
-    "from-cyan-500 to-blue-500",
-    "from-rose-500 to-pink-500",
-    "from-violet-500 to-purple-500",
-    "from-amber-500 to-orange-500",
-    "from-teal-500 to-cyan-500",
-    "from-slate-500 to-gray-500",
-    "from-yellow-500 to-amber-500",
-    "from-blue-500 to-cyan-500",
-    "from-gray-800 to-gray-900",
-    "from-emerald-500 to-teal-500",
-  ];
-
-  if (validGradients.includes(gradient)) {
-    return gradientVariants({
-      gradient: gradient as VariantProps<typeof gradientVariants>["gradient"],
-    });
-  }
-
-  // Fallback: use the gradient string directly
   return `${baseClass} ${gradient}`;
 }
 
@@ -126,20 +76,10 @@ export default function ExperimentDetailPage() {
   const experiment = getExperimentById(experimentSlug);
   const experimentDetail = getExperimentDetail(experimentSlug);
 
-  // Fallback to default if not found
+  // Fallback if not found
   if (!experiment) {
-    const defaultExperiment = getExperimentById("magnetic-button");
-    const defaultDetail = getExperimentDetail("magnetic-button");
-    if (!defaultExperiment) {
-      return (
-        <div className="p-20 text-center text-white">Experiment not found</div>
-      );
-    }
     return (
-      <ExperimentDetailContent
-        experiment={defaultExperiment}
-        detail={defaultDetail}
-      />
+      <div className="p-20 text-center text-white">Experiment not found</div>
     );
   }
 

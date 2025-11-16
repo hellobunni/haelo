@@ -1,12 +1,10 @@
 "use client";
-import { Code2 } from "lucide-react";
 import { motion } from "motion/react";
 import GlassCard from "./GlassCard";
 
 export default function GlassCardShowcase() {
   return (
     <div className="w-full space-y-16">
-
       {/* Interactive vs Static */}
       <motion.section
         initial={{ opacity: 0, y: 30 }}
@@ -74,7 +72,6 @@ export default function GlassCardShowcase() {
         </div>
       </motion.section>
 
-
       {/* Image Background */}
       <motion.section
         initial={{ opacity: 0, y: 30 }}
@@ -95,10 +92,7 @@ export default function GlassCardShowcase() {
             aria-hidden="true"
           />
           {/* Dark overlay for better contrast */}
-          <div
-            className="absolute inset-0 bg-black/40"
-            aria-hidden="true"
-          />
+          <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
           {/* Content */}
           <div className="relative p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,4 +150,3 @@ export default function GlassCardShowcase() {
     </div>
   );
 }
-
