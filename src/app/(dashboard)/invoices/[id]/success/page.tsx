@@ -1,7 +1,7 @@
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function PaymentSuccessPage({

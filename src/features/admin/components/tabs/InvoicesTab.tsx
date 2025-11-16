@@ -4,10 +4,15 @@ import { format } from "date-fns";
 import { Edit, Eye, FileText, RefreshCw, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge/badge";
+import { Button } from "@/components/ui/button/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card/card";
+import { Skeleton } from "@/components/ui/skeleton/skeleton";
 import {
   Table,
   TableBody,
@@ -15,13 +20,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table/table";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/tooltip";
 import { getAllInvoices } from "@/features/admin/api";
+import { cn } from "@/lib/utils";
 import type { InvoiceWithClient } from "@/types";
 import EditInvoiceDialog from "../dialogs/EditInvoiceDialog";
 import PdfUploadDialog from "../dialogs/PdfUploadDialog";
@@ -261,7 +267,7 @@ export default function InvoicesTab() {
               size="sm"
             >
               <RefreshCw
-                className={`h-4 w-4 mr-2 ${syncing ? "animate-spin" : ""}`}
+                className={cn("h-4 w-4 mr-2", syncing && "animate-spin")}
               />
               {syncing ? "Syncing..." : "Sync from Stripe"}
             </Button>
@@ -373,7 +379,10 @@ export default function InvoicesTab() {
                               disabled={syncingId === invoice.id}
                             >
                               <RefreshCw
-                                className={`h-4 w-4 ${syncingId === invoice.id ? "animate-spin" : ""}`}
+                                className={cn(
+                                  "h-4 w-4",
+                                  syncingId === invoice.id && "animate-spin",
+                                )}
                               />
                             </Button>
                           </TooltipTrigger>

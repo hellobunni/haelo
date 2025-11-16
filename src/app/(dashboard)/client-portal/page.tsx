@@ -6,12 +6,21 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar/avatar";
+import { Badge } from "@/components/ui/badge/badge";
+import { Button } from "@/components/ui/button/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card/card";
+import { Progress } from "@/components/ui/progress/progress";
+import { Skeleton } from "@/components/ui/skeleton/skeleton";
 import {
   Table,
   TableBody,
@@ -19,12 +28,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table/table";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/tooltip";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";
 import {
   getDocumentsByEmail,

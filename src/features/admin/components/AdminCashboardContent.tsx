@@ -4,8 +4,13 @@ import { Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button/button";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs/tabs";
 import ClientsTab from "@/features/admin/components/tabs/ClientsTab";
 import ProjectsTab from "@/features/admin/components/tabs/ProjectsTab";
 import { LogoutButton } from "@/features/auth/components/LogoutButton";

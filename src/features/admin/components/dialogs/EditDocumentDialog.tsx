@@ -1,17 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@/components/ui/dialog/dialog";
+import { Input } from "@/components/ui/input/input";
+import { Label } from "@/components/ui/label/label";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/ui/radio-group/radio-group";
 import type { Document, DocumentStatus, DocumentType } from "@/types";
 
 interface EditDocumentDialogProps {

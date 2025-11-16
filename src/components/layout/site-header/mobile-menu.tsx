@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { LOGO_URL, navigationItems } from "@/lib/utils";
+import { Button } from "@/components/ui/button/button";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet/sheet";
+import { cn, LOGO_URL, navigationItems } from "@/lib/utils";
 
 interface MobileMenuProps {
   open: boolean;
@@ -44,9 +44,10 @@ export default function MobileMenu({ open, onOpenChange }: MobileMenuProps) {
               key={item.name}
               href={item.url}
               onClick={handleLinkClick}
-              className={`block text-lg font-medium transition-colors duration-300 ${
-                pathname === item.url ? "text-gray-600" : "text-gray-600"
-              }`}
+              className={cn(
+                "block text-lg font-medium transition-colors duration-300",
+                pathname === item.url ? "text-gray-600" : "text-gray-600",
+              )}
             >
               {item.name}
             </Link>

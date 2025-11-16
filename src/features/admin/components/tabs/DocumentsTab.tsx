@@ -3,10 +3,15 @@
 import { format } from "date-fns";
 import { Edit, Eye, File, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge/badge";
+import { Button } from "@/components/ui/button/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card/card";
+import { Skeleton } from "@/components/ui/skeleton/skeleton";
 import {
   Table,
   TableBody,
@@ -14,12 +19,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table/table";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/tooltip";
 import { getAllDocuments } from "@/features/admin/api";
 import type { Document } from "@/types";
 import EditDocumentDialog from "../dialogs/EditDocumentDialog";

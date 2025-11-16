@@ -4,11 +4,11 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { PopupButton } from "react-calendly";
 import { toast } from "sonner";
-import HeroSection from "@/components/blocks/HeroSection";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import HeroSection from "@/components/sections/shared/HeroSection";
+import { Button } from "@/components/ui/button/button";
+import { Input } from "@/components/ui/input/input";
+import { Label } from "@/components/ui/label/label";
+import { Textarea } from "@/components/ui/textarea/textarea";
 import contentData from "@/lib/data/content.json";
 
 export default function ContactPage() {

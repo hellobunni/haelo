@@ -1,7 +1,14 @@
+import { Analytics } from "@vercel/analytics/next";
+
 export default function PortfolioLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Analytics />
+      {children}
+    </>
+  );
 }

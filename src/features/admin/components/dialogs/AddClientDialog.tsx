@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert/alert";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { ScrollArea } from "@/components/ui/scroll-area";
+} from "@/components/ui/dialog/dialog";
+import { Input } from "@/components/ui/input/input";
+import { Label } from "@/components/ui/label/label";
+import { ScrollArea } from "@/components/ui/scroll-area/scroll-area";
 import type { User } from "@/types";
 
 interface AddClientDialogProps {

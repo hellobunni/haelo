@@ -2,8 +2,8 @@
 
 import { Loader2, Plus, Trash2 } from "lucide-react";
 import { useState } from "react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert/alert";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
@@ -11,10 +11,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/dialog/dialog";
+import { Input } from "@/components/ui/input/input";
+import { Label } from "@/components/ui/label/label";
+import { Separator } from "@/components/ui/separator/separator";
 
 interface LineItem {
   id: string;

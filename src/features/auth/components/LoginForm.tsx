@@ -6,16 +6,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useState } from "react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert/alert";
+import { Button } from "@/components/ui/button/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+} from "@/components/ui/card/card";
+import { Input } from "@/components/ui/input/input";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginForm() {

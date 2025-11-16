@@ -11,9 +11,10 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import HeroSection from "@/components/blocks/HeroSection";
+import HeroSection from "@/components/sections/shared/HeroSection";
 import aboutData from "@/lib/data/about.json";
-import FinalCTA from "../home/FinalCTA";
+import { cn } from "@/lib/utils";
+import FinalCTA from "../sections/home/FinalCTA";
 
 // Icon mapping helper
 const iconMap: Record<string, LucideIcon> = {
@@ -89,9 +90,10 @@ export default function About() {
               {story.paragraphs.map((paragraph, index) => (
                 <p
                   key={`story-para-${index}-${paragraph.slice(0, 20)}`}
-                  className={`text-gray-600 leading-relaxed ${
-                    index < story.paragraphs.length - 1 ? "mb-6" : ""
-                  }`}
+                  className={cn(
+                    "text-gray-600 leading-relaxed",
+                    index < story.paragraphs.length - 1 && "mb-6",
+                  )}
                 >
                   {paragraph}
                 </p>

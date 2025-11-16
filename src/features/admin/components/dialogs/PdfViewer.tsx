@@ -1,18 +1,18 @@
 "use client";
 
 import { Download, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/ui/dialog/dialog";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip/tooltip";
 
 interface PdfViewerProps {
   isOpen: boolean;

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import HeroSection from "@/components/blocks/HeroSection";
+import HeroSection from "@/components/sections/shared/HeroSection";
 
 export default function Privacy() {
   const lastUpdated = "January 1, 2024";

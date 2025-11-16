@@ -1,19 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Textarea } from "@/components/ui/textarea";
+} from "@/components/ui/dialog/dialog";
+import { Input } from "@/components/ui/input/input";
+import { Label } from "@/components/ui/label/label";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/ui/radio-group/radio-group";
+import { ScrollArea } from "@/components/ui/scroll-area/scroll-area";
+import { Textarea } from "@/components/ui/textarea/textarea";
 import type { Project, ProjectStatus } from "@/types";
 
 interface EditProjectDialogProps {

@@ -1,6 +1,6 @@
 // app/(portal)/invoices/[id]/not-found.tsx
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 
 export default function NotFound() {
   return (

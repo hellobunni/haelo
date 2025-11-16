@@ -1,7 +1,7 @@
 // components/invoices/invoice-status-badge.tsx
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge/badge";
 import { cn } from "@/lib/utils";
 
 export function InvoiceStatusBadge({ status }: { status: string }) {

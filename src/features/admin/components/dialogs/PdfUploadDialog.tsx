@@ -4,16 +4,17 @@ import { FileText, Upload } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/dialog/dialog";
+import { Input } from "@/components/ui/input/input";
+import { Separator } from "@/components/ui/separator/separator";
+import { cn } from "@/lib/utils";
 
 interface PdfUploadDialogProps {
   isOpen: boolean;
@@ -105,11 +106,12 @@ export default function PdfUploadDialog({
           {/* File Upload Area */}
           <section
             aria-label="File upload drop zone"
-            className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+            className={cn(
+              "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
               dragActive
                 ? "border-periwinkle bg-periwinkle/5"
-                : "border-gray-300 hover:border-gray-400"
-            }`}
+                : "border-gray-300 hover:border-gray-400",
+            )}
             onDragEnter={handleDrag}
             onDragLeave={handleDrag}
             onDragOver={handleDrag}

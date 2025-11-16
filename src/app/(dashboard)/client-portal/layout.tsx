@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { redirect } from "next/navigation";
 import { requireAuth } from "@/lib/supabase/auth-helpers";
 
@@ -13,5 +14,10 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <Analytics />
+      {children}
+    </>
+  );
 }

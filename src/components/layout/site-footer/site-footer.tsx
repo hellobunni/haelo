@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import SocialLinks from "@/components/SocialLinks";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator/separator";
+import SocialLinks from "@/components/ui/social-links/social-links";
 import contentData from "@/lib/data/content.json";
 import { DARK_LOGO_URL, navigationItems } from "@/lib/utils";
 
