@@ -1,6 +1,7 @@
 "use client";
 import { Beaker, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import ExperimentCard from "@/components/sections/labs/ExperimentCard/ExperimentCard";
 import Container from "@/components/ui/container/container";
 import { getAllExperiments } from "@/lib/data/labs-data";
@@ -39,6 +40,35 @@ export default function ExperimentsPage() {
             />
           ))}
         </div>
+
+        {/* Component Showcase Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 mb-12"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Beaker className="w-8 h-8 text-purple-400" />
+            <h2 className="text-3xl font-bold text-white">Component Showcase</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link href="/labs/experiments/components/glass-card">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="p-6 rounded-2xl bg-linear-to-br from-white/5 to-white/0 border border-white/10 hover:border-white/20 transition-all cursor-pointer"
+              >
+                <h3 className="text-xl font-bold text-white mb-2">
+                  GlassCard Component
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Explore all variations of the accessible glassmorphism card
+                  component with different blur intensities and states.
+                </p>
+              </motion.div>
+            </Link>
+          </div>
+        </motion.div>
 
         {/* Coming Soon Section */}
         <motion.div

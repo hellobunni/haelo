@@ -72,7 +72,7 @@
       "gradient": "from-blue-500 to-cyan-500",
       "tags": ["Design", "UI", "CSS", "Tailwind"],
       "techStack": ["CSS", "Tailwind CSS", "Framer Motion"],
-      "codeSnippet": "// Glassmorphism styles\n<div className=\"\n  bg-white/10 \n  backdrop-blur-lg \n  border border-white/20 \n  rounded-2xl \n  shadow-2xl\n  hover:bg-white/15\n  transition-all\n\">\n  {/* Content */}\n</div>",
+      "codeSnippet": "<GlassCard\n  blurIntensity=\"lg\"\n  title=\"Clickable Card\"\n  description=\" This card has an onClick handler and is keyboard accessible. Try clicking or using Tab + Enter!\"\n  aria-label=\"Clickable Card\"\n  index={0}\n  onClick={() => alert(\"Card clicked! 🎉\")}\n/>",
       "features": [
         "Backdrop blur effect",
         "Semi-transparent backgrounds",
@@ -80,7 +80,7 @@
         "Smooth hover transitions",
         "Works on any background"
       ],
-      "liveUrl": "https://experiments.haelostudios.com/glassmorphism-card",
+      "liveUrl": "",
       "githubUrl": "https://github.com/haelostudios/labs/tree/main/experiments/glassmorphism-card"
     },
     "dark-mode-toggle": {

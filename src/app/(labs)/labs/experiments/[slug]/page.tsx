@@ -23,6 +23,7 @@ import {
 import { getExperimentById, getExperimentDetail } from "@/lib/data/labs-data";
 import { cn } from "@/lib/utils";
 import type { Experiment, ExperimentDetail } from "@/types/labs";
+import GlassCardShowcase from "@/components/experiments/GlassmorphismCardDemo/GlassCardShowcase";
 
 const gradientVariants = cva("bg-linear-to-r", {
   variants: {
@@ -82,9 +83,9 @@ function getGradientClasses(
   return `${baseClass} ${gradient}`;
 }
 
-// TODO: Import experiment demo components when created
-// import CommandPaletteDemo from "@/components/experiments/CommandPaletteDemo";
-// import GlassmorphismDemo from "@/components/experiments/GlassmorphismDemo";
+// TODO: Import other experiment demo components when created
+// import DarkModeToggleDemo from "@/components/experiments/DarkModeToggleDemo";
+// import ThreeDCardFlipDemo from "@/components/experiments/3DCardFlipDemo";
 // etc.
 
 // Placeholder demo component until real ones are created
@@ -102,6 +103,21 @@ function PlaceholderDemo({ title }: { title: string }) {
       </div>
     </div>
   );
+}
+
+// Function to get the appropriate demo component based on experiment slug
+function getExperimentDemo(slug: string, title: string) {
+  switch (slug) {
+    case "glassmorphism-card":
+      return <GlassCardShowcase />;
+    // Add more cases as demos are created
+    // case "dark-mode-toggle":
+    //   return <DarkModeToggleDemo />;
+    // case "3d-card-flip":
+    //   return <ThreeDCardFlipDemo />;
+    default:
+      return <PlaceholderDemo title={title} />;
+  }
 }
 
 export default function ExperimentDetailPage() {
@@ -248,8 +264,8 @@ const Example = () => {
             <Play className="w-6 h-6 text-purple-400" />
             <h2 className="text-2xl font-bold text-white">Live Demo</h2>
           </div>
-          <div className="p-8 md:p-12 rounded-2xl bg-linear-to-br from-white/5 to-white/0 border border-white/10 min-h-[400px] flex items-center justify-center">
-            <PlaceholderDemo title={title} />
+          <div className="p-8 md:p-12 rounded-2xl bg-linear-to-br from-white/5 to-white/0 border border-white/10">
+            {getExperimentDemo(experiment.id, title)}
           </div>
         </motion.div>
 
@@ -315,7 +331,7 @@ const Example = () => {
                   transition={{ delay: index * 0.05 }}
                   className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-linear-to-r from-purple-500 to-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-linear-to-r from-purple-500 to-teal-500 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                   <span className="text-gray-300">{feature}</span>
