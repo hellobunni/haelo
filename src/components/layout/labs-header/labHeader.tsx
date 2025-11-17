@@ -25,28 +25,21 @@ const LabHeader = () => {
     { name: "Home", path: "/labs", icon: Sparkles },
     { name: "Projects", path: "/labs/projects", icon: Code2 },
     { name: "Experiments", path: "/labs/experiments", icon: Beaker },
-    { name: "Components", path: "/labs/component-library", icon: Layers },
-    { name: "About", path: "/about", icon: User },
+    { name: "About", path: "/resume", icon: User },
   ];
 
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/hellobunni",
       icon: Github,
       label: "Visit our GitHub profile (opens in new tab)",
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://linkedin.com/in/bryannagardner",
       icon: Linkedin,
       label: "Visit our LinkedIn profile (opens in new tab)",
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: Twitter,
-      label: "Visit our Twitter profile (opens in new tab)",
     },
   ];
 
