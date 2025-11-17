@@ -1,5 +1,4 @@
 "use client";
-import { cva, type VariantProps } from "class-variance-authority";
 import {
   ArrowLeft,
   Check,
@@ -13,6 +12,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
+import GlassCardShowcase from "@/components/experiments/GlassmorphismCardDemo/GlassCardShowcase";
 import { Button } from "@/components/ui/button/button";
 import {
   Tabs,
@@ -24,67 +24,18 @@ import { getExperimentById, getExperimentDetail } from "@/lib/data/labs-data";
 import { cn } from "@/lib/utils";
 import type { Experiment, ExperimentDetail } from "@/types/labs";
 
-const gradientVariants = cva("bg-linear-to-r", {
-  variants: {
-    gradient: {
-      "from-purple-500 to-pink-500": "from-purple-500 to-pink-500",
-      "from-blue-500 to-teal-500": "from-blue-500 to-teal-500",
-      "from-orange-500 to-red-500": "from-orange-500 to-red-500",
-      "from-green-500 to-emerald-500": "from-green-500 to-emerald-500",
-      "from-indigo-500 to-purple-500": "from-indigo-500 to-purple-500",
-      "from-cyan-500 to-blue-500": "from-cyan-500 to-blue-500",
-      "from-rose-500 to-pink-500": "from-rose-500 to-pink-500",
-      "from-violet-500 to-purple-500": "from-violet-500 to-purple-500",
-      "from-amber-500 to-orange-500": "from-amber-500 to-orange-500",
-      "from-teal-500 to-cyan-500": "from-teal-500 to-cyan-500",
-      "from-slate-500 to-gray-500": "from-slate-500 to-gray-500",
-      "from-yellow-500 to-amber-500": "from-yellow-500 to-amber-500",
-      "from-blue-500 to-cyan-500": "from-blue-500 to-cyan-500",
-      "from-gray-800 to-gray-900": "from-gray-800 to-gray-900",
-      "from-emerald-500 to-teal-500": "from-emerald-500 to-teal-500",
-    },
-  },
-});
-
-// Helper function to get gradient classes, with fallback for gradients not in variants
+// Helper function to get gradient classes
 function getGradientClasses(
   gradient?: string,
   baseClass = "bg-linear-to-r",
 ): string {
   if (!gradient) return "";
-
-  // Check if gradient exists in variants
-  const validGradients: string[] = [
-    "from-purple-500 to-pink-500",
-    "from-blue-500 to-teal-500",
-    "from-orange-500 to-red-500",
-    "from-green-500 to-emerald-500",
-    "from-indigo-500 to-purple-500",
-    "from-cyan-500 to-blue-500",
-    "from-rose-500 to-pink-500",
-    "from-violet-500 to-purple-500",
-    "from-amber-500 to-orange-500",
-    "from-teal-500 to-cyan-500",
-    "from-slate-500 to-gray-500",
-    "from-yellow-500 to-amber-500",
-    "from-blue-500 to-cyan-500",
-    "from-gray-800 to-gray-900",
-    "from-emerald-500 to-teal-500",
-  ];
-
-  if (validGradients.includes(gradient)) {
-    return gradientVariants({
-      gradient: gradient as VariantProps<typeof gradientVariants>["gradient"],
-    });
-  }
-
-  // Fallback: use the gradient string directly
   return `${baseClass} ${gradient}`;
 }
 
-// TODO: Import experiment demo components when created
-// import CommandPaletteDemo from "@/components/experiments/CommandPaletteDemo";
-// import GlassmorphismDemo from "@/components/experiments/GlassmorphismDemo";
+// TODO: Import other experiment demo components when created
+// import DarkModeToggleDemo from "@/components/experiments/DarkModeToggleDemo";
+// import ThreeDCardFlipDemo from "@/components/experiments/3DCardFlipDemo";
 // etc.
 
 // Placeholder demo component until real ones are created
@@ -104,26 +55,31 @@ function PlaceholderDemo({ title }: { title: string }) {
   );
 }
 
+// Function to get the appropriate demo component based on experiment slug
+function getExperimentDemo(slug: string, title: string) {
+  switch (slug) {
+    case "glassmorphism-card":
+      return <GlassCardShowcase />;
+    // Add more cases as demos are created
+    // case "dark-mode-toggle":
+    //   return <DarkModeToggleDemo />;
+    // case "3d-card-flip":
+    //   return <ThreeDCardFlipDemo />;
+    default:
+      return <PlaceholderDemo title={title} />;
+  }
+}
+
 export default function ExperimentDetailPage() {
   const params = useParams();
   const experimentSlug = params?.slug as string;
   const experiment = getExperimentById(experimentSlug);
   const experimentDetail = getExperimentDetail(experimentSlug);
 
-  // Fallback to default if not found
+  // Fallback if not found
   if (!experiment) {
-    const defaultExperiment = getExperimentById("magnetic-button");
-    const defaultDetail = getExperimentDetail("magnetic-button");
-    if (!defaultExperiment) {
-      return (
-        <div className="p-20 text-center text-white">Experiment not found</div>
-      );
-    }
     return (
-      <ExperimentDetailContent
-        experiment={defaultExperiment}
-        detail={defaultDetail}
-      />
+      <div className="p-20 text-center text-white">Experiment not found</div>
     );
   }
 
@@ -248,8 +204,8 @@ const Example = () => {
             <Play className="w-6 h-6 text-purple-400" />
             <h2 className="text-2xl font-bold text-white">Live Demo</h2>
           </div>
-          <div className="p-8 md:p-12 rounded-2xl bg-linear-to-br from-white/5 to-white/0 border border-white/10 min-h-[400px] flex items-center justify-center">
-            <PlaceholderDemo title={title} />
+          <div className="p-8 md:p-12 rounded-2xl bg-linear-to-br from-white/5 to-white/0 border border-white/10">
+            {getExperimentDemo(experiment.id, title)}
           </div>
         </motion.div>
 
@@ -315,7 +271,7 @@ const Example = () => {
                   transition={{ delay: index * 0.05 }}
                   className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-linear-to-r from-purple-500 to-teal-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-linear-to-r from-purple-500 to-teal-500 flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                   <span className="text-gray-300">{feature}</span>
