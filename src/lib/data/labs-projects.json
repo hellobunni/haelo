@@ -1,34 +1,14 @@
 {
   "projects": [
     {
-      "id": "collectorverse",
+      "id": "pokevault",
       "title": "CollectorVerse Portfolio",
       "description": "A playful, high-fidelity interface for managing Pokémon and Rick & Morty collectibles with rarity scoring.",
       "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       "gradient": "from-blue-500 to-cyan-500",
       "tags": ["React", "Motion", "Data Visualization"],
-      "url": "/labs/projects/collectorverse",
+      "url": "/labs/projects/pokevault",
       "featured": true
-    },
-    {
-      "id": "pulse-ticker",
-      "title": "Pulse Ticker Line",
-      "description": "An elegant stock ticker with dynamic hover reveals, sentiment indicators, and mini sparkline charts.",
-      "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop",
-      "gradient": "from-orange-500 to-red-500",
-      "tags": ["Micro-interactions", "Motion", "Data Viz", "Real-time"],
-      "url": "/labs/projects/pulse-ticker",
-      "featured": false
-    },
-    {
-      "id": "cadenza-scheduler",
-      "title": "Cadenza Smart Scheduler",
-      "description": "A fluid scheduling interface with natural language processing, intelligent time suggestions, and layered popovers.",
-      "imageUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=600&fit=crop",
-      "gradient": "from-teal-500 to-blue-500",
-      "tags": ["Calendar UI", "NLU", "AI/ML", "Interaction Design"],
-      "url": "/labs/projects/cadenza-scheduler",
-      "featured": false
     }
   ],
   "details": {

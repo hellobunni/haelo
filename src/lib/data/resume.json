@@ -127,38 +127,58 @@
     "title": "Recent Work",
     "items": [
       {
+        "role": "Front-End Engineer (Contract)",
+        "company": "Bitwise Asset Management",
+        "startDate": "2025-07",
+        "endDate": "2025-11",
+        "achievements": [
+          "Developed and launched product sites for new fund offerings during a rollout that saw first day trading volume exceed $55 million",
+          "Contributed to a large scale website redesign and migration to a new MegaSite architecture powered by Turbopack, Next.js, and the Vercel ecosystem",
+          "Enhanced seed files and data pipelines in partnership with backend teams, streamlining workflows and accelerating launch cycles",
+          "Designed and built consumer facing features that improved usability and data accessibility, delivering enhanced data download tools and thoughtful UI upgrades"
+        ]
+      },
+      {
         "role": "Software Engineer",
         "company": "Fanatics, Inc.",
-        "period": "MAR 2022 - OCT 2025",
+        "startDate": "2022-03",
+        "endDate": "2025-10",
         "achievements": [
-          "Led major frontend redesigns and architected UI solutions for high-traffic commerce experiences serving millions of users",
-          "Developed scalable, reusable component systems using React, TypeScript, and internal design tokens",
-          "Partnered with designers and backend teams to maintain and evolve multiple design systems across product lines",
-          "Expanded skillset into full-stack workflows by learning Elixir and contributing to features within a monolithic codebase"
+          "Led frontend architecture and UI redesigns for high-traffic e-commerce and sports media platforms, improving scalability and maintainability",
+          "Enhanced user experience through modern UI patterns and accessibility improvements, increasing user engagement by 30%",
+          "Partnered with design and backend teams to implement performance optimizations, reducing average load times and improving Core Web Vitals",
+          "Spearheaded the development of a reusable React + TypeScript component library, streamlining development workflows across teams",
+          "Collaborated on full-stack initiatives using Elixir within a monolithic architecture to support integrated product features",
+          "Utilized WebRTC to build and enhance interactive video and live-streaming user experiences",
+          "Worked on B2B engineering initiatives, implementing dashboards and internal tooling interfaces using React and TypeScript"
+        ]
+      },
+      {
+        "role": "Frontend Engineer (Freelance)",
+        "company": "ZeroCool (rebranded to Fanatics Collectibles)",
+        "startDate": "2021-11",
+        "endDate": "2022-03",
+        "achievements": [
+          "Assisted in the development of product launch pages and trading card drop experiences for new releases",
+          "Learned and contributed to Elixir-based feature work within a large monolithic architecture",
+          "Collaborated with design and engineering to implement clean UI patterns and support rapid product launch timelines"
         ]
       },
       {
         "role": "Front-End Engineer (Freelance)",
         "company": "StockX",
-        "period": "JUN 2021 - SEP 2021",
+        "startDate": "2021-06",
+        "endDate": "2021-09",
         "achievements": [
           "Delivered polished, high-quality frontend features for a global e-commerce marketplace",
           "Collaborated with product, design, and engineering teams to elevate UX and modernize web experiences"
         ]
       },
       {
-        "role": "Front-End Engineer (Contract)",
-        "company": "ZeroCool",
-        "period": "JAN 2022 - MAR 2022",
-        "achievements": [
-          "Built responsive, accessible UI features using modern React tooling",
-          "Contributed to a fast-paced team shipping trading-card marketplace features, leading to a full-time offer at Fanatics"
-        ]
-      },
-      {
         "role": "Frontend Developer",
         "company": "InsideOut Design + Development",
-        "period": "JUL 2020 - MAR 2022",
+        "startDate": "2020-07",
+        "endDate": "2022-03",
         "achievements": [
           "Designed and developed responsive marketing websites and web applications for 6+ agency clients",
           "Improved performance, accessibility, and SEO across client platforms using modern best practices",
@@ -168,7 +188,8 @@
       {
         "role": "Web Developer / Assistant Marketing Manager",
         "company": "Qualigence International",
-        "period": "NOV 2018 - JAN 2020",
+        "startDate": "2018-11",
+        "endDate": "2020-08",
         "achievements": [
           "Developed and maintained internal and client-facing web applications for recruiting technology products",
           "Managed project timelines and coordinated cross-functional workflows between marketing, product, and engineering",
@@ -178,7 +199,8 @@
       {
         "role": "Senior Marketing Manager",
         "company": "Procerus Skin Care, LLC",
-        "period": "JAN 2015 - DEC 2018",
+        "startDate": "2015-01",
+        "endDate": "2018-12",
         "achievements": [
           "Led creative strategy and designed print + digital campaigns from concept to production",
           "Owned branding, content creation, and marketing collateral across web, email, social, and in-office materials",
@@ -189,7 +211,8 @@
       {
         "role": "Web Developer / Designer (Freelance)",
         "company": "Zingerman's",
-        "period": "2014 - 2015",
+        "startDate": "2013-01",
+        "endDate": "2015-12",
         "achievements": [
           "Created and maintained digital assets and web content for one of Ann Arbor’s most well-known brands",
           "Designed marketing and web materials that blended brand storytelling with functional UX"
@@ -198,7 +221,8 @@
       {
         "role": "Graphic Design Intern",
         "company": "University of Michigan Athletics",
-        "period": "INTERNSHIP",
+        "startDate": "2012-04",
+        "endDate": "2014-04",
         "achievements": [
           "Supported development and maintenance of websites across the athletics department",
           "Gained hands-on experience working at the intersection of sports, media, and digital technology"
@@ -214,13 +238,15 @@
         "degree": "UI/UX Research",
         "school": "University of Michigan",
         "schoolDetail": "School of Information",
-        "period": "2011 - 2015",
+        "startDate": "2011-01",
+        "endDate": "",
         "description": "Focused on user experience research, interface design, and information architecture"
       },
       {
         "degree": "Web Design Certification",
         "school": "Washtenaw Community College",
-        "period": "2014 - 2015",
+        "startDate": "2014-06",
+        "endDate": "2016-06",
         "description": "Certification in web design and development fundamentals"
       }
     ]
