@@ -3,6 +3,7 @@ import { CheckCircle2, Circle, CircleDot, GraduationCap, type LucideIcon } from 
 import { motion } from "motion/react";
 import { useState } from "react";
 import resumeData from "@/lib/data/resume.json";
+import { Badge } from "@/components/ui/badge/badge";
 import { fadeInUp, stagger } from "@/lib/helpers/motion-variants";
 import { timelineColors } from "@/lib/helpers/resume-colors";
 import { cn } from "@/lib/utils";
@@ -55,6 +56,7 @@ type TimelineItem =
       company: string;
       startDate: string | null;
       endDate: string | null;
+      wip?: boolean;
       achievements: string[];
     }
   | {
@@ -220,9 +222,20 @@ const Experience = () => {
                       ) : (
                         <>
                           {/* Experience Title */}
-                          <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-2 transition-colors duration-300 leading-none">
-                            {item.company}
-                          </h4>
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <h4 className="text-lg md:text-xl font-bold text-gray-900 transition-colors duration-300 leading-none">
+                              {item.company}
+                            </h4>
+                            {item.wip && (
+                              <Badge
+                                variant="warning"
+                                size="sm"
+                                className="text-xs font-medium"
+                              >
+                                WIP
+                              </Badge>
+                            )}
+                          </div>
 
                           {/* Role */}
                           <p className="text-sm md:text-base text-gray-600">

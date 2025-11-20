@@ -1,8 +1,9 @@
 "use client";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Clock, Lock, Sparkles, Wrench } from "lucide-react";
+import { Clock, Github, Lock, Sparkles, Wrench } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,9 @@ export interface ProjectComingSoon {
   imageUrl?: string;
   gradient?: string;
   tags: string[];
-  status: "In Progress" | "Coming Soon" | "Under Construction";
+  status: "In Progress" | "Coming Soon" | "Under Construction" | "WIP";
+  githubUrl?: string | null;
+  githubBranch?: string;
 }
 
 interface ProjectCardComingSoonProps {
@@ -142,6 +145,8 @@ export default function ProjectCardComingSoon({
             <Clock className="w-10 h-10 text-white" />
           ) : project.status === "Under Construction" ? (
             <Wrench className="w-10 h-10 text-white" />
+          ) : project.status === "WIP" ? (
+            <Sparkles className="w-10 h-10 text-white" />
           ) : (
             <Lock className="w-10 h-10 text-white" />
           )}
@@ -176,7 +181,9 @@ export default function ProjectCardComingSoon({
                 ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-200"
                 : project.status === "Under Construction"
                   ? "bg-orange-500/20 border-orange-500/30 text-orange-200"
-                  : "bg-purple-500/20 border-purple-500/30 text-purple-200",
+                  : project.status === "WIP"
+                    ? "bg-blue-500/20 border-blue-500/30 text-blue-200"
+                    : "bg-purple-500/20 border-purple-500/30 text-purple-200",
             )}
           >
             {project.status === "In Progress" ? (
@@ -202,6 +209,23 @@ export default function ProjectCardComingSoon({
                   <Wrench className="w-4 h-4" />
                 </motion.div>
                 <span className="text-sm font-medium">Under Construction</span>
+              </>
+            ) : project.status === "WIP" ? (
+              <>
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [1, 0.7, 1]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Sparkles className="w-4 h-4" />
+                </motion.div>
+                <span className="text-sm font-medium">WIP</span>
               </>
             ) : (
               <>
@@ -239,10 +263,42 @@ export default function ProjectCardComingSoon({
             animate={{
               opacity: isHovered ? 0.8 : 0.6,
             }}
-            className="text-gray-300 text-sm leading-relaxed"
+            className="text-gray-300 text-sm leading-relaxed mb-4"
           >
             {project.description}
           </motion.p>
+
+          {/* GitHub Link - Show for In Progress or WIP projects */}
+          {(project.status === "In Progress" || project.status === "WIP") &&
+            project.githubUrl && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{
+                  opacity: isHovered ? 1 : 0.7,
+                  y: isHovered ? 0 : 10,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link
+                  href={
+                    project.githubBranch
+                      ? `${project.githubUrl}/tree/${project.githubBranch}`
+                      : project.githubUrl
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-colors group"
+                >
+                  <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-medium">
+                    {project.githubBranch
+                      ? `View ${project.githubBranch} branch`
+                      : "View on GitHub"}
+                  </span>
+                </Link>
+              </motion.div>
+            )}
         </div>
       </div>
 

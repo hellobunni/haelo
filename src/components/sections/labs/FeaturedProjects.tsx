@@ -2,18 +2,40 @@
 import { Code2, Wrench } from "lucide-react";
 import { motion } from "motion/react";
 import Container from "@/components/ui/container/container";
-import { getFeaturedProjects } from "@/lib/data/labs-data";
+import { getFeaturedProjects, getProjectDetail } from "@/lib/data/labs-data";
 import ProjectCardComingSoon from "./ProjectCardComingSoon/ProjectCardComingSoon";
 
 const FeaturedProjects = () => {
   const featuredProjects = getFeaturedProjects();
 
-  // Map projects to include status - all set to Coming Soon for now
-  const projectsWithStatus = featuredProjects.map((project) => ({
-    ...project,
-    image: project.image || project.imageUrl || "",
-    status: "Coming Soon" as const,
-  }));
+  // Map projects to include status and GitHub info - use project status or get from details, default to "Coming Soon"
+  const projectsWithStatus = featuredProjects.map((project) => {
+    // Get status from project or details, default to "Coming Soon"
+    let status: "In Progress" | "Coming Soon" | "Under Construction" | "WIP" = "Coming Soon";
+    let githubUrl: string | null | undefined;
+    let githubBranch: string | undefined;
+    
+    // Get project details to access status and GitHub info
+    const projectDetail = getProjectDetail(project.id);
+    
+    if (project.status) {
+      status = project.status as typeof status;
+    } else if (projectDetail?.status) {
+      status = projectDetail.status as typeof status;
+    }
+    
+    // Get GitHub URL and branch from project or details
+    githubUrl = project.githubUrl ?? projectDetail?.githubUrl ?? null;
+    githubBranch = project.githubBranch ?? projectDetail?.githubBranch;
+
+    return {
+      ...project,
+      image: project.image || project.imageUrl || "",
+      status,
+      githubUrl,
+      githubBranch,
+    };
+  });
 
   return (
     <section className="relative py-32 px-6">
