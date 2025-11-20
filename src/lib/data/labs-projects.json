@@ -1,276 +1,82 @@
 {
   "projects": [
     {
-      "id": "collectorverse",
-      "title": "CollectorVerse Portfolio",
-      "description": "A playful, high-fidelity interface for managing Pokémon and Rick & Morty collectibles with rarity scoring.",
-      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      "gradient": "from-blue-500 to-cyan-500",
-      "tags": ["React", "Motion", "Data Visualization"],
-      "url": "/labs/projects/collectorverse",
+      "id": "pokevault",
+      "title": "PokeVault",
+      "description": "A playful, high-fidelity interface for managing Pokémon TCG collections with rarity scoring and animated card interactions.",
+      "imageUrl": "https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "gradient": "from-red-500 to-red-500",
+      "tags": [
+        "Next.js",
+        "React",
+        "Motion",
+        "Data Visualization",
+        "TypeScript"
+      ],
+      "url": "/labs/projects/pokevault",
       "featured": true
-    },
-    {
-      "id": "pulse-ticker",
-      "title": "Pulse Ticker Line",
-      "description": "An elegant stock ticker with dynamic hover reveals, sentiment indicators, and mini sparkline charts.",
-      "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop",
-      "gradient": "from-orange-500 to-red-500",
-      "tags": ["Micro-interactions", "Motion", "Data Viz", "Real-time"],
-      "url": "/labs/projects/pulse-ticker",
-      "featured": false
-    },
-    {
-      "id": "cadenza-scheduler",
-      "title": "Cadenza Smart Scheduler",
-      "description": "A fluid scheduling interface with natural language processing, intelligent time suggestions, and layered popovers.",
-      "imageUrl": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=600&fit=crop",
-      "gradient": "from-teal-500 to-blue-500",
-      "tags": ["Calendar UI", "NLU", "AI/ML", "Interaction Design"],
-      "url": "/labs/projects/cadenza-scheduler",
-      "featured": false
     }
   ],
   "details": {
-    "haelo-component-library": {
-      "title": "Haelo Component Library v1",
-      "subtitle": "Production-Grade Design System",
-      "description": "A comprehensive component system built with precision and care, featuring premium polish and motion-driven interactions for modern web applications.",
-      "role": "Lead UI Engineer & Designer",
-      "duration": "6 months",
+    "pokevault": {
+      "title": "PokeVault",
+      "subtitle": "Pokémon TCG Collection Manager",
+      "description": "A premium, motion-driven portfolio manager for Pokémon Trading Card Game collections. Features real-time search, rarity analytics, portfolio value tracking, and stunning card reveal animations with glass morphism UI.",
+      "role": "Full-Stack UI Engineer",
+      "duration": "WIP",
       "year": "2024",
       "tags": [
-        "React",
+        "Next.js 16",
+        "React 19",
         "TypeScript",
-        "Radix UI",
-        "Framer Motion",
-        "Design Systems",
-        "Storybook"
-      ],
-      "gradient": "from-purple-500 to-pink-500",
-      "heroImage": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop",
-      "overview": "Created a fully documented component library with 50+ components, each featuring smooth animations, accessibility compliance (WCAG AA), and comprehensive TypeScript support. The system includes light/dark mode, responsive design patterns, and a robust theming engine.",
-      "features": [
-        {
-          "title": "Motion System",
-          "description": "Every component includes purposeful micro-interactions and state transitions",
-          "icon": "Sparkles"
-        },
-        {
-          "title": "Accessibility First",
-          "description": "WCAG AA compliant with keyboard navigation and screen reader support",
-          "icon": "Code2"
-        },
-        {
-          "title": "Type Safety",
-          "description": "Comprehensive TypeScript definitions with auto-completion support",
-          "icon": "Zap"
-        }
-      ],
-      "techStack": [
-        "React 18",
-        "TypeScript",
-        "Radix UI",
-        "Framer Motion",
+        "Motion",
+        "Recharts",
         "Tailwind CSS",
-        "Storybook",
-        "Vite"
+        "Zustand",
+        "React Query",
+        "Radix UI"
       ],
-      "liveUrl": "https://components.haelostudios.com",
-      "githubUrl": "https://github.com"
-    },
-    "collectorverse": {
-      "title": "CollectorVerse Portfolio",
-      "subtitle": "Collectibles Management Platform",
-      "description": "A playful, high-fidelity interface for managing Pokémon and Rick & Morty collectibles with rarity scoring and animated card interactions.",
-      "role": "Full-Stack UI Engineer",
-      "duration": "4 months",
-      "year": "2024",
-      "tags": ["React", "Motion", "Data Visualization", "Card UI", "Parallax"],
       "gradient": "from-blue-500 to-cyan-500",
       "heroImage": "https://images.unsplash.com/photo-1606503153255-59d5f224a0b7?w=1200&h=600&fit=crop",
-      "overview": "Built an immersive portfolio manager with advanced filtering, rarity analytics, and stunning card reveal animations. Features include collection tracking, market value estimates, and social sharing capabilities.",
+      "overview": "Built an immersive collection management platform with advanced card search, portfolio analytics, and premium micro-interactions. Features include debounced search with TCGdex API integration, animated card grids with stagger effects, portfolio value charts with multiple timeframes, rarity distribution visualization, and a glass morphism design system with theme support.",
       "features": [
         {
-          "title": "Card Interactions",
-          "description": "3D flip animations with holographic effects and parallax hover states",
+          "title": "Animated Card Interactions",
+          "description": "Spring-based animations with hover lift effects, scale transforms, and staggered entrance animations for a premium feel",
           "icon": "Sparkles"
         },
         {
-          "title": "Rarity Engine",
-          "description": "Smart scoring system analyzing multiple attributes and market data",
-          "icon": "Zap"
+          "title": "Real-Time Search",
+          "description": "Debounced search integration with TCGdex API, featuring evolution filtering and instant card discovery",
+          "icon": "Search"
         },
         {
-          "title": "Collection Stats",
-          "description": "Real-time dashboards with animated charts and completion tracking",
-          "icon": "Code2"
+          "title": "Portfolio Analytics",
+          "description": "Interactive charts showing portfolio value over time with multiple timeframe views and rarity breakdown visualizations",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "Glass Morphism UI",
+          "description": "Modern glass-effect design system with backdrop blur, theme support, and smooth transitions",
+          "icon": "Palette"
         }
       ],
       "techStack": [
-        "React",
-        "Framer Motion",
+        "Next.js 16 (App Router)",
+        "React 19",
+        "TypeScript",
+        "Motion (Framer Motion v12)",
         "Recharts",
-        "TailwindCSS",
-        "Zustand"
-      ],
-      "liveUrl": "https://collectorverse.haelostudios.com",
-      "githubUrl": "https://github.com"
-    },
-    "quantflow": {
-      "title": "QuantFlow Trading Dashboard",
-      "subtitle": "Next-Gen Trading Interface",
-      "description": "A modern, high-performance trading platform featuring real-time charting, market heatmaps, and lightning-fast order execution.",
-      "role": "Senior Frontend Engineer",
-      "duration": "8 months",
-      "year": "2024",
-      "tags": [
-        "Fintech",
-        "Real-time Data",
-        "Charts",
-        "WebSocket",
-        "Performance"
-      ],
-      "gradient": "from-green-500 to-emerald-500",
-      "heroImage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop",
-      "overview": "Engineered a professional-grade trading interface with sub-millisecond updates, advanced charting tools, and intuitive order management. Supports multiple asset classes and exchange integrations.",
-      "features": [
-        {
-          "title": "Real-Time Updates",
-          "description": "WebSocket-powered live data with optimized rendering for 60fps",
-          "icon": "Zap"
-        },
-        {
-          "title": "Advanced Charts",
-          "description": "TradingView-style charting with 20+ indicators and drawing tools",
-          "icon": "Code2"
-        },
-        {
-          "title": "Quick Actions",
-          "description": "One-click order placement with risk management controls",
-          "icon": "Sparkles"
-        }
-      ],
-      "techStack": [
-        "React",
-        "TypeScript",
-        "D3.js",
-        "WebSocket",
+        "Tailwind CSS 4",
         "Zustand",
-        "TailwindCSS"
-      ],
-      "liveUrl": "https://quantflow.haelostudios.com",
-      "githubUrl": "https://github.com"
-    },
-    "nebula-web3": {
-      "title": "Nebula Web3 Portfolio Manager",
-      "subtitle": "DeFi & NFT Portfolio Tracker",
-      "description": "A sleek Web3 portfolio interface with animated NFT galleries, token analytics, and seamless wallet integration.",
-      "role": "Web3 UI Specialist",
-      "duration": "5 months",
-      "year": "2024",
-      "tags": ["Web3", "Wallet UX", "NFTs", "Token Analytics", "Blockchain"],
-      "gradient": "from-indigo-500 to-purple-500",
-      "heroImage": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop",
-      "overview": "Designed an elegant portfolio manager supporting multiple chains and wallets. Features include NFT collection views, token balance tracking, transaction history, and DeFi position monitoring.",
-      "features": [
-        {
-          "title": "Multi-Chain Support",
-          "description": "Ethereum, Polygon, Arbitrum with unified portfolio view",
-          "icon": "Code2"
-        },
-        {
-          "title": "NFT Gallery",
-          "description": "Stunning grid layouts with 3D card flips and metadata display",
-          "icon": "Sparkles"
-        },
-        {
-          "title": "Token Analytics",
-          "description": "Price tracking, P&L calculations, and performance charts",
-          "icon": "Zap"
-        }
-      ],
-      "techStack": [
-        "React",
-        "Web3.js",
-        "Wagmi",
-        "RainbowKit",
-        "Framer Motion",
-        "TailwindCSS"
-      ],
-      "liveUrl": "https://nebula.haelostudios.com",
-      "githubUrl": "https://github.com"
-    },
-    "pulse-ticker": {
-      "title": "Pulse Ticker Line",
-      "subtitle": "Premium Stock Ticker Component",
-      "description": "An elegant stock ticker with dynamic hover reveals, sentiment indicators, and mini sparkline charts.",
-      "role": "UI Engineer",
-      "duration": "2 months",
-      "year": "2024",
-      "tags": ["Micro-interactions", "Motion", "Data Viz", "Real-time"],
-      "gradient": "from-orange-500 to-red-500",
-      "heroImage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop",
-      "overview": "Created a highly polished ticker component with buttery smooth animations and intelligent data updates. Features auto-scrolling, hover pause, and expandable detail cards.",
-      "features": [
-        {
-          "title": "Smooth Scrolling",
-          "description": "Infinite loop animation with intelligent content loading",
-          "icon": "Zap"
-        },
-        {
-          "title": "Hover Details",
-          "description": "Contextual popover with price history and company info",
-          "icon": "Sparkles"
-        },
-        {
-          "title": "Sentiment Signals",
-          "description": "Visual indicators for bullish/bearish market sentiment",
-          "icon": "Code2"
-        }
-      ],
-      "techStack": ["React", "Framer Motion", "Recharts", "TailwindCSS"],
-      "liveUrl": "https://pulse.haelostudios.com",
-      "githubUrl": "https://github.com"
-    },
-    "cadenza-scheduler": {
-      "title": "Cadenza Smart Scheduler",
-      "subtitle": "AI-Powered Calendar Component",
-      "description": "A fluid scheduling interface with natural language processing, intelligent time suggestions, and layered popovers.",
-      "role": "Lead UI/UX Engineer",
-      "duration": "4 months",
-      "year": "2024",
-      "tags": ["Calendar UI", "NLU", "AI/ML", "Interaction Design"],
-      "gradient": "from-teal-500 to-blue-500",
-      "heroImage": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=600&fit=crop",
-      "overview": "Built an intelligent scheduling system that understands natural language inputs like 'coffee next Tuesday at 3pm'. Features smart conflict detection, attendee availability, and calendar sync.",
-      "features": [
-        {
-          "title": "Natural Language",
-          "description": "Type in plain English to create events instantly",
-          "icon": "Sparkles"
-        },
-        {
-          "title": "Smart Suggestions",
-          "description": "AI-powered time slot recommendations based on patterns",
-          "icon": "Zap"
-        },
-        {
-          "title": "Conflict Detection",
-          "description": "Automatic overlap detection with resolution suggestions",
-          "icon": "Code2"
-        }
-      ],
-      "techStack": [
-        "React",
-        "TypeScript",
-        "NLP",
-        "Framer Motion",
+        "TanStack React Query",
         "Radix UI",
-        "TailwindCSS"
+        "TCGdex SDK",
+        "Lucide React"
       ],
-      "liveUrl": "https://cadenza.haelostudios.com",
-      "githubUrl": "https://github.com"
+      "liveUrl": null,
+      "githubUrl": "https://github.com/hellobunni/poke-vault",
+      "status": "WIP"
     }
   }
 }

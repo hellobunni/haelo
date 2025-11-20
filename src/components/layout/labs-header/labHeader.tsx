@@ -1,14 +1,5 @@
 "use client";
-import {
-  Beaker,
-  Code2,
-  Github,
-  Layers,
-  Linkedin,
-  Sparkles,
-  Twitter,
-  User,
-} from "lucide-react";
+import { Beaker, Code2, Github, Linkedin, Sparkles, User } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

@@ -21,8 +21,10 @@ export interface LabsProjectDetail {
   overview: string;
   features: ProjectFeature[];
   techStack: string[];
-  liveUrl: string;
+  liveUrl: string | null;
   githubUrl: string;
+  githubBranch?: string; // Specific branch to link to
+  status?: "In Progress" | "Coming Soon" | "Under Construction" | "WIP";
 }
 
 export interface LabsProject {
@@ -37,7 +39,9 @@ export interface LabsProject {
   url?: string;
   href?: string; // Alias for url
   featured?: boolean; // Whether to show in featured section
-  status?: "In Progress" | "Coming Soon" | "Under Construction"; // Project status
+  status?: "In Progress" | "Coming Soon" | "Under Construction" | "WIP"; // Project status
+  githubUrl?: string | null; // GitHub repository URL
+  githubBranch?: string; // Specific branch to link to
 }
 
 export interface Experiment {

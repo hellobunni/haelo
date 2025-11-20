@@ -117,16 +117,6 @@ const LabsPage = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.a>
-
-            <Link href="/labs/component-library">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white font-medium hover:bg-white/10 transition-colors"
-              >
-                Component Library
-              </motion.button>
-            </Link>
           </motion.div>
         </motion.div>
 
