@@ -32,7 +32,15 @@ export function getProjectById(id: string): LabsProject | undefined {
  * Get project detail by slug
  */
 export function getProjectDetail(slug: string): LabsProjectDetail | undefined {
-  return projectsData.details[slug as keyof typeof projectsData.details];
+  const detail =
+    projectsData.details[slug as keyof typeof projectsData.details];
+  if (!detail) return undefined;
+
+  // Type assertion to ensure status is properly typed
+  return {
+    ...detail,
+    status: detail.status as LabsProjectDetail["status"],
+  } as LabsProjectDetail;
 }
 
 /**

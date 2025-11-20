@@ -213,9 +213,9 @@ export default function ProjectCardComingSoon({
             ) : project.status === "WIP" ? (
               <>
                 <motion.div
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [1, 0.7, 1]
+                    opacity: [1, 0.7, 1],
                   }}
                   transition={{
                     duration: 1.5,

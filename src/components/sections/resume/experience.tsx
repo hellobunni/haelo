@@ -1,46 +1,53 @@
 "use client";
-import { CheckCircle2, Circle, CircleDot, GraduationCap, type LucideIcon } from "lucide-react";
+import {
+  CheckCircle2,
+  Circle,
+  CircleDot,
+  GraduationCap,
+  type LucideIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import resumeData from "@/lib/data/resume.json";
 import { Badge } from "@/components/ui/badge/badge";
+import resumeData from "@/lib/data/resume.json";
 import { fadeInUp, stagger } from "@/lib/helpers/motion-variants";
 import { timelineColors } from "@/lib/helpers/resume-colors";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "./SectionHeader";
 
-// Helper function to format date for display (expects YYYY-MM format)
-const formatDateForDisplay = (date: string | null): string => {
-  if (!date || date.trim() === "") return "";
-  // If date is in YYYY-MM-DD format, slice to YYYY-MM; otherwise return as-is
-  return date.length >= 7 ? date.slice(0, 7) : date;
-};
-
 // Helper function to format period string for display (expects YYYY-MM format)
-const formatPeriod = (startDate: string | null, endDate: string | null, isEducation = false): string => {
+const formatPeriod = (
+  startDate: string | null,
+  endDate: string | null,
+): string => {
   // Handle missing startDate
   if (!startDate || startDate.trim() === "") return "";
-  
+
   // Normalize start date to YYYY-MM format (slice if YYYY-MM-DD)
-  const normalizedStart = startDate.length >= 7 ? startDate.slice(0, 7) : startDate;
+  const normalizedStart =
+    startDate.length >= 7 ? startDate.slice(0, 7) : startDate;
   const startParts = normalizedStart.split("-");
-  
+
   if (startParts.length < 2) return "";
-  
+
   const startYear = startParts[0];
-  
+
   // Handle missing endDate - show "XXX" placeholder
   const hasEndDate = endDate && endDate.trim() !== "";
-  const normalizedEnd = hasEndDate ? (endDate.length >= 7 ? endDate.slice(0, 7) : endDate) : null;
+  const normalizedEnd = hasEndDate
+    ? endDate.length >= 7
+      ? endDate.slice(0, 7)
+      : endDate
+    : null;
   const endParts = normalizedEnd ? normalizedEnd.split("-") : null;
-  
+
   // Show year-only format: "2022-2025" or "2022-XXX"
   if (!hasEndDate || !endParts || endParts.length < 2) {
     return `${startYear}-XXX`;
   }
-  
+
   const endYear = endParts[0];
-  
+
   // Always show the full range: "2022-2025" or "2022-2022" if same year
   return `${startYear}-${endYear}`;
 };
@@ -49,7 +56,7 @@ const formatPeriod = (startDate: string | null, endDate: string | null, isEducat
 const icons: LucideIcon[] = [CheckCircle2, CircleDot, Circle];
 
 // Type for timeline items
-type TimelineItem = 
+type TimelineItem =
   | {
       type: "experience";
       role: string;
@@ -112,10 +119,11 @@ const Experience = () => {
           <div className="space-y-8 md:space-y-12 lg:space-y-12">
             {timelineItems.map((item, index) => {
               const isEducation = item.type === "education";
-              const Icon = isEducation ? GraduationCap : icons[index % icons.length];
+              const Icon = isEducation
+                ? GraduationCap
+                : icons[index % icons.length];
               const colors = timelineColors[index % timelineColors.length];
-              const displayDate = formatDateForDisplay(item.startDate);
-              const periodDisplay = formatPeriod(item.startDate, item.endDate, isEducation);
+              const periodDisplay = formatPeriod(item.startDate, item.endDate);
               const isHovered = hoveredIndex === index;
               const isLast = index === timelineItems.length - 1;
 
@@ -272,7 +280,10 @@ const Experience = () => {
                                   className="flex items-start gap-2 text-sm lg:text-base text-gray-700"
                                 >
                                   <span
-                                    className={cn(colors.text, "mt-1.5 shrink-0")}
+                                    className={cn(
+                                      colors.text,
+                                      "mt-1.5 shrink-0",
+                                    )}
                                   >
                                     •
                                   </span>

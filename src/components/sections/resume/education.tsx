@@ -15,16 +15,19 @@ const formatDateForDisplay = (date: string | null): string => {
 };
 
 // Helper function to format period string for display (for education, show year range)
-const formatPeriod = (startDate: string | null, endDate: string | null): string => {
+const formatPeriod = (
+  startDate: string | null,
+  endDate: string | null,
+): string => {
   if (!startDate || !endDate) return "";
-  
+
   const startYear = startDate.split("-")[0];
   const endYear = endDate.split("-")[0];
-  
+
   if (startYear === endYear) {
     return startYear;
   }
-  
+
   return `${startYear} - ${endYear}`;
 };
 
@@ -163,4 +166,3 @@ const Education = () => {
 };
 
 export default Education;
-

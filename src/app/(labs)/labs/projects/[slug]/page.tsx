@@ -69,7 +69,7 @@ function transformProjectDetail(detail: LabsProjectDetail | undefined): {
   overview: string;
   features: ProjectFeature[];
   techStack: string[];
-  liveUrl: string;
+  liveUrl: string | null;
   githubUrl: string;
 } | null {
   if (!detail) return null;
@@ -119,7 +119,7 @@ function ProjectDetailContent({
     overview: string;
     features: ProjectFeature[];
     techStack: string[];
-    liveUrl: string;
+    liveUrl: string | null;
     githubUrl: string;
   };
 }) {
@@ -308,17 +308,19 @@ function ProjectDetailContent({
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <motion.a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-purple-500 to-teal-500 text-white font-medium"
-            >
-              <ExternalLink className="w-5 h-5" />
-              <span>View Live Demo</span>
-            </motion.a>
+            {project.liveUrl && (
+              <motion.a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-purple-500 to-teal-500 text-white font-medium"
+              >
+                <ExternalLink className="w-5 h-5" />
+                <span>View Live Demo</span>
+              </motion.a>
+            )}
             <motion.a
               href={project.githubUrl}
               target="_blank"

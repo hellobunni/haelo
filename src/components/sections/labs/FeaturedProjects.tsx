@@ -10,23 +10,20 @@ const FeaturedProjects = () => {
 
   // Map projects to include status and GitHub info - use project status or get from details, default to "Coming Soon"
   const projectsWithStatus = featuredProjects.map((project) => {
-    // Get status from project or details, default to "Coming Soon"
-    let status: "In Progress" | "Coming Soon" | "Under Construction" | "WIP" = "Coming Soon";
-    let githubUrl: string | null | undefined;
-    let githubBranch: string | undefined;
-    
     // Get project details to access status and GitHub info
     const projectDetail = getProjectDetail(project.id);
-    
-    if (project.status) {
-      status = project.status as typeof status;
-    } else if (projectDetail?.status) {
-      status = projectDetail.status as typeof status;
-    }
-    
+
+    // Get status from project or details, default to "Coming Soon"
+    const status: "In Progress" | "Coming Soon" | "Under Construction" | "WIP" =
+      (project.status as typeof status) ??
+      (projectDetail?.status as typeof status) ??
+      "Coming Soon";
+
     // Get GitHub URL and branch from project or details
-    githubUrl = project.githubUrl ?? projectDetail?.githubUrl ?? null;
-    githubBranch = project.githubBranch ?? projectDetail?.githubBranch;
+    const githubUrl: string | null | undefined =
+      project.githubUrl ?? projectDetail?.githubUrl ?? null;
+    const githubBranch: string | undefined =
+      project.githubBranch ?? projectDetail?.githubBranch;
 
     return {
       ...project,

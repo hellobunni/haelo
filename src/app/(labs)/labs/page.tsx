@@ -117,8 +117,6 @@ const LabsPage = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.a>
-
-            
           </motion.div>
         </motion.div>
 

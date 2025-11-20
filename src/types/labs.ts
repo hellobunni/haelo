@@ -21,7 +21,7 @@ export interface LabsProjectDetail {
   overview: string;
   features: ProjectFeature[];
   techStack: string[];
-  liveUrl: string;
+  liveUrl: string | null;
   githubUrl: string;
   githubBranch?: string; // Specific branch to link to
   status?: "In Progress" | "Coming Soon" | "Under Construction" | "WIP";
