@@ -5,6 +5,10 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandPalette } from "@/components/shared/command-palette";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoscript,
+} from "@/components/shared/gtm";
 import { Toaster } from "@/components/ui/sonner/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
 import {
@@ -143,6 +147,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-white text-foreground font-sans antialiased">
+        <GoogleTagManager />
+        <GoogleTagManagerNoscript />
         {/* Organization Schema */}
         <script
           type="application/ld+json"
