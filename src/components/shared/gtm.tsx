@@ -11,6 +11,7 @@ export function GoogleTagManager() {
     <Script
       id="google-tag-manager"
       strategy="afterInteractive"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: GTM script injection is safe and required
       dangerouslySetInnerHTML={{
         __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -33,9 +34,9 @@ export function GoogleTagManagerNoscript() {
         src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
         height="0"
         width="0"
+        title="Google Tag Manager"
         style={{ display: "none", visibility: "hidden" }}
       />
     </noscript>
   );
 }
-

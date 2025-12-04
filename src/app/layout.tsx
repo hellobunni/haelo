@@ -5,6 +5,10 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandPalette } from "@/components/shared/command-palette";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoscript,
+} from "@/components/shared/gtm";
 import { Toaster } from "@/components/ui/sonner/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
 import {
@@ -16,10 +20,6 @@ import {
 } from "@/lib/seo/schema";
 import { DARK_LOGO_URL } from "@/lib/utils";
 import ConditionalHeaderFooter from "./conditional-header-footer";
-import {
-  GoogleTagManager,
-  GoogleTagManagerNoscript,
-} from "@/components/shared/gtm";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 
