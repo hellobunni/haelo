@@ -1,6 +1,18 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+// Helper function to escape HTML to prevent XSS
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+}
+
 // Create transporter function to ensure env vars are loaded
 function createTransporter() {
   const gmailUser = process.env.GMAIL_USER;
@@ -66,25 +78,38 @@ export async function POST(request: Request) {
 
     // Prepare email content
     const emailSubject = `New Contact Form Submission from ${name}`;
+    
+    // Email template with extracted style constants
+    // Note: Inline styles are required for email client compatibility
+    const emailStyles = {
+      container: "font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;",
+      heading: "color: #333; border-bottom: 2px solid #9381ff; padding-bottom: 10px;",
+      section: "margin-top: 20px;",
+      messageBox: "margin-top: 30px; padding: 20px; background-color: #f5f5f5; border-radius: 8px;",
+      messageHeading: "color: #333; margin-top: 0;",
+      messageText: "color: #666; line-height: 1.6; white-space: pre-wrap;",
+      footer: "margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px;",
+    };
+
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333; border-bottom: 2px solid #9381ff; padding-bottom: 10px;">
+      <div style="${emailStyles.container}">
+        <h2 style="${emailStyles.heading}">
           New Contact Form Submission
         </h2>
         
-        <div style="margin-top: 20px;">
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-          ${company ? `<p><strong>Company:</strong> ${company}</p>` : ""}
-          ${budget ? `<p><strong>Budget Range:</strong> ${budget}</p>` : ""}
+        <div style="${emailStyles.section}">
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+          ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ""}
+          ${budget ? `<p><strong>Budget Range:</strong> ${escapeHtml(budget)}</p>` : ""}
         </div>
         
-        <div style="margin-top: 30px; padding: 20px; background-color: #f5f5f5; border-radius: 8px;">
-          <h3 style="color: #333; margin-top: 0;">Message:</h3>
-          <p style="color: #666; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+        <div style="${emailStyles.messageBox}">
+          <h3 style="${emailStyles.messageHeading}">Message:</h3>
+          <p style="${emailStyles.messageText}">${escapeHtml(message)}</p>
         </div>
         
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px;">
+        <div style="${emailStyles.footer}">
           <p>This email was sent from the Haelo Studios contact form.</p>
         </div>
       </div>

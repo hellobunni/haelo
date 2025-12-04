@@ -61,6 +61,29 @@ export default function SiteFooter() {
                   {obfuscateEmail(contentData.footer.contact.email)}
                 </a>
               </li>
+              {contentData.footer.contact.phone && (
+                <li>
+                  <a
+                    href={`tel:${contentData.footer.contact.phone.replace(/[^\d]/g, "")}`}
+                    className="hover:text-periwinkle-400 transition-colors duration-300"
+                  >
+                    {contentData.footer.contact.phone}
+                  </a>
+                </li>
+              )}
+              {contentData.footer.contact.address && (
+                <li className="leading-relaxed">
+                  {contentData.footer.contact.address.street && (
+                    <div>{contentData.footer.contact.address.street}</div>
+                  )}
+                  {contentData.footer.contact.address.city && (
+                    <div>{contentData.footer.contact.address.city}</div>
+                  )}
+                  {contentData.footer.contact.address.country && (
+                    <div>{contentData.footer.contact.address.country}</div>
+                  )}
+                </li>
+              )}
               <li>{contentData.footer.contact.availability}</li>
             </ul>
           </div>
