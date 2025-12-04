@@ -1,4 +1,11 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SocialLinksProps {
@@ -7,6 +14,8 @@ interface SocialLinksProps {
     x?: string;
     linkedin?: string;
     instagram?: string;
+    facebook?: string;
+    youtube?: string;
   };
   variant?: "light" | "dark";
   className?: string;
@@ -78,6 +87,28 @@ export default function SocialLinks({
           aria-label="Instagram"
         >
           <Instagram className={iconClasses} />
+        </a>
+      )}
+      {social.facebook && (
+        <a
+          href={social.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={baseButtonClasses}
+          aria-label="Facebook"
+        >
+          <Facebook className={iconClasses} />
+        </a>
+      )}
+      {social.youtube && (
+        <a
+          href={social.youtube}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={baseButtonClasses}
+          aria-label="YouTube"
+        >
+          <Youtube className={iconClasses} />
         </a>
       )}
     </div>

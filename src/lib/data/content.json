@@ -130,6 +130,12 @@
     },
     "contact": {
       "email": "hello@haelostudios.com",
+      "phone": "(248) 250-3816",
+      "address": {
+        "street": "Remote Studio",
+        "city": "United States",
+        "country": "USA"
+      },
       "availability": "Available for select projects"
     },
     "links": {

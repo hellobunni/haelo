@@ -7,15 +7,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { work } = contentData;
 
 export const metadata: Metadata = {
-  title:
-    "Work | Portfolio of Digital Design & Development Projects | Haelo Studios",
-  description: work.hero.description,
+  title: "Work | Digital Design & Web Development Portfolio | Haelo Studios",
+  description:
+    "Explore our portfolio of digital design and web development projects. Each project reflects a signature blend of elegance and engineering—crafted digital experiences for clients who demand excellence.",
   alternates: {
     canonical: `${siteUrl}/work`,
   },
   openGraph: {
     title: `${work.hero.title.line1} ${work.hero.title.line2} | Haelo Studios`,
-    description: work.hero.description,
+    description:
+      "Explore our portfolio of digital design and web development projects. Each project reflects a signature blend of elegance and engineering—crafted digital experiences for clients who demand excellence.",
     url: `${siteUrl}/work`,
     siteName: "Haelo Studios",
     images: [
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${work.hero.title.line1} ${work.hero.title.line2} | Haelo Studios`,
-    description: work.hero.description,
+    description:
+      "Explore our portfolio of digital design and web development projects. Each project reflects a signature blend of elegance and engineering—crafted digital experiences for clients who demand excellence.",
     images: [DARK_LOGO_URL],
   },
 };

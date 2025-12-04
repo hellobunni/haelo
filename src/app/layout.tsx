@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandPalette } from "@/components/shared/command-palette";
 import { Toaster } from "@/components/ui/sonner/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
 import {
+  generateLocalBusinessSchema,
   generateOrganizationSchema,
+  generatePersonSchema,
   generateWebSiteSchema,
   renderJsonLdScript,
 } from "@/lib/seo/schema";
@@ -75,8 +78,58 @@ export default function RootLayout({
       "https://linkedin.com/in/bryannagardner",
       "https://instagram.com/haelostudios",
       "https://github.com/hellobunni",
+      "https://x.com/haelostudios",
+      "https://facebook.com/haelostudios",
+      "https://youtube.com/@haelostudios",
     ],
     email: "hello@haelostudios.com",
+    phone: "(248) 250-3816",
+    address: {
+      street: "Remote Studio",
+      city: "United States",
+      country: "USA",
+    },
+  });
+
+  // Generate Person/Identity Schema for founder
+  const personSchema = generatePersonSchema({
+    name: "Bryanna Gardner",
+    jobTitle: "Founder & Lead Engineer",
+    url: siteUrl,
+    email: "hello@haelostudios.com",
+    socialProfiles: [
+      "https://linkedin.com/in/bryannagardner",
+      "https://instagram.com/haelostudios",
+      "https://github.com/hellobunni",
+    ],
+    worksFor: {
+      name: "Haelo Studios",
+      url: siteUrl,
+    },
+  });
+
+  // Generate LocalBusiness Schema
+  const localBusinessSchema = generateLocalBusinessSchema({
+    name: "Haelo Studios",
+    url: siteUrl,
+    logo: DARK_LOGO_URL,
+    description:
+      "Premium digital design and development studio crafting thoughtful, high-impact web experiences.",
+    telephone: "(248) 250-3816",
+    email: "hello@haelostudios.com",
+    address: {
+      street: "Remote Studio",
+      city: "United States",
+      country: "USA",
+    },
+    socialProfiles: [
+      "https://linkedin.com/in/bryannagardner",
+      "https://instagram.com/haelostudios",
+      "https://github.com/hellobunni",
+      "https://x.com/haelostudios",
+      "https://facebook.com/haelostudios",
+      "https://youtube.com/@haelostudios",
+    ],
   });
 
   // Generate WebSite Schema
@@ -98,6 +151,22 @@ export default function RootLayout({
             __html: renderJsonLdScript(organizationSchema),
           }}
         />
+        {/* Person/Identity Schema */}
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema is safe, content is controlled
+          dangerouslySetInnerHTML={{
+            __html: renderJsonLdScript(personSchema),
+          }}
+        />
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema is safe, content is controlled
+          dangerouslySetInnerHTML={{
+            __html: renderJsonLdScript(localBusinessSchema),
+          }}
+        />
         {/* WebSite Schema */}
         <script
           type="application/ld+json"
@@ -109,6 +178,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <TooltipProvider>
             <Analytics />
+            <SpeedInsights />
             {gaId && <GoogleAnalytics gaId={gaId} />}
             <Toaster />
             <CommandPalette />
