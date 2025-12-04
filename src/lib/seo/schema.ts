@@ -51,16 +51,14 @@ export interface WebSiteSchema {
 /**
  * Generate Organization Schema JSON-LD
  */
-export function generateOrganizationSchema(
-  options: {
-    name: string;
-    url: string;
-    logo?: string;
-    description?: string;
-    socialProfiles?: string[];
-    email?: string;
-  },
-): OrganizationSchema {
+export function generateOrganizationSchema(options: {
+  name: string;
+  url: string;
+  logo?: string;
+  description?: string;
+  socialProfiles?: string[];
+  email?: string;
+}): OrganizationSchema {
   const schema: OrganizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -94,20 +92,18 @@ export function generateOrganizationSchema(
 /**
  * Generate Person Schema JSON-LD
  */
-export function generatePersonSchema(
-  options: {
+export function generatePersonSchema(options: {
+  name: string;
+  jobTitle?: string;
+  url?: string;
+  image?: string;
+  socialProfiles?: string[];
+  email?: string;
+  worksFor?: {
     name: string;
-    jobTitle?: string;
-    url?: string;
-    image?: string;
-    socialProfiles?: string[];
-    email?: string;
-    worksFor?: {
-      name: string;
-      url: string;
-    };
-  },
-): PersonSchema {
+    url: string;
+  };
+}): PersonSchema {
   const schema: PersonSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -147,14 +143,12 @@ export function generatePersonSchema(
 /**
  * Generate WebSite Schema JSON-LD
  */
-export function generateWebSiteSchema(
-  options: {
-    name: string;
-    url: string;
-    description?: string;
-    searchUrl?: string;
-  },
-): WebSiteSchema {
+export function generateWebSiteSchema(options: {
+  name: string;
+  url: string;
+  description?: string;
+  searchUrl?: string;
+}): WebSiteSchema {
   const schema: WebSiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -186,5 +180,3 @@ export function generateWebSiteSchema(
 export function renderJsonLdScript(schema: object): string {
   return JSON.stringify(schema, null, 2);
 }
-
-

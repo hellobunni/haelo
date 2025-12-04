@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandPalette } from "@/components/shared/command-palette";
 import { Toaster } from "@/components/ui/sonner/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
-import { DARK_LOGO_URL } from "@/lib/utils";
 import {
   generateOrganizationSchema,
   generateWebSiteSchema,
   renderJsonLdScript,
 } from "@/lib/seo/schema";
+import { DARK_LOGO_URL } from "@/lib/utils";
 import ConditionalHeaderFooter from "./conditional-header-footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
@@ -60,7 +60,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   // Generate Organization Schema
@@ -92,6 +93,7 @@ export default function RootLayout({
         {/* Organization Schema */}
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema is safe, content is controlled
           dangerouslySetInnerHTML={{
             __html: renderJsonLdScript(organizationSchema),
           }}
@@ -99,6 +101,7 @@ export default function RootLayout({
         {/* WebSite Schema */}
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema is safe, content is controlled
           dangerouslySetInnerHTML={{
             __html: renderJsonLdScript(websiteSchema),
           }}

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import AboutPage from "@/components/pages/about";
 import aboutData from "@/lib/data/about.json";
+import { generatePersonSchema, renderJsonLdScript } from "@/lib/seo/schema";
 import { DARK_LOGO_URL } from "@/lib/utils";
-import {
-  generatePersonSchema,
-  renderJsonLdScript,
-} from "@/lib/seo/schema";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { hero, founder } = aboutData;
@@ -62,6 +59,7 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD schema is safe, content is controlled
         dangerouslySetInnerHTML={{
           __html: renderJsonLdScript(personSchema),
         }}
