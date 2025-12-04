@@ -78,17 +78,21 @@ export async function POST(request: Request) {
 
     // Prepare email content
     const emailSubject = `New Contact Form Submission from ${name}`;
-    
+
     // Email template with extracted style constants
     // Note: Inline styles are required for email client compatibility
     const emailStyles = {
-      container: "font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;",
-      heading: "color: #333; border-bottom: 2px solid #9381ff; padding-bottom: 10px;",
+      container:
+        "font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;",
+      heading:
+        "color: #333; border-bottom: 2px solid #9381ff; padding-bottom: 10px;",
       section: "margin-top: 20px;",
-      messageBox: "margin-top: 30px; padding: 20px; background-color: #f5f5f5; border-radius: 8px;",
+      messageBox:
+        "margin-top: 30px; padding: 20px; background-color: #f5f5f5; border-radius: 8px;",
       messageHeading: "color: #333; margin-top: 0;",
       messageText: "color: #666; line-height: 1.6; white-space: pre-wrap;",
-      footer: "margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px;",
+      footer:
+        "margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px;",
     };
 
     const emailHtml = `

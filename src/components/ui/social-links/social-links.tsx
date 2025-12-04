@@ -1,4 +1,11 @@
-import { Facebook, Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SocialLinksProps {

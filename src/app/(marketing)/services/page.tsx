@@ -8,14 +8,16 @@ const { hero } = servicesData;
 
 export const metadata: Metadata = {
   title:
-    "Services | Web Design, Development & Digital Strategy | Haelo Studios",
-  description: hero.description,
+    "Services | Digital Design & Web Development Solutions | Haelo Studios",
+  description:
+    "Comprehensive digital design and web development services. We blend strategy, design, and engineering to create exceptional digital experiences that drive real business results.",
   alternates: {
     canonical: `${siteUrl}/services`,
   },
   openGraph: {
     title: `${hero.title.line1} | Haelo Studios`,
-    description: hero.description,
+    description:
+      "Comprehensive digital design and web development services. We blend strategy, design, and engineering to create exceptional digital experiences that drive real business results.",
     url: `${siteUrl}/services`,
     siteName: "Haelo Studios",
     images: [
@@ -32,7 +34,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${hero.title.line1} | Haelo Studios`,
-    description: hero.description,
+    description:
+      "Comprehensive digital design and web development services. We blend strategy, design, and engineering to create exceptional digital experiences that drive real business results.",
     images: [DARK_LOGO_URL],
   },
 };
