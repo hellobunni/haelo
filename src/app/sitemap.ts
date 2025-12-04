@@ -1,9 +1,17 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
+// Always use production URL for sitemap (never localhost)
+const getSiteUrl = (): string => {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  // If env URL is localhost or undefined, use production URL
+  if (!envUrl || envUrl.includes("localhost") || envUrl.includes("127.0.0.1")) {
+    return "https://haelostudios.com";
+  }
+  return envUrl;
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteUrl;
+  const baseUrl = getSiteUrl();
 
   // Public marketing pages
   const routes = [
