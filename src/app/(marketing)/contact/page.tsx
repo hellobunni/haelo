@@ -7,8 +7,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 const { contact } = contentData;
 
 export const metadata: Metadata = {
-  title: "Contact Haelo Studios | Start Your Project",
+  title: "Contact Haelo Studios | Start Your Digital Project",
   description: contact.hero.description,
+  alternates: {
+    canonical: `${siteUrl}/contact`,
+  },
   openGraph: {
     title: `${contact.hero.title.line1} ${contact.hero.title.line2} | Haelo Studios`,
     description: contact.hero.description,

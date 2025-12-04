@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CommandPalette } from "@/components/shared/command-palette";
 import { Toaster } from "@/components/ui/sonner/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip/tooltip";
 import { DARK_LOGO_URL } from "@/lib/utils";
+import {
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  renderJsonLdScript,
+} from "@/lib/seo/schema";
 import ConditionalHeaderFooter from "./conditional-header-footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
@@ -54,36 +60,59 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+  // Generate Organization Schema
+  const organizationSchema = generateOrganizationSchema({
+    name: "Haelo Studios",
+    url: siteUrl,
+    logo: DARK_LOGO_URL,
+    description:
+      "Crafting elevated digital experiences for premium brands. Refined design. Smart engineering. Lasting impact.",
+    socialProfiles: [
+      "https://linkedin.com/in/bryannagardner",
+      "https://instagram.com/haelostudios",
+      "https://github.com/hellobunni",
+    ],
+    email: "hello@haelostudios.com",
+  });
+
+  // Generate WebSite Schema
+  const websiteSchema = generateWebSiteSchema({
+    name: "Haelo Studios",
+    url: siteUrl,
+    description:
+      "Premium digital design and development studio crafting thoughtful, high-impact web experiences.",
+  });
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-white text-foreground font-sans antialiased">
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: renderJsonLdScript(organizationSchema),
+          }}
+        />
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: renderJsonLdScript(websiteSchema),
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <TooltipProvider>
             <Analytics />
+            {gaId && <GoogleAnalytics gaId={gaId} />}
             <Toaster />
             <CommandPalette />
-            <StyleTokens />
             <ConditionalHeaderFooter>{children}</ConditionalHeaderFooter>
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
-  );
-}
-
-function StyleTokens() {
-  return (
-    <style>{`
-      :root {
-        --periwinkle: #9381ff;
-      }
-      .text-periwinkle { color: var(--periwinkle); }
-      .bg-periwinkle { background-color: var(--periwinkle); }
-      .section-heading { font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
-      .sub-heading { font-size: clamp(2rem, 6vw, 4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
-      .list-item-heading { font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
-      .layered-heading { font-size: clamp(3rem, 10vw, 7rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1; position: relative; color: var(--foreground); }
-      .layered-heading span { position: absolute; top: 0; left: 0; color: var(--periwinkle); transform: translate(3px, 3px); z-index: -1; -webkit-text-stroke: 0; }
-    `}</style>
   );
 }

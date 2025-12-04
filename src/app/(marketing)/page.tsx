@@ -9,6 +9,9 @@ const { home } = contentData;
 export const metadata: Metadata = {
   title: "Haelo Studios | Premium Digital Design & Development",
   description: home.hero.description,
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     title: `${home.hero.title.line1} ${home.hero.title.line2} | Haelo Studios`,
     description: home.hero.description,

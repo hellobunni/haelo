@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Haelo Studios",
   description:
     "Learn how Haelo Studios collects, uses, and protects your personal information. Your privacy matters.",
+  alternates: {
+    canonical: `${siteUrl}/privacy`,
+  },
   openGraph: {
     title: "Privacy Policy | Haelo Studios",
     description:

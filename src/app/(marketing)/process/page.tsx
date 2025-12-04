@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title:
     "The Process | Four-Phase Digital Design & Development Approach | Haelo Studios",
   description: processData.header.description,
+  alternates: {
+    canonical: `${siteUrl}/process`,
+  },
   openGraph: {
     title: `${processData.header.title} | Haelo Studios`,
     description: processData.header.description,

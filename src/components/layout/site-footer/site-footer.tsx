@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator/separator";
 import SocialLinks from "@/components/ui/social-links/social-links";
 import contentData from "@/lib/data/content.json";
-import { DARK_LOGO_URL, navigationItems } from "@/lib/utils";
+import { DARK_LOGO_URL, navigationItems, obfuscateEmail } from "@/lib/utils";
 
 export default function SiteFooter() {
   return (
@@ -58,7 +58,7 @@ export default function SiteFooter() {
                   href={`mailto:${contentData.footer.contact.email}`}
                   className="hover:text-periwinkle-400 transition-colors duration-300"
                 >
-                  {contentData.footer.contact.email}
+                  {obfuscateEmail(contentData.footer.contact.email)}
                 </a>
               </li>
               <li>{contentData.footer.contact.availability}</li>

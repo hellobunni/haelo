@@ -1,0 +1,49 @@
+# llms.txt for Haelo Studios
+# This file provides information about the website for Large Language Models
+
+# Site Information
+Name: Haelo Studios
+Description: Premium digital design and development studio crafting thoughtful, high-impact web experiences for forward-thinking brands.
+URL: https://www.haelostudios.com
+Type: Digital Design & Development Studio
+
+# Contact
+Email: hello@haelostudios.com
+LinkedIn: https://linkedin.com/in/bryannagardner
+Instagram: https://instagram.com/haelostudios
+GitHub: https://github.com/hellobunni
+
+# Key Pages
+Home: https://www.haelostudios.com/
+About: https://www.haelostudios.com/about
+Services: https://www.haelostudios.com/services
+Work: https://www.haelostudios.com/work
+Process: https://www.haelostudios.com/process
+Contact: https://www.haelostudios.com/contact
+
+# Services
+- Web Design
+- Web Development
+- Digital Strategy
+- Brand Design
+- UI/UX Design
+- Frontend Development
+- Full-Stack Development
+
+# Focus Areas
+- Premium brands
+- Thoughtful design
+- Clean engineering
+- Digital experiences
+- User experience
+- Brand identity
+- Web applications
+
+# Technologies
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+

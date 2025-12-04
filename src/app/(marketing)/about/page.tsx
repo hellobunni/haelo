@@ -2,13 +2,20 @@ import type { Metadata } from "next";
 import AboutPage from "@/components/pages/about";
 import aboutData from "@/lib/data/about.json";
 import { DARK_LOGO_URL } from "@/lib/utils";
+import {
+  generatePersonSchema,
+  renderJsonLdScript,
+} from "@/lib/seo/schema";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
-const { hero } = aboutData;
+const { hero, founder } = aboutData;
 
 export const metadata: Metadata = {
   title: "About Haelo Studios | Digital Design & Development Studio",
   description: hero.description,
+  alternates: {
+    canonical: `${siteUrl}/about`,
+  },
   openGraph: {
     title: `${hero.title.line1} ${hero.title.line2} | Haelo Studios`,
     description: hero.description,
@@ -34,5 +41,32 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AboutPage />;
+  // Generate Person Schema for founder
+  const personSchema = generatePersonSchema({
+    name: founder.name,
+    jobTitle: founder.title,
+    url: `${siteUrl}/about`,
+    image: founder.image.src,
+    socialProfiles: [
+      founder.social.linkedin.href,
+      "https://instagram.com/haelostudios",
+    ],
+    email: founder.social.email.href.replace("mailto:", ""),
+    worksFor: {
+      name: "Haelo Studios",
+      url: siteUrl,
+    },
+  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: renderJsonLdScript(personSchema),
+        }}
+      />
+      <AboutPage />
+    </>
+  );
 }

@@ -21,3 +21,11 @@ export const LOGO_URL =
 // Logo for dark backgrounds (white logo)
 export const DARK_LOGO_URL =
   "https://res.cloudinary.com/bytebeardigital/image/upload/v1762902526/haelo_polu9p.png";
+
+/**
+ * Obfuscate email address for display to prevent scraping
+ * Replaces @ with [at] and . with [dot]
+ */
+export function obfuscateEmail(email: string): string {
+  return email.replace("@", "[at]").replace(/\./g, "[dot]");
+}

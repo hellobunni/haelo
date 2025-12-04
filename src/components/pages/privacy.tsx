@@ -300,7 +300,7 @@ export default function Privacy() {
                       href="mailto:hello@haelostudios.com"
                       className="text-jordy-blue hover:underline"
                     >
-                      hello@haelostudios.com
+                      hello[at]haelostudios[dot]com
                     </a>
                   </p>
                   <p>

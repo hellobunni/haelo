@@ -294,6 +294,59 @@
   animation-delay: 4s;
 }
 
+/* Style Tokens - moved from inline styles */
+:root {
+  --periwinkle: #9381ff;
+}
+
+.text-periwinkle {
+  color: var(--periwinkle);
+}
+
+.bg-periwinkle {
+  background-color: var(--periwinkle);
+}
+
+.section-heading {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.sub-heading {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.list-item-heading {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.layered-heading {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  position: relative;
+  color: var(--foreground);
+}
+
+.layered-heading span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--periwinkle);
+  transform: translate(3px, 3px);
+  z-index: -1;
+  -webkit-text-stroke: 0;
+}
+
 /* Smooth dialog overlay transitions */
 [data-radix-dialog-overlay] {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);

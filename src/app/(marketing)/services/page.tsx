@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title:
     "Services | Web Design, Development & Digital Strategy | Haelo Studios",
   description: hero.description,
+  alternates: {
+    canonical: `${siteUrl}/services`,
+  },
   openGraph: {
     title: `${hero.title.line1} | Haelo Studios`,
     description: hero.description,
