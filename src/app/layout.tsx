@@ -16,6 +16,10 @@ import {
 } from "@/lib/seo/schema";
 import { DARK_LOGO_URL } from "@/lib/utils";
 import ConditionalHeaderFooter from "./conditional-header-footer";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoscript,
+} from "@/components/shared/gtm";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://haelostudios.com";
 
@@ -143,6 +147,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-white text-foreground font-sans antialiased">
+        <GoogleTagManager />
+        <GoogleTagManagerNoscript />
         {/* Organization Schema */}
         <script
           type="application/ld+json"
