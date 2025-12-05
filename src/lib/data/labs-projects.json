@@ -15,6 +15,26 @@
       ],
       "url": "/labs/projects/pokevault",
       "featured": true
+    },
+    {
+      "id": "tokyo-glass",
+      "title": "Tokyo Glass",
+      "description": "A beautiful glassmorphism-inspired travel planning experience showcasing Tokyo destinations with smooth animations and dark/light mode",
+      "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&h=600&fit=crop",
+      "gradient": "from-cyan-500 to-blue-500",
+      "tags": [
+        "React",
+        "TypeScript",
+        "TanStack Router",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Glassmorphism",
+        "Lucide Icons"
+      ],
+      "url": "/labs/projects/tokyo-glass",
+      "featured": true,
+      "status": "In Progress",
+      "githubUrl": "https://github.com/hellobunni/tokyo-glass/"
     }
   ],
   "details": {
@@ -77,6 +97,91 @@
       "liveUrl": null,
       "githubUrl": "https://github.com/hellobunni/poke-vault",
       "status": "WIP"
+    },
+    "tokyo-glass": {
+      "title": "Tokyo Glass",
+      "subtitle": "Discover Tokyo through a modern glassmorphism interface",
+      "description": "Tokyo Glass is an immersive travel planning experience that showcases Tokyo destinations through a beautiful glassmorphism design. The application features smooth animations, interactive destination cards, and a seamless dark/light mode toggle. Built with modern React patterns, it demonstrates advanced UI techniques including floating orbs, glass cards, and responsive layouts. The project highlights key Tokyo destinations like Shibuya, Senso-ji Temple, Mt. Fuji, and Akihabara, each with their own interactive card experience.",
+      "role": "Frontend Developer / UI Engineer",
+      "duration": "2025",
+      "year": "2025",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "TanStack Router",
+        "TanStack Start",
+        "Tailwind CSS 4.0",
+        "Framer Motion",
+        "Lucide React",
+        "Vite",
+        "Biome",
+        "Vitest"
+      ],
+      "gradient": "from-cyan-500 to-blue-500",
+      "heroImage": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&h=600&fit=crop",
+      "overview": "Tokyo Glass is an immersive travel planning experience that showcases Tokyo destinations through a beautiful glassmorphism design. The application features smooth animations, interactive destination cards, and a seamless dark/light mode toggle. Built with modern React patterns, it demonstrates advanced UI techniques including floating orbs, glass cards, and responsive layouts.",
+      "features": [
+        {
+          "title": "Glassmorphism UI Design",
+          "description": "Beautiful glass-effect design with backdrop blur effects creating a modern, premium aesthetic",
+          "icon": "Palette"
+        },
+        {
+          "title": "Dark/Light Mode Toggle",
+          "description": "Smooth theme transitions with seamless dark/light mode switching for optimal viewing experience",
+          "icon": "SunMoon"
+        },
+        {
+          "title": "Interactive Destination Cards",
+          "description": "Engaging destination cards with hover animations showcasing key Tokyo locations",
+          "icon": "Sparkles"
+        },
+        {
+          "title": "Floating Orb Animations",
+          "description": "Dynamic floating orb background animations adding depth and visual interest",
+          "icon": "Circle"
+        },
+        {
+          "title": "Responsive Grid Layout",
+          "description": "Adaptive 5:7 split layout on desktop with mobile-first responsive design",
+          "icon": "LayoutGrid"
+        },
+        {
+          "title": "Accessibility Features",
+          "description": "Comprehensive accessibility with skip links, ARIA labels, and full keyboard navigation support",
+          "icon": "Accessibility"
+        },
+        {
+          "title": "Stats Grid",
+          "description": "Visual trip metrics display showcasing key statistics and information",
+          "icon": "BarChart"
+        },
+        {
+          "title": "Curated Experiences",
+          "description": "Feature cards highlighting curated Tokyo experiences and destinations",
+          "icon": "Star"
+        },
+        {
+          "title": "Smooth Animations",
+          "description": "Premium Framer Motion animations throughout for a polished, fluid user experience",
+          "icon": "Zap"
+        }
+      ],
+      "techStack": [
+        "React 19",
+        "TypeScript",
+        "TanStack Router",
+        "TanStack Start",
+        "Tailwind CSS 4.0",
+        "Framer Motion",
+        "Lucide React",
+        "Vite",
+        "Biome",
+        "Vitest"
+      ],
+      "liveUrl": "https://tokyo-glass-lemon.vercel.app/",
+      "githubUrl": "https://github.com/hellobunni/tokyo-glass/",
+      "status": "In Progress"
     }
   }
 }
