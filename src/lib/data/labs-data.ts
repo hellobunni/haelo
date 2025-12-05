@@ -11,21 +11,34 @@ import projectsData from "./labs-projects.json";
  * Get all projects
  */
 export function getAllProjects(): LabsProject[] {
-  return projectsData.projects;
+  return projectsData.projects.map((project) => ({
+    ...project,
+    status: project.status as LabsProject["status"],
+  }));
 }
 
 /**
  * Get featured projects only
  */
 export function getFeaturedProjects(): LabsProject[] {
-  return projectsData.projects.filter((project) => project.featured);
+  return projectsData.projects
+    .filter((project) => project.featured)
+    .map((project) => ({
+      ...project,
+      status: project.status as LabsProject["status"],
+    }));
 }
 
 /**
  * Get project by ID/slug
  */
 export function getProjectById(id: string): LabsProject | undefined {
-  return projectsData.projects.find((project) => project.id === id);
+  const project = projectsData.projects.find((project) => project.id === id);
+  if (!project) return undefined;
+  return {
+    ...project,
+    status: project.status as LabsProject["status"],
+  };
 }
 
 /**
@@ -81,7 +94,12 @@ export function getExperimentDetail(
  * Get projects by tag
  */
 export function getProjectsByTag(tag: string): LabsProject[] {
-  return projectsData.projects.filter((project) => project.tags.includes(tag));
+  return projectsData.projects
+    .filter((project) => project.tags.includes(tag))
+    .map((project) => ({
+      ...project,
+      status: project.status as LabsProject["status"],
+    }));
 }
 
 /**
